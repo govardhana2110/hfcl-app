@@ -1,0 +1,612 @@
+{
+  "title": "ipi-lb",
+  "description": "Link Bonding Configurations",
+  "type": "object",
+  "properties": {
+    "ipi-lb:link-bonding": {
+      "description": "Link Bonding",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "global": {
+          "description": "Container for global Link Bonding configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for global Link Bonding",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "control-traffic": {
+                  "description": "Use this attribute to enable/disable link bonding control traffic",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "segment-ether-type": {
+                  "description": "Use this attribute to set the segment ethertype",
+                  "readOnly": false,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "modem-ether-type": {
+                  "description": "Use this attribute to set the modem ethertype",
+                  "readOnly": false,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "control-ether-type": {
+                  "description": "Use this attribute to set the control ethertype",
+                  "readOnly": false,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "crc-enabled": {
+                  "description": "Use this attribute enable crc calculation",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "segment-size": {
+                  "description": "Use this attribute to set the segment size",
+                  "readOnly": false,
+                  "enum": [
+                    "128",
+                    "128Eh",
+                    "192",
+                    "192Eh"
+                  ],
+                  "mandatory": false
+                },
+                "total-shared-buffers": {
+                  "description": "Use this attribute to configure the number of total shared buffers",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 16383,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "max-buffers": {
+                  "description": "Use this attribute to configure the maximum size of buffers",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 16383,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "guaranteed-buffers": {
+                  "description": "Use this attribute to configure the number of guaranteed buffers per LBG",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 16383,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "timeout-threshold": {
+                  "description": "Use this attribute to set the timeout threshold per LBG",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 65535,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "tx-holdoff-timer": {
+                  "description": "Use this attribute to set the transmit holdoff timer",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 5000,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "max-out-of-order": {
+                  "description": "Use this attribute to set the maximum difference allowed between the expected sequence number and heads of modem FIFOs of the LBG",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 8191,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "expected-seq-number": {
+                  "description": "Use this attribute to set the expected sequence number",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 16383,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "control-traffic": {
+                  "description": "Use this attribute to enable/disable link bonding control traffic",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "segment-ether-type": {
+                  "description": "Use this attribute to set the segment ethertype",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "modem-ether-type": {
+                  "description": "Use this attribute to set the modem ethertype",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "control-ether-type": {
+                  "description": "Use this attribute to set the control ethertype",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "crc-enabled": {
+                  "description": "Use this attribute enable crc calculation",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "segment-size": {
+                  "description": "Use this attribute to set the segment size",
+                  "readOnly": true,
+                  "enum": [
+                    "128",
+                    "128Eh",
+                    "192",
+                    "192Eh"
+                  ],
+                  "mandatory": false
+                },
+                "total-shared-buffers": {
+                  "description": "Use this attribute to configure the number of total shared buffers",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 16383,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "max-buffers": {
+                  "description": "Use this attribute to configure the maximum size of buffers",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 16383,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "guaranteed-buffers": {
+                  "description": "Use this attribute to configure the number of guaranteed buffers per LBG",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 16383,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "timeout-threshold": {
+                  "description": "Use this attribute to set the timeout threshold per LBG",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 65535,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "tx-holdoff-timer": {
+                  "description": "Use this attribute to set the transmit holdoff timer",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 5000,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "max-out-of-order": {
+                  "description": "Use this attribute to set the maximum difference allowed between the expected sequence number and heads of modem FIFOs of the LBG",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 8191,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "expected-seq-number": {
+                  "description": "Use this attribute to set the expected sequence number",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 16383,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "in-segments-drop": {
+                  "description": "Global counter for LBG RX segment Drops",
+                  "readOnly": true,
+                  "type": "string",
+                  "mandatory": false
+                },
+                "in-packets": {
+                  "description": "Global counter for LBG RX Packets",
+                  "readOnly": true,
+                  "type": "string",
+                  "mandatory": false
+                },
+                "in-bypass-packets": {
+                  "description": "Global counter for LBG RX which are not LBG packets",
+                  "readOnly": true,
+                  "type": "string",
+                  "mandatory": false
+                },
+                "out-error-packets": {
+                  "description": "Global counter for LBG TX error packets",
+                  "readOnly": true,
+                  "type": "string",
+                  "mandatory": false
+                },
+                "out-control-packets": {
+                  "description": "Global counter for TX Control packets",
+                  "readOnly": true,
+                  "type": "string",
+                  "mandatory": false
+                },
+                "out-control-bytes": {
+                  "description": "Global counter for TX Control Bytes",
+                  "readOnly": true,
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "modem": {
+          "description": "Container for interface modem",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interfaces": {
+              "description": "Top level container for Link-Bonding modem interfaces",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "interface": {
+                  "description": "List for Link-Bonding modem interfaces",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Interface name for which modem is being configured",
+                        "readOnly": false,
+                        "path": "../config/name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data for interface",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "The interface name to configure the modem parameters.",
+                            "readOnly": false,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for modem",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "The interface name to configure the modem parameters.",
+                            "readOnly": true,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "modem": {
+                        "description": "Configuration data for modem interface",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration data for modem interface",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "source-mac": {
+                                "description": "Use this attribute to configure the source-mac of the modem interface",
+                                "readOnly": false,
+                                "pattern": "[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "destination-mac": {
+                                "description": "Use this attribute to configure the destination-mac used on the modem interface",
+                                "readOnly": false,
+                                "pattern": "[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "compensation": {
+                                "description": "Use this attribute to configure the componsation for the modem interface",
+                                "readOnly": false,
+                                "minimum": -63,
+                                "maximum": 63,
+                                "type": "number",
+                                "mandatory": false
+                              },
+                              "link-bonding-group": {
+                                "description": "Use this attribute to configure the link-bonding-group for the modem interface",
+                                "readOnly": false,
+                                "minimum": 1,
+                                "maximum": 255,
+                                "type": "number",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational state data for modem",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "source-mac": {
+                                "description": "Use this attribute to configure the source-mac of the modem interface",
+                                "readOnly": true,
+                                "pattern": "[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "destination-mac": {
+                                "description": "Use this attribute to configure the destination-mac used on the modem interface",
+                                "readOnly": true,
+                                "pattern": "[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "compensation": {
+                                "description": "Use this attribute to configure the componsation for the modem interface",
+                                "readOnly": true,
+                                "minimum": -63,
+                                "maximum": 63,
+                                "type": "number",
+                                "mandatory": false
+                              },
+                              "link-bonding-group": {
+                                "description": "Use this attribute to configure the link-bonding-group for the modem interface",
+                                "readOnly": true,
+                                "minimum": 1,
+                                "maximum": 255,
+                                "type": "number",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "port-vlan": {
+                            "description": "Configuration data for modem port vlan",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "config": {
+                                "description": "Configuration data for port-vlan",
+                                "readOnly": false,
+                                "type": "object",
+                                "properties": {
+                                  "port": {
+                                    "description": "Use this attribute attached the modem to a port",
+                                    "readOnly": false,
+                                    "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                    "type": "string",
+                                    "mandatory": false
+                                  },
+                                  "vlan": {
+                                    "description": "Use this attribute to configure the vlan for the modem interface",
+                                    "readOnly": false,
+                                    "minimum": 1,
+                                    "maximum": 4094,
+                                    "type": "number",
+                                    "mandatory": false
+                                  }
+                                }
+                              },
+                              "state": {
+                                "description": "Configuration data for port-vlan",
+                                "readOnly": true,
+                                "type": "object",
+                                "properties": {
+                                  "port": {
+                                    "description": "Use this attribute attached the modem to a port",
+                                    "readOnly": true,
+                                    "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                    "type": "string",
+                                    "mandatory": false
+                                  },
+                                  "vlan": {
+                                    "description": "Use this attribute to configure the vlan for the modem interface",
+                                    "readOnly": true,
+                                    "minimum": 1,
+                                    "maximum": 4094,
+                                    "type": "number",
+                                    "mandatory": false
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "shape": {
+                            "description": "Configuration data for modem control-traffic shape",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "config": {
+                                "description": "Configuration data for QoS traffic shape",
+                                "readOnly": false,
+                                "type": "object",
+                                "properties": {
+                                  "rate": {
+                                    "description": "Use this attribute to configure shaping on control port to impose a maximum rate on it",
+                                    "readOnly": false,
+                                    "minimum": 1,
+                                    "maximum": 1000000000,
+                                    "type": "string",
+                                    "mandatory": true
+                                  },
+                                  "rate-unit": {
+                                    "description": "Use this attribute to set the shape rate unit",
+                                    "readOnly": false,
+                                    "enum": [
+                                      "kbps",
+                                      "mbps",
+                                      "gbps"
+                                    ],
+                                    "mandatory": true
+                                  }
+                                }
+                              },
+                              "state": {
+                                "description": "Configuration data for QoS traffic shape",
+                                "readOnly": true,
+                                "type": "object",
+                                "properties": {
+                                  "rate": {
+                                    "description": "Use this attribute to configure shaping on control port to impose a maximum rate on it",
+                                    "readOnly": true,
+                                    "minimum": 1,
+                                    "maximum": 1000000000,
+                                    "type": "string",
+                                    "mandatory": true
+                                  },
+                                  "rate-unit": {
+                                    "description": "Use this attribute to set the shape rate unit",
+                                    "readOnly": true,
+                                    "enum": [
+                                      "kbps",
+                                      "mbps",
+                                      "gbps"
+                                    ],
+                                    "mandatory": true
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "link-bonding-group": {
+          "description": "Container for interface lbg",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interfaces": {
+              "description": "Configuration data for interface lbg",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "interface": {
+                  "description": "Configuration data for interface lbg",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Interface name for Link Bonding Group",
+                        "readOnly": false,
+                        "path": "../config/name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data for interface",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "The Link Bonding Group interface name",
+                            "readOnly": false,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for link-bonding-group",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "The Link Bonding Group interface name",
+                            "readOnly": true,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,395 @@
+{
+  "title": "ipi-snmp",
+  "description": "Top level SNMP configuration module",
+  "type": "object",
+  "properties": {
+    "ipi-snmp:snmp": {
+      "description": "Top level container for snmp configuration common for all modules",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "server-traps": {
+          "description": "Top level container for snmp-server trap configuration common for all    modules",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "This container defines snmp-server traps configuration.",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable-traps": {
+                  "description": "Use this attribute to enable or disable SNMP traps and inform requests.",
+                  "readOnly": false,
+                  "type": "string",
+                  "bits": {
+                    "snmp-authentication": "5",
+                    "mpls": "6",
+                    "pw": "7",
+                    "pwdelete": "8",
+                    "rsvp": "9",
+                    "ospf": "10",
+                    "bgp": "11",
+                    "isis": "12",
+                    "vrrp": "13",
+                    "vxlan": "14",
+                    "ospf6": "15",
+                    "mplsl3vpn": "16",
+                    "rib": "17",
+                    "pim": "18"
+                  },
+                  "mandatory": false
+                },
+                "enable-link-down-trap": {
+                  "description": "Use this attribute to enable or disable SNMP linkdown traps.",
+                  "readOnly": false,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "enable-link-up-trap": {
+                  "description": "Use this attribute to enable or disable SNMP linkup traps.",
+                  "readOnly": false,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "include-interface-name": {
+                  "description": "Use this attribute to include ifname with SNMP linkdown traps.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "This container defines snmp-server traps Operational states.",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable-traps": {
+                  "description": "Use this attribute to enable or disable SNMP traps and inform requests.",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "snmp-authentication": "5",
+                    "mpls": "6",
+                    "pw": "7",
+                    "pwdelete": "8",
+                    "rsvp": "9",
+                    "ospf": "10",
+                    "bgp": "11",
+                    "isis": "12",
+                    "vrrp": "13",
+                    "vxlan": "14",
+                    "ospf6": "15",
+                    "mplsl3vpn": "16",
+                    "rib": "17",
+                    "pim": "18"
+                  },
+                  "mandatory": false
+                },
+                "enable-link-down-trap": {
+                  "description": "Use this attribute to enable or disable SNMP linkdown traps.",
+                  "readOnly": true,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "enable-link-up-trap": {
+                  "description": "Use this attribute to enable or disable SNMP linkup traps.",
+                  "readOnly": true,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "include-interface-name": {
+                  "description": "Use this attribute to include ifname with SNMP linkdown traps.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "ipi-snmp-server-extended:engine-id": {
+          "description": "Container for SNMP servers engine-id configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for SNMP Server",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "engine-id": {
+                  "description": "Use this attribute to configure SNMPv3 engine ID.",
+                  "readOnly": false,
+                  "minLength": 1,
+                  "maxLength": 24,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for SNMP server engineID",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "engine-id": {
+                  "description": "Use this attribute to configure SNMPv3 engine ID.",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 24,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "ipi-snmp-server-extended:statistics": {
+          "description": "Container for SNMP statistics",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "state": {
+              "description": "Operational state data for SNMP statistics",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "engine-id": {
+                  "description": "snmp engine-id",
+                  "readOnly": true,
+                  "pattern": "[^?'=,>|]*",
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "ipi-snmp-server-extended:default-global-values": {
+          "description": "Operation state default value data for SNMP server global    configuration",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "state": {
+              "description": "Operational state data for SNMP default global values",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "system-default-contact": {
+                  "description": "Use this attribute to get the default system contact information for the device (sysContact object)",
+                  "readOnly": true,
+                  "type": "string",
+                  "mandatory": false
+                },
+                "system-default-location": {
+                  "description": "Use this attribute to get the default physical location information of the device (sysLocation object)",
+                  "readOnly": true,
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "ipi-snmp-server:servers": {
+          "description": "Container for SNMP servers configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "server": {
+              "description": "Server list for SNMP configuration",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vrf-name": {
+                    "description": "VRF name associated with this instance.",
+                    "readOnly": false,
+                    "path": "../config/vrf-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for SNMP Server",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF name associated with this instance.",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enabled": {
+                        "description": "Use this attribute to enable SNMP server",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for SNMP Server",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF name associated with this instance.",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enabled": {
+                        "description": "Use this attribute to enable SNMP server",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "global": {
+                    "description": "SNMP server global container configuration",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for SNMP server global configuration",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "system-contact": {
+                            "description": "Use this attribute to set the system contact information for the device (sysContact object)",
+                            "readOnly": false,
+                            "pattern": "[^?'=,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "system-location": {
+                            "description": "Use this attribute to set the physical location information of the device (sysLocation object)",
+                            "readOnly": false,
+                            "pattern": "[^?'=,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tcp-session-enabled": {
+                            "description": "Use this attribute to start the SNMP agent daemon over TCP",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for SNMP server global configuration",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "system-contact": {
+                            "description": "Use this attribute to set the system contact information for the device (sysContact object)",
+                            "readOnly": true,
+                            "pattern": "[^?'=,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "system-location": {
+                            "description": "Use this attribute to set the physical location information of the device (sysLocation object)",
+                            "readOnly": true,
+                            "pattern": "[^?'=,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tcp-session-enabled": {
+                            "description": "Use this attribute to start the SNMP agent daemon over TCP",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "vrf-name"
+                ]
+              },
+              "maxItems": 1
+            },
+            "default-instance": {
+              "description": "SNMP server default container configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configuration data for SNMP server global configuration",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "disable-default-instance": {
+                      "description": "Use this attribute to prevent default snmp instance from being enabled at start up",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational state data for SNMP server global configuration",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "disable-default-instance": {
+                      "description": "Use this attribute to prevent default snmp instance from being enabled at start up",
+                      "readOnly": true,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

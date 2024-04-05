@@ -1,0 +1,498 @@
+{
+  "title": "ipi-vm",
+  "description": "Data Model for Virtual Machine",
+  "type": "object",
+  "properties": {
+    "ipi-vm:vm": {
+      "description": "Container for VM",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "vm-bridges": {
+          "description": "Configuration data for vm-bridges",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "vm-bridge": {
+              "description": "Configuration data for vm-bridge",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "bridge-name": {
+                    "description": "Name of the VM bridge",
+                    "readOnly": false,
+                    "path": "../config/bridge-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for vm-bridge",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "bridge-name": {
+                        "description": "Name of the VM bridge",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 16,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for vm-bridge",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "bridge-name": {
+                        "description": "Name of the VM bridge",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 16,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "bridge-name"
+                ]
+              }
+            }
+          }
+        },
+        "control-channel": {
+          "description": "Container for control-channel,including configuration and state data",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "This container defines control-channel configuration.",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "vlan": {
+                  "description": "Set control channel vlan id",
+                  "readOnly": false,
+                  "minimum": 1,
+                  "maximum": 4095,
+                  "type": "number",
+                  "mandatory": true
+                },
+                "tpid": {
+                  "description": "Set control channel tpid",
+                  "readOnly": false,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": true
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for control-channel",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "vlan": {
+                  "description": "Set control channel vlan id",
+                  "readOnly": true,
+                  "minimum": 1,
+                  "maximum": 4095,
+                  "type": "number",
+                  "mandatory": true
+                },
+                "tpid": {
+                  "description": "Set control channel tpid",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "ipi-vm:nat": {
+      "description": "Container for nat",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "dnat": {
+          "description": "Container for dnat",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "dnat-vrf": {
+              "description": "VM-dnat vrf list",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from-match-type": {
+                    "description": "match-ip or source-interface",
+                    "readOnly": false,
+                    "path": "../config/from-match-type",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "from-match-value": {
+                    "description": "IP address or Interface name",
+                    "readOnly": false,
+                    "path": "../config/from-match-value",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "to-ip-addr": {
+                    "description": "To IP address",
+                    "readOnly": false,
+                    "path": "../config/to-ip-addr",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "protocol": {
+                    "description": "Use TCP or UDP for NAT",
+                    "readOnly": false,
+                    "path": "../config/protocol",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "from-port-num": {
+                    "description": "Source port number. Since '0' is valid port number, used '-1' for optional manipulation",
+                    "readOnly": false,
+                    "path": "../config/from-port-num",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "to-port-num": {
+                    "description": "Destination port number. Since '0' is valid port number, used '-1' for optional manipulation",
+                    "readOnly": false,
+                    "path": "../config/to-port-num",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "vrf-name": {
+                    "description": "VRF Name",
+                    "readOnly": false,
+                    "path": "../config/vrf-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "This container defines dnat configuration.",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "from-match-type": {
+                        "description": "match-ip or source-interface",
+                        "readOnly": false,
+                        "enum": [
+                          "match-ip",
+                          "source-interface"
+                        ],
+                        "mandatory": false
+                      },
+                      "from-match-value": {
+                        "description": "IP Address or Interface name",
+                        "readOnly": false,
+                        "oneOf": [
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "to-ip-addr": {
+                        "description": "To IP address",
+                        "readOnly": false,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "protocol": {
+                        "description": "Use TCP or UDP for NAT",
+                        "readOnly": false,
+                        "enum": [
+                          "tcp",
+                          "udp"
+                        ],
+                        "mandatory": false
+                      },
+                      "from-port-num": {
+                        "description": "Source port number. Since '0' is valid port number, used '-1' for optional manipulation",
+                        "readOnly": false,
+                        "minimum": -1,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "to-port-num": {
+                        "description": "Destination port number. Since '0' is valid port number, used '-1' for optional manipulation",
+                        "readOnly": false,
+                        "minimum": -1,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "vrf-name": {
+                        "description": "VRF Name",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for dnat",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "from-match-type": {
+                        "description": "match-ip or source-interface",
+                        "readOnly": true,
+                        "enum": [
+                          "match-ip",
+                          "source-interface"
+                        ],
+                        "mandatory": false
+                      },
+                      "from-match-value": {
+                        "description": "IP Address or Interface name",
+                        "readOnly": true,
+                        "oneOf": [
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "to-ip-addr": {
+                        "description": "To IP address",
+                        "readOnly": true,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "protocol": {
+                        "description": "Use TCP or UDP for NAT",
+                        "readOnly": true,
+                        "enum": [
+                          "tcp",
+                          "udp"
+                        ],
+                        "mandatory": false
+                      },
+                      "from-port-num": {
+                        "description": "Source port number. Since '0' is valid port number, used '-1' for optional manipulation",
+                        "readOnly": true,
+                        "minimum": -1,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "to-port-num": {
+                        "description": "Destination port number. Since '0' is valid port number, used '-1' for optional manipulation",
+                        "readOnly": true,
+                        "minimum": -1,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "vrf-name": {
+                        "description": "VRF Name",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "from-match-type",
+                  "from-match-value",
+                  "to-ip-addr",
+                  "protocol",
+                  "from-port-num",
+                  "to-port-num",
+                  "vrf-name"
+                ]
+              }
+            }
+          }
+        },
+        "snat": {
+          "description": "Container for snat",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "snat-vrf": {
+              "description": "VM-snat vrf list",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from-ip-addr": {
+                    "description": "From IP address and subnet mask",
+                    "readOnly": false,
+                    "path": "../config/from-ip-addr",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "to-ip-addr": {
+                    "description": "To IP address",
+                    "readOnly": false,
+                    "path": "../config/to-ip-addr",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "vrf-name": {
+                    "description": "VRF Name",
+                    "readOnly": false,
+                    "path": "../config/vrf-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "This container defines snat configuration.",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "from-ip-addr": {
+                        "description": "From IP address and subnet mask",
+                        "readOnly": false,
+                        "minLength": 0,
+                        "maxLength": 32,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "to-ip-addr": {
+                        "description": "To IP address",
+                        "readOnly": false,
+                        "oneOf": [
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "vrf-name": {
+                        "description": "VRF Name",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for snat",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "from-ip-addr": {
+                        "description": "From IP address and subnet mask",
+                        "readOnly": true,
+                        "minLength": 0,
+                        "maxLength": 32,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "to-ip-addr": {
+                        "description": "To IP address",
+                        "readOnly": true,
+                        "oneOf": [
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "vrf-name": {
+                        "description": "VRF Name",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "from-ip-addr",
+                  "to-ip-addr",
+                  "vrf-name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "ipi-vm:guestVm": {
+      "description": "Description about guest vm feature enable",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "config": {
+          "description": "This container defines gestVm configuration.",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "enable-feature": {
+              "description": "Global command to enable Guest-VM feature",
+              "readOnly": false,
+              "type": "boolean",
+              "mandatory": true
+            }
+          }
+        },
+        "state": {
+          "description": "This container defines gestVm configuration.",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "enable-feature": {
+              "description": "Global command to enable Guest-VM feature",
+              "readOnly": true,
+              "type": "boolean",
+              "mandatory": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

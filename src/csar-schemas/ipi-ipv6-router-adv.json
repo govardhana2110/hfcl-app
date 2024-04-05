@@ -1,0 +1,552 @@
+{
+  "title": "ipi-ipv6-router-adv",
+  "description": "IPv6 Router Advertisement",
+  "type": "object",
+  "properties": {
+    "ipi-ipv6-router-adv:router-advertisement": {
+      "description": "IPV6 Router Advertisement",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "interfaces": {
+          "description": "IPV6 Router Advertisement Interfaces",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "List of IPV6 Router Advertisement Interfaces",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The IPV6 Router Advertisement interface name",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for IPV6 Router Advertisement Interface",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The IPV6 Router Advertisement interface name",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "suppress-ra": {
+                        "description": "Use this attribute to suppress IPv6 Router Advertisements",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "suppress-ra-mtu": {
+                        "description": "Use this attribute to disable sending MTU in Router Advertisement messages",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "managed-flag": {
+                        "description": "Use this attribute to use DHCP for address config by host",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "other-config-flag": {
+                        "description": "Use this attribute to use DHCP for non-address config by host",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "current-hop-limit": {
+                        "description": "Use this attribute to set advertised current hop limit",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 255,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "link-mtu": {
+                        "description": "Use this attribute to set advertised link-mtu option",
+                        "readOnly": false,
+                        "minimum": 1280,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "dad-attempts": {
+                        "description": "Use this attribute to set number of attempts for duplicate address detection",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 600,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for IPV6 Router Advertisement Interface",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The IPV6 Router Advertisement interface name",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "suppress-ra": {
+                        "description": "Use this attribute to suppress IPv6 Router Advertisements",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "suppress-ra-mtu": {
+                        "description": "Use this attribute to disable sending MTU in Router Advertisement messages",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "managed-flag": {
+                        "description": "Use this attribute to use DHCP for address config by host",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "other-config-flag": {
+                        "description": "Use this attribute to use DHCP for non-address config by host",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "current-hop-limit": {
+                        "description": "Use this attribute to set advertised current hop limit",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 255,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "link-mtu": {
+                        "description": "Use this attribute to set advertised link-mtu option",
+                        "readOnly": true,
+                        "minimum": 1280,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "dad-attempts": {
+                        "description": "Use this attribute to set number of attempts for duplicate address detection",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 600,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "ipv6-prefixes": {
+                    "description": "IPV6 Router Advertisement Interface Prefixes",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for IPV6 Router Advertisement Interface Prefixes",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "off-link": {
+                            "description": "The IPV6 Router Advertisement prefix off-link flag",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "no-auto-configuration": {
+                            "description": "The IPV6 Router Advertisement prefix no auto-configuration flag",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "valid-lifetime": {
+                            "description": "The IPV6 Router Advertisement prefix valid lifetime",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "preferred-lifetime": {
+                            "description": "The IPV6 Router Advertisement prefix preferred lifetime",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for IPV6 Router Advertisement Interface    Prefixes",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "off-link": {
+                            "description": "The IPV6 Router Advertisement prefix off-link flag",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "no-auto-configuration": {
+                            "description": "The IPV6 Router Advertisement prefix no auto-configuration flag",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "valid-lifetime": {
+                            "description": "The IPV6 Router Advertisement prefix valid lifetime",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "preferred-lifetime": {
+                            "description": "The IPV6 Router Advertisement prefix preferred lifetime",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "ipv6-prefix": {
+                        "description": "List of IPV6 Router Advertisement Interface Prefixes",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "ipv6-address": {
+                              "description": "The IPV6 Router Advertisement prefix address",
+                              "readOnly": false,
+                              "path": "../config/ipv6-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data for IPV6 Router Advertisement Interfaces Prefixes    Address",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "ipv6-address": {
+                                  "description": "The IPV6 Router Advertisement prefix address",
+                                  "readOnly": false,
+                                  "minLength": 0,
+                                  "maxLength": 50,
+                                  "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "valid-lifetime": {
+                                  "description": "The IPV6 Router Advertisement prefix address valid lifetime",
+                                  "readOnly": false,
+                                  "minimum": 0,
+                                  "maximum": 4294967295,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "preferred-lifetime": {
+                                  "description": "The IPV6 Router Advertisement prefix address preferred lifetime",
+                                  "readOnly": false,
+                                  "minimum": 0,
+                                  "maximum": 4294967295,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "off-link": {
+                                  "description": "The IPV6 Router Advertisement prefix off-link flag",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "no-auto-configuration": {
+                                  "description": "The IPV6 Router Advertisement prefix no auto-configuration flag",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data for IPV6 Router Advertisement Interfaces    Prefixes Address",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "ipv6-address": {
+                                  "description": "The IPV6 Router Advertisement prefix address",
+                                  "readOnly": true,
+                                  "minLength": 0,
+                                  "maxLength": 50,
+                                  "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "valid-lifetime": {
+                                  "description": "The IPV6 Router Advertisement prefix address valid lifetime",
+                                  "readOnly": true,
+                                  "minimum": 0,
+                                  "maximum": 4294967295,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "preferred-lifetime": {
+                                  "description": "The IPV6 Router Advertisement prefix address preferred lifetime",
+                                  "readOnly": true,
+                                  "minimum": 0,
+                                  "maximum": 4294967295,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "off-link": {
+                                  "description": "The IPV6 Router Advertisement prefix off-link flag",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "no-auto-configuration": {
+                                  "description": "The IPV6 Router Advertisement prefix no auto-configuration flag",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "ipv6-address"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "timers": {
+                    "description": "IPV6 Router Advertisement Interface Timers",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for IPV6 Router Advertisement Interface Timers",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "reachable-time": {
+                            "description": "Use this attribute to set advertised reachability time",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 3600000,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "retransmission-time": {
+                            "description": "Use this attribute to set advertised retransmission timer",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "router-lifetime": {
+                            "description": "Use this attribute to set IPv6 router advertisement lifetime",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 9000,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for IPV6 Router Advertisement Interface Timers",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "reachable-time": {
+                            "description": "Use this attribute to set advertised reachability time",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 3600000,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "retransmission-time": {
+                            "description": "Use this attribute to set advertised retransmission timer",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "router-lifetime": {
+                            "description": "Use this attribute to set IPv6 router advertisement lifetime",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 9000,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "random-interval": {
+                            "description": "The IPV6 Router Advertisement Random Interval",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "time-remaining": {
+                            "description": "The IPV6 Router Advertisement Remain Time",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "ra-interval": {
+                        "description": "Container for IPV6 Router Advertisement Interface Interval Timers",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration data for IPV6 Router Advertisement Interface Interval    Timers",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "max-ra-interval": {
+                                "description": "Use this attribute to set maximum IPv6 router advertisement interval (min-ra-interval must be no greater than 0.75*max-ra-interval)",
+                                "readOnly": false,
+                                "minimum": 4,
+                                "maximum": 1800,
+                                "type": "number",
+                                "mandatory": true
+                              },
+                              "min-ra-interval": {
+                                "description": "Use this attribute to set minimum IPv6 router advertisement interval (it must be no greater than 0.75*max-ra-interval)",
+                                "readOnly": false,
+                                "minimum": 3,
+                                "maximum": 1350,
+                                "type": "number",
+                                "mandatory": true
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational state data for IPV6 Router Advertisement Interface    Interval Timers",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "max-ra-interval": {
+                                "description": "Use this attribute to set maximum IPv6 router advertisement interval (min-ra-interval must be no greater than 0.75*max-ra-interval)",
+                                "readOnly": true,
+                                "minimum": 4,
+                                "maximum": 1800,
+                                "type": "number",
+                                "mandatory": true
+                              },
+                              "min-ra-interval": {
+                                "description": "Use this attribute to set minimum IPv6 router advertisement interval (it must be no greater than 0.75*max-ra-interval)",
+                                "readOnly": true,
+                                "minimum": 3,
+                                "maximum": 1350,
+                                "type": "number",
+                                "mandatory": true
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

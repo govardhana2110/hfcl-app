@@ -1,0 +1,744 @@
+{
+    "start_time": "00:00",
+    "end_time": "23:59",
+    "thresholds": {
+        "qos": {
+            "matched-packets": {
+                "over": 0,
+                "under": 1000
+            },
+            "matched-octets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "transmitted-packets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "transmitted-octets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "dropped-packets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "dropped-octets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "total-transmitted-packets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "total-transmitted-octets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "total-dropped-packets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "total-dropped-octets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "green-transmitted-packets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "non-green-transmitted-packets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "green-dropped-packets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "yellow-dropped-packets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "red-dropped-packets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "rate-kbps": {
+                "over": 9999,
+                "under": 1000
+            },
+            "rate-mbps": {
+                "over": 9999,
+                "under": 1000
+            },
+            "rate-gbps": {
+                "over": 9999,
+                "under": 1000
+            }
+        },
+        "sla": {
+            "elapsed-time": {
+                "over": 9999,
+                "under": 1000
+            },
+            "packets-sent": {
+                "over": 9999,
+                "under": 1000
+            },
+            "packets-received": {
+                "over": 9999,
+                "under": 1000
+            },
+            "packets-lost": {
+                "over": 9999,
+                "under": 1000
+            },
+            "invalid-tests": {
+                "over": 9999,
+                "under": 1000
+            },
+            "minimum-round-trip-delay": {
+                "over": 9999,
+                "under": 1000
+            },
+            "maximum-round-trip-delay": {
+                "over": 9999,
+                "under": 1000
+            },
+            "average-round-trip-delay": {
+                "over": 9999,
+                "under": 1000
+            }
+        },
+        "interface": {
+            "tx-throughput": {
+                "over": 9999,
+                "under": 1000
+            },
+            "tx-packet-rate": {
+                "over": 9999,
+                "under": 1000
+            },
+            "rx-throughput": {
+                "over": 9999,
+                "under": 1000
+            },
+            "rx-packet-rate": {
+                "over": 9999,
+                "under": 1000
+            },
+            "bandwidth-utilization": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in-crc-errors": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in-undersize-frames": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in-oversize-frames": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in-fragment-frames": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in-jabber-frames": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in-errors": {
+                "over": 9999,
+                "under": 1000
+            },
+            "out-errors": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in-discards": {
+                "over": 9999,
+                "under": 1000
+            },
+            "out-discards": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in-octets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "out-octets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in-pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "out-pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in-unicast-pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in-broadcast-pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in-multicast-pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "out-unicast-pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "out-broadcast-pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "out-multicast-pkts": {
+                "over": 9999,
+                "under": 1000
+            }
+        },
+        "component": {
+            "CPU": {
+                "cpu-utilization": {
+                    "over": 0,
+                    "under": 0
+                }
+            },
+            "HARD-DISK": {
+                "utilized": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "RAM": {
+                "utilized": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "FAN-1/1": {
+                "rpm": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "FAN-2/1": {
+                "rpm": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "FAN-3/1": {
+                "rpm": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "FAN-4/1": {
+                "rpm": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "TEMPERATURE-BCM Chip": {
+                "avg": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "TEMPERATURE-Intel Core ID 0": {
+                "avg": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "TEMPERATURE-Intel Core ID 2": {
+                "avg": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "TEMPERATURE-Intel Core ID 4": {
+                "avg": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "TEMPERATURE-Intel Core ID 6": {
+                "avg": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "TEMPERATURE-Intel Core ID 8": {
+                "avg": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "TEMPERATURE-Intel Core ID 10": {
+                "avg": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "TEMPERATURE-Intel Core ID 12": {
+                "avg": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "TEMPERATURE-Intel Core ID 14": {
+                "avg": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "TEMPERATURE-TMP451 Local Sensor": {
+                "avg": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "TEMPERATURE-TMP451 Remote Sensor": {
+                "avg": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "TEMPERATURE-TMP75A Sensor-1": {
+                "avg": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "TEMPERATURE-TMP75A Sensor-2": {
+                "avg": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "TEMPERATURE-TMP75A Sensor-3": {
+                "avg": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            }
+        },
+        "component_snmp": {
+            "SysRamTable": {
+                "cmmSysRamTotalMem": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmSysRamUsedMem": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmSysRamFreeMem": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmSysRamCriticalThreshold": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmSysRamAlertThreshold": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "StackCpuTable": {
+                "cmmStackUnitCpuLoad1Min": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmStackUnitCpuLoad5Min": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmStackUnitCpuLoad15Min": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmStackCpuLoad1minAlertThreshold": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmStackCpuLoad1minCriticalThreshold": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmStackCpuLoad5minCriticalThreshold": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmStackCpuLoad15minCriticalThreshold": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmStackUnitCpuUtilization": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmStackUnitCpuUtilAlertThreshold": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmStackUnitCpuUtilCriticalThreshold": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "FanTable": {
+                "cmmFanRpm.1.1.1": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmFanRpm.1.2.1": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmFanRpm.1.3.1": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmFanRpm.1.4.1": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "SysTemperatureTable": {
+                "TMP451LocalSensor-TemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "TMP451RemoteSensor-TemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "TMP75ASensor-1-TemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "TMP75ASensor-2-TemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "TMP75ASensor-3-TemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "BCMChip-TemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "IntelCPUCoreID0-TemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "IntelCPUCoreID2-TemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "IntelCPUCoreID4-TemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "IntelCPUCoreID6-TemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "IntelCPUCoreID8-TemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "IntelCPUCoreID10-TemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "IntelCPUCoreID12-TemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "IntelCPUCoreID14-TemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "TMP451LocalSensor-AverageTemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "TMP451RemoteSensor-AverageTemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "TMP75ASensor-1-AverageTemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "TMP75ASensor-2-AverageTemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "TMP75ASensor-3-AverageTemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "BCMChip-AverageTemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "IntelCPUCoreID0-AverageTemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "IntelCPUCoreID2-AverageTemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "IntelCPUCoreID4-AverageTemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "IntelCPUCoreID6-AverageTemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "IntelCPUCoreID8-AverageTemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "IntelCPUCoreID10-AverageTemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "IntelCPUCoreID12-AverageTemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "IntelCPUCoreID14-AverageTemperatureValue": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "SwitchTemperatureTable": {
+                "cmmSwitchTemperatureValue.1.1": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmSwitchTempPeakValue.1.1": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "SysHardDiskTable": {
+                "cmmSysHarddiskTotalsize": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmSysHarddiskUsedMem": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmSysHarddiskFreeMem": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "CpuCoreUtilTable": {
+                "cmmCpuCoreUtilization.1.1": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmCpuCoreUtilization.1.2": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmCpuCoreUtilization.1.3": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmCpuCoreUtilization.1.4": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            },
+            "SysHardDiskPartitionTable": {
+                "cmmSysHardDiskPartitionTotalMem.1.1": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmSysHardDiskPartitionTotalMem.1.2": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmSysHardDiskPartitionTotalMem.1.3": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmSysHardDiskPartitionUsedMem.1.1": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmSysHardDiskPartitionUsedMem.1.2": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmSysHardDiskPartitionUsedMem.1.3": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmSysHardDiskPartitionFreeMem.1.1": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmSysHardDiskPartitionFreeMem.1.2": {
+                    "over": 9999,
+                    "under": 1000
+                },
+                "cmmSysHardDiskPartitionFreeMem.1.3": {
+                    "over": 9999,
+                    "under": 1000
+                }
+            }
+        },
+        "interface_snmp": {
+            "tx_throughput": {
+                "over": 9999,
+                "under": 1000
+            },
+            "rx_throughput": {
+                "over": 9999,
+                "under": 1000
+            },
+            "hc_tx_throughput": {
+                "over": 9999,
+                "under": 1000
+            },
+            "hc_rx_throughput": {
+                "over": 9999,
+                "under": 1000
+            },
+            "bandwidth": {
+                "over": 9999,
+                "under": 1000
+            },
+            "bandwidth_utilization": {
+                "over": 9999,
+                "under": 1000
+            },
+            "CounterDiscontinuityTime": {
+                "over": 9999,
+                "under": 1000
+            },
+            "Mtu": {
+                "over": 9999,
+                "under": 1000
+            },
+            "HighSpeed": {
+                "over": 9999,
+                "under": 1000
+            },
+            "HC_in_broadcast_pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "HC_in_multicast_pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "HC_in_octets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "HC_in_ucast_pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "HC_out_broadcast_pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "HC_out_multicast_pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "HC_out_octets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "HC_out_ucast_pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in_broadcast_pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in_multicast_pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in_nu_cast_pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in_errors": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in_discards": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in_octets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "in_unicast_pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "out_broadcast_pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "out_multicast_pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "out_nu_cast_pkts": {
+                "over": 9999,
+                "under": 1000
+            },
+            "out_errors": {
+                "over": 9999,
+                "under": 1000
+            },
+            "out_discards": {
+                "over": 9999,
+                "under": 1000
+            },
+            "out_octets": {
+                "over": 9999,
+                "under": 1000
+            },
+            "out_unicast_pkts": {
+                "over": 9999,
+                "under": 1000
+            }
+        }
+    }
+}

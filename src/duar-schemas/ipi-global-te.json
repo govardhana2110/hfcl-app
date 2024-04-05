@@ -1,0 +1,90 @@
+{
+  "title": "ipi-global-te",
+  "description": "Data model for Global Te",
+  "type": "object",
+  "properties": {
+    "ipi-global-te:admin-groups": {
+      "description": "This defines a YANG data model for admin group config for MPLS and TE    configuration and operation.",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "admin-group": {
+          "description": "Administrative Group Configurations",
+          "readOnly": false,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "Use this attribute to create a name-to-value binding for an administrative group",
+                "readOnly": false,
+                "path": "../config/name",
+                "type": "string",
+                "mandatory": false
+              },
+              "id": {
+                "description": "identifier value for the administrative group",
+                "readOnly": false,
+                "path": "../config/id",
+                "type": "string",
+                "mandatory": false
+              },
+              "config": {
+                "description": "Config Container for Administrative Groups",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Use this attribute to create a name-to-value binding for an administrative group",
+                    "readOnly": false,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "id": {
+                    "description": "identifier value for the administrative group",
+                    "readOnly": false,
+                    "minimum": 0,
+                    "maximum": 31,
+                    "type": "number",
+                    "mandatory": false
+                  }
+                }
+              },
+              "state": {
+                "description": "State Contatiner for Administrative Groups",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Use this attribute to create a name-to-value binding for an administrative group",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "id": {
+                    "description": "identifier value for the administrative group",
+                    "readOnly": true,
+                    "minimum": 0,
+                    "maximum": 31,
+                    "type": "number",
+                    "mandatory": false
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "name",
+              "id"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

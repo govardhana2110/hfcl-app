@@ -1,0 +1,1143 @@
+{
+  "title": "ipi-erpsv2",
+  "description": "This module describes configuration and operational data model for    ITU.T G.8032 Ethernet Ring Protection Switching (ERPS)",
+  "type": "object",
+  "properties": {
+    "ipi-erpsv2:erpsv2": {
+      "description": "Container for ERPS module",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "rings": {
+          "description": "Container for ERPS rings",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "ring": {
+              "description": "List of ERPS ring",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "ring-name": {
+                    "description": "G.8032 ring name. This attribute uniquely identifies a ring on the network device.",
+                    "readOnly": false,
+                    "path": "../config/ring-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for ERPS ring",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "ring-name": {
+                        "description": "G.8032 ring name. This attribute uniquely identifies a ring on the network device.",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "east-interface": {
+                        "description": "East port associated to the protection ring",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "west-interface": {
+                        "description": "West port associated to the protection ring",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Textual description of the ring.",
+                        "readOnly": false,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for erpsv2 ring",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "ring-name": {
+                        "description": "G.8032 ring name. This attribute uniquely identifies a ring on the network device.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "east-interface": {
+                        "description": "East port associated to the protection ring",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "west-interface": {
+                        "description": "West port associated to the protection ring",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Textual description of the ring.",
+                        "readOnly": true,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "ring-name"
+                ]
+              }
+            }
+          }
+        },
+        "profiles": {
+          "description": "Container for erpsv2 profiles",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "profile": {
+              "description": "List of ERPS profile",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "profile-name": {
+                    "description": "G.8032 ring profile name",
+                    "readOnly": false,
+                    "path": "../config/profile-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for ERPS profile",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "profile-name": {
+                        "description": "G.8032 ring profile name",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "wait-to-restore-timer": {
+                        "description": "In revertive mode the 'wait to restore' (WTR) timer is used to prevent frequent operation of the protection switching due to intermittent signal failure defects. When recovering from a Signal fail, the delay timer must be long enough to allow the recovering network to become stable. WTR timer is activated on RPL owner node. When WTR timer is expired RPL owner node initiates the reversion process by transmitting an R-APS (NR, RB) message.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 12,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "hold-off-timer": {
+                        "description": "The hold-off timer is used to coordinate the timing of protection switches. When a new defect or more severe defect occurs (new SF), this event is not to be reported immediately to protection switching if the provisioned hold-off timer value is non-zero. Instead, the hold-off timer is started. When the hold-off timer expires, the trail that started the timer is checked as to whether a defect still exists. If one does exist, that defect is reported to protection switching. Hold off timer values SHOULD be specified in multiple of 100.",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 10000,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "guard-time": {
+                        "description": "The guard time is used to prevent Ethernet ring nodes from acting upon outdated R-APS messages and prevents the possibility of forming a closed loop. This timer period SHOULD be greater than the maximum expected forwarding delay in which an R-APS message traverses the entire ring. The period of the guard timer MAY be configured by the operator in 10 ms steps between 10 ms and 2 seconds.",
+                        "readOnly": false,
+                        "minimum": 10,
+                        "maximum": 2000,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "protection-mode": {
+                        "description": "This leaf defines G.8032 ring protection mode. A ring may operate in revertive or non-revertive mode. In revertive operation, after the condition(s) causing a switch has cleared, the traffic channel is restored to the working transport entity, i.e., blocked on the RPL. In non-revertive operation, the traffic channel continues to use the RPL, if it has not failed, after a switch condition has cleared.",
+                        "readOnly": false,
+                        "enum": [
+                          "revertive",
+                          "non-revertive"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for ERPS profile",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "profile-name": {
+                        "description": "G.8032 ring profile name",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "wait-to-restore-timer": {
+                        "description": "In revertive mode the 'wait to restore' (WTR) timer is used to prevent frequent operation of the protection switching due to intermittent signal failure defects. When recovering from a Signal fail, the delay timer must be long enough to allow the recovering network to become stable. WTR timer is activated on RPL owner node. When WTR timer is expired RPL owner node initiates the reversion process by transmitting an R-APS (NR, RB) message.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 12,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "hold-off-timer": {
+                        "description": "The hold-off timer is used to coordinate the timing of protection switches. When a new defect or more severe defect occurs (new SF), this event is not to be reported immediately to protection switching if the provisioned hold-off timer value is non-zero. Instead, the hold-off timer is started. When the hold-off timer expires, the trail that started the timer is checked as to whether a defect still exists. If one does exist, that defect is reported to protection switching. Hold off timer values SHOULD be specified in multiple of 100.",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 10000,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "guard-time": {
+                        "description": "The guard time is used to prevent Ethernet ring nodes from acting upon outdated R-APS messages and prevents the possibility of forming a closed loop. This timer period SHOULD be greater than the maximum expected forwarding delay in which an R-APS message traverses the entire ring. The period of the guard timer MAY be configured by the operator in 10 ms steps between 10 ms and 2 seconds.",
+                        "readOnly": true,
+                        "minimum": 10,
+                        "maximum": 2000,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "protection-mode": {
+                        "description": "This leaf defines G.8032 ring protection mode. A ring may operate in revertive or non-revertive mode. In revertive operation, after the condition(s) causing a switch has cleared, the traffic channel is restored to the working transport entity, i.e., blocked on the RPL. In non-revertive operation, the traffic channel continues to use the RPL, if it has not failed, after a switch condition has cleared.",
+                        "readOnly": true,
+                        "enum": [
+                          "revertive",
+                          "non-revertive"
+                        ],
+                        "mandatory": false
+                      },
+                      "wait-to-block-time": {
+                        "description": "The time period the RPL owner node waits efore reverting the protection state to idle state when fault is recovered in the ring",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "profile-name"
+                ]
+              }
+            }
+          }
+        },
+        "erp-instances": {
+          "description": "Container for ERPS instances",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "erp-instance": {
+              "description": "List of ERPS instances",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "ERPS instance identifier",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for ERPS instance",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "ERPS instance identifier",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ring-name": {
+                        "description": "This parameter specifies the ring instance to associated with the ERPS instance",
+                        "readOnly": false,
+                        "path": "/erpsv2/rings/ring/ring-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mapped-profile-name": {
+                        "description": "G.8032 ring profile name. If this profile exists in the profile configuration list, profile parameters will be imported from it, default values will be used otherwise.",
+                        "readOnly": false,
+                        "path": "/erpsv2/profiles/profile/profile-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ring-type": {
+                        "description": "Defines type of a ethernet ring. A ring can be configured as major ring where ring nodes are connected in closed loop or as a sub-ring when a ring may not have a complete closed loop",
+                        "readOnly": false,
+                        "enum": [
+                          "major-ring",
+                          "sub-ring",
+                          "sub-ring-vc"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-tcn-propagation": {
+                        "description": "Allows topology change notification (TCN) propagation to the ERPS ring if it is enabled",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "non-virtual-channel": {
+                        "description": "Creates a non-virtual channel",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "ring-id": {
+                        "description": "G.8032 ring instance identifier (Ring ID).",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 239,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Textual description of the erps-instance.",
+                        "readOnly": false,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tcn-to-instances": {
+                        "description": "List of Instance that are to be notified when TCN occurs for this instance if topology change notification (TCN) propagation is enabled",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "minLength": 1,
+                          "maxLength": 255,
+                          "pattern": "[^?' =,>|]+",
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for ERPS instance",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "ERPS instance identifier",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ring-name": {
+                        "description": "This parameter specifies the ring instance to associated with the ERPS instance",
+                        "readOnly": true,
+                        "path": "/erpsv2/rings/ring/ring-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mapped-profile-name": {
+                        "description": "G.8032 ring profile name. If this profile exists in the profile configuration list, profile parameters will be imported from it, default values will be used otherwise.",
+                        "readOnly": true,
+                        "path": "/erpsv2/profiles/profile/profile-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ring-type": {
+                        "description": "Defines type of a ethernet ring. A ring can be configured as major ring where ring nodes are connected in closed loop or as a sub-ring when a ring may not have a complete closed loop",
+                        "readOnly": true,
+                        "enum": [
+                          "major-ring",
+                          "sub-ring",
+                          "sub-ring-vc"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-tcn-propagation": {
+                        "description": "Allows topology change notification (TCN) propagation to the ERPS ring if it is enabled",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "non-virtual-channel": {
+                        "description": "Creates a non-virtual channel",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "ring-id": {
+                        "description": "G.8032 ring instance identifier (Ring ID).",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 239,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Textual description of the erps-instance.",
+                        "readOnly": true,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tcn-to-instances": {
+                        "description": "List of Instance that are to be notified when TCN occurs for this instance if topology change notification (TCN) propagation is enabled",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "minLength": 1,
+                          "maxLength": 255,
+                          "pattern": "[^?' =,>|]+",
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      },
+                      "current-state": {
+                        "description": "The current state of the ERPS instance",
+                        "readOnly": true,
+                        "enum": [
+                          "invalid-state",
+                          "initializing",
+                          "pending",
+                          "idle",
+                          "force-switch",
+                          "protection",
+                          "manual-switch"
+                        ],
+                        "mandatory": false
+                      },
+                      "previous-state": {
+                        "description": "The previous state of the ERPS instance",
+                        "readOnly": true,
+                        "enum": [
+                          "invalid-state",
+                          "initializing",
+                          "pending",
+                          "idle",
+                          "force-switch",
+                          "protection",
+                          "manual-switch"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "associate-rings": {
+                    "description": "Container for ERPS Associate Rings",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "associate-ring": {
+                        "description": "ERPS Associate Ring",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "associate-ring-name": {
+                              "description": "G.8032 ring name to be associate with.",
+                              "readOnly": false,
+                              "path": "../config/associate-ring-name",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data for ERPS Associate Ring",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "associate-ring-name": {
+                                  "description": "G.8032 ring name to be associate with.",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 255,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data for ERPS Associate Ring",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "associate-ring-name": {
+                                  "description": "G.8032 ring name to be associate with.",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 255,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "associate-ring-name"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "instance-role": {
+                    "description": "Container for instance-role",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for erpsv2-instance-role",
+                        "readOnly": false,
+                        "type": "object",
+                        "oneOf": [
+                          {
+                            "title": "owner",
+                            "properties": {
+                              "owner-port-id": {
+                                "description": "This identifies the ring port for which role is configured",
+                                "readOnly": false,
+                                "enum": [
+                                  "east-interface",
+                                  "west-interface"
+                                ],
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          {
+                            "title": "neighbor",
+                            "properties": {
+                              "neighbor-port-id": {
+                                "description": "This identifies the ring port for which role is configured",
+                                "readOnly": false,
+                                "enum": [
+                                  "east-interface",
+                                  "west-interface"
+                                ],
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          {
+                            "title": "next-neighbor",
+                            "properties": {
+                              "next-neighbor-port-id": {
+                                "description": "This identifies the ring port for which role is configured",
+                                "readOnly": false,
+                                "enum": [
+                                  "east-interface",
+                                  "west-interface"
+                                ],
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          {
+                            "title": "non-owner",
+                            "properties": {
+                              "non-owner": {
+                                "description": "This identifies the ring port for which role is configured",
+                                "readOnly": false,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        ],
+                        "properties": {}
+                      },
+                      "state": {
+                        "description": "Operational state data for erpsv2-instance-role",
+                        "readOnly": true,
+                        "type": "object",
+                        "oneOf": [
+                          {
+                            "title": "owner",
+                            "properties": {
+                              "owner-port-id": {
+                                "description": "This identifies the ring port for which role is configured",
+                                "readOnly": false,
+                                "enum": [
+                                  "east-interface",
+                                  "west-interface"
+                                ],
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          {
+                            "title": "neighbor",
+                            "properties": {
+                              "neighbor-port-id": {
+                                "description": "This identifies the ring port for which role is configured",
+                                "readOnly": false,
+                                "enum": [
+                                  "east-interface",
+                                  "west-interface"
+                                ],
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          {
+                            "title": "next-neighbor",
+                            "properties": {
+                              "next-neighbor-port-id": {
+                                "description": "This identifies the ring port for which role is configured",
+                                "readOnly": false,
+                                "enum": [
+                                  "east-interface",
+                                  "west-interface"
+                                ],
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          {
+                            "title": "non-owner",
+                            "properties": {
+                              "non-owner": {
+                                "description": "This identifies the ring port for which role is configured",
+                                "readOnly": false,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        ],
+                        "properties": {}
+                      }
+                    }
+                  },
+                  "aps-channel": {
+                    "description": "Container for ERPS APS channel",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for ERPS APS channel",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "level": {
+                            "description": "Maintainance Endpoint Level (MEL) at which R-APS PDU is transmitted. All nodes in the ring must be configured with same APS level value.",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 7,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for ERPS APS channel",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "level": {
+                            "description": "Maintainance Endpoint Level (MEL) at which R-APS PDU is transmitted. All nodes in the ring must be configured with same APS level value.",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 7,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "aps-channel-vlans": {
+                    "description": "Container for ERPS APS channel VLAN",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "aps-channel-vlan": {
+                        "description": "List of ERPS APS channel VLANs",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "vlan-id": {
+                              "description": "Ring wide control vlan-id used by ERPS instance to send and receive the RAPS messages in the ring",
+                              "readOnly": false,
+                              "path": "../config/vlan-id",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data for ERPS APS channel VLAN",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "vlan-id": {
+                                  "description": "Ring wide control VLAN-ID used by ERPS instance to send and receive the RAPS messages in the ring",
+                                  "readOnly": false,
+                                  "minimum": 2,
+                                  "maximum": 4094,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "inner-vlan-id": {
+                                  "description": "Ring wide control inner VLAN-ID used by ERPS instance to send and receive the RAPS messages in the ring",
+                                  "readOnly": false,
+                                  "minimum": 2,
+                                  "maximum": 4094,
+                                  "type": "number",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data for ERPS APS channel VLAN",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "vlan-id": {
+                                  "description": "Ring wide control VLAN-ID used by ERPS instance to send and receive the RAPS messages in the ring",
+                                  "readOnly": true,
+                                  "minimum": 2,
+                                  "maximum": 4094,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "inner-vlan-id": {
+                                  "description": "Ring wide control inner VLAN-ID used by ERPS instance to send and receive the RAPS messages in the ring",
+                                  "readOnly": true,
+                                  "minimum": 2,
+                                  "maximum": 4094,
+                                  "type": "number",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "vlan-id"
+                          ]
+                        },
+                        "maxItems": 1
+                      }
+                    }
+                  },
+                  "data": {
+                    "description": "Container for ERPS data VLAN",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for ERPS data VLAN",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "data-vlan": {
+                            "description": "List of VLAN-IDs, protected by ring instance. For example '2, 3-7, 9, 10-100' VLAN-IDs MUST not overlap with VLAN-IDs of any other instance of the same ring.",
+                            "readOnly": false,
+                            "pattern": "[^?'=>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for ERPS data VLAN",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "data-vlan": {
+                            "description": "List of VLAN-IDs, protected by ring instance. For example '2, 3-7, 9, 10-100' VLAN-IDs MUST not overlap with VLAN-IDs of any other instance of the same ring.",
+                            "readOnly": true,
+                            "pattern": "[^?'=>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "virtual-channel": {
+                    "description": "Container for virtual-channel",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for erpsv2-virtual-channel",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "channel-id": {
+                            "description": "Ring wide vlan-id used by ERPS instance to send and receive RAPS message in the subring, by allowing the RAPS messages of the sub-ring to flow through the major ring",
+                            "readOnly": false,
+                            "minimum": 2,
+                            "maximum": 4094,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "attached-instance": {
+                            "description": "This parameter specifies the ERPS instance on major ring which allows the RAPS messages of Sub-ring, so RAPS message will be sent to other nodes in the sub-ring",
+                            "readOnly": false,
+                            "path": "/erpsv2/erp-instances/erp-instance/name",
+                            "type": "string",
+                            "mandatory": true
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for erpsv2-virtual-channel",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "channel-id": {
+                            "description": "Ring wide vlan-id used by ERPS instance to send and receive RAPS message in the subring, by allowing the RAPS messages of the sub-ring to flow through the major ring",
+                            "readOnly": true,
+                            "minimum": 2,
+                            "maximum": 4094,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "attached-instance": {
+                            "description": "This parameter specifies the ERPS instance on major ring which allows the RAPS messages of Sub-ring, so RAPS message will be sent to other nodes in the sub-ring",
+                            "readOnly": true,
+                            "path": "/erpsv2/erp-instances/erp-instance/name",
+                            "type": "string",
+                            "mandatory": true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "east-link": {
+                    "description": "Container for ERPS east link state",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data for ERPS east link",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "link-name": {
+                            "description": "Name of West port associated with the ERPS instance",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 33,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "link-state": {
+                            "description": "This parameter indicates the state of the west port associated with the ERPS instance",
+                            "readOnly": true,
+                            "enum": [
+                              "invalid",
+                              "unblocked",
+                              "blocked",
+                              "failed",
+                              "blocked-failed",
+                              "local-ms",
+                              "local-fs"
+                            ],
+                            "mandatory": false
+                          },
+                          "remote-node-id": {
+                            "description": "Node ID of the last R-APS message received over the ring port. During initialization this value is set to 00:00:00:00:00:00 by ERP control process.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "remote-blocked-port-reference": {
+                            "description": "Blocked port reference (BPR) of the last R-APS message received over the ring port. During initialization this value is set to 0 by ERP control process.",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 1,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "west-link": {
+                    "description": "Container for ERPS west link state",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data for ERPS west link",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "link-name": {
+                            "description": "Name of West port associated with the ERPS instance",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 33,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "link-state": {
+                            "description": "This parameter indicates the state of the west port associated with the ERPS instance",
+                            "readOnly": true,
+                            "enum": [
+                              "invalid",
+                              "unblocked",
+                              "blocked",
+                              "failed",
+                              "blocked-failed",
+                              "local-ms",
+                              "local-fs"
+                            ],
+                            "mandatory": false
+                          },
+                          "remote-node-id": {
+                            "description": "Node ID of the last R-APS message received over the ring port. During initialization this value is set to 00:00:00:00:00:00 by ERP control process.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "remote-blocked-port-reference": {
+                            "description": "Blocked port reference (BPR) of the last R-APS message received over the ring port. During initialization this value is set to 0 by ERP control process.",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 1,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "aps-statistics": {
+                    "description": "Container for aps-statistics",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data for aps-statistics",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "tx-ring-aps-messages": {
+                            "description": "Number of R-APS messages transmitted",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "rx-ring-aps-messages": {
+                            "description": "Number of R-APS messages received",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "Container for g8032 debugging functions",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for g8032 debug",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Supported debug options for G.8032",
+                  "readOnly": false,
+                  "type": "string",
+                  "bits": {
+                    "tx": "0",
+                    "rx": "1",
+                    "fsm": "2",
+                    "timers": "3",
+                    "events": "4",
+                    "external": "5",
+                    "hal": "6"
+                  },
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for g8032 debug",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Supported debug options for G.8032",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "tx": "0",
+                    "rx": "1",
+                    "fsm": "2",
+                    "timers": "3",
+                    "events": "4",
+                    "external": "5",
+                    "hal": "6"
+                  },
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Supported debug options for G.8032",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "tx": "0",
+                    "rx": "1",
+                    "fsm": "2",
+                    "timers": "3",
+                    "events": "4",
+                    "external": "5",
+                    "hal": "6"
+                  },
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "subinterfaces": {
+          "description": "Container for ERPS subinterface",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "subinterface": {
+              "description": "List of ERPS subinterfaces",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Subinterface name",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for ERPS subinterface",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Subinterface name",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "instance-name": {
+                        "description": "This parameter specifies the ERPS instance being configured in the subinterface",
+                        "readOnly": false,
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for ERPS subinterface",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Subinterface name",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "instance-name": {
+                        "description": "This parameter specifies the ERPS instance being configured in the subinterface",
+                        "readOnly": true,
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "title": "ipi-bridge",
+  "description": "Layer-2 bridge configurations",
+  "type": "object",
+  "properties": {}
+}

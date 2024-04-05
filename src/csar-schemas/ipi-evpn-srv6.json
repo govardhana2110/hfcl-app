@@ -1,0 +1,210 @@
+{
+  "title": "ipi-evpn-srv6",
+  "description": "Datamodel for EVPN-SRV6 protocol",
+  "type": "object",
+  "properties": {
+    "ipi-evpn-srv6:evpn-srv6": {
+      "description": "EVPN-SRV6 global level container",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "global": {
+          "description": "Configuration data for EVPN-SRV6 global capability configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "description": "Use this attribute to enable EVPN-SRV6 module. Without this attribute evpn srv6 functionality can not be achieved",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                },
+                "vtep-ipv6-address": {
+                  "description": "Use this attribute to set source vtep global ip address. This will be treated at evpn srv6 tunnel source address",
+                  "readOnly": false,
+                  "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "description": "Use this attribute to enable EVPN-SRV6 module. Without this attribute evpn srv6 functionality can not be achieved",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                },
+                "vtep-ipv6-address": {
+                  "description": "Use this attribute to set source vtep global ip address. This will be treated at evpn srv6 tunnel source address",
+                  "readOnly": true,
+                  "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "tenants": {
+          "description": "Tenants list",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "tenant": {
+              "description": "Tenant configurations for EVPN-SRV6",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "tenant-identifier": {
+                    "description": "Tenant Identifier",
+                    "readOnly": false,
+                    "path": "../config/tenant-identifier",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "Use this attribute to map vrf to carry EVPN routes",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tenant-description": {
+                        "description": "Use this attribute to set evpn-srv6 tenant identifier name",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tunnel-policy-name": {
+                        "description": "Transport Tunnel Selection Policy",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 127,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "srv6-locator-name": {
+                        "description": "Locator name",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tenant-identifier": {
+                        "description": "Tenant Identifier",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 16777215,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "vpws-identifier": {
+                        "description": "Use this attribute to create vpws tenant",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 16777215,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "Use this attribute to map vrf to carry EVPN routes",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tenant-description": {
+                        "description": "Use this attribute to set evpn-srv6 tenant identifier name",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tunnel-policy-name": {
+                        "description": "Transport Tunnel Selection Policy",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 127,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "srv6-locator-name": {
+                        "description": "Locator name",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tenant-identifier": {
+                        "description": "Tenant Identifier",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 16777215,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "vpws-identifier": {
+                        "description": "Use this attribute to create vpws tenant",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 16777215,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "tenant-identifier"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,336 @@
+{
+  "title": "ipi-role-based-access-control",
+  "description": "Role-Based Access Control (RBAC)",
+  "type": "object",
+  "properties": {
+    "ipi-role-based-access-control:role-based-access-control": {
+      "description": "RBAC top container",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "config": {
+          "description": "Configuration data for RBAC top configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "enable": {
+              "description": "Enable or disable the TACAS+ Role-Based Access Control of RBAC feature",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            }
+          }
+        },
+        "state": {
+          "description": "Operational state data for RBAC top configurations",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "enable": {
+              "description": "Enable or disable the TACAS+ Role-Based Access Control of RBAC feature",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            }
+          }
+        },
+        "policies": {
+          "description": "Configuration data for policies",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "policy": {
+              "description": "List of RBAC Policies",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "policy-name": {
+                    "description": "Use this attribute to create a TACACS+ Role-Based Authorization (RBAC) policy and enter RBAC policy mode.",
+                    "readOnly": false,
+                    "path": "../config/policy-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for policies",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "policy-name": {
+                        "description": "Use this attribute to create a TACACS+ role-based authorization (RBAC) policy and enter RBAC policy mode.",
+                        "readOnly": false,
+                        "minLength": 2,
+                        "maxLength": 16,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for policies",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "policy-name": {
+                        "description": "Use this attribute to create a TACACS+ role-based authorization (RBAC) policy and enter RBAC policy mode.",
+                        "readOnly": true,
+                        "minLength": 2,
+                        "maxLength": 16,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "rules": {
+                    "description": "Configuration data for rules in policies",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "rule": {
+                        "description": "List of RBAC Rules",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "rule-name": {
+                              "description": "This attribute specifies rule string configured as regex-expression for cli authorization",
+                              "readOnly": false,
+                              "path": "../config/rule-name",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data for rules in policies",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "rule-name": {
+                                  "description": "This attribute specifies rule string configured as regex-expression for cli authorization",
+                                  "readOnly": false,
+                                  "pattern": "[^?'=,>|]*",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "rule-type": {
+                                  "description": "This attribute to add a deny/permit rule to a TACACS+ RBAC policy",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "deny",
+                                    "permit"
+                                  ],
+                                  "mandatory": true
+                                },
+                                "command-mode": {
+                                  "description": "Attribute to specify the mode in which CLI should be allowed/denied. Command prompt string such as 'config-router' or 'config-if', deny/Permit access to the command only in this mode.",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "minLength": 1,
+                                    "maxLength": 1965,
+                                    "pattern": "[^?' =,>|]+",
+                                    "type": "string",
+                                    "mandatory": false
+                                  }
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data for rules in policies",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "rule-name": {
+                                  "description": "This attribute specifies rule string configured as regex-expression for cli authorization",
+                                  "readOnly": true,
+                                  "pattern": "[^?'=,>|]*",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "rule-type": {
+                                  "description": "This attribute to add a deny/permit rule to a TACACS+ RBAC policy",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "deny",
+                                    "permit"
+                                  ],
+                                  "mandatory": true
+                                },
+                                "command-mode": {
+                                  "description": "Attribute to specify the mode in which CLI should be allowed/denied. Command prompt string such as 'config-router' or 'config-if', deny/Permit access to the command only in this mode.",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "minLength": 1,
+                                    "maxLength": 1965,
+                                    "pattern": "[^?' =,>|]+",
+                                    "type": "string",
+                                    "mandatory": false
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "rule-name"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "policy-name"
+                ]
+              }
+            }
+          }
+        },
+        "roles": {
+          "description": "Configuration data for roles",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "role": {
+              "description": "object list for RBAC user role",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "role-name": {
+                    "description": "Use this attribute to create a TACACS+ Role-Based Authorization (RBAC) role and to switch to RBAC role mode. End-user cannot specify one of these roles already defined in OcNOS: network-admin network-user network-operator network-engineer For more about these built-in roles, see 'username' CLI configuration",
+                    "readOnly": false,
+                    "path": "../config/role-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for roles",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "role-name": {
+                        "description": "Use this attribute to create a TACACS+ Role-Based Authorization (RBAC) role and to switch to RBAC role mode. End-user cannot specify one of these roles already defined in OcNOS: network-admin network-user network-operator network-engineer For more about these built-in roles, see 'username' CLI configuration",
+                        "readOnly": false,
+                        "minLength": 2,
+                        "maxLength": 16,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "default-policy": {
+                        "description": "Use this atribute to set the default rule for a TACACS+ Role-Based Access Control (RBAC) role.",
+                        "readOnly": false,
+                        "enum": [
+                          "deny-all",
+                          "permit-all"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for roles",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "role-name": {
+                        "description": "Use this attribute to create a TACACS+ Role-Based Authorization (RBAC) role and to switch to RBAC role mode. End-user cannot specify one of these roles already defined in OcNOS: network-admin network-user network-operator network-engineer For more about these built-in roles, see 'username' CLI configuration",
+                        "readOnly": true,
+                        "minLength": 2,
+                        "maxLength": 16,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "default-policy": {
+                        "description": "Use this atribute to set the default rule for a TACACS+ Role-Based Access Control (RBAC) role.",
+                        "readOnly": true,
+                        "enum": [
+                          "deny-all",
+                          "permit-all"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "policies": {
+                    "description": "Configuration data for policies",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "policy": {
+                        "description": "policy list attached to a role",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "policy-name": {
+                              "description": "Use this attribute to add a policy to a TACACS+ Role-based Access Control (RBAC) role",
+                              "readOnly": false,
+                              "path": "../config/policy-name",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data for policies",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "policy-name": {
+                                  "description": "Use this attribute to add a policy to a TACACS+ role-based authorization (RBAC) role",
+                                  "readOnly": false,
+                                  "path": "/role-based-access-control/policies/policy/policy-name",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data for policies",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "policy-name": {
+                                  "description": "Use this attribute to add a policy to a TACACS+ role-based authorization (RBAC) role",
+                                  "readOnly": true,
+                                  "path": "/role-based-access-control/policies/policy/policy-name",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "policy-name"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "role-name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

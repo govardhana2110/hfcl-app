@@ -1,0 +1,188 @@
+.MainPage {
+  min-height: 100vh;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #555;
+  background: #f9fcff url(../Images/LoginBack.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 10%;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .MainPage {
+    display:flex;
+    flex-direction: column;
+  }
+  .login-box{
+    margin-top: 2rem;
+  }
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  font-family: monospace;
+  width:380px;
+  min-height: 400px;
+  height:max-content;
+  padding: 40px;
+  background: white;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  color: black;
+}
+
+.tagline {
+  margin-top: 3%;
+  font-size: larger;
+}
+
+.forgot {
+  font-size: smaller;
+  margin-left: auto;
+  cursor: pointer;
+}
+.forgot:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.user-box {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.user-box input {
+  width: 100%;
+  padding: 20px 10px;
+  font-size: 16px;
+  color: #000;
+  border: 1px solid #d3d0d3;
+  outline: none;
+  height: 45px;
+  background: transparent;
+}
+
+.user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #264eca;
+  font-size: 14px;
+}
+
+form a {
+  display: inline-block;
+  padding: 10px 20px;
+  /* color: #03e9f4; */
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  margin-top: 40px;
+  letter-spacing: 4px;
+  position: relative;
+}
+
+a span {
+  position: absolute;
+  display: block;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .forgot {
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.otpText{
+  width: 40px;
+  height: 40px;
+  margin: 1%;
+}
+
+
+.logoCenter{
+width: 200px;
+margin-bottom: 5%;
+}
+
+.logoTextBottom{
+ color:white;
+ font-size: 23px;
+ font-family: "Roboto",sans-serif;
+ font-weight: 700;
+}
+.logoTextSectionBottom{
+}
+
+.loginbut{
+  background-color: #264eca;
+  text-align: center;
+  color: white;
+  width: 100%;
+  height:3rem;
+  margin-top: 7.5%;
+  font-family: "Roboto",sans-serif;
+  border:none;
+  border-radius:10px;
+}
+
+.loginbut:hover{
+  background-color: #ffffff;
+  border:1px solid #264eca;
+  color: #000;
+  box-shadow: 0px 0px 20px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+}
+
+.timer {
+  font-family: 'Arial', sans-serif;
+  font-size: 15px;
+  color: #fa0909;
+  background-color: #f8f8f8;
+  padding: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.timer p {
+  margin: 0;
+}
+
+.timer p {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+
+.logo-wrapper{
+ flex:1;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-evenly;
+}

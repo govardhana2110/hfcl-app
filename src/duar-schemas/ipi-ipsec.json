@@ -1,0 +1,1255 @@
+{
+  "title": "ipi-ipsec",
+  "description": "Internet Protocol Security",
+  "type": "object",
+  "properties": {
+    "ipi-ipsec:ipsec": {
+      "description": "IPsec",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "policies": {
+          "description": "Used to configure IPsec security services",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "policy": {
+              "description": "IPsec policy",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "sequence-number": {
+                    "description": "Sequence number",
+                    "readOnly": false,
+                    "path": "../config/sequence-number",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "IPsec policy configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "sequence-number": {
+                        "description": "This attribute configures the sequence number that identifies the ISAKMP policy.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 10000,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "diffie-hellman-group": {
+                        "description": "This attribute configures IPsec Diffie Hellman Group for ISAKMP policy.",
+                        "readOnly": false,
+                        "enum": [
+                          "1",
+                          "2",
+                          "5",
+                          "14",
+                          "15",
+                          "16",
+                          "17",
+                          "18"
+                        ],
+                        "mandatory": false
+                      },
+                      "lifetime": {
+                        "description": "This attribute configures IPsec lifetime for ISAKMP policy.",
+                        "readOnly": false,
+                        "minimum": 60,
+                        "maximum": 86400,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "ike-version": {
+                        "description": "This attribute configures IKE version for ISAKMP policy.",
+                        "readOnly": false,
+                        "enum": [
+                          "1",
+                          "2",
+                          "both"
+                        ],
+                        "mandatory": false
+                      },
+                      "encryption": {
+                        "description": "This attribute configures IPsec Encryption algorithm for ISAKMP policy.",
+                        "readOnly": false,
+                        "enum": [
+                          "3des",
+                          "aes",
+                          "blowfish",
+                          "cast",
+                          "blowfish192",
+                          "blowfish256",
+                          "aes192",
+                          "aes256"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "IPsec policy operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "sequence-number": {
+                        "description": "This attribute configures the sequence number that identifies the ISAKMP policy.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 10000,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "diffie-hellman-group": {
+                        "description": "This attribute configures IPsec Diffie Hellman Group for ISAKMP policy.",
+                        "readOnly": true,
+                        "enum": [
+                          "1",
+                          "2",
+                          "5",
+                          "14",
+                          "15",
+                          "16",
+                          "17",
+                          "18"
+                        ],
+                        "mandatory": false
+                      },
+                      "lifetime": {
+                        "description": "This attribute configures IPsec lifetime for ISAKMP policy.",
+                        "readOnly": true,
+                        "minimum": 60,
+                        "maximum": 86400,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "ike-version": {
+                        "description": "This attribute configures IKE version for ISAKMP policy.",
+                        "readOnly": true,
+                        "enum": [
+                          "1",
+                          "2",
+                          "both"
+                        ],
+                        "mandatory": false
+                      },
+                      "encryption": {
+                        "description": "This attribute configures IPsec Encryption algorithm for ISAKMP policy.",
+                        "readOnly": true,
+                        "enum": [
+                          "3des",
+                          "aes",
+                          "blowfish",
+                          "cast",
+                          "blowfish192",
+                          "blowfish256",
+                          "aes192",
+                          "aes256"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "authentication": {
+                    "description": "IPsec Policy Authentication",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for IPsec Policy Authentication",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "algorithm": {
+                            "description": "This attribute configures IPsec authentication algorithm in ISAKMP policy.",
+                            "readOnly": false,
+                            "enum": [
+                              "md5",
+                              "sha1",
+                              "sha256",
+                              "sha384",
+                              "sha512"
+                            ],
+                            "mandatory": false
+                          },
+                          "method": {
+                            "description": "This attribute configures IPsec authentication method in ISAKMP policy.",
+                            "readOnly": false,
+                            "enum": [
+                              "pre-share"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for IPsec Policy Authentication",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "algorithm": {
+                            "description": "This attribute configures IPsec authentication algorithm in ISAKMP policy.",
+                            "readOnly": true,
+                            "enum": [
+                              "md5",
+                              "sha1",
+                              "sha256",
+                              "sha384",
+                              "sha512"
+                            ],
+                            "mandatory": false
+                          },
+                          "method": {
+                            "description": "This attribute configures IPsec authentication method in ISAKMP policy.",
+                            "readOnly": true,
+                            "enum": [
+                              "pre-share"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "peer": {
+                    "description": "IPsec Policy Peer",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for IPsec Policy Peer",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "address": {
+                            "description": "This attribute configures peer IP address in ISAKMP policy.",
+                            "readOnly": false,
+                            "oneOf": [
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "pre-shared-key": {
+                            "description": "This attribute configures IPsec pre-shared key in ISAKMP policy.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 128,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for IPsec Policy Peer",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "address": {
+                            "description": "This attribute configures peer IP address in ISAKMP policy.",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "pre-shared-key": {
+                            "description": "This attribute configures IPsec pre-shared key in ISAKMP policy.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 128,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "isakmp-enable": {
+                    "description": "IPsec Policy isakmp-enable",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for IPsec Policy isakmp-enable",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "isakmp-enable": {
+                            "description": "This attribute enable or disable the ISAKMP policy",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for IPsec Policy isakmp-enable",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "isakmp-enable": {
+                            "description": "This attribute enable or disable the ISAKMP policy",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "sequence-number"
+                ]
+              }
+            }
+          }
+        },
+        "transform-sets": {
+          "description": "IPsec transform-sets Set Grouping",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "transform-set": {
+              "description": "IPsec transform-set",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "transform-set-name": {
+                    "description": "IPsec transform-set name",
+                    "readOnly": false,
+                    "path": "../config/transform-set-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "IPsec transform-set configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "transform-set-name": {
+                        "description": "This attribute configures IPsec transform-set name.",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 127,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "transform-set-mode": {
+                        "description": "This attribute is used to configure mode for a transform-set.",
+                        "readOnly": false,
+                        "enum": [
+                          "tunnel",
+                          "transport"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "IPsec transform-set operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "transform-set-name": {
+                        "description": "This attribute configures IPsec transform-set name.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 127,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "transform-set-mode": {
+                        "description": "This attribute is used to configure mode for a transform-set.",
+                        "readOnly": true,
+                        "enum": [
+                          "tunnel",
+                          "transport"
+                        ],
+                        "mandatory": false
+                      },
+                      "transform-set-protocol": {
+                        "description": "This attribute is used to get transform-set protocol information.",
+                        "readOnly": true,
+                        "enum": [
+                          "none",
+                          "unspec",
+                          "ah",
+                          "esp"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "ah-auth": {
+                    "description": "IPsec Transform-set AH Authentication Top Grouping",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "IPsec Transform-set Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "ah-authentication": {
+                            "description": "This attribute configures IPsec AH authentication type.",
+                            "readOnly": false,
+                            "enum": [
+                              "none",
+                              "ah-md5",
+                              "ah-sha1",
+                              "ah-sha256",
+                              "ah-sha384",
+                              "ah-sha512"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "IPsec Transform-set Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "ah-authentication": {
+                            "description": "This attribute configures IPsec AH authentication type.",
+                            "readOnly": true,
+                            "enum": [
+                              "none",
+                              "ah-md5",
+                              "ah-sha1",
+                              "ah-sha256",
+                              "ah-sha384",
+                              "ah-sha512"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "esp-auth": {
+                    "description": "IPsec Transform-set ESP Top Grouping",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "IPsec Transform-set ESP Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "esp-authentication": {
+                            "description": "This attribute configures IPsec ESP authentication type.",
+                            "readOnly": false,
+                            "enum": [
+                              "none",
+                              "esp-md5",
+                              "esp-sha1",
+                              "esp-sha256",
+                              "esp-sha384",
+                              "esp-sha512"
+                            ],
+                            "mandatory": true
+                          },
+                          "esp-encryption": {
+                            "description": "This attribute configures IPsec ESP encryption type.",
+                            "readOnly": false,
+                            "enum": [
+                              "esp-null",
+                              "esp-3des",
+                              "esp-cast",
+                              "esp-blf",
+                              "esp-blf192",
+                              "esp-blf256",
+                              "esp-aes",
+                              "esp-aes192",
+                              "esp-aes256"
+                            ],
+                            "mandatory": true
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "IPsec Transform-set ESP Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "esp-authentication": {
+                            "description": "This attribute configures IPsec ESP authentication type.",
+                            "readOnly": true,
+                            "enum": [
+                              "none",
+                              "esp-md5",
+                              "esp-sha1",
+                              "esp-sha256",
+                              "esp-sha384",
+                              "esp-sha512"
+                            ],
+                            "mandatory": true
+                          },
+                          "esp-encryption": {
+                            "description": "This attribute configures IPsec ESP encryption type.",
+                            "readOnly": true,
+                            "enum": [
+                              "esp-null",
+                              "esp-3des",
+                              "esp-cast",
+                              "esp-blf",
+                              "esp-blf192",
+                              "esp-blf256",
+                              "esp-aes",
+                              "esp-aes192",
+                              "esp-aes256"
+                            ],
+                            "mandatory": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "transform-set-name"
+                ]
+              }
+            }
+          }
+        },
+        "crypto-maps": {
+          "description": "IPsec Crypto Maps",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "crypto-map": {
+              "description": "IPsec Crypto Map",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "IPsec Crypto Map name",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "IPsec Crypto Map configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "This attribute configures the IPsec Crypto Map name.",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 127,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "sa-type": {
+                        "description": "This attribute configures the IPsec Crypto Map Security Association type.",
+                        "readOnly": false,
+                        "enum": [
+                          "ipsec-isakmp",
+                          "ipsec-manual"
+                        ],
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "IPsec Crypto Map operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "This attribute configures the IPsec Crypto Map name.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 127,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "sa-type": {
+                        "description": "This attribute configures the IPsec Crypto Map Security Association type.",
+                        "readOnly": true,
+                        "enum": [
+                          "ipsec-isakmp",
+                          "ipsec-manual"
+                        ],
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "local-address": {
+                    "description": "IPsec Crypto Map Local Address Top",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "IPsec Crypto Map Local Address Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "interface-name": {
+                            "description": "This attribute configure a system interface on crypto map to identify itself to a remote peer.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 33,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "IPsec Crypto Map Local Address Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "interface-name": {
+                            "description": "This attribute configure a system interface on crypto map to identify itself to a remote peer.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 33,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "sessions": {
+                    "description": "IPsec Crypto Map Sessions",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "session": {
+                        "description": "IPsec Crypto Map Session",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "sequence-id": {
+                              "description": "Map sequence-id",
+                              "readOnly": false,
+                              "path": "../config/sequence-id",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data for IPsec Crypto Map Session",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "sequence-id": {
+                                  "description": "This attribute configures the Cripto Map entry sequence number.",
+                                  "readOnly": false,
+                                  "minimum": 1,
+                                  "maximum": 65535,
+                                  "type": "number",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data for IPsec Crypto Map Session",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "sequence-id": {
+                                  "description": "This attribute configures the Cripto Map entry sequence number.",
+                                  "readOnly": true,
+                                  "minimum": 1,
+                                  "maximum": 65535,
+                                  "type": "number",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "transform-sets": {
+                              "description": "IPsec Crypto Map Session Transform Sets",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "transform-set": {
+                                  "description": "IPsec Crypto Map Session Transform Set",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "transform-set-name": {
+                                        "description": "Map session transform-set name",
+                                        "readOnly": false,
+                                        "path": "../config/transform-set-name",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "config": {
+                                        "description": "Configuration data for IPsec Crypto Map Session Transform Set",
+                                        "readOnly": false,
+                                        "type": "object",
+                                        "properties": {
+                                          "transform-set-name": {
+                                            "description": "This attributes associates and Transform-Set object to a Crypto Map session object.",
+                                            "readOnly": false,
+                                            "path": "/ipsec/transform-sets/transform-set/transform-set-name",
+                                            "type": "string",
+                                            "mandatory": false
+                                          }
+                                        }
+                                      },
+                                      "state": {
+                                        "description": "Operational state data for IPsec Crypto Map Session Transform Set",
+                                        "readOnly": true,
+                                        "type": "object",
+                                        "properties": {
+                                          "transform-set-name": {
+                                            "description": "This attributes associates and Transform-Set object to a Crypto Map session object.",
+                                            "readOnly": true,
+                                            "path": "/ipsec/transform-sets/transform-set/transform-set-name",
+                                            "type": "string",
+                                            "mandatory": false
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "keyFields": [
+                                      "transform-set-name"
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "peer-addresses": {
+                              "description": "IPsec Crypto Map Session Peer Addresses",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "peer-address": {
+                                  "description": "IPsec Crypto Map Session Peer Address",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "peer": {
+                                        "description": "Map session peer IP address",
+                                        "readOnly": false,
+                                        "path": "../config/peer",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "config": {
+                                        "description": "Configuration data for IPsec Crypto Map Session Peer Address",
+                                        "readOnly": false,
+                                        "type": "object",
+                                        "properties": {
+                                          "peer": {
+                                            "description": "This attribute configures the Map session peer IP address.",
+                                            "readOnly": false,
+                                            "oneOf": [
+                                              {
+                                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                "type": "string"
+                                              },
+                                              {
+                                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                "type": "string"
+                                              }
+                                            ],
+                                            "mandatory": false
+                                          },
+                                          "spi": {
+                                            "description": "This attribute configures the peer security parameter index (SPI).",
+                                            "readOnly": false,
+                                            "minimum": 0,
+                                            "maximum": 4096,
+                                            "type": "number",
+                                            "mandatory": true
+                                          }
+                                        }
+                                      },
+                                      "state": {
+                                        "description": "Operational state data for IPsec Crypto Map Session Peer Address",
+                                        "readOnly": true,
+                                        "type": "object",
+                                        "properties": {
+                                          "peer": {
+                                            "description": "This attribute configures the Map session peer IP address.",
+                                            "readOnly": true,
+                                            "oneOf": [
+                                              {
+                                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                "type": "string"
+                                              },
+                                              {
+                                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                "type": "string"
+                                              }
+                                            ],
+                                            "mandatory": false
+                                          },
+                                          "spi": {
+                                            "description": "This attribute configures the peer security parameter index (SPI).",
+                                            "readOnly": true,
+                                            "minimum": 0,
+                                            "maximum": 4096,
+                                            "type": "number",
+                                            "mandatory": true
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "keyFields": [
+                                      "peer"
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "session-keys": {
+                              "description": "IPsec Crypto Map Session Keys",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "session-key": {
+                                  "description": "IPsec Crypto Map Session Key",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "direction": {
+                                        "description": "Crypto Map session key",
+                                        "readOnly": false,
+                                        "path": "../config/direction",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "protocol": {
+                                        "description": "Crypto Map session key protocol",
+                                        "readOnly": false,
+                                        "path": "../config/protocol",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "security-parameter-index": {
+                                        "description": "Crypto Map session key security parameter index (SPI)",
+                                        "readOnly": false,
+                                        "path": "../config/security-parameter-index",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "config": {
+                                        "description": "Configuration data for IPsec Crypto Map Session Key",
+                                        "readOnly": false,
+                                        "type": "object",
+                                        "properties": {
+                                          "direction": {
+                                            "description": "This attributes configures IPsec Crypto Map session key.",
+                                            "readOnly": false,
+                                            "enum": [
+                                              "inbound",
+                                              "outbound"
+                                            ],
+                                            "mandatory": false
+                                          },
+                                          "protocol": {
+                                            "description": "This attributes configures IPsec Map session key protocol.",
+                                            "readOnly": false,
+                                            "enum": [
+                                              "esp"
+                                            ],
+                                            "mandatory": false
+                                          },
+                                          "security-parameter-index": {
+                                            "description": "This attributes configures IPsec Map session key security parameter index (SPI).",
+                                            "readOnly": false,
+                                            "minimum": 0,
+                                            "maximum": 4096,
+                                            "type": "number",
+                                            "mandatory": false
+                                          },
+                                          "cipher": {
+                                            "description": "This attributes configures IPsec Map session key cipher.",
+                                            "readOnly": false,
+                                            "minLength": 1,
+                                            "maxLength": 128,
+                                            "pattern": "[^?' =,>|]+",
+                                            "type": "string",
+                                            "mandatory": true
+                                          },
+                                          "authentication-key": {
+                                            "description": "This attributes configures IPsec Map session key authenticator.",
+                                            "readOnly": false,
+                                            "minLength": 1,
+                                            "maxLength": 128,
+                                            "pattern": "[^?' =,>|]+",
+                                            "type": "string",
+                                            "mandatory": true
+                                          }
+                                        }
+                                      },
+                                      "state": {
+                                        "description": "Operational state data for IPsec Crypto Map Session Key",
+                                        "readOnly": true,
+                                        "type": "object",
+                                        "properties": {
+                                          "direction": {
+                                            "description": "This attributes configures IPsec Crypto Map session key.",
+                                            "readOnly": true,
+                                            "enum": [
+                                              "inbound",
+                                              "outbound"
+                                            ],
+                                            "mandatory": false
+                                          },
+                                          "protocol": {
+                                            "description": "This attributes configures IPsec Map session key protocol.",
+                                            "readOnly": true,
+                                            "enum": [
+                                              "esp"
+                                            ],
+                                            "mandatory": false
+                                          },
+                                          "security-parameter-index": {
+                                            "description": "This attributes configures IPsec Map session key security parameter index (SPI).",
+                                            "readOnly": true,
+                                            "minimum": 0,
+                                            "maximum": 4096,
+                                            "type": "number",
+                                            "mandatory": false
+                                          },
+                                          "cipher": {
+                                            "description": "This attributes configures IPsec Map session key cipher.",
+                                            "readOnly": true,
+                                            "minLength": 1,
+                                            "maxLength": 128,
+                                            "pattern": "[^?' =,>|]+",
+                                            "type": "string",
+                                            "mandatory": true
+                                          },
+                                          "authentication-key": {
+                                            "description": "This attributes configures IPsec Map session key authenticator.",
+                                            "readOnly": true,
+                                            "minLength": 1,
+                                            "maxLength": 128,
+                                            "pattern": "[^?' =,>|]+",
+                                            "type": "string",
+                                            "mandatory": true
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "keyFields": [
+                                      "direction",
+                                      "protocol",
+                                      "security-parameter-index"
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "match-rule": {
+                              "description": "IPsec Crypto Map Session Match",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "config": {
+                                  "description": "Configuration data for IPsec Crypto Map Session Match",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "ipv4-acl": {
+                                      "description": "This attributes associates IPsec crypto-map to an IPv4 ACL object.",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 128,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "ipv6-acl": {
+                                      "description": "This attributes associates IPsec crypto-map to an IPv6 ACL object.",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 128,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational state data for IPsec Crypto Map Session Match",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "ipv4-acl": {
+                                      "description": "This attributes associates IPsec crypto-map to an IPv4 ACL object.",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 128,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "ipv6-acl": {
+                                      "description": "This attributes associates IPsec crypto-map to an IPv6 ACL object.",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 128,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "sequence-id"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "IPsec interfaces configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "List of system interfaces that could be associated to crypto-map",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The interface name to configure the IPsec interface.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for IPsec interface",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Use this command to configure interface name.",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "crypto-map-name": {
+                        "description": "This attribute configures the crypto map associated with this interface",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 127,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for IPsec interface",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Use this command to configure interface name.",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "crypto-map-name": {
+                        "description": "This attribute configures the crypto map associated with this interface",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 127,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "tunnels": {
+          "description": "IPsec interfaces tunnels configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "tunnel": {
+              "description": "List of IPsec tunnel interfaces",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Use this command to configure interface IPSEC tunnel name.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for IPsec interface tunnel",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Use this command to configure interface ipsec tunnel name. This name start with prefix 'ipsec' and a number index as sulfix, an example is 'ipsec2'.",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "source": {
+                        "description": "This attribute configures the tunnel source address.",
+                        "readOnly": false,
+                        "oneOf": [
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "destination": {
+                        "description": "This attribute configures the tunnel destination address.",
+                        "readOnly": false,
+                        "oneOf": [
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for IPsec interface tunnel",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Use this command to configure interface ipsec tunnel name. This name start with prefix 'ipsec' and a number index as sulfix, an example is 'ipsec2'.",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "source": {
+                        "description": "This attribute configures the tunnel source address.",
+                        "readOnly": true,
+                        "oneOf": [
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "destination": {
+                        "description": "This attribute configures the tunnel destination address.",
+                        "readOnly": true,
+                        "oneOf": [
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

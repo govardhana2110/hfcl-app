@@ -1,0 +1,180 @@
+{
+  "title": "ipi-elk",
+  "description": "ELK Beats in OcNOS configurations",
+  "type": "object",
+  "properties": {
+    "ipi-elk:elk": {
+      "description": "ELK Beats related operation",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "metricbeats": {
+          "description": "Enclosing container for ELK Metricbeat servers",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "metricbeat": {
+              "description": "ELK Metricbeat Server",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "ip": {
+                    "description": "Use this to configure ELK Server IP Address.",
+                    "readOnly": false,
+                    "path": "../config/ip",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "ELK beats related operation",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "ip": {
+                        "description": "Use this to configure ELK Server IP Address.",
+                        "readOnly": false,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "username": {
+                        "description": "Use this to configure ELK server user name",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "password": {
+                        "description": "Use this to configure ELK server password",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "This container defines the ELK server status",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "ip": {
+                        "description": "Use this to configure ELK Server IP Address.",
+                        "readOnly": true,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "username": {
+                        "description": "Use this to configure ELK server user name",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "password": {
+                        "description": "Use this to configure ELK server password",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": true
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "ip"
+                ]
+              },
+              "maxItems": 1
+            }
+          }
+        },
+        "filebeats": {
+          "description": "Enclosing container for ELK Filebeat servers",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "filebeat": {
+              "description": "ELK Filebeat Server",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "ip": {
+                    "description": "Use this to configure ELK Server IP Address.",
+                    "readOnly": false,
+                    "path": "../config/ip",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "ELK beats related operation",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "ip": {
+                        "description": "Use this to configure ELK Server IP Address.",
+                        "readOnly": false,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "certificate-path": {
+                        "description": "Used to configure Filebeat server path to certificate file",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "This container defines the ELK server status",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "ip": {
+                        "description": "Use this to configure ELK Server IP Address.",
+                        "readOnly": true,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "certificate-path": {
+                        "description": "Used to configure Filebeat server path to certificate file",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "ip"
+                ]
+              },
+              "maxItems": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

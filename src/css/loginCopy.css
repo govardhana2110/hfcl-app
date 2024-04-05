@@ -1,0 +1,138 @@
+.MainPage {
+    min-height: 100vh;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    background: #f9fcff url(../Images/LoginBack.png) center/cover no-repeat;
+  }
+  
+  .login-box {
+    width:400px;
+    height: 490px;
+    padding: 40px;
+    background: #1e3b95;
+    box-sizing: border-box;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+    left: 26%;
+    position: relative;
+  }
+  
+  .login-box .hfclLogo {
+    width: 130px;
+    height: auto;
+    margin: auto;
+    display: block;
+  }
+  
+  .tagline {
+    margin-top: 6%;
+    font-size: larger;
+  }
+  
+  .forgot {
+    font-size: smaller;
+    margin-left: auto;
+    cursor: pointer;
+  }
+  .forgot:hover{
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .user-box {
+    position: relative;
+    margin-bottom: 28px;
+  }
+  
+  .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  
+  .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  
+  .user-box input:focus ~ label,
+  .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 14px;
+  }
+  
+  form a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    margin-top: 40px;
+    letter-spacing: 4px;
+    position: relative;
+  }
+  
+  a span {
+    position: absolute;
+    display: block;
+  }
+  
+  /* Media Queries for Responsive Design */
+  @media (max-width: 768px) {
+    .login-box {
+      max-width: 80%;
+    }
+  
+    .forgot {
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  
+  .otpText{
+    width: 40px;
+    height: 40px;
+    margin: 1%;
+  }
+  
+  .logoTextSection{
+  position: absolute;
+  left: 10%;
+  top: 21%;
+  }
+  
+  .logoCenter{
+  width: 200px;
+  margin-bottom: 5%;
+  }
+  
+  .logoTextBottom{
+   color:white;
+   font-size: 23px;
+  }
+  .logoTextSectionBottom{
+    position: absolute;
+  left: 10%;
+  top: 78%;
+  }

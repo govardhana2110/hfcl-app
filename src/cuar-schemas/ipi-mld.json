@@ -1,0 +1,1234 @@
+{
+  "title": "ipi-mld",
+  "description": "Data model for MLD Module",
+  "type": "object",
+  "properties": {
+    "ipi-mld:mld": {
+      "description": "Top level container for MLD configurations and operational data",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "vrfs": {
+          "description": "MLD VRFs top level container",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "vrf": {
+              "description": "MLD VRF instance configurations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vrf-name": {
+                    "description": "VPN routing/forwarding Instance name",
+                    "readOnly": false,
+                    "path": "../config/vrf-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "config container for MLD vrf instance configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VPN routing/forwarding Instance name",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "disable-ssm-map": {
+                        "description": "Use this attribute to enable/disable SSM mapping on the router",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "state container for MLD vrf instance configurations",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VPN routing/forwarding Instance name",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "disable-ssm-map": {
+                        "description": "Use this attribute to enable/disable SSM mapping on the router",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "group-membership-control": {
+                    "description": "MLD Group Membership Control Configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "config container for MLD group membership control configurations",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "member-limit": {
+                            "description": "Use this attribute to set the maximum number of group membership states at the router level. Once the specified number of group memberships is reached, all further local-memberships are ignored. Optionally, an exception access-list can be configured to specify the group-address(es) to be excluded from being subject to the limit. This command applies to interfaces configured for MLD Layer-3 multicast protocols and MLD Proxy. The limit applies, individually, to each of its constituent interfaces.",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 2097152,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "limit-exception-acl": {
+                            "description": "Use this attribute to set the maximum number of group membership states at the router level. Once the specified number of group memberships is reached, all further local-memberships are ignored. Optionally, an exception access-list can be configured to specify the group-address(es) to be excluded from being subject to the limit. This command applies to interfaces configured for MLD Layer-3 multicast protocols and MLD Proxy. The limit applies, individually, to each of its constituent interfaces.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "state container for MLD group membership control configurations",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "member-limit": {
+                            "description": "Use this attribute to set the maximum number of group membership states at the router level. Once the specified number of group memberships is reached, all further local-memberships are ignored. Optionally, an exception access-list can be configured to specify the group-address(es) to be excluded from being subject to the limit. This command applies to interfaces configured for MLD Layer-3 multicast protocols and MLD Proxy. The limit applies, individually, to each of its constituent interfaces.",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 2097152,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "limit-exception-acl": {
+                            "description": "Use this attribute to set the maximum number of group membership states at the router level. Once the specified number of group memberships is reached, all further local-memberships are ignored. Optionally, an exception access-list can be configured to specify the group-address(es) to be excluded from being subject to the limit. This command applies to interfaces configured for MLD Layer-3 multicast protocols and MLD Proxy. The limit applies, individually, to each of its constituent interfaces.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "current-states-count": {
+                            "description": "Current group membership record states for this MLD instance.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "ssm": {
+                    "description": "MLD SSM Configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "static-mappings": {
+                        "description": "MLD Static-Mappings Container",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "static-mapping": {
+                            "description": "MLD Static-Mapping Instance configurations",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "group-ranges-acl": {
+                                  "description": "Use this attribute to specify SSM Static Access List",
+                                  "readOnly": false,
+                                  "path": "../config/group-ranges-acl",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "source": {
+                                  "description": "Use this attribute to specify the static mcast source for SSM mapping. SSM mapping statically assigns sources to MLDv1 groups to translate such (star G) groups memberships to (S,G) memberships for use with PIM-SSM.This attribute applies to interfaces configured for MLD Layer-3 multicast protocols and MLD Proxy.",
+                                  "readOnly": false,
+                                  "path": "../config/source",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "config container for MLD static-mapping configurations",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "group-ranges-acl": {
+                                      "description": "Use this attribute to specify SSM Static Access List",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "source": {
+                                      "description": "Use this attribute to specify the static mcast source for SSM mapping. SSM mapping statically assigns sources to MLDv1 groups to translate such (star G) groups memberships to (S,G) memberships for use with PIM-SSM. This attribute applies to interfaces configured for MLD Layer-3 multicast protocols and MLD Proxy.",
+                                      "readOnly": false,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "state container for MLD static-mapping configurations",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "group-ranges-acl": {
+                                      "description": "Use this attribute to specify SSM Static Access List",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "source": {
+                                      "description": "Use this attribute to specify the static mcast source for SSM mapping. SSM mapping statically assigns sources to MLDv1 groups to translate such (star G) groups memberships to (S,G) memberships for use with PIM-SSM. This attribute applies to interfaces configured for MLD Layer-3 multicast protocols and MLD Proxy.",
+                                      "readOnly": true,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "group-ranges-acl",
+                                "source"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "debug": {
+                    "description": "MLD Debug Configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "config container for MLD debug configurations",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "debug-options": {
+                            "description": "Use this attribute to enable mld debugging configurations",
+                            "readOnly": false,
+                            "type": "string",
+                            "bits": {
+                              "decode": "0",
+                              "encode": "1",
+                              "events": "2",
+                              "fsm": "3",
+                              "tib": "4"
+                            },
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "state container for MLD debug configurations",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "debug-options": {
+                            "description": "Use this attribute to enable mld debugging configurations",
+                            "readOnly": true,
+                            "type": "string",
+                            "bits": {
+                              "decode": "0",
+                              "encode": "1",
+                              "events": "2",
+                              "fsm": "3",
+                              "tib": "4"
+                            },
+                            "mandatory": false
+                          },
+                          "terminal-debug-status-on": {
+                            "description": "Use this attribute to display mld terminal debug options enabled",
+                            "readOnly": true,
+                            "type": "string",
+                            "bits": {
+                              "decode": "0",
+                              "encode": "1",
+                              "events": "2",
+                              "fsm": "3",
+                              "tib": "4"
+                            },
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "vrf-name"
+                ]
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Top level container for interfaces, including configuration and state    data",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "The list of named interfaces on the device.",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The textual name of the interface. The value of this object should be the name of the interface as assigned by the local device and should be suitable for use in commands entered at the device's `console'. This might be a text name, such as `le0' or a simple port number, such as `1', depending on the interface naming syntax of the device. If several entries in the ifTable together represent a single interface as named by the device, then each will have the same value of name. Note that for an agent which responds to SNMP queries concerning an interface on some other (proxied) device, then the value of name for such an interface is the proxied device's local name for it. If there is no local name, or this object is otherwise not applicable, then this object contains a zero-length string.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configurable items at the global, physical interface level",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The textual name of the interface. The value of this object should be the name of the interface as assigned by the local device and should be suitable for use in commands entered at the device's `console'. This might be a text name, such as `le0' or a simple port number, such as `1', depending on the interface naming syntax of the device. If several entries in the ifTable together represent a single interface as named by the device, then each will have the same value of name . Note that for an agent which responds to SNMP queries concerning an interface on some other (proxied) device, then the value of name for such an interface is the proxied device's local name for it. If there is no local name, or this object is otherwise not applicable, then this object contains a zero-length string. To configure a subinterface, use the name of the base interface followed by a dot and a number in the range of 1-2000 (eg: xe1.1).",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 33,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable-switchport": {
+                        "description": "This attribute is used to set the mode of the Hybrid Switch Router feature to switched only.All interfaces are configured routed by default",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "vrf-name": {
+                        "description": "This attribute is used to associates an interface with a VRF",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "vr-name": {
+                        "description": "This attribute is used to associates an interface with a VR",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "type": {
+                        "description": "The type of the interface. When an interface entry is created, a server MAY initialize the type leaf with a valid value, e.g., if it is possible to derive the type from the name of the interface.",
+                        "readOnly": false,
+                        "enum": [
+                          "other",
+                          "regular1822",
+                          "hdh1822",
+                          "ddnX25",
+                          "rfc877x25",
+                          "ethernetCsmacd"
+                        ],
+                        "mandatory": false
+                      },
+                      "mtu": {
+                        "description": "This attribute is used to set mtu value to interface.The size of the largest packet which can be sent/received on the interface, specified in octets. For interfaces that are used for transmitting network datagrams, this is the size of the largest network datagram that can be sent on the interface.",
+                        "readOnly": false,
+                        "minimum": 64,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "dot1ad-ether-type": {
+                        "description": "This attribute is used to configure the ethertype value for the interface in the format 0xhhhh. Currently supported values are 0x8100 (default) or 0x88a8 or 0x9100 or 0x9200.",
+                        "readOnly": false,
+                        "minLength": 0,
+                        "maxLength": 6,
+                        "pattern": "0[xX][0-9a-fA-F]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "domain-fastflush-config": {
+                        "description": "Attribute to change domain fastflush value",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "protected-port": {
+                        "description": "Attribute to change port protectedtype value",
+                        "readOnly": false,
+                        "enum": [
+                          "community",
+                          "isolated",
+                          "promiscuous"
+                        ],
+                        "mandatory": false
+                      },
+                      "bridge-domain-forward": {
+                        "description": "Attribute to change domain forward value",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Use this attribute to set description for the interface",
+                        "readOnly": false,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "shutdown": {
+                        "description": "Use this attribute to enable the selected interface. This leaf contains the configured, desired state of the interface. The testing(3) state indicates that no operational packets can be passed. When a managed system initializes, all interfaces start with ifAdminStatus in the down(2) state. As a result of either explicit management action or per configuration information retained by the managed system, ifAdminStatus is then changed to either the up(1) or testing(3) states (or remains in the down(2) state).",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data at the global interface level",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The textual name of the interface. The value of this object should be the name of the interface as assigned by the local device and should be suitable for use in commands entered at the device's `console'. This might be a text name, such as `le0' or a simple port number, such as `1', depending on the interface naming syntax of the device. If several entries in the ifTable together represent a single interface as named by the device, then each will have the same value of name . Note that for an agent which responds to SNMP queries concerning an interface on some other (proxied) device, then the value of name for such an interface is the proxied device's local name for it. If there is no local name, or this object is otherwise not applicable, then this object contains a zero-length string. To configure a subinterface, use the name of the base interface followed by a dot and a number in the range of 1-2000 (eg: xe1.1).",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 33,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable-switchport": {
+                        "description": "This attribute is used to set the mode of the Hybrid Switch Router feature to switched only.All interfaces are configured routed by default",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "vrf-name": {
+                        "description": "This attribute is used to associates an interface with a VRF",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "vr-name": {
+                        "description": "This attribute is used to associates an interface with a VR",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "type": {
+                        "description": "The type of the interface. When an interface entry is created, a server MAY initialize the type leaf with a valid value, e.g., if it is possible to derive the type from the name of the interface.",
+                        "readOnly": true,
+                        "enum": [
+                          "other",
+                          "regular1822",
+                          "hdh1822",
+                          "ddnX25",
+                          "rfc877x25",
+                          "ethernetCsmacd"
+                        ],
+                        "mandatory": false
+                      },
+                      "mtu": {
+                        "description": "This attribute is used to set mtu value to interface.The size of the largest packet which can be sent/received on the interface, specified in octets. For interfaces that are used for transmitting network datagrams, this is the size of the largest network datagram that can be sent on the interface.",
+                        "readOnly": true,
+                        "minimum": 64,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "dot1ad-ether-type": {
+                        "description": "This attribute is used to configure the ethertype value for the interface in the format 0xhhhh. Currently supported values are 0x8100 (default) or 0x88a8 or 0x9100 or 0x9200.",
+                        "readOnly": true,
+                        "minLength": 0,
+                        "maxLength": 6,
+                        "pattern": "0[xX][0-9a-fA-F]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "domain-fastflush-config": {
+                        "description": "Attribute to change domain fastflush value",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "protected-port": {
+                        "description": "Attribute to change port protectedtype value",
+                        "readOnly": true,
+                        "enum": [
+                          "community",
+                          "isolated",
+                          "promiscuous"
+                        ],
+                        "mandatory": false
+                      },
+                      "bridge-domain-forward": {
+                        "description": "Attribute to change domain forward value",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Use this attribute to set description for the interface",
+                        "readOnly": true,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "shutdown": {
+                        "description": "Use this attribute to enable the selected interface. This leaf contains the configured, desired state of the interface. The testing(3) state indicates that no operational packets can be passed. When a managed system initializes, all interfaces start with ifAdminStatus in the down(2) state. As a result of either explicit management action or per configuration information retained by the managed system, ifAdminStatus is then changed to either the up(1) or testing(3) states (or remains in the down(2) state).",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "ifindex": {
+                        "description": "System assigned number for each interface. A unique value, greater than zero, for each interface.It is recommended that values are assigned contiguously starting from 1.The value for each interface sub-layer must remain constant at least from one re-initialization of the entity's network management system to the next re-initialization.",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "admin-status": {
+                        "description": "The desired state of the interface. It reflects the administrative state as set by enabling or disabling the interface.",
+                        "readOnly": true,
+                        "enum": [
+                          "up",
+                          "down",
+                          "testing"
+                        ],
+                        "mandatory": false
+                      },
+                      "oper-status": {
+                        "description": "The current operational state of the interface. The testing(3) state indicates that no operational packets can be passed. If admin-status is down(2) then oper-status should be down(2). If admin-status is changed to up(1) then oper-status should change to up(1) if the interface is ready to transmit and receive network traffic; it should change to dormant(5) if the interface is waiting for external actions (such as a serial line waiting for an incoming connection); it should remain in the down(2) state if and only if there is a fault that prevents it from going to the up(1) state; it should remain in the notPresent(6) state if the interface has missing (typically, hardware) components.",
+                        "readOnly": true,
+                        "enum": [
+                          "up",
+                          "down",
+                          "testing",
+                          "unknown",
+                          "dormant",
+                          "notPresent",
+                          "lowerLayerDown"
+                        ],
+                        "mandatory": false
+                      },
+                      "last-change": {
+                        "description": "The value of sysUpTime at the time the interface entered its current operational state.If the current state was entered prior to the last re-initialization of the local network management subsystem then this object contains a zero value",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "logical": {
+                        "description": "When set to true, the interface is a logical interface which does not have an associated physical port or channel on the system",
+                        "readOnly": true,
+                        "type": "boolean",
+                        "mandatory": false
+                      },
+                      "counters": {
+                        "description": "A collection of interface-related statistics objects",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "in-octets": {
+                            "description": "The total number of octets received on the interface, including framing characters. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "in-pkts": {
+                            "description": "The total number of packets received on the interface, including all unicast, multicast, broadcast and bad packets etc.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "in-unicast-pkts": {
+                            "description": "The number of packets, delivered by this sub-layer to a higher (sub-)layer, which were not addressed to a multicast or broadcast address at this sub-layer. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "in-broadcast-pkts": {
+                            "description": "The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were addressed to a broadcast address at this sub-layer. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "in-multicast-pkts": {
+                            "description": "The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were addressed to a multicast address at this sub-layer. For a MAC-layer protocol, this includes both Group and Functional addresses. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "in-discards": {
+                            "description": "The number of inbound packets that were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher-layer protocol. One possible reason for discarding such a packet could be to free up buffer space. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "in-errors": {
+                            "description": "For packet-oriented interfaces, the number of inbound packets that contained errors preventing them from being deliverable to a higher-layer protocol. For character- oriented or fixed-length interfaces, the number of inbound transmission units that contained errors preventing them from being deliverable to a higher-layer protocol. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "in-fcs-errors": {
+                            "description": "Number of received packets which had errors in the frame check sequence (FCS), i.e., framing errors. Discontinuities in the value of this counter can occur when the device is re-initialization as indicated by the value of 'last-clear'.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "out-octets": {
+                            "description": "The total number of octets transmitted out of the interface, including framing characters. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "out-pkts": {
+                            "description": "The total number of packets transmitted out of the interface, including all unicast, multicast, broadcast, and bad packets etc.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "out-unicast-pkts": {
+                            "description": "The total number of packets that higher-level protocols requested be transmitted, and which were not addressed to a multicast or broadcast address at this sub-layer, including those that were discarded or not sent. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "out-broadcast-pkts": {
+                            "description": "The total number of packets that higher-level protocols requested be transmitted, and that were addressed to a broadcast address at this sub-layer, including those that were discarded or not sent. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "out-multicast-pkts": {
+                            "description": "The total number of packets that higher-level protocols requested be transmitted, and which were addressed to a multicast address at this sub-layer, including those that were discarded or not sent. For a MAC layer protocol, this includes both Group and Functional addresses. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "out-discards": {
+                            "description": "The number of outbound packets that were chosen to be discarded even though no errors had been detected to prevent their being transmitted. One possible reason for discarding such a packet could be to free up buffer space. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "out-errors": {
+                            "description": "For packet-oriented interfaces, the number of outbound packets that could not be transmitted because of errors. For character-oriented or fixed-length interfaces, the number of outbound transmission units that could not be transmitted because of errors. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "last-clear": {
+                            "description": "This Object describes the last counter clear",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "interface-loopback": {
+                    "description": "Configurable items at the global, physical interface level",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Operational state data at the global interface level",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "if-loopback": {
+                            "description": "This attribute is used to enable port loopback",
+                            "readOnly": false,
+                            "enum": [
+                              "tx",
+                              "rx"
+                            ],
+                            "mandatory": true
+                          },
+                          "if-loopback-level": {
+                            "description": "This attribute is used to enable port loopback",
+                            "readOnly": false,
+                            "enum": [
+                              "mac",
+                              "phy"
+                            ],
+                            "mandatory": true
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data at the global interface level",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "if-loopback": {
+                            "description": "This attribute is used to enable port loopback",
+                            "readOnly": true,
+                            "enum": [
+                              "tx",
+                              "rx"
+                            ],
+                            "mandatory": true
+                          },
+                          "if-loopback-level": {
+                            "description": "This attribute is used to enable port loopback",
+                            "readOnly": true,
+                            "enum": [
+                              "mac",
+                              "phy"
+                            ],
+                            "mandatory": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "group-membership-tree": {
+          "description": "Group Membership Tree Container",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "mld-instances": {
+              "description": "MLD Instances",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "mld-instance": {
+                  "description": "MLD Instance",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF name",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "interfaces": {
+                        "description": "MLD Interfaces related operations",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "interface": {
+                            "description": "MLD Interace Instance",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "if-name": {
+                                  "description": "Interface name",
+                                  "readOnly": true,
+                                  "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "member-groups": {
+                                  "description": "MLD Member-Groups",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "member-group": {
+                                      "description": "List of member-group instances",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "group-address": {
+                                            "description": "Multicast group address joined",
+                                            "readOnly": true,
+                                            "path": "../state/group-address",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "state": {
+                                            "description": "State container for MLD member-groups",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "group-address": {
+                                                "description": "Multicast group address joined",
+                                                "readOnly": true,
+                                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "dynamic-remote": {
+                                                "description": "Indicates that this multicast source is learnt dynamically",
+                                                "readOnly": true,
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "null"
+                                                },
+                                                "maxItems": 1,
+                                                "mandatory": false
+                                              },
+                                              "static-group": {
+                                                "description": "Presence of this attribute indicates a statically configured multicast group",
+                                                "readOnly": true,
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "null"
+                                                },
+                                                "maxItems": 1,
+                                                "mandatory": false
+                                              },
+                                              "ssm-mapped": {
+                                                "description": "Presence of this attribute indicates a SSM mapped group",
+                                                "readOnly": true,
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "null"
+                                                },
+                                                "maxItems": 1,
+                                                "mandatory": false
+                                              },
+                                              "static-source": {
+                                                "description": "Presence of this attribute indicates a statically configured multicast source",
+                                                "readOnly": true,
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "null"
+                                                },
+                                                "maxItems": 1,
+                                                "mandatory": false
+                                              },
+                                              "up-time": {
+                                                "description": "Indicates the up-time for group membership",
+                                                "readOnly": true,
+                                                "minLength": 1,
+                                                "maxLength": 1965,
+                                                "pattern": "((([0-1]?[0-9])|(2[0-3])):[0-5][0-9]:[0-5][0-9])|([0-9]+d(([0-1][0-9])|(2[0-3]))h[0-5][0-9]m)",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "group-mode": {
+                                                "description": "Indicates the SSM group mode as include or exclude",
+                                                "readOnly": true,
+                                                "enum": [
+                                                  "Invalid",
+                                                  "Include",
+                                                  "Exclude",
+                                                  "Max"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "expiry": {
+                                                "description": "Indicates the expiry time for group membership",
+                                                "readOnly": true,
+                                                "minLength": 1,
+                                                "maxLength": 1965,
+                                                "pattern": "[^?' =,>|]+",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "last-reporter": {
+                                                "description": "Indicates the last reporter for this group",
+                                                "readOnly": true,
+                                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                "type": "string",
+                                                "mandatory": false
+                                              }
+                                            }
+                                          },
+                                          "include-sources": {
+                                            "description": "Include-sources for MLD member-groups",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "include-source": {
+                                                "description": "List of include sources for the group",
+                                                "readOnly": true,
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "source-address": {
+                                                      "description": "Multicast source address for the group",
+                                                      "readOnly": true,
+                                                      "path": "../state/source-address",
+                                                      "type": "string",
+                                                      "mandatory": false
+                                                    },
+                                                    "state": {
+                                                      "description": "State container for include-source instance",
+                                                      "readOnly": true,
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "source-address": {
+                                                          "description": "Multicast source address for the group",
+                                                          "readOnly": true,
+                                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                          "type": "string",
+                                                          "mandatory": false
+                                                        },
+                                                        "dynamic-remote": {
+                                                          "description": "Indicates that this multicast source is learnt dynamically",
+                                                          "readOnly": true,
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "null"
+                                                          },
+                                                          "maxItems": 1,
+                                                          "mandatory": false
+                                                        },
+                                                        "static-source": {
+                                                          "description": "Indicates that this multicast source is configured statically",
+                                                          "readOnly": true,
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "null"
+                                                          },
+                                                          "maxItems": 1,
+                                                          "mandatory": false
+                                                        },
+                                                        "ssm-mapped": {
+                                                          "description": "Presence of this attribute indicates a SSM mapped group",
+                                                          "readOnly": true,
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "null"
+                                                          },
+                                                          "maxItems": 1,
+                                                          "mandatory": false
+                                                        },
+                                                        "up-time": {
+                                                          "description": "Indicates the up-time for group membership with this multicast source",
+                                                          "readOnly": true,
+                                                          "minLength": 1,
+                                                          "maxLength": 1965,
+                                                          "pattern": "((([0-1]?[0-9])|(2[0-3])):[0-5][0-9]:[0-5][0-9])|([0-9]+d(([0-1][0-9])|(2[0-3]))h[0-5][0-9]m)",
+                                                          "type": "string",
+                                                          "mandatory": false
+                                                        },
+                                                        "expiry": {
+                                                          "description": "Indicates the expiry time for group membership",
+                                                          "readOnly": true,
+                                                          "minLength": 1,
+                                                          "maxLength": 1965,
+                                                          "pattern": "[^?' =,>|]+",
+                                                          "type": "string",
+                                                          "mandatory": false
+                                                        },
+                                                        "is-forwarded": {
+                                                          "description": "Indicates if traffic from this source-group is forwarded upstream",
+                                                          "readOnly": true,
+                                                          "enum": [
+                                                            "no",
+                                                            "yes"
+                                                          ],
+                                                          "mandatory": false
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "keyFields": [
+                                                    "source-address"
+                                                  ]
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "exclude-sources": {
+                                            "description": "Exclude-sources for MLD member-groups",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "exclude-source": {
+                                                "description": "List of exclude sources for the group",
+                                                "readOnly": true,
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "source-address": {
+                                                      "description": "Multicast source address for the group",
+                                                      "readOnly": true,
+                                                      "path": "../state/source-address",
+                                                      "type": "string",
+                                                      "mandatory": false
+                                                    },
+                                                    "state": {
+                                                      "description": "State container for exclude-source instance",
+                                                      "readOnly": true,
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "source-address": {
+                                                          "description": "Multicast source address for the group",
+                                                          "readOnly": true,
+                                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                          "type": "string",
+                                                          "mandatory": false
+                                                        },
+                                                        "dynamic-remote": {
+                                                          "description": "Indicates that this multicast source is learnt dynamically",
+                                                          "readOnly": true,
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "null"
+                                                          },
+                                                          "maxItems": 1,
+                                                          "mandatory": false
+                                                        },
+                                                        "static-source": {
+                                                          "description": "Indicates that this multicast source is configured statically",
+                                                          "readOnly": true,
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "null"
+                                                          },
+                                                          "maxItems": 1,
+                                                          "mandatory": false
+                                                        },
+                                                        "ssm-mapped": {
+                                                          "description": "Presence of this attribute indicates a SSM mapped group",
+                                                          "readOnly": true,
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "null"
+                                                          },
+                                                          "maxItems": 1,
+                                                          "mandatory": false
+                                                        },
+                                                        "up-time": {
+                                                          "description": "Indicates the up-time for group membership with this multicast source",
+                                                          "readOnly": true,
+                                                          "minLength": 1,
+                                                          "maxLength": 1965,
+                                                          "pattern": "((([0-1]?[0-9])|(2[0-3])):[0-5][0-9]:[0-5][0-9])|([0-9]+d(([0-1][0-9])|(2[0-3]))h[0-5][0-9]m)",
+                                                          "type": "string",
+                                                          "mandatory": false
+                                                        },
+                                                        "expiry": {
+                                                          "description": "Indicates the expiry time for group membership",
+                                                          "readOnly": true,
+                                                          "minLength": 1,
+                                                          "maxLength": 1965,
+                                                          "pattern": "[^?' =,>|]+",
+                                                          "type": "string",
+                                                          "mandatory": false
+                                                        },
+                                                        "is-forwarded": {
+                                                          "description": "Indicates if traffic from this source-group is forwarded upstream",
+                                                          "readOnly": true,
+                                                          "enum": [
+                                                            "no",
+                                                            "yes"
+                                                          ],
+                                                          "mandatory": false
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "keyFields": [
+                                                    "source-address"
+                                                  ]
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "keyFields": [
+                                          "group-address"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                },
+                                "proxy-groups": {
+                                  "description": "MLD proxy-groups",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "proxy-group": {
+                                      "description": "List of MLD proxy group memberships on the interface",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "group-address": {
+                                            "description": "Multicast group address joined",
+                                            "readOnly": true,
+                                            "path": "../state/group-address",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "state": {
+                                            "description": "State container for proxy-group instance",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "group-address": {
+                                                "description": "Multicast group address joined",
+                                                "readOnly": true,
+                                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "proxy-interface": {
+                                                "description": "Indicates the upstream proxy interface",
+                                                "readOnly": true,
+                                                "minLength": 1,
+                                                "maxLength": 1965,
+                                                "pattern": "[^?' =,>|]+",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "group-mode": {
+                                                "description": "Indicates the SSM group mode as include or exclude",
+                                                "readOnly": true,
+                                                "enum": [
+                                                  "Invalid",
+                                                  "Include",
+                                                  "Exclude",
+                                                  "Max"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "oper-state": {
+                                                "description": "State of the proxy interface",
+                                                "readOnly": true,
+                                                "enum": [
+                                                  "Active",
+                                                  "Inactive"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "membership-state": {
+                                                "description": "Indicates the group-membership state",
+                                                "readOnly": true,
+                                                "enum": [
+                                                  "Idle",
+                                                  "Delay"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "multicast-sources": {
+                                                "description": "List of multicast sources for this group membership.",
+                                                "readOnly": true,
+                                                "type": "array",
+                                                "items": {
+                                                  "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                  "type": "string",
+                                                  "mandatory": false
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "keyFields": [
+                                          "group-address"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "if-name"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "vrf-name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

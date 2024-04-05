@@ -1,0 +1,346 @@
+{
+  "title": "ipi-source-interface",
+  "description": "Source Interface Rules",
+  "type": "object",
+  "properties": {
+    "ipi-source-interface:source-interface": {
+      "description": "Source Interface Rules",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "address-family-ipv4": {
+          "description": "Source Interface Address Family IPv4",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "source-nat-mappings": {
+              "description": "Source NAT Mappings",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "source-nat-mapping": {
+                  "description": "Source NAT Mapping",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "interface-name": {
+                        "description": "Interface name",
+                        "readOnly": false,
+                        "path": "../config/interface-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "protocol-type": {
+                        "description": "Protocol type to apply the source-interface.",
+                        "readOnly": false,
+                        "path": "../config/protocol-type",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data for Source Interface Address Family Source NAT    Mapping",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "interface-name": {
+                            "description": "Interface name",
+                            "readOnly": false,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "protocol-type": {
+                            "description": "Protocol type to apply the source-interface.",
+                            "readOnly": false,
+                            "enum": [
+                              "tacacs+",
+                              "ntp",
+                              "snmp",
+                              "syslog",
+                              "radius"
+                            ],
+                            "mandatory": false
+                          },
+                          "port-number": {
+                            "description": "Protocol port number to apply the source-interface.",
+                            "readOnly": false,
+                            "oneOf": [
+                              {
+                                "enum": [
+                                  "0"
+                                ]
+                              },
+                              {
+                                "minimum": 1025,
+                                "maximum": 65535,
+                                "type": "number"
+                              }
+                            ],
+                            "mandatory": true
+                          },
+                          "vrf-name": {
+                            "description": "VRF to apply the source-interface.",
+                            "readOnly": false,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                            "type": "string",
+                            "mandatory": true
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for Source Interface Address Family Source NAT    Mapping",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "interface-name": {
+                            "description": "Interface name",
+                            "readOnly": true,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "protocol-type": {
+                            "description": "Protocol type to apply the source-interface.",
+                            "readOnly": true,
+                            "enum": [
+                              "tacacs+",
+                              "ntp",
+                              "snmp",
+                              "syslog",
+                              "radius"
+                            ],
+                            "mandatory": false
+                          },
+                          "port-number": {
+                            "description": "Protocol port number to apply the source-interface.",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "enum": [
+                                  "0"
+                                ]
+                              },
+                              {
+                                "minimum": 1025,
+                                "maximum": 65535,
+                                "type": "number"
+                              }
+                            ],
+                            "mandatory": true
+                          },
+                          "vrf-name": {
+                            "description": "VRF to apply the source-interface.",
+                            "readOnly": true,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                            "type": "string",
+                            "mandatory": true
+                          },
+                          "address": {
+                            "description": "Source Interface Address",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "status": {
+                            "description": "Source Iterface Address",
+                            "readOnly": true,
+                            "enum": [
+                              "Inactive",
+                              "Active"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "interface-name",
+                      "protocol-type"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "address-family-ipv6": {
+          "description": "Source Interface Address Family IPv6",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "source-nat-mappings": {
+              "description": "Source NAT Mappings",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "source-nat-mapping": {
+                  "description": "Source NAT Mapping",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "interface-name": {
+                        "description": "Interface name",
+                        "readOnly": false,
+                        "path": "../config/interface-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "protocol-type": {
+                        "description": "Protocol type to apply the source-interface.",
+                        "readOnly": false,
+                        "path": "../config/protocol-type",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data for Source Interface Address Family Source NAT    Mapping",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "interface-name": {
+                            "description": "Interface name",
+                            "readOnly": false,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "protocol-type": {
+                            "description": "Protocol type to apply the source-interface.",
+                            "readOnly": false,
+                            "enum": [
+                              "tacacs+",
+                              "ntp",
+                              "snmp",
+                              "syslog",
+                              "radius"
+                            ],
+                            "mandatory": false
+                          },
+                          "port-number": {
+                            "description": "Protocol port number to apply the source-interface.",
+                            "readOnly": false,
+                            "oneOf": [
+                              {
+                                "enum": [
+                                  "0"
+                                ]
+                              },
+                              {
+                                "minimum": 1025,
+                                "maximum": 65535,
+                                "type": "number"
+                              }
+                            ],
+                            "mandatory": true
+                          },
+                          "vrf-name": {
+                            "description": "VRF to apply the source-interface.",
+                            "readOnly": false,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                            "type": "string",
+                            "mandatory": true
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for Source Interface Address Family Source NAT    Mapping",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "interface-name": {
+                            "description": "Interface name",
+                            "readOnly": true,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "protocol-type": {
+                            "description": "Protocol type to apply the source-interface.",
+                            "readOnly": true,
+                            "enum": [
+                              "tacacs+",
+                              "ntp",
+                              "snmp",
+                              "syslog",
+                              "radius"
+                            ],
+                            "mandatory": false
+                          },
+                          "port-number": {
+                            "description": "Protocol port number to apply the source-interface.",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "enum": [
+                                  "0"
+                                ]
+                              },
+                              {
+                                "minimum": 1025,
+                                "maximum": 65535,
+                                "type": "number"
+                              }
+                            ],
+                            "mandatory": true
+                          },
+                          "vrf-name": {
+                            "description": "VRF to apply the source-interface.",
+                            "readOnly": true,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                            "type": "string",
+                            "mandatory": true
+                          },
+                          "address": {
+                            "description": "Source Interface Address",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "status": {
+                            "description": "Source Iterface Address",
+                            "readOnly": true,
+                            "enum": [
+                              "Inactive",
+                              "Active"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "interface-name",
+                      "protocol-type"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+.mainContent{
+  margin-left: 1.5%;
+  width: 97%;
+  height: 81vh;
+}
+.settingspopup{
+    margin-top: 2%;
+    margin-bottom:2%;
+    margin-left:50%;
+    width: 20%;
+    height: 22%;
+    background: #ffffff;
+    box-shadow: 0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    position: absolute;
+    z-index: 1;
+    }
+    .highlighted {
+        background-color: yellow;
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+        display: inline;
+      }
+      .highlighted-content {
+        margin: 30px 0;
+      }
+      .PopUpConfigDetails {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #333;
+        border: 1px solid #ccc;
+        padding: 10px;
+        background-color: white;
+      }
+      .closeConfigPopup {
+        position: fixed;
+        top: 29%;
+        right: 5%;
+        border: none;
+        padding: 0;
+        width: 2em;
+        height: 2em;
+        border-radius: 50%;
+        background: transparent;
+        color: #1da1f2;
+        font: inherit;
+        text-indent: 100%;
+        
+        &:focus {
+          outline: solid 0 transparent;
+          box-shadow: 0 0 0 2px #8ed0f9
+        }
+        
+        &:hover {
+          background: rgba(29, 161, 142, .1)
+        }
+        
+        &:before, &:after {
+          position: absolute;
+          top: 15%; 
+          left: calc(50% - .0625em);
+          width: .125em; 
+          height: 70%;
+          border-radius: .125em;
+          transform: rotate(45deg);
+          background: currentcolor;
+          content: '';
+        }
+        
+        &:after { 
+          transform: rotate(-45deg);
+        }
+      }
+      

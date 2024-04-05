@@ -1,0 +1,791 @@
+{
+  "title": "ipi-port-mirror",
+  "description": "This module provides Port Mirroring configuration",
+  "type": "object",
+  "properties": {
+    "ipi-port-mirror:port-mirror": {
+      "description": "Container for all port-mirror configuration",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "sessions": {
+          "description": "All port-mirror sessions configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "session": {
+              "description": "port-mirror session list",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "Port mirror session index",
+                    "readOnly": false,
+                    "path": "../config/id",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for port-mirror session",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "description": "Port mirror session index",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 18,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "type": {
+                        "description": "Port mirror session type. The default is local",
+                        "readOnly": false,
+                        "enum": [
+                          "local",
+                          "remote"
+                        ],
+                        "mandatory": true
+                      },
+                      "enabled": {
+                        "description": "Use this attribute to shut/unshut a port-mirror session",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Use this attribute to add a description to port-mirror session",
+                        "readOnly": false,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "source-vlan": {
+                        "description": null,
+                        "readOnly": false,
+                        "pattern": "[^?'=>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for port-mirror session",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "counters": {
+                        "description": "port-mirror session counters",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "filter-count": {
+                            "description": "Port mirror session filter count",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "tx-source-count": {
+                            "description": "Port mirror session tx source count",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "id": {
+                        "description": "Port mirror session index",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 18,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "type": {
+                        "description": "Port mirror session type. The default is local",
+                        "readOnly": true,
+                        "enum": [
+                          "local",
+                          "remote"
+                        ],
+                        "mandatory": true
+                      },
+                      "enabled": {
+                        "description": "Use this attribute to shut/unshut a port-mirror session",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Use this attribute to add a description to port-mirror session",
+                        "readOnly": true,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "source-vlan": {
+                        "description": null,
+                        "readOnly": true,
+                        "pattern": "[^?'=>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "destination": {
+                    "description": "Port mirror session destination configuration",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "local": {
+                        "description": "Port mirror destination local configuration",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration data for port mirror local",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "interface-name": {
+                                "description": "Use this attribute to configure port mirror local interface",
+                                "readOnly": false,
+                                "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational state data for port mirror local",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "interface-name": {
+                                "description": "Use this attribute to configure port mirror local interface",
+                                "readOnly": true,
+                                "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "remote": {
+                        "description": "Port mirror destination remote configuration",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration data for port-mirror remote",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "vlan-id": {
+                                "description": "Use this attribute to configure port mirror remote vlan-id",
+                                "readOnly": false,
+                                "minimum": 2,
+                                "maximum": 4094,
+                                "type": "number",
+                                "mandatory": true
+                              },
+                              "reflector-interface-name": {
+                                "description": "Use this attribute to configure port mirror remote reflector interface",
+                                "readOnly": false,
+                                "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                "type": "string",
+                                "mandatory": true
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational state data for port-mirror remote",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "vlan-id": {
+                                "description": "Use this attribute to configure port mirror remote vlan-id",
+                                "readOnly": true,
+                                "minimum": 2,
+                                "maximum": 4094,
+                                "type": "number",
+                                "mandatory": true
+                              },
+                              "reflector-interface-name": {
+                                "description": "Use this attribute to configure port mirror remote reflector interface",
+                                "readOnly": true,
+                                "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                "type": "string",
+                                "mandatory": true
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "source-interfaces": {
+                    "description": "Port mirror source interfaces",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "source-interface": {
+                        "description": "Port mirror source interface",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "description": "Source interface name",
+                              "readOnly": false,
+                              "path": "../config/name",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data for port mirror source interface",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "description": "Source interface name",
+                                  "readOnly": false,
+                                  "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "direction": {
+                                  "description": "Source interface direction",
+                                  "readOnly": false,
+                                  "type": "string",
+                                  "bits": {
+                                    "rx": "0",
+                                    "tx": "1"
+                                  },
+                                  "mandatory": true
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data for port mirror source interface",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "description": "Source interface name",
+                                  "readOnly": true,
+                                  "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "direction": {
+                                  "description": "Source interface direction",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "bits": {
+                                    "rx": "0",
+                                    "tx": "1"
+                                  },
+                                  "mandatory": true
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "name"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "session-filters": {
+                    "description": "Port mirror filters configuration",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "session-filter": {
+                        "description": "Port mirror filter list",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "seq-id": {
+                              "description": "The sequence id determines the order in which ACL entries are applied. The sequence id must be unique for each entry in an filter set.",
+                              "readOnly": false,
+                              "path": "../config/seq-id",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data for port mirror filter",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "seq-id": {
+                                  "description": "The sequence id determines the order in which ACL entries are applied. The sequence id must be unique for each entry in an filter set.",
+                                  "readOnly": false,
+                                  "minimum": 1,
+                                  "maximum": 4294967295,
+                                  "type": "number",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data for port mirror filter",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "seq-id": {
+                                  "description": "The sequence id determines the order in which ACL entries are applied. The sequence id must be unique for each entry in an filter set.",
+                                  "readOnly": true,
+                                  "minimum": 1,
+                                  "maximum": 4294967295,
+                                  "type": "number",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "filters": {
+                              "description": "Port mirror filters configuration",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "config": {
+                                  "description": "Configuration data for",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "oneOf": [
+                                    {
+                                      "title": "host-mac",
+                                      "properties": {
+                                        "source-mac-address-host": {
+                                          "description": "Use this attribute to set host source MAC address.",
+                                          "readOnly": false,
+                                          "pattern": "[0-9A-F]{4}\\.[0-9A-F]{4}\\.[0-9A-F]{4}",
+                                          "type": "string",
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "title": "mac-with-mask",
+                                      "properties": {
+                                        "source-mac-address": {
+                                          "description": "Use this attribute to set source MAC address.",
+                                          "readOnly": false,
+                                          "pattern": "[0-9A-F]{4}\\.[0-9A-F]{4}\\.[0-9A-F]{4}",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "source-mac-mask": {
+                                          "description": "Use this attribute to set source MAC mask address.",
+                                          "readOnly": false,
+                                          "pattern": "[0-9A-F]{4}\\.[0-9A-F]{4}\\.[0-9A-F]{4}",
+                                          "type": "string",
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  ],
+                                  "properties": {
+                                    "frame-type": {
+                                      "description": "Use this attribute to set ethertype.",
+                                      "readOnly": false,
+                                      "oneOf": [
+                                        {
+                                          "enum": [
+                                            "ipv4",
+                                            "arp",
+                                            "ipv6"
+                                          ]
+                                        },
+                                        {
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "arp-type": {
+                                      "description": "Use this attribute to set ARP packet type.",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "req",
+                                        "resp"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "sender-ip-address": {
+                                      "description": "Use this attribute to set sender IP Address.",
+                                      "readOnly": false,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "target-ip-address": {
+                                      "description": "Use this attribute to set target IP Address.",
+                                      "readOnly": false,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "cos": {
+                                      "description": "Use this attribute to set cos.",
+                                      "readOnly": false,
+                                      "minimum": 0,
+                                      "maximum": 7,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "vlan": {
+                                      "description": "Use this attribute to set VLAN.",
+                                      "readOnly": false,
+                                      "pattern": "[^?'=>|]*",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "source-ipv4-address": {
+                                      "description": "Use this attribute to set source IPv4 address.",
+                                      "readOnly": false,
+                                      "oneOf": [
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "minLength": 0,
+                                          "maxLength": 18,
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "destination-ipv4-address": {
+                                      "description": "Use this attribute to set destination IPv4 address.",
+                                      "readOnly": false,
+                                      "oneOf": [
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "minLength": 0,
+                                          "maxLength": 18,
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "source-ipv6-address": {
+                                      "description": "Use this attribute to set source IPv6 address.",
+                                      "readOnly": false,
+                                      "minLength": 0,
+                                      "maxLength": 50,
+                                      "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "destination-ipv6-address": {
+                                      "description": "Use this attribute to set destination IPv6 address.",
+                                      "readOnly": false,
+                                      "minLength": 0,
+                                      "maxLength": 50,
+                                      "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational state data for",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "oneOf": [
+                                    {
+                                      "title": "host-mac",
+                                      "properties": {
+                                        "source-mac-address-host": {
+                                          "description": "Use this attribute to set host source MAC address.",
+                                          "readOnly": false,
+                                          "pattern": "[0-9A-F]{4}\\.[0-9A-F]{4}\\.[0-9A-F]{4}",
+                                          "type": "string",
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "title": "mac-with-mask",
+                                      "properties": {
+                                        "source-mac-address": {
+                                          "description": "Use this attribute to set source MAC address.",
+                                          "readOnly": false,
+                                          "pattern": "[0-9A-F]{4}\\.[0-9A-F]{4}\\.[0-9A-F]{4}",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "source-mac-mask": {
+                                          "description": "Use this attribute to set source MAC mask address.",
+                                          "readOnly": false,
+                                          "pattern": "[0-9A-F]{4}\\.[0-9A-F]{4}\\.[0-9A-F]{4}",
+                                          "type": "string",
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  ],
+                                  "properties": {
+                                    "frame-type": {
+                                      "description": "Use this attribute to set ethertype.",
+                                      "readOnly": true,
+                                      "oneOf": [
+                                        {
+                                          "enum": [
+                                            "ipv4",
+                                            "arp",
+                                            "ipv6"
+                                          ]
+                                        },
+                                        {
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "arp-type": {
+                                      "description": "Use this attribute to set ARP packet type.",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "req",
+                                        "resp"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "sender-ip-address": {
+                                      "description": "Use this attribute to set sender IP Address.",
+                                      "readOnly": true,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "target-ip-address": {
+                                      "description": "Use this attribute to set target IP Address.",
+                                      "readOnly": true,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "cos": {
+                                      "description": "Use this attribute to set cos.",
+                                      "readOnly": true,
+                                      "minimum": 0,
+                                      "maximum": 7,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "vlan": {
+                                      "description": "Use this attribute to set VLAN.",
+                                      "readOnly": true,
+                                      "pattern": "[^?'=>|]*",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "source-ipv4-address": {
+                                      "description": "Use this attribute to set source IPv4 address.",
+                                      "readOnly": true,
+                                      "oneOf": [
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "minLength": 0,
+                                          "maxLength": 18,
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "destination-ipv4-address": {
+                                      "description": "Use this attribute to set destination IPv4 address.",
+                                      "readOnly": true,
+                                      "oneOf": [
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "minLength": 0,
+                                          "maxLength": 18,
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "source-ipv6-address": {
+                                      "description": "Use this attribute to set source IPv6 address.",
+                                      "readOnly": true,
+                                      "minLength": 0,
+                                      "maxLength": 50,
+                                      "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "destination-ipv6-address": {
+                                      "description": "Use this attribute to set destination IPv6 address.",
+                                      "readOnly": true,
+                                      "minLength": 0,
+                                      "maxLength": 50,
+                                      "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "seq-id"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "id"
+                ]
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Port mirror interfaces configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "Port mirror interface list",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Use this attribute to specify the interface name that will be used for receive mirror packets.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "source-interface-name": {
+                    "description": "Use this attribute to specify the source interface name in port mirror.",
+                    "readOnly": false,
+                    "path": "../config/source-interface-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for port mirror interface",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Use this attribute to specify the interface name that will be used for receive mirror packets.",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "source-interface-name": {
+                        "description": "Use this attribute to specify the source interface name in port mirror.",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "direction": {
+                        "description": "Use this attribute to specify the direction in interface port mirror.",
+                        "readOnly": false,
+                        "enum": [
+                          "receive",
+                          "transmit",
+                          "both"
+                        ],
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for port mirror interface",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Use this attribute to specify the interface name that will be used for receive mirror packets.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "source-interface-name": {
+                        "description": "Use this attribute to specify the source interface name in port mirror.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "direction": {
+                        "description": "Use this attribute to specify the direction in interface port mirror.",
+                        "readOnly": true,
+                        "enum": [
+                          "receive",
+                          "transmit",
+                          "both"
+                        ],
+                        "mandatory": true
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name",
+                  "source-interface-name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

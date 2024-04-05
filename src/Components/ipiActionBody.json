@@ -1,0 +1,111 @@
+{
+    "connect":{
+        "unique_id":""
+    },
+    "disconnect":{
+        "unique_id":""
+    },
+    "save-config-as-template":{
+        "unique_id":"",
+        "template_name":""
+    },
+    "delete-config-template":{
+        "template_id":""
+    },
+    "save-version-manually":{
+        "unique_id":""
+    },
+    "delete-version":{
+        "unique_id":""
+    },
+    "apply-version":{
+        "unique_id":""
+    },
+    "unlock-config":{
+        "unique_id":""
+    },
+    "running-startup":{
+        "unique_id":""
+    },
+    "lock-config":{
+        "unique_id":""
+    },
+    "initiate-bulk-compliance":{
+        "unique_id_list" : [""]
+        },
+    "initiate-bulk-configuration":{
+        "unique_ids" : [""],
+        "template_id":""
+        },
+    "add-device":{
+        "device_name": "",
+        "ip_add": "",
+        "port": "",
+        "username": "",
+        "password": "",
+        "role": ""
+    },
+    "update-device":{
+        "device_name": "",
+        "ip_add": "",
+        "password": "",
+        "port": 830,
+        "username": "",
+        "role": ""
+    },
+    "remove-device":{
+        "device_id":""
+    },
+    "add-device-whitelist":{
+        "ip_add": "",
+        "site_name": "",
+        "cluster_name": "",
+        "device_type": "",
+        "coordinates": [
+            12.98161335005546,
+            77.58955860804846
+        ]
+    },
+    "update-device-whitelist":{
+        "site_name": "",
+        "cluster_name": "",
+        "device_type": "",
+        "coordinates": [
+            1223,
+            7732132
+        ]
+    },
+    "remove-device-whitelist":{
+        "device_id":""
+    },
+    "add-user":{
+        "first_name":"",
+        "last_name":"",
+        "email":"",
+        "password":"",
+        "role":"",
+        "login_user_id":""
+    },
+    "delete-user":{
+        "login_user_id":""
+    },
+    "update-user":{
+        "first_name":"",
+        "last_name":"",
+        "email":"",
+        "role":"",
+        "login_user_id":""
+    },
+    "reset-password":{
+        "email":"",
+        "old_password": "",
+        "new_password":"",
+        "confirm_password":"",
+        "request_type":""
+    },
+    "send-email":{
+        "email_id": "",
+        "subject": "",
+        "body": ""
+    }
+}

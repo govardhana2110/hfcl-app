@@ -1,0 +1,1494 @@
+{
+  "title": "ipi-macsec",
+  "description": "Data model for MACsec Module",
+  "type": "object",
+  "properties": {
+    "ipi-macsec:macsec": {
+      "description": "Top level container for macsec configurations",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "key-management-entities": {
+          "description": "Key Management Entity",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "key-management-entity": {
+              "description": "Key Management Entity list",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "kme-name": {
+                    "description": "Key management entity server profile name",
+                    "readOnly": false,
+                    "path": "../config/kme-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "KME server config parameters",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "kme-name": {
+                        "description": "Key management entity server name",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "sae-peer-name": {
+                        "description": "Secure application entity peer identifier, participating in MACsec operation",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 250,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "transport-protocol": {
+                        "description": "Transport protocol to communicate with KME",
+                        "readOnly": false,
+                        "enum": [
+                          "http",
+                          "https"
+                        ],
+                        "mandatory": false
+                      },
+                      "host-address": {
+                        "description": "The host address can be IPv4/IPv6 address or hostname",
+                        "readOnly": false,
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "port": {
+                        "description": "KME port to form URL",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "KME server operational parameters",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "kme-name": {
+                        "description": "Key management entity server name",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "sae-peer-name": {
+                        "description": "Secure application entity peer identifier, participating in MACsec operation",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 250,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "transport-protocol": {
+                        "description": "Transport protocol to communicate with KME",
+                        "readOnly": true,
+                        "enum": [
+                          "http",
+                          "https"
+                        ],
+                        "mandatory": false
+                      },
+                      "host-address": {
+                        "description": "The host address can be IPv4/IPv6 address or hostname",
+                        "readOnly": true,
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "port": {
+                        "description": "KME port to form URL",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "kme-name"
+                ]
+              },
+              "maxItems": 1
+            }
+          }
+        },
+        "quantum-key-distributions": {
+          "description": "quantum key distribution",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "quantum-key-distribution": {
+              "description": "quantum key distribution list",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "qkd-name": {
+                    "description": "quantum key distribution profile name",
+                    "readOnly": false,
+                    "path": "../config/qkd-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "QKD server configuration parameters",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "qkd-name": {
+                        "description": "quantum key distribution profile name",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "key-management-entity": {
+                        "description": "Reference to KME configuration",
+                        "readOnly": false,
+                        "path": "/macsec/key-management-entities/key-management-entity/kme-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "host-address": {
+                        "description": "The host address can be IPv4/IPv6 address or hostname",
+                        "readOnly": false,
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "port": {
+                        "description": "The port this server instance binds to",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "QKD server operational parameters",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "qkd-name": {
+                        "description": "quantum key distribution profile name",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "key-management-entity": {
+                        "description": "Reference to KME configuration",
+                        "readOnly": true,
+                        "path": "/macsec/key-management-entities/key-management-entity/kme-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "host-address": {
+                        "description": "The host address can be IPv4/IPv6 address or hostname",
+                        "readOnly": true,
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "port": {
+                        "description": "The port this server instance binds to",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "transport-security": {
+                    "description": "Server side certificates to be used in the TLS connection KaY server    and KaY neighbour",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Server side certificates to be used in the TLS connection KaY server    and KaY neighbour",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "server-certificate-name": {
+                            "description": "Server Certificate to be used while establishing secure connection with peer key-distribution proxy application",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 511,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "server-key-name": {
+                            "description": "Server key to be used while establishing secure connection with peer key-distribution proxy application",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 511,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Server side certificates to be used in the TLS connection KaY server    and KaY neighbour",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "server-certificate-name": {
+                            "description": "Server Certificate to be used while establishing secure connection with peer key-distribution proxy application",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 511,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "server-key-name": {
+                            "description": "Server key to be used while establishing secure connection with peer key-distribution proxy application",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 511,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "neighbour": {
+                    "description": "KaY server neighbour participating in MACsec operation",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "QKD server neighbour configuration parameters",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "host-address": {
+                            "description": "The host address can be IPv4/IPv6 address or hostname",
+                            "readOnly": false,
+                            "oneOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "port": {
+                            "description": "The port this server instance binds to",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "QKD server neighbour operational parameters",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "host-address": {
+                            "description": "The host address can be IPv4/IPv6 address or hostname",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "port": {
+                            "description": "The port this server instance binds to",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "qkd-name"
+                ]
+              },
+              "maxItems": 1
+            }
+          }
+        },
+        "security-entities": {
+          "description": "security entity",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "security-entity": {
+              "description": "security entity object list",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "secy-name": {
+                    "description": "Security entity name",
+                    "readOnly": false,
+                    "path": "../config/secy-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "security entity configuration",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "secy-name": {
+                        "description": "security entity profile name identifier in user readable string format",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "host-address": {
+                        "description": "Security entity (SecY) service binds to this address",
+                        "readOnly": false,
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "port": {
+                        "description": "Security entity (SecY) service binds to this port",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "kay-host-address": {
+                        "description": "KaY service binds to this address",
+                        "readOnly": false,
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "kay-port": {
+                        "description": "KaY service binds to this port",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "security-mode": {
+                        "description": "The security mode used by KaY",
+                        "readOnly": false,
+                        "enum": [
+                          "qkdc",
+                          "ccp"
+                        ],
+                        "mandatory": false
+                      },
+                      "security-mode-profile": {
+                        "description": "The security mode used profile used by KaY",
+                        "readOnly": false,
+                        "path": "/macsec/quantum-key-distributions/quantum-key-distribution/qkd-name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "security entity state",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "secy-name": {
+                        "description": "security entity profile name identifier in user readable string format",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "host-address": {
+                        "description": "Security entity (SecY) service binds to this address",
+                        "readOnly": true,
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "port": {
+                        "description": "Security entity (SecY) service binds to this port",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "kay-host-address": {
+                        "description": "KaY service binds to this address",
+                        "readOnly": true,
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          },
+                          {
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "kay-port": {
+                        "description": "KaY service binds to this port",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "security-mode": {
+                        "description": "The security mode used by KaY",
+                        "readOnly": true,
+                        "enum": [
+                          "qkdc",
+                          "ccp"
+                        ],
+                        "mandatory": false
+                      },
+                      "security-mode-profile": {
+                        "description": "The security mode used profile used by KaY",
+                        "readOnly": true,
+                        "path": "/macsec/quantum-key-distributions/quantum-key-distribution/qkd-name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "secy-name"
+                ]
+              },
+              "maxItems": 1
+            }
+          }
+        },
+        "connectivity-associations": {
+          "description": "Connectivity Association",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "connectivity-association": {
+              "description": "Connectivity Association List",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "ca-name": {
+                    "description": "Connectivity Association name",
+                    "readOnly": false,
+                    "path": "../config/ca-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Connectivity Association config parameters",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "ca-name": {
+                        "description": "Connectivity association profile name identifier in user readable string format",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mode": {
+                        "description": "Defines master/slave mode of this connectivity association",
+                        "readOnly": false,
+                        "enum": [
+                          "master",
+                          "slave"
+                        ],
+                        "mandatory": false
+                      },
+                      "ca-identifier": {
+                        "description": "Connectivity association identifier to match to peer router CA",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 127,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "key-renewal-duration": {
+                        "description": "Renew the encryption key periodically",
+                        "readOnly": false,
+                        "minimum": 5,
+                        "maximum": 600,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "cipher-suite": {
+                        "description": "Cipher suite for masec dataplane encryption / decryption",
+                        "readOnly": false,
+                        "enum": [
+                          "gcm-aes-128",
+                          "gcm-aes-256"
+                        ],
+                        "mandatory": false
+                      },
+                      "secy": {
+                        "description": "Security entity (SecY) profile",
+                        "readOnly": false,
+                        "path": "/macsec/security-entities/security-entity/secy-name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "State parameters of connectivity association",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "ca-name": {
+                        "description": "Connectivity association profile name identifier in user readable string format",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mode": {
+                        "description": "Defines master/slave mode of this connectivity association",
+                        "readOnly": true,
+                        "enum": [
+                          "master",
+                          "slave"
+                        ],
+                        "mandatory": false
+                      },
+                      "ca-identifier": {
+                        "description": "Connectivity association identifier to match to peer router CA",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 127,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "key-renewal-duration": {
+                        "description": "Renew the encryption key periodically",
+                        "readOnly": true,
+                        "minimum": 5,
+                        "maximum": 600,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "cipher-suite": {
+                        "description": "Cipher suite for masec dataplane encryption / decryption",
+                        "readOnly": true,
+                        "enum": [
+                          "gcm-aes-128",
+                          "gcm-aes-256"
+                        ],
+                        "mandatory": false
+                      },
+                      "secy": {
+                        "description": "Security entity (SecY) profile",
+                        "readOnly": true,
+                        "path": "/macsec/security-entities/security-entity/secy-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "associated-interface": {
+                        "description": "Interface name associated with this CA",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "association-state": {
+                        "description": "This parameter value changes when the associated interface flaps",
+                        "readOnly": true,
+                        "enum": [
+                          "NONE",
+                          "DISSOCIATED",
+                          "ASSOCIATED"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "send-session": {
+                    "description": "Session to program egress packet encryption",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "State parameters of connectivity association send session",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "identifer": {
+                            "description": "Session identifer",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "mode": {
+                            "description": "The state of Connectivity Association state machine",
+                            "readOnly": true,
+                            "enum": [
+                              "SA_MODE_INIT",
+                              "TRANSMIT_SA",
+                              "RECEIVE_SA"
+                            ],
+                            "mandatory": false
+                          },
+                          "session-state": {
+                            "description": "The state of Connectivity Association state machine",
+                            "readOnly": true,
+                            "enum": [
+                              "INIT",
+                              "CONNECTING",
+                              "CONNECTED",
+                              "DISCONNECTED"
+                            ],
+                            "mandatory": false
+                          },
+                          "server-host": {
+                            "description": "Server bound host",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "server-port": {
+                            "description": "Server bound port",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "client-host": {
+                            "description": "Client connected from host",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "client-port": {
+                            "description": "Client connected from port",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "sa-identifier": {
+                            "description": "Association number",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "channel-identifier": {
+                            "description": "Security channel identifier",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "secure-association-programming-state": {
+                            "description": "Indicates the programming state of the Security Association State",
+                            "readOnly": true,
+                            "enum": [
+                              "INIT",
+                              "PROGRAMMED_IN_DATA_PLANE",
+                              "PROGRAMMED_IN_CONTROL_PLANE"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "receive-session": {
+                    "description": "Session to program ingress packet decryption",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "State parameters of connectivity association",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "identifer": {
+                            "description": "Session identifer",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "mode": {
+                            "description": "The state of Connectivity Association state machine",
+                            "readOnly": true,
+                            "enum": [
+                              "SA_MODE_INIT",
+                              "TRANSMIT_SA",
+                              "RECEIVE_SA"
+                            ],
+                            "mandatory": false
+                          },
+                          "session-state": {
+                            "description": "The state of Connectivity Association state machine",
+                            "readOnly": true,
+                            "enum": [
+                              "INIT",
+                              "CONNECTING",
+                              "CONNECTED",
+                              "DISCONNECTED"
+                            ],
+                            "mandatory": false
+                          },
+                          "server-host": {
+                            "description": "Server bound host",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "server-port": {
+                            "description": "Server bound port",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "client-host": {
+                            "description": "Client connected from host",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "client-port": {
+                            "description": "Client connected from port",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "sa-identifier": {
+                            "description": "Association number",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "channel-identifier": {
+                            "description": "Security channel identifier",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "secure-association-programming-state": {
+                            "description": "Indicates the programming state of the Security Association State",
+                            "readOnly": true,
+                            "enum": [
+                              "INIT",
+                              "PROGRAMMED_IN_DATA_PLANE",
+                              "PROGRAMMED_IN_CONTROL_PLANE"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "ca-name"
+                ]
+              },
+              "maxItems": 8
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Top level container for interfaces, including configuration and state    data",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "The list of named interfaces on the device.",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The textual name of the interface. The value of this object should be the name of the interface as assigned by the local device and should be suitable for use in commands entered at the device's `console'. This might be a text name, such as `le0' or a simple port number, such as `1', depending on the interface naming syntax of the device. If several entries in the ifTable together represent a single interface as named by the device, then each will have the same value of name. Note that for an agent which responds to SNMP queries concerning an interface on some other (proxied) device, then the value of name for such an interface is the proxied device's local name for it. If there is no local name, or this object is otherwise not applicable, then this object contains a zero-length string.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configurable items at the global, physical interface level",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The textual name of the interface. The value of this object should be the name of the interface as assigned by the local device and should be suitable for use in commands entered at the device's `console'. This might be a text name, such as `le0' or a simple port number, such as `1', depending on the interface naming syntax of the device. If several entries in the ifTable together represent a single interface as named by the device, then each will have the same value of name . Note that for an agent which responds to SNMP queries concerning an interface on some other (proxied) device, then the value of name for such an interface is the proxied device's local name for it. If there is no local name, or this object is otherwise not applicable, then this object contains a zero-length string. To configure a subinterface, use the name of the base interface followed by a dot and a number in the range of 1-2000 (eg: xe1.1).",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 33,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable-switchport": {
+                        "description": "This attribute is used to set the mode of the Hybrid Switch Router feature to switched only.All interfaces are configured routed by default",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "vrf-name": {
+                        "description": "This attribute is used to associates an interface with a VRF",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "vr-name": {
+                        "description": "This attribute is used to associates an interface with a VR",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "type": {
+                        "description": "The type of the interface. When an interface entry is created, a server MAY initialize the type leaf with a valid value, e.g., if it is possible to derive the type from the name of the interface.",
+                        "readOnly": false,
+                        "enum": [
+                          "other",
+                          "regular1822",
+                          "hdh1822",
+                          "ddnX25",
+                          "rfc877x25",
+                          "ethernetCsmacd"
+                        ],
+                        "mandatory": false
+                      },
+                      "mtu": {
+                        "description": "This attribute is used to set mtu value to interface.The size of the largest packet which can be sent/received on the interface, specified in octets. For interfaces that are used for transmitting network datagrams, this is the size of the largest network datagram that can be sent on the interface.",
+                        "readOnly": false,
+                        "minimum": 64,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "dot1ad-ether-type": {
+                        "description": "This attribute is used to configure the ethertype value for the interface in the format 0xhhhh. Currently supported values are 0x8100 (default) or 0x88a8 or 0x9100 or 0x9200.",
+                        "readOnly": false,
+                        "minLength": 0,
+                        "maxLength": 6,
+                        "pattern": "0[xX][0-9a-fA-F]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "domain-fastflush-config": {
+                        "description": "Attribute to change domain fastflush value",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "protected-port": {
+                        "description": "Attribute to change port protectedtype value",
+                        "readOnly": false,
+                        "enum": [
+                          "community",
+                          "isolated",
+                          "promiscuous"
+                        ],
+                        "mandatory": false
+                      },
+                      "bridge-domain-forward": {
+                        "description": "Attribute to change domain forward value",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Use this attribute to set description for the interface",
+                        "readOnly": false,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "shutdown": {
+                        "description": "Use this attribute to enable the selected interface. This leaf contains the configured, desired state of the interface. The testing(3) state indicates that no operational packets can be passed. When a managed system initializes, all interfaces start with ifAdminStatus in the down(2) state. As a result of either explicit management action or per configuration information retained by the managed system, ifAdminStatus is then changed to either the up(1) or testing(3) states (or remains in the down(2) state).",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data at the global interface level",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The textual name of the interface. The value of this object should be the name of the interface as assigned by the local device and should be suitable for use in commands entered at the device's `console'. This might be a text name, such as `le0' or a simple port number, such as `1', depending on the interface naming syntax of the device. If several entries in the ifTable together represent a single interface as named by the device, then each will have the same value of name . Note that for an agent which responds to SNMP queries concerning an interface on some other (proxied) device, then the value of name for such an interface is the proxied device's local name for it. If there is no local name, or this object is otherwise not applicable, then this object contains a zero-length string. To configure a subinterface, use the name of the base interface followed by a dot and a number in the range of 1-2000 (eg: xe1.1).",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 33,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable-switchport": {
+                        "description": "This attribute is used to set the mode of the Hybrid Switch Router feature to switched only.All interfaces are configured routed by default",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "vrf-name": {
+                        "description": "This attribute is used to associates an interface with a VRF",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "vr-name": {
+                        "description": "This attribute is used to associates an interface with a VR",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "type": {
+                        "description": "The type of the interface. When an interface entry is created, a server MAY initialize the type leaf with a valid value, e.g., if it is possible to derive the type from the name of the interface.",
+                        "readOnly": true,
+                        "enum": [
+                          "other",
+                          "regular1822",
+                          "hdh1822",
+                          "ddnX25",
+                          "rfc877x25",
+                          "ethernetCsmacd"
+                        ],
+                        "mandatory": false
+                      },
+                      "mtu": {
+                        "description": "This attribute is used to set mtu value to interface.The size of the largest packet which can be sent/received on the interface, specified in octets. For interfaces that are used for transmitting network datagrams, this is the size of the largest network datagram that can be sent on the interface.",
+                        "readOnly": true,
+                        "minimum": 64,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "dot1ad-ether-type": {
+                        "description": "This attribute is used to configure the ethertype value for the interface in the format 0xhhhh. Currently supported values are 0x8100 (default) or 0x88a8 or 0x9100 or 0x9200.",
+                        "readOnly": true,
+                        "minLength": 0,
+                        "maxLength": 6,
+                        "pattern": "0[xX][0-9a-fA-F]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "domain-fastflush-config": {
+                        "description": "Attribute to change domain fastflush value",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "protected-port": {
+                        "description": "Attribute to change port protectedtype value",
+                        "readOnly": true,
+                        "enum": [
+                          "community",
+                          "isolated",
+                          "promiscuous"
+                        ],
+                        "mandatory": false
+                      },
+                      "bridge-domain-forward": {
+                        "description": "Attribute to change domain forward value",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Use this attribute to set description for the interface",
+                        "readOnly": true,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "shutdown": {
+                        "description": "Use this attribute to enable the selected interface. This leaf contains the configured, desired state of the interface. The testing(3) state indicates that no operational packets can be passed. When a managed system initializes, all interfaces start with ifAdminStatus in the down(2) state. As a result of either explicit management action or per configuration information retained by the managed system, ifAdminStatus is then changed to either the up(1) or testing(3) states (or remains in the down(2) state).",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "ifindex": {
+                        "description": "System assigned number for each interface. A unique value, greater than zero, for each interface.It is recommended that values are assigned contiguously starting from 1.The value for each interface sub-layer must remain constant at least from one re-initialization of the entity's network management system to the next re-initialization.",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "admin-status": {
+                        "description": "The desired state of the interface. It reflects the administrative state as set by enabling or disabling the interface.",
+                        "readOnly": true,
+                        "enum": [
+                          "up",
+                          "down",
+                          "testing"
+                        ],
+                        "mandatory": false
+                      },
+                      "oper-status": {
+                        "description": "The current operational state of the interface. The testing(3) state indicates that no operational packets can be passed. If admin-status is down(2) then oper-status should be down(2). If admin-status is changed to up(1) then oper-status should change to up(1) if the interface is ready to transmit and receive network traffic; it should change to dormant(5) if the interface is waiting for external actions (such as a serial line waiting for an incoming connection); it should remain in the down(2) state if and only if there is a fault that prevents it from going to the up(1) state; it should remain in the notPresent(6) state if the interface has missing (typically, hardware) components.",
+                        "readOnly": true,
+                        "enum": [
+                          "up",
+                          "down",
+                          "testing",
+                          "unknown",
+                          "dormant",
+                          "notPresent",
+                          "lowerLayerDown"
+                        ],
+                        "mandatory": false
+                      },
+                      "last-change": {
+                        "description": "The value of sysUpTime at the time the interface entered its current operational state.If the current state was entered prior to the last re-initialization of the local network management subsystem then this object contains a zero value",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "logical": {
+                        "description": "When set to true, the interface is a logical interface which does not have an associated physical port or channel on the system",
+                        "readOnly": true,
+                        "type": "boolean",
+                        "mandatory": false
+                      },
+                      "counters": {
+                        "description": "A collection of interface-related statistics objects",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "in-octets": {
+                            "description": "The total number of octets received on the interface, including framing characters. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "in-pkts": {
+                            "description": "The total number of packets received on the interface, including all unicast, multicast, broadcast and bad packets etc.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "in-unicast-pkts": {
+                            "description": "The number of packets, delivered by this sub-layer to a higher (sub-)layer, which were not addressed to a multicast or broadcast address at this sub-layer. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "in-broadcast-pkts": {
+                            "description": "The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were addressed to a broadcast address at this sub-layer. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "in-multicast-pkts": {
+                            "description": "The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were addressed to a multicast address at this sub-layer. For a MAC-layer protocol, this includes both Group and Functional addresses. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "in-discards": {
+                            "description": "The number of inbound packets that were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher-layer protocol. One possible reason for discarding such a packet could be to free up buffer space. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "in-errors": {
+                            "description": "For packet-oriented interfaces, the number of inbound packets that contained errors preventing them from being deliverable to a higher-layer protocol. For character- oriented or fixed-length interfaces, the number of inbound transmission units that contained errors preventing them from being deliverable to a higher-layer protocol. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "in-fcs-errors": {
+                            "description": "Number of received packets which had errors in the frame check sequence (FCS), i.e., framing errors. Discontinuities in the value of this counter can occur when the device is re-initialization as indicated by the value of 'last-clear'.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "out-octets": {
+                            "description": "The total number of octets transmitted out of the interface, including framing characters. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "out-pkts": {
+                            "description": "The total number of packets transmitted out of the interface, including all unicast, multicast, broadcast, and bad packets etc.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "out-unicast-pkts": {
+                            "description": "The total number of packets that higher-level protocols requested be transmitted, and which were not addressed to a multicast or broadcast address at this sub-layer, including those that were discarded or not sent. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "out-broadcast-pkts": {
+                            "description": "The total number of packets that higher-level protocols requested be transmitted, and that were addressed to a broadcast address at this sub-layer, including those that were discarded or not sent. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "out-multicast-pkts": {
+                            "description": "The total number of packets that higher-level protocols requested be transmitted, and which were addressed to a multicast address at this sub-layer, including those that were discarded or not sent. For a MAC layer protocol, this includes both Group and Functional addresses. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "out-discards": {
+                            "description": "The number of outbound packets that were chosen to be discarded even though no errors had been detected to prevent their being transmitted. One possible reason for discarding such a packet could be to free up buffer space. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "out-errors": {
+                            "description": "For packet-oriented interfaces, the number of outbound packets that could not be transmitted because of errors. For character-oriented or fixed-length interfaces, the number of outbound transmission units that could not be transmitted because of errors. Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'.",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "last-clear": {
+                            "description": "This Object describes the last counter clear",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "interface-loopback": {
+                    "description": "Configurable items at the global, physical interface level",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Operational state data at the global interface level",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "if-loopback": {
+                            "description": "This attribute is used to enable port loopback",
+                            "readOnly": false,
+                            "enum": [
+                              "tx",
+                              "rx"
+                            ],
+                            "mandatory": true
+                          },
+                          "if-loopback-level": {
+                            "description": "This attribute is used to enable port loopback",
+                            "readOnly": false,
+                            "enum": [
+                              "mac",
+                              "phy"
+                            ],
+                            "mandatory": true
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data at the global interface level",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "if-loopback": {
+                            "description": "This attribute is used to enable port loopback",
+                            "readOnly": true,
+                            "enum": [
+                              "tx",
+                              "rx"
+                            ],
+                            "mandatory": true
+                          },
+                          "if-loopback-level": {
+                            "description": "This attribute is used to enable port loopback",
+                            "readOnly": true,
+                            "enum": [
+                              "mac",
+                              "phy"
+                            ],
+                            "mandatory": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "title": "ipi-platform-port",
+  "description": "This module defines a schema for port component in platform datamodel",
+  "type": "object",
+  "properties": {}
+}

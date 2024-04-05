@@ -1,0 +1,333 @@
+.cardDash {
+  flex:1;
+  min-width:200px;
+  height: 80px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);  
+}
+
+.keyDash{
+  font-size: small;
+  color: rgb(52, 71, 103);
+  font-weight: bold;
+  width: 100px;
+}
+
+.valueDash{
+  font-size: x-large;
+  font-weight: bold;
+  color: rgb(97, 207, 235);
+  /* margin-left: 20%; */
+  /* margin-top: -10%; */
+}
+
+.dashimg{
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.pieCard{
+  margin-left: 1%;
+  margin-top: 2%;
+  width: 21.7%;
+  height: 300px;
+  background: #ffffff;
+  box-shadow:0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mapCard{
+  margin-left: 1%;
+  margin-top: 2%;
+  width: 31.5%;
+  height: 300px;
+  background: #ffffff;
+  box-shadow:0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+}
+
+.headpie{
+  text-align: center;
+  margin-top: 10px;
+  font-size: small;
+  font-weight: bold;
+}
+
+a span:nth-child(1){
+  width: 100%;
+  animation: none;
+  background: none;
+  left: 0%; 
+}
+
+.alarmCount{
+  font-size: large;
+  color: red;
+  font-weight: bold;
+  display: flex;
+}
+
+.recent{
+      box-shadow:0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+      width: 101%;
+      height: 285px;
+      background-color: white;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+}
+
+.horline{
+  width: 200px;
+  height: 2px;
+  background-color: rgb(83, 104, 223);
+}
+
+button.btndell {
+  color: #fff;
+  border: none;
+  width: max-content;
+  padding: 5px 10px;
+  background-color: #ff5656;
+  border-radius: 2px;
+  cursor: pointer;
+}
+ button.btndell:hover {
+  background-color: #d82020;
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.pie_Card{
+  margin-left: 54.5%;
+  margin-top: 0%;
+  width: 39.5%;
+  background: #ffffff;
+  box-shadow:0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  z-index: 1000;
+  animation: none; /* Disable the initial animation */
+  transform: translateX(100%); /* Start card off-screen to the right */
+  transition: transform 0.5s ease-in-out; /* Add a transition effect */
+  opacity: 1; /* Start visible */
+}
+.showCard {
+  transform: translateX(0); /* Slide the card into view */
+  animation: slideIn 0.5s forwards; /* Slide in animation */
+}
+.small-date-time-picker {
+  margin-right: 3%;
+  padding: 8px;
+  border-radius: 3px;
+  border: 1px solid rgb(204, 204, 204);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px inset;
+  background-color: rgb(249 249 249);
+  color: rgb(85, 85, 85);
+  font-weight: 500;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  height: 35px;
+}
+.intervalLabel{
+  margin-right: 3%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid rgb(204, 204, 204);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px inset;
+  background-color: rgb(249, 249, 249);
+  color: rgb(85, 85, 85);
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  height: 35px;
+  width: 80px;
+}
+.downloadReport_button{
+  border-radius: 3px;
+    margin-left: 75%;
+    font-size: small;
+    margin-top: -6%;
+}
+.selectCPUtype{
+  width: 66.5%;
+    margin-top: 1%;
+    height: 4%;
+    border-radius: 5px;
+    border: 1px solid rgb(204, 204, 204);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px inset;
+    background-color: rgb(249, 249, 249);
+    color: rgb(85, 85, 85);
+}
+.pieCardTable{
+  margin-top: 2%;
+  width: 96.5%;
+  /* height: 300px; */
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+}
+
+
+
+/* pie chart styles */
+
+.pieCard-wrapper{
+  display:flex;
+  flex-wrap: wrap;
+  margin-left: -13px;
+  gap:1rem;
+  justify-content: space-around;
+}
+
+.pieCard{
+  flex:1;
+  min-width: 300px;
+  max-width: 400px;
+  height: 300px;
+  background: #ffffff;
+  box-shadow:0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-container-dash {
+  overflow: auto; /* Enable scrolling if needed */
+}
+
+@media only screen and (max-width: 768px) {
+  .map{
+    display: flex;
+    flex-direction:column;
+  }
+  .table-container-dash {
+    max-height: 400px; /* Set a maximum height for the table on tablets */
+    overflow-y: auto;
+    width: 100%; /* Enable vertical scrolling */
+  }
+
+  .main_dashboard{
+    margin-top: 6%;
+   }
+
+   .table_div{
+    width: 97%;
+   }
+
+   .map_div{
+    flex-direction: column;
+    width:101%;
+   }
+
+   .cardthree{
+    width: 97%;
+   }
+   .pieCard-wrapper{
+    width:97.7vw;
+  }
+  #table-container-dash{
+    width:97.5%;
+    margin-left:3px;
+  }
+  .user_card{
+    width:98%;
+  }
+}
+
+@media (min-width: 1024px){
+  .main_dashboard{
+   /* margin-top: 10%; */
+  }
+  .userLogTable{
+    width:100%;
+   }
+   .pieCard-wrapper{
+    width:97.7vw;
+  }
+  .userlogCommonDash{
+    width:98%;
+  }
+  #table-container-dash{
+    width:97.5%;
+    margin-left:3px;
+  }
+  .cardthree1{
+    width:66%;
+  }
+ 
+}
+
+@media (min-width: 1440px){
+  .main_dashboard{
+    margin-top: 7.5%;
+  }
+
+  .table_div{
+    width:100%;
+  }
+
+  .pieCard-wrapper{
+    width:97vw;
+  }
+
+  #table-container-dash{
+    width:97%;
+  }
+
+  .userLogTable{
+    width:100%;
+   }
+
+  .userlogCommonDash{
+    width:98%;
+  }
+
+  .user_card{
+    width:100%;
+  }
+}
+
+@media (min-width: 2560px){
+  .main_dashboard{
+    margin-top: 4.5%;
+  }
+  #table-container-dash{
+    width:98%;
+  }
+  .cardthree1{
+    width:66.5%;
+  }
+  
+}
+
+.userLogTable{
+  background: #f5f5f5;
+  border-collapse: separate;
+  box-shadow: inset 0 1px 0 #fff;
+  font-size: 12px;
+  line-height: 24px;
+  text-align: left;
+}
+
+.userlogCommonDash{
+  margin-top: 3%;
+  display: flex ;
+}

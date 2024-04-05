@@ -1,0 +1,6 @@
+{
+  "title": "ipi-if-extended",
+  "description": "Datamodel for IPI Interface extended module",
+  "type": "object",
+  "properties": {}
+}

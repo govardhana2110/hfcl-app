@@ -1,0 +1,67 @@
+@media only screen and (max-width: 768px) 
+{
+    .subContent
+    {
+        display:flex;
+     flex-wrap:wrap;
+    }
+    #main
+    {
+        margin-left: 10.5%;
+        width: 97%;
+        height: 80vh;
+        overflow: auto;
+    }
+    .cardFour{
+        margin-top: 0.5%;
+        width: 65%;
+        height: 85vh;
+        /* background: #FFFFFF; */
+        box-shadow:0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+        border-radius: 12px;
+        padding: 2%;
+        }
+    .cardFour2{
+    margin-left: 1%;
+    margin-top: 29.5%;
+    width: 76%;
+    height: 78vh;
+    /* background: #FFFFFF; */
+  box-shadow:0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 2%;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 2560px) {
+  .subContent
+  {
+    display:flex;
+  }
+  #main
+  {
+      margin-left: 1.5%;
+      width: 97%;
+      height: 80vh;
+      overflow: auto;
+  }
+  .cardFour{
+    margin-top: 0.5%;
+    width: 35%;
+    height: 85vh;
+    /* background: #FFFFFF; */
+    box-shadow:0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 2%;
+    }
+    .cardFour2{
+      margin-left: 1%;
+      margin-top: 0.5%;
+      width: 65%;
+      height: 78vh;
+      /* background: #FFFFFF; */
+    box-shadow:0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 2%;
+    }
+}

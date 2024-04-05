@@ -1,0 +1,6 @@
+{
+  "title": "ipi-bridge-domain",
+  "description": "Bridge-domain configurations",
+  "type": "object",
+  "properties": {}
+}

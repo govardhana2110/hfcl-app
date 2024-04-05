@@ -1,0 +1,3119 @@
+{
+  "title": "ipi-vxlan",
+  "description": "Datamodel for VxLAN protocol",
+  "type": "object",
+  "properties": {
+    "ipi-vxlan:vxlan": {
+      "description": "VxLAN global level container",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "global": {
+          "description": "Configuration data for VxLAN global capability configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable-vxlan": {
+                  "description": "Use this attribute to enable VxLAN module. Without this attribute vxlan functionality can not be achieved",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                },
+                "vtep-ipv4": {
+                  "description": "Use this attribute to set source vtep global ip address. This will be treated at vxlan tunnel source address",
+                  "readOnly": false,
+                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "mac-ageing-timer": {
+                  "description": "Use this attribute to set the time till a learned mac address will persist after last update",
+                  "readOnly": false,
+                  "minimum": 10,
+                  "maximum": 572,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "arp-nd-refresh-timer": {
+                  "description": "Use this attribute to configure aging out the arp-cache and nd-cache entries for given time multiplied by 3 in secs.",
+                  "readOnly": false,
+                  "minimum": 3,
+                  "maximum": 190,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "maximum-cache-disable-count": {
+                  "description": "Use this command to configure the maximum number of ARP and ND cache disables on access ports configured with the port+VLAN options. This command does not limit the ARP and ND cache disables on access ports created with only the port option.",
+                  "readOnly": false,
+                  "minimum": 1,
+                  "maximum": 2500,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable-vxlan": {
+                  "description": "Use this attribute to enable VxLAN module. Without this attribute vxlan functionality can not be achieved",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                },
+                "vtep-ipv4": {
+                  "description": "Use this attribute to set source vtep global ip address. This will be treated at vxlan tunnel source address",
+                  "readOnly": true,
+                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "mac-ageing-timer": {
+                  "description": "Use this attribute to set the time till a learned mac address will persist after last update",
+                  "readOnly": true,
+                  "minimum": 10,
+                  "maximum": 572,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "arp-nd-refresh-timer": {
+                  "description": "Use this attribute to configure aging out the arp-cache and nd-cache entries for given time multiplied by 3 in secs.",
+                  "readOnly": true,
+                  "minimum": 3,
+                  "maximum": 190,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "maximum-cache-disable-count": {
+                  "description": "Use this command to configure the maximum number of ARP and ND cache disables on access ports configured with the port+VLAN options. This command does not limit the ARP and ND cache disables on access ports created with only the port option.",
+                  "readOnly": true,
+                  "minimum": 1,
+                  "maximum": 2500,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "qos-tunnel-mappings": {
+          "description": "QoS tunnel mapping list enclosing container",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "qos-tunnel-mapping": {
+              "description": "VxLAN QoS configuration for mapping direction and profile",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "qos-map-mode": {
+                    "description": "Use this attribute to set VxLAN-QoS Map Mode for overlay dscp",
+                    "readOnly": false,
+                    "path": "../config/qos-map-mode",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "traffic-direction": {
+                    "description": "Use this attribute to set global direction(ingress/egress) for VxLAN. Ingreess means traffic coming to network side and egress means traffic going out from network side",
+                    "readOnly": false,
+                    "path": "../config/traffic-direction",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "traffic-direction": {
+                        "description": "Use this attribute to set global direction(ingress/egress) for VxLAN. Ingreess means traffic coming to network side and egress means traffic going out from network side",
+                        "readOnly": false,
+                        "enum": [
+                          "ingress",
+                          "egress"
+                        ],
+                        "mandatory": false
+                      },
+                      "qos-map-mode": {
+                        "description": "Use this attribute to set VxLAN-QoS Map Mode for overlay dscp",
+                        "readOnly": false,
+                        "enum": [
+                          "cos-dscp"
+                        ],
+                        "mandatory": false
+                      },
+                      "profile-name": {
+                        "description": "Use this attribute to map QOS profile name. This profile name should be already configured before mapping it to vxlan tunnel",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "traffic-direction": {
+                        "description": "Use this attribute to set global direction(ingress/egress) for VxLAN. Ingreess means traffic coming to network side and egress means traffic going out from network side",
+                        "readOnly": true,
+                        "enum": [
+                          "ingress",
+                          "egress"
+                        ],
+                        "mandatory": false
+                      },
+                      "qos-map-mode": {
+                        "description": "Use this attribute to set VxLAN-QoS Map Mode for overlay dscp",
+                        "readOnly": true,
+                        "enum": [
+                          "cos-dscp"
+                        ],
+                        "mandatory": false
+                      },
+                      "profile-name": {
+                        "description": "Use this attribute to map QOS profile name. This profile name should be already configured before mapping it to vxlan tunnel",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": true
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "qos-map-mode",
+                  "traffic-direction"
+                ]
+              }
+            }
+          }
+        },
+        "vxlan-tenants": {
+          "description": "VxLAN tenant list enclosing container",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "vxlan-tenant": {
+              "description": "Tenant related configurations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vxlan-identifier": {
+                    "description": "Use this attribute to add a tenant and the type of VPN",
+                    "readOnly": false,
+                    "path": "../config/vxlan-identifier",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "Use this attribute to map VRF to carry EVPN routes. This defines BGP as the mechanism for host reachability advertisement.",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mac-hold-timer": {
+                        "description": "Use this attribute to set the time a host mac entry will persist after unconfiguring. Hold time range -1 to 300 in seconds. -1(never expire)",
+                        "readOnly": false,
+                        "minimum": -1,
+                        "maximum": 300,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "tenant-description": {
+                        "description": "Use this attribute to set VxLAN identifier name",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 10,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "irb-name": {
+                        "description": "Use this attribute to to configure default gateway behavior on a VTEP for particular VNID.",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "map-network": {
+                        "description": "Use this attribute to map a tunnel to the tenant",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "minLength": 1,
+                          "maxLength": 1965,
+                          "pattern": "[^?' =,>|]+",
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      },
+                      "vxlan-identifier": {
+                        "description": "Use this attribute to add a tenant and the type of VPN",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 16777215,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "tenant-type": {
+                        "description": "Use this attribute to create tenant with multicast tunnel",
+                        "readOnly": false,
+                        "enum": [
+                          "default",
+                          "multicast",
+                          "ingress-replication",
+                          "ingress-replication-inner-vid-disabled"
+                        ],
+                        "mandatory": false
+                      },
+                      "xconnect-identifier": {
+                        "description": "Use this attribute to create Xconnect tenant",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 16777215,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "tenant-xconnect-type": {
+                        "description": "Use this attribute to create tenant with different type of tunnel",
+                        "readOnly": false,
+                        "enum": [
+                          "default",
+                          "inner-vid-disabled"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "Use this attribute to map VRF to carry EVPN routes. This defines BGP as the mechanism for host reachability advertisement.",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mac-hold-timer": {
+                        "description": "Use this attribute to set the time a host mac entry will persist after unconfiguring. Hold time range -1 to 300 in seconds. -1(never expire)",
+                        "readOnly": true,
+                        "minimum": -1,
+                        "maximum": 300,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "tenant-description": {
+                        "description": "Use this attribute to set VxLAN identifier name",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 10,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "irb-name": {
+                        "description": "Use this attribute to to configure default gateway behavior on a VTEP for particular VNID.",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "map-network": {
+                        "description": "Use this attribute to map a tunnel to the tenant",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "minLength": 1,
+                          "maxLength": 1965,
+                          "pattern": "[^?' =,>|]+",
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      },
+                      "vxlan-identifier": {
+                        "description": "Use this attribute to add a tenant and the type of VPN",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 16777215,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "tenant-type": {
+                        "description": "Use this attribute to create tenant with multicast tunnel",
+                        "readOnly": true,
+                        "enum": [
+                          "default",
+                          "multicast",
+                          "ingress-replication",
+                          "ingress-replication-inner-vid-disabled"
+                        ],
+                        "mandatory": false
+                      },
+                      "xconnect-identifier": {
+                        "description": "Use this attribute to create Xconnect tenant",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 16777215,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "tenant-xconnect-type": {
+                        "description": "Use this attribute to create tenant with different type of tunnel",
+                        "readOnly": true,
+                        "enum": [
+                          "default",
+                          "inner-vid-disabled"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "route-count-info": {
+                    "description": "Configuration data for VxLAN global capability configuration",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "total": {
+                            "description": "Use this attribute to show count of Total Route Entries",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "mac-only": {
+                            "description": "Use this attribute to show count of MAC Only Entries",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "mac-ipv4": {
+                            "description": "Use this attribute to show count of MAC Ipv4 Entries",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "mac-ipv6": {
+                            "description": "Use this attribute to show count of MAC Ipv6 Entries",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "xconnect-mapping-info": {
+                    "description": "This holds data for VXLAN xconnect mapping summary",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "source-tenant-description": {
+                            "description": "Use this attribute to show name of source tenant",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "destination-vpws-identifier": {
+                            "description": "Use this attribute to show the remote vpws id",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "vlan-id": {
+                            "description": "vlan id",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "inner-vlan-id": {
+                            "description": "Inner vlan Id",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "source-interface": {
+                            "description": "Use this attribute to show source connection of tunnel",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "destination-interface": {
+                            "description": "Use this attribute to show destination connection of tunnel",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "vtep-ip-address": {
+                            "description": "Use this attribute to show tunnel ip address",
+                            "readOnly": true,
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "connection-type": {
+                            "description": "Use this attribute to show the type of network connection",
+                            "readOnly": true,
+                            "enum": [
+                              "NA",
+                              "AC-AC",
+                              "AC-NW"
+                            ],
+                            "mandatory": false
+                          },
+                          "connection-status": {
+                            "description": "Use this attribute to show status of network connection",
+                            "readOnly": true,
+                            "enum": [
+                              "NA",
+                              "NW-SET",
+                              "AC-DN-NW-DN",
+                              "AC-DN-NW-UP",
+                              "AC-UP-NW-DN"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "irb": {
+                    "description": "Integrated Routing and Bridging container",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "irb-advertise-host-route": {
+                            "description": "Use this attribute to set advertise host to route",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "irb-advertise-host-route": {
+                            "description": "Use this attribute to set advertise host to route",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "static-tenants": {
+                    "description": "VxLAN static-tenant list enclosing container",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "static-tenant": {
+                        "description": "static tenant related configurations",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "mac-address": {
+                              "description": "Use this attribute to know MAC address of the host.create a static route to reach a destination MAC in the VXLAN forwarding table. This command helps to supports different tenants so that they can have the same MAC/IP, but different VNIDs.This command is required for unicast tunnels to map the remote VTEP",
+                              "readOnly": false,
+                              "path": "../config/mac-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "mac-address": {
+                                  "description": "Use this attribute to know MAC address of the host.create a static route to reach a destination MAC in the VXLAN forwarding table. This command helps to supports different tenants so that they can have the same MAC/IP, but different VNIDs.This command is required for unicast tunnels to map the remote VTEP",
+                                  "readOnly": false,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "remote-vtep-ipv4": {
+                                  "description": "Use this attribute to set unicast IP address of the destination VTEP",
+                                  "readOnly": false,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": true
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "mac-address": {
+                                  "description": "Use this attribute to know MAC address of the host.create a static route to reach a destination MAC in the VXLAN forwarding table. This command helps to supports different tenants so that they can have the same MAC/IP, but different VNIDs.This command is required for unicast tunnels to map the remote VTEP",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "remote-vtep-ipv4": {
+                                  "description": "Use this attribute to set unicast IP address of the destination VTEP",
+                                  "readOnly": true,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": true
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "mac-address"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "arp-cache-info": {
+                    "description": "arp-cache information list",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "host-ip": {
+                          "description": "Use this attribute to show Host IP address",
+                          "readOnly": true,
+                          "path": "../state/host-ip",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "state": {
+                          "description": "Operational state data",
+                          "readOnly": true,
+                          "type": "object",
+                          "properties": {
+                            "host-ip": {
+                              "description": "Use this attribute to show Host IP address",
+                              "readOnly": true,
+                              "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "host-mac": {
+                              "description": "Use this attribute to show Host MAC address",
+                              "readOnly": true,
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "host-type": {
+                              "description": "Use this attribute to show Host Type",
+                              "readOnly": true,
+                              "enum": [
+                                "Dynamic",
+                                "Static-Local",
+                                "Remote-Dynamic",
+                                "Remote-Static",
+                                "Static-Remote"
+                              ],
+                              "mandatory": false
+                            },
+                            "interface-index": {
+                              "description": "Use this attribute to show Interface Index",
+                              "readOnly": true,
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 4294967295,
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      },
+                      "keyFields": [
+                        "host-ip"
+                      ]
+                    }
+                  },
+                  "nd-cache-info": {
+                    "description": "nd-cache information list",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "host-ip": {
+                          "description": "Use this attribute to show Host IP address",
+                          "readOnly": true,
+                          "path": "../state/host-ip",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "state": {
+                          "description": "Operational state data",
+                          "readOnly": true,
+                          "type": "object",
+                          "properties": {
+                            "host-ip": {
+                              "description": "Use this attribute to show Host IP address",
+                              "readOnly": true,
+                              "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "host-mac": {
+                              "description": "Use this attribute to show Host MAC Address",
+                              "readOnly": true,
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "host-type": {
+                              "description": "Use this attribute to show Host Type",
+                              "readOnly": true,
+                              "enum": [
+                                "Dynamic",
+                                "Static-Local",
+                                "Remote-Dynamic",
+                                "Remote-Static",
+                                "Static-Remote"
+                              ],
+                              "mandatory": false
+                            },
+                            "interface-index": {
+                              "description": "Use this attribute to show Interface Index",
+                              "readOnly": true,
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 4294967295,
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      },
+                      "keyFields": [
+                        "host-ip"
+                      ]
+                    }
+                  },
+                  "mac-table-info": {
+                    "description": "mac table display information",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "mac-address": {
+                          "description": "MAC Adress of the host",
+                          "readOnly": true,
+                          "path": "../state/mac-address",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "state": {
+                          "description": "Operational state data",
+                          "readOnly": true,
+                          "type": "object",
+                          "properties": {
+                            "mac-address": {
+                              "description": "MAC Adress of the host",
+                              "readOnly": true,
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "interface-name": {
+                              "description": "interface name",
+                              "readOnly": true,
+                              "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "vlan-id": {
+                              "description": "vlan id",
+                              "readOnly": true,
+                              "minLength": 1,
+                              "maxLength": 1965,
+                              "pattern": "[^?' =,>|]+",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "inner-vlan-id": {
+                              "description": "Inner vlan Id",
+                              "readOnly": true,
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 4294967295,
+                              "mandatory": false
+                            },
+                            "vtep-ip-esi": {
+                              "description": "VTEP global ip address or ESI",
+                              "readOnly": true,
+                              "minLength": 1,
+                              "maxLength": 1965,
+                              "pattern": "[^?' =,>|]+",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "host-type": {
+                              "description": "Host Type",
+                              "readOnly": true,
+                              "enum": [
+                                "Dynamic",
+                                "Static-Local",
+                                "Remote-Dynamic",
+                                "Remote-Static",
+                                "Static-Remote"
+                              ],
+                              "mandatory": false
+                            },
+                            "host-status": {
+                              "description": "Host Status",
+                              "readOnly": true,
+                              "enum": [
+                                "---",
+                                "Max-Move-conflict",
+                                "Discard"
+                              ],
+                              "mandatory": false
+                            },
+                            "access-port-description": {
+                              "description": "Description for the port",
+                              "readOnly": true,
+                              "minLength": 1,
+                              "maxLength": 1965,
+                              "pattern": "[^?' =,>|]+",
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      },
+                      "keyFields": [
+                        "mac-address"
+                      ]
+                    }
+                  },
+                  "static-host-info": {
+                    "description": "static host state display information",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "mac-address": {
+                          "description": "MAC Adress of the host",
+                          "readOnly": true,
+                          "path": "../state/mac-address",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "host-ipv4": {
+                          "description": "Host IP Adress ipv4",
+                          "readOnly": true,
+                          "path": "../state/host-ipv4",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "state": {
+                          "description": "Operational state data",
+                          "readOnly": true,
+                          "type": "object",
+                          "properties": {
+                            "mac-address": {
+                              "description": "MAC Adress of the host",
+                              "readOnly": true,
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "static-host-state": {
+                              "description": "static host state",
+                              "readOnly": true,
+                              "enum": [
+                                "Inactive",
+                                "Active",
+                                "Conflict",
+                                "Learnt-Conflict",
+                                "Discard-Inactive"
+                              ],
+                              "mandatory": false
+                            },
+                            "host-ipv4": {
+                              "description": "Host IP Adress ipv4",
+                              "readOnly": true,
+                              "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      },
+                      "keyFields": [
+                        "mac-address",
+                        "host-ipv4"
+                      ]
+                    }
+                  },
+                  "static-host-ipv6-info": {
+                    "description": "static host-ipv6 state display information",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "mac-address": {
+                          "description": "MAC Adress of the host",
+                          "readOnly": true,
+                          "path": "../state/mac-address",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "host-ipv6": {
+                          "description": "Host IP Adress ipv6",
+                          "readOnly": true,
+                          "path": "../state/host-ipv6",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "state": {
+                          "description": "Operational state data",
+                          "readOnly": true,
+                          "type": "object",
+                          "properties": {
+                            "mac-address": {
+                              "description": "MAC Adress of the host",
+                              "readOnly": true,
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "static-host-state": {
+                              "description": "static host state",
+                              "readOnly": true,
+                              "enum": [
+                                "Inactive",
+                                "Active",
+                                "Conflict",
+                                "Learnt-Conflict",
+                                "Discard-Inactive"
+                              ],
+                              "mandatory": false
+                            },
+                            "host-ipv6": {
+                              "description": "Host IP Adress ipv6",
+                              "readOnly": true,
+                              "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      },
+                      "keyFields": [
+                        "mac-address",
+                        "host-ipv6"
+                      ]
+                    }
+                  }
+                },
+                "keyFields": [
+                  "vxlan-identifier"
+                ]
+              }
+            }
+          }
+        },
+        "tunnel": {
+          "description": "tunnel related display information",
+          "readOnly": true,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "destination-vtep-ip": {
+                "description": "Use this attribute to set Tunnel destination IP",
+                "readOnly": true,
+                "path": "../state/destination-vtep-ip",
+                "type": "string",
+                "mandatory": false
+              },
+              "state": {
+                "description": "Operational state data",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "destination-vtep-ip": {
+                    "description": "Use this attribute to set Tunnel destination IP",
+                    "readOnly": true,
+                    "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "source-vtep-ip": {
+                    "description": "Use this attribute to set Tunnel source IP",
+                    "readOnly": true,
+                    "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "up-down-time": {
+                    "description": "Use this attribute to indicate tunnel up/down time",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "tunnel-status": {
+                    "description": "Use this attribute to see the Status of tunnel",
+                    "readOnly": true,
+                    "enum": [
+                      "Deleted",
+                      "Un-Resolved",
+                      "Resolved",
+                      "Installed"
+                    ],
+                    "mandatory": false
+                  },
+                  "counters": {
+                    "description": "A collection of vxlan network-related statistics",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "out-bytes": {
+                        "description": "This indicates total number of bytes sent out from tunnel interface",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "out-packets": {
+                        "description": "This indicates total number of packets sent out from tunnel interface",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "in-bytes": {
+                        "description": "This indicates total number of bytes received on tunnel interface",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "in-packets": {
+                        "description": "This indicates total number of packets received on tunnel interface",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tx-arp-discard-packets": {
+                        "description": "This Object describes Arp Discarded Packets",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tx-nd-discard-packets": {
+                        "description": "This Object describes Nd Discarded Packets",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tx-arp-request-packets": {
+                        "description": "This Object describes Arp request Transmitted Packets",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tx-arp-reply-packets": {
+                        "description": "This Object describes Arp reply Transmitted Packets",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tx-neighbor-solicitation-packets": {
+                        "description": "This Object describes Neighbour Solicitation Transmitted Packets",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tx-neighbor-advertisement-packets": {
+                        "description": "This Object describes Neighbour Advertisement Transmitted Packets",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tx-garp-packets": {
+                        "description": "This Object describes Garp Transmitted Packets",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tx-gna-packets": {
+                        "description": "This Object describes Gna Transmitted Packets",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "destination-vtep-ip"
+            ]
+          }
+        },
+        "untagged-access-interfaces": {
+          "description": "Enclosing container for untagged-access-interface list",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "untagged-access-interface": {
+              "description": "untagged access port related configurations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "untagged-interface-name": {
+                    "description": "Use this attribute to map a physical interface to identify the tenant traffic and to enter NVO access interface mode",
+                    "readOnly": false,
+                    "path": "../config/untagged-interface-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "interface-name": {
+                        "description": "Use this attribute to map a physical interface to identify the tenant traffic and to enter NVO access interface mode",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "admin-shutdown": {
+                        "description": "Use this attribute to shutdown vxlan access interface",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Use this attribute to set description of access interface",
+                        "readOnly": false,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "dynamic-learning-disable": {
+                        "description": "Use this attribute to disable dynamic learning of MACs at the access port. This command also disables dynamic learning of MAC/IP from ARP/ND messages received on this access port.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "access-mac-hold-time": {
+                        "description": "Use this attribute to set the time a host mac entry will persist after unconfiguring. The feature holds the MAC in hardware until BGP has withdrawn from the neighbors. This helps to reduce flooding to other access ports. This setting applies when the access port is shut down, the physical port on which the access port is down, or the access port is removed from the VNID using the no form of the map vnid command. When the MAC hold time is configured as -1, then the MAC is not removed from the hardware and is also not withdrawn from EVPN BGP",
+                        "readOnly": false,
+                        "minimum": -1,
+                        "maximum": 300,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "arp-nd-flood-suppress": {
+                        "description": "Use this attribute to restrict the flood of ARP/ND packets towards remote VTEPs or other access ports.This command applies only when the ARP cache and ND cache are enabled. When the ARP cache is disabled, ARP flooding is not suppressed even if this command is given. When the ND cache is disabled, ND flooding is not disabled, even if this command is given",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "garp-gna-enable": {
+                        "description": "Use this attribute to allow garp-gna packets advertisement",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "mac-address": {
+                        "description": "Use this attribute to set the static mac address of host",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      },
+                      "default-access-interface": {
+                        "description": "Use this attribute to create default access interface",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "untagged-interface-name": {
+                        "description": "Use this attribute to map a physical interface to identify the tenant traffic and to enter NVO access interface mode for untagged access-if",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "interface-name": {
+                        "description": "Use this attribute to map a physical interface to identify the tenant traffic and to enter NVO access interface mode",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "admin-shutdown": {
+                        "description": "Use this attribute to shutdown vxlan access interface",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Use this attribute to set description of access interface",
+                        "readOnly": true,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "dynamic-learning-disable": {
+                        "description": "Use this attribute to disable dynamic learning of MACs at the access port. This command also disables dynamic learning of MAC/IP from ARP/ND messages received on this access port.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "access-mac-hold-time": {
+                        "description": "Use this attribute to set the time a host mac entry will persist after unconfiguring. The feature holds the MAC in hardware until BGP has withdrawn from the neighbors. This helps to reduce flooding to other access ports. This setting applies when the access port is shut down, the physical port on which the access port is down, or the access port is removed from the VNID using the no form of the map vnid command. When the MAC hold time is configured as -1, then the MAC is not removed from the hardware and is also not withdrawn from EVPN BGP",
+                        "readOnly": true,
+                        "minimum": -1,
+                        "maximum": 300,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "arp-nd-flood-suppress": {
+                        "description": "Use this attribute to restrict the flood of ARP/ND packets towards remote VTEPs or other access ports.This command applies only when the ARP cache and ND cache are enabled. When the ARP cache is disabled, ARP flooding is not suppressed even if this command is given. When the ND cache is disabled, ND flooding is not disabled, even if this command is given",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "garp-gna-enable": {
+                        "description": "Use this attribute to allow garp-gna packets advertisement",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "mac-address": {
+                        "description": "Use this attribute to set the static mac address of host",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      },
+                      "default-access-interface": {
+                        "description": "Use this attribute to create default access interface",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "untagged-interface-name": {
+                        "description": "Use this attribute to map a physical interface to identify the tenant traffic and to enter NVO access interface mode for untagged access-if",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "cache": {
+                    "description": "ARP/ND cache container",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for ARP/ND cache",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "arp-cache-disable": {
+                            "description": "Use this attribute to disable the ARP cache for MAC/IP. When the ARP cache is disabled on a VxLAN access port, ZebOS-XP does not reply to any ARP arriving on this port from the cache. ZebOS-XP withdraws all MAC/IPs configured/learned on this access port and removes the MAC/IP entry for this access port from the local ARP cache. ZebOS-XP also makes sure that on withdrawing the MAC/IP route, the MAC does not become unknown. If all routes for this MAC are being withdrawn because of this command, then ZebOS-XP advertises a MAC-only route. This is done so that the MAC does not become unknown and only the cache functionality becomes disabled.See also nvo vxlan max-cache-disable. Use the no form of this command to enable ARP cache for MAC/IP. Note: On enabling the cache, an IP will be in conflict, then the cache enable will fail. The conflict has to be manually removed and then the cache enabled.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "nd-cache-disable": {
+                            "description": "Use this attribute to disable ND cache for MAC/IPv6. When the ARP cache is disabled on a VxLAN access port, ZebOS-XP does not reply to any ARP arriving on this port from the cache. ZebOS-XP withdraws all MAC/IPs configured/learned on this access port and removes the MAC/IP entry for this access port from the local ARP cache. ZebOS-XP also makes sure that on withdrawing the MAC/IP route, the MAC does not become unknown. If all routes for this MAC are being withdrawn because of this command, then ZebOS-XP advertises a MAC-only route. This is done so that the MAC does not become unknown and only the cache functionality becomes disabled. Use the no form of this command to enable ND cache for MAC/IPv6. Note: On enabling the cache, an IP will be in conflict, then the cache enable will fail. The conflict has to be manually removed and then the cache enabled.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for ARP/ND cache",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "arp-cache-disable": {
+                            "description": "Use this attribute to disable the ARP cache for MAC/IP. When the ARP cache is disabled on a VxLAN access port, ZebOS-XP does not reply to any ARP arriving on this port from the cache. ZebOS-XP withdraws all MAC/IPs configured/learned on this access port and removes the MAC/IP entry for this access port from the local ARP cache. ZebOS-XP also makes sure that on withdrawing the MAC/IP route, the MAC does not become unknown. If all routes for this MAC are being withdrawn because of this command, then ZebOS-XP advertises a MAC-only route. This is done so that the MAC does not become unknown and only the cache functionality becomes disabled.See also nvo vxlan max-cache-disable. Use the no form of this command to enable ARP cache for MAC/IP. Note: On enabling the cache, an IP will be in conflict, then the cache enable will fail. The conflict has to be manually removed and then the cache enabled.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "nd-cache-disable": {
+                            "description": "Use this attribute to disable ND cache for MAC/IPv6. When the ARP cache is disabled on a VxLAN access port, ZebOS-XP does not reply to any ARP arriving on this port from the cache. ZebOS-XP withdraws all MAC/IPs configured/learned on this access port and removes the MAC/IP entry for this access port from the local ARP cache. ZebOS-XP also makes sure that on withdrawing the MAC/IP route, the MAC does not become unknown. If all routes for this MAC are being withdrawn because of this command, then ZebOS-XP advertises a MAC-only route. This is done so that the MAC does not become unknown and only the cache functionality becomes disabled. Use the no form of this command to enable ND cache for MAC/IPv6. Note: On enabling the cache, an IP will be in conflict, then the cache enable will fail. The conflict has to be manually removed and then the cache enabled.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "map": {
+                    "description": "VxLAN map identifier container",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for VxLAN identifier",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "vxlan-identifier": {
+                            "description": "Use this attribute to map a tenant to an access-port",
+                            "readOnly": false,
+                            "path": "/vxlan/vxlan-tenants/vxlan-tenant/config/vxlan-identifier",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tenant-description": {
+                            "description": "Use this attribute to map VXLAN Identifier Name",
+                            "readOnly": false,
+                            "path": "/vxlan/vxlan-tenants/vxlan-tenant/config/tenant-description",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for VxLAN identifier",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "vxlan-identifier": {
+                            "description": "Use this attribute to map a tenant to an access-port",
+                            "readOnly": true,
+                            "path": "/vxlan/vxlan-tenants/vxlan-tenant/config/vxlan-identifier",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tenant-description": {
+                            "description": "Use this attribute to map VXLAN Identifier Name",
+                            "readOnly": true,
+                            "path": "/vxlan/vxlan-tenants/vxlan-tenant/config/tenant-description",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "host-macs-ipv4": {
+                    "description": "Enclosing container for untagged access side host MAC IPv4 list",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "host-mac-ipv4": {
+                        "description": "untagged access side host related configurations",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "mac-address": {
+                              "description": "Use this attribute to know MAC address of the host",
+                              "readOnly": false,
+                              "path": "../config/mac-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "ipv4-address": {
+                              "description": "USe this attribute to associate a static MAC address and a static IPv4 or IPv6 address on an access interface.",
+                              "readOnly": false,
+                              "path": "../config/ipv4-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "mac-address": {
+                                  "description": "MAC Address of host connected to vxlan access port",
+                                  "readOnly": false,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ipv4-address": {
+                                  "description": "USe this attribute to associate a static MAC address and a static IPv4 or IPv6 address on an access interface.",
+                                  "readOnly": false,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "mac-address": {
+                                  "description": "MAC Address of host connected to vxlan access port",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ipv4-address": {
+                                  "description": "USe this attribute to associate a static MAC address and a static IPv4 or IPv6 address on an access interface.",
+                                  "readOnly": true,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "mac-address",
+                            "ipv4-address"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "host-macs-ipv6": {
+                    "description": "Enclosing container for untagged access side host MAC IPv6 list",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "host-mac-ipv6": {
+                        "description": "untagged access side host related configurations",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "mac-address": {
+                              "description": "Use this attribute to know MAC address of the host",
+                              "readOnly": false,
+                              "path": "../config/mac-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "ipv6-address": {
+                              "description": "USe this attribute to associate a static MAC address and a static IPv4 or IPv6 address on an access interface.",
+                              "readOnly": false,
+                              "path": "../config/ipv6-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "mac-address": {
+                                  "description": "MAC Address of host connected to vxlan access port",
+                                  "readOnly": false,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ipv6-address": {
+                                  "description": "USe this attribute to associate a static MAC address and a static IPv4 or IPv6 address on an access interface.",
+                                  "readOnly": false,
+                                  "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "mac-address": {
+                                  "description": "MAC Address of host connected to vxlan access port",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ipv6-address": {
+                                  "description": "USe this attribute to associate a static MAC address and a static IPv4 or IPv6 address on an access interface.",
+                                  "readOnly": true,
+                                  "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "mac-address",
+                            "ipv6-address"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "access-interface-qos-type-mappings": {
+                    "description": "Enclosing container for untagged access side QoS map list",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "access-interface-qos-type-mapping": {
+                        "description": "untagged access side QoS map related configurations",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "profile-map-type": {
+                              "description": "Use this attribute to map the profile type for which qos profile is already created globally to access port",
+                              "readOnly": false,
+                              "path": "../config/profile-map-type",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "profile-map-type": {
+                                  "description": "Use this attribute to map the profile type for which qos profile is already created globally to access port",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "cos-to-queue",
+                                    "queue-color-to-cos"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "profile-name": {
+                                  "description": "Use this attribute to map QOS profile name to port for which QOS profile is already created globally",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": true
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "profile-map-type": {
+                                  "description": "Use this attribute to map the profile type for which qos profile is already created globally to access port",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "cos-to-queue",
+                                    "queue-color-to-cos"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "profile-name": {
+                                  "description": "Use this attribute to map QOS profile name to port for which QOS profile is already created globally",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": true
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "profile-map-type"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "untagged-interface-name"
+                ]
+              }
+            }
+          }
+        },
+        "tagged-access-interfaces": {
+          "description": "Enclosing container for single tagged VxLAN access-port list",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "tagged-access-interface": {
+              "description": "single tagged VxLAN access-port related configurations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "interface-name": {
+                    "description": "Physical Port on which access-port is created",
+                    "readOnly": false,
+                    "path": "../config/interface-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "vlan-identifier": {
+                    "description": "Use this attriute to map a VLAN on physical interface to identify the tenant traffic and to enter NVO access interface mode",
+                    "readOnly": false,
+                    "path": "../config/vlan-identifier",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "tag-protocol-identifier": {
+                        "description": "Use this attribute to set the Tpid for the outer vlan. Ox88A8: IEEE 802.1ad Provider Bridging and Ox9100: IEEE 802.1Q VLAN-tagged frame with double tagging",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "interface-name": {
+                        "description": "Use this attribute to map a physical interface to identify the tenant traffic and to enter NVO access interface mode",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "admin-shutdown": {
+                        "description": "Use this attribute to shutdown vxlan access interface",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Use this attribute to set description of access interface",
+                        "readOnly": false,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "dynamic-learning-disable": {
+                        "description": "Use this attribute to disable dynamic learning of MACs at the access port. This command also disables dynamic learning of MAC/IP from ARP/ND messages received on this access port.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "access-mac-hold-time": {
+                        "description": "Use this attribute to set the time a host mac entry will persist after unconfiguring. The feature holds the MAC in hardware until BGP has withdrawn from the neighbors. This helps to reduce flooding to other access ports. This setting applies when the access port is shut down, the physical port on which the access port is down, or the access port is removed from the VNID using the no form of the map vnid command. When the MAC hold time is configured as -1, then the MAC is not removed from the hardware and is also not withdrawn from EVPN BGP",
+                        "readOnly": false,
+                        "minimum": -1,
+                        "maximum": 300,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "arp-nd-flood-suppress": {
+                        "description": "Use this attribute to restrict the flood of ARP/ND packets towards remote VTEPs or other access ports.This command applies only when the ARP cache and ND cache are enabled. When the ARP cache is disabled, ARP flooding is not suppressed even if this command is given. When the ND cache is disabled, ND flooding is not disabled, even if this command is given",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "garp-gna-enable": {
+                        "description": "Use this attribute to allow garp-gna packets advertisement",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "mac-address": {
+                        "description": "Use this attribute to set the static mac address of host",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      },
+                      "vlan-identifier": {
+                        "description": "Use this attriute to map a VLAN on physical interface to identify the tenant traffic and to enter NVO access interface mode",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "tag-protocol-identifier": {
+                        "description": "Use this attribute to set the Tpid for the outer vlan. Ox88A8: IEEE 802.1ad Provider Bridging and Ox9100: IEEE 802.1Q VLAN-tagged frame with double tagging",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "interface-name": {
+                        "description": "Use this attribute to map a physical interface to identify the tenant traffic and to enter NVO access interface mode",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "admin-shutdown": {
+                        "description": "Use this attribute to shutdown vxlan access interface",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Use this attribute to set description of access interface",
+                        "readOnly": true,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "dynamic-learning-disable": {
+                        "description": "Use this attribute to disable dynamic learning of MACs at the access port. This command also disables dynamic learning of MAC/IP from ARP/ND messages received on this access port.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "access-mac-hold-time": {
+                        "description": "Use this attribute to set the time a host mac entry will persist after unconfiguring. The feature holds the MAC in hardware until BGP has withdrawn from the neighbors. This helps to reduce flooding to other access ports. This setting applies when the access port is shut down, the physical port on which the access port is down, or the access port is removed from the VNID using the no form of the map vnid command. When the MAC hold time is configured as -1, then the MAC is not removed from the hardware and is also not withdrawn from EVPN BGP",
+                        "readOnly": true,
+                        "minimum": -1,
+                        "maximum": 300,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "arp-nd-flood-suppress": {
+                        "description": "Use this attribute to restrict the flood of ARP/ND packets towards remote VTEPs or other access ports.This command applies only when the ARP cache and ND cache are enabled. When the ARP cache is disabled, ARP flooding is not suppressed even if this command is given. When the ND cache is disabled, ND flooding is not disabled, even if this command is given",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "garp-gna-enable": {
+                        "description": "Use this attribute to allow garp-gna packets advertisement",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "mac-address": {
+                        "description": "Use this attribute to set the static mac address of host",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      },
+                      "vlan-identifier": {
+                        "description": "Use this attriute to map a VLAN on physical interface to identify the tenant traffic and to enter NVO access interface mode",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "cache": {
+                    "description": "ARP/ND cache container",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for ARP/ND cache",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "arp-cache-disable": {
+                            "description": "Use this attribute to disable the ARP cache for MAC/IP. When the ARP cache is disabled on a VxLAN access port, ZebOS-XP does not reply to any ARP arriving on this port from the cache. ZebOS-XP withdraws all MAC/IPs configured/learned on this access port and removes the MAC/IP entry for this access port from the local ARP cache. ZebOS-XP also makes sure that on withdrawing the MAC/IP route, the MAC does not become unknown. If all routes for this MAC are being withdrawn because of this command, then ZebOS-XP advertises a MAC-only route. This is done so that the MAC does not become unknown and only the cache functionality becomes disabled.See also nvo vxlan max-cache-disable. Use the no form of this command to enable ARP cache for MAC/IP. Note: On enabling the cache, an IP will be in conflict, then the cache enable will fail. The conflict has to be manually removed and then the cache enabled.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "nd-cache-disable": {
+                            "description": "Use this attribute to disable ND cache for MAC/IPv6. When the ARP cache is disabled on a VxLAN access port, ZebOS-XP does not reply to any ARP arriving on this port from the cache. ZebOS-XP withdraws all MAC/IPs configured/learned on this access port and removes the MAC/IP entry for this access port from the local ARP cache. ZebOS-XP also makes sure that on withdrawing the MAC/IP route, the MAC does not become unknown. If all routes for this MAC are being withdrawn because of this command, then ZebOS-XP advertises a MAC-only route. This is done so that the MAC does not become unknown and only the cache functionality becomes disabled. Use the no form of this command to enable ND cache for MAC/IPv6. Note: On enabling the cache, an IP will be in conflict, then the cache enable will fail. The conflict has to be manually removed and then the cache enabled.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for ARP/ND cache",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "arp-cache-disable": {
+                            "description": "Use this attribute to disable the ARP cache for MAC/IP. When the ARP cache is disabled on a VxLAN access port, ZebOS-XP does not reply to any ARP arriving on this port from the cache. ZebOS-XP withdraws all MAC/IPs configured/learned on this access port and removes the MAC/IP entry for this access port from the local ARP cache. ZebOS-XP also makes sure that on withdrawing the MAC/IP route, the MAC does not become unknown. If all routes for this MAC are being withdrawn because of this command, then ZebOS-XP advertises a MAC-only route. This is done so that the MAC does not become unknown and only the cache functionality becomes disabled.See also nvo vxlan max-cache-disable. Use the no form of this command to enable ARP cache for MAC/IP. Note: On enabling the cache, an IP will be in conflict, then the cache enable will fail. The conflict has to be manually removed and then the cache enabled.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "nd-cache-disable": {
+                            "description": "Use this attribute to disable ND cache for MAC/IPv6. When the ARP cache is disabled on a VxLAN access port, ZebOS-XP does not reply to any ARP arriving on this port from the cache. ZebOS-XP withdraws all MAC/IPs configured/learned on this access port and removes the MAC/IP entry for this access port from the local ARP cache. ZebOS-XP also makes sure that on withdrawing the MAC/IP route, the MAC does not become unknown. If all routes for this MAC are being withdrawn because of this command, then ZebOS-XP advertises a MAC-only route. This is done so that the MAC does not become unknown and only the cache functionality becomes disabled. Use the no form of this command to enable ND cache for MAC/IPv6. Note: On enabling the cache, an IP will be in conflict, then the cache enable will fail. The conflict has to be manually removed and then the cache enabled.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "map": {
+                    "description": "VxLAN map identifier container",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for VxLAN identifier",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "vxlan-identifier": {
+                            "description": "Use this attribute to map a tenant to an access-port",
+                            "readOnly": false,
+                            "path": "/vxlan/vxlan-tenants/vxlan-tenant/config/vxlan-identifier",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tenant-description": {
+                            "description": "Use this attribute to map VXLAN Identifier Name",
+                            "readOnly": false,
+                            "path": "/vxlan/vxlan-tenants/vxlan-tenant/config/tenant-description",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for VxLAN identifier",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "vxlan-identifier": {
+                            "description": "Use this attribute to map a tenant to an access-port",
+                            "readOnly": true,
+                            "path": "/vxlan/vxlan-tenants/vxlan-tenant/config/vxlan-identifier",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tenant-description": {
+                            "description": "Use this attribute to map VXLAN Identifier Name",
+                            "readOnly": true,
+                            "path": "/vxlan/vxlan-tenants/vxlan-tenant/config/tenant-description",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "host-macs-ipv4": {
+                    "description": "Enclosing container for single tagged access side host MAC IPv4 list",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "host-mac-ipv4": {
+                        "description": "single tagged access side host related configurations",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "mac-address": {
+                              "description": "Use this attribute to know MAC address of the host",
+                              "readOnly": false,
+                              "path": "../config/mac-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "ipv4-address": {
+                              "description": "IPv4 Address of host connected to vxlan access port",
+                              "readOnly": false,
+                              "path": "../config/ipv4-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "mac-address": {
+                                  "description": "MAC Address of host connected to vxlan access port",
+                                  "readOnly": false,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ipv4-address": {
+                                  "description": "USe this attribute to associate a static MAC address and a static IPv4 or IPv6 address on an access interface.",
+                                  "readOnly": false,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "mac-address": {
+                                  "description": "MAC Address of host connected to vxlan access port",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ipv4-address": {
+                                  "description": "USe this attribute to associate a static MAC address and a static IPv4 or IPv6 address on an access interface.",
+                                  "readOnly": true,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "mac-address",
+                            "ipv4-address"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "host-macs-ipv6": {
+                    "description": "Enclosing container for single tagged access side host MAC IPv6 list",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "host-mac-ipv6": {
+                        "description": "single tagged access side host related configurations",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "mac-address": {
+                              "description": "Use this attribute to know MAC address of the host",
+                              "readOnly": false,
+                              "path": "../config/mac-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "ipv6-address": {
+                              "description": "USe this attribute to associate a static MAC address and a static IPv4 or IPv6 address on an access interface.",
+                              "readOnly": false,
+                              "path": "../config/ipv6-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "mac-address": {
+                                  "description": "MAC Address of host connected to vxlan access port",
+                                  "readOnly": false,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ipv6-address": {
+                                  "description": "USe this attribute to associate a static MAC address and a static IPv4 or IPv6 address on an access interface.",
+                                  "readOnly": false,
+                                  "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "mac-address": {
+                                  "description": "MAC Address of host connected to vxlan access port",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ipv6-address": {
+                                  "description": "USe this attribute to associate a static MAC address and a static IPv4 or IPv6 address on an access interface.",
+                                  "readOnly": true,
+                                  "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "mac-address",
+                            "ipv6-address"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "access-interface-qos-type-mappings": {
+                    "description": "Enclosing container for untagged access side QoS map list",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "access-interface-qos-type-mapping": {
+                        "description": "untagged access side QoS map related configurations",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "profile-map-type": {
+                              "description": "Use this attribute to map the profile type for which qos profile is already created globally to access port",
+                              "readOnly": false,
+                              "path": "../config/profile-map-type",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "profile-map-type": {
+                                  "description": "Use this attribute to map the profile type for which qos profile is already created globally to access port",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "cos-to-queue",
+                                    "queue-color-to-cos"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "profile-name": {
+                                  "description": "Use this attribute to map QOS profile name to port for which QOS profile is already created globally",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": true
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "profile-map-type": {
+                                  "description": "Use this attribute to map the profile type for which qos profile is already created globally to access port",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "cos-to-queue",
+                                    "queue-color-to-cos"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "profile-name": {
+                                  "description": "Use this attribute to map QOS profile name to port for which QOS profile is already created globally",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": true
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "profile-map-type"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "interface-name",
+                  "vlan-identifier"
+                ]
+              }
+            }
+          }
+        },
+        "double-tagged-access-interfaces": {
+          "description": "Enclosing container for double tagged access port list",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "double-tagged-access-interface": {
+              "description": "double tagged access port related configurations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "interface-name": {
+                    "description": "Physical Port on which access-port is created",
+                    "readOnly": false,
+                    "path": "../config/interface-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "vlan-identifier": {
+                    "description": "S-VLAN on which interface is mapped",
+                    "readOnly": false,
+                    "path": "../config/vlan-identifier",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "inner-vlan-identifier": {
+                    "description": "Use this attriute to map VLAN'S on an interface to identify the tenant traffic and to enter NVO access interface mode",
+                    "readOnly": false,
+                    "path": "../config/inner-vlan-identifier",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "tag-protocol-identifier": {
+                        "description": "Use this attribute to set the Tpid for the outer vlan. Ox88A8: IEEE 802.1ad Provider Bridging and Ox9100: IEEE 802.1Q VLAN-tagged frame with double tagging",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "interface-name": {
+                        "description": "Use this attribute to map a physical interface to identify the tenant traffic and to enter NVO access interface mode",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "admin-shutdown": {
+                        "description": "Use this attribute to shutdown vxlan access interface",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Use this attribute to set description of access interface",
+                        "readOnly": false,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "dynamic-learning-disable": {
+                        "description": "Use this attribute to disable dynamic learning of MACs at the access port. This command also disables dynamic learning of MAC/IP from ARP/ND messages received on this access port.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "access-mac-hold-time": {
+                        "description": "Use this attribute to set the time a host mac entry will persist after unconfiguring. The feature holds the MAC in hardware until BGP has withdrawn from the neighbors. This helps to reduce flooding to other access ports. This setting applies when the access port is shut down, the physical port on which the access port is down, or the access port is removed from the VNID using the no form of the map vnid command. When the MAC hold time is configured as -1, then the MAC is not removed from the hardware and is also not withdrawn from EVPN BGP",
+                        "readOnly": false,
+                        "minimum": -1,
+                        "maximum": 300,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "arp-nd-flood-suppress": {
+                        "description": "Use this attribute to restrict the flood of ARP/ND packets towards remote VTEPs or other access ports.This command applies only when the ARP cache and ND cache are enabled. When the ARP cache is disabled, ARP flooding is not suppressed even if this command is given. When the ND cache is disabled, ND flooding is not disabled, even if this command is given",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "garp-gna-enable": {
+                        "description": "Use this attribute to allow garp-gna packets advertisement",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "mac-address": {
+                        "description": "Use this attribute to set the static mac address of host",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      },
+                      "vlan-identifier": {
+                        "description": "S-VLAN on which interface is mapped",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "inner-vlan-identifier": {
+                        "description": "Use this attriute to map VLAN'S on an interface to identify the tenant traffic and to enter NVO access interface mode",
+                        "readOnly": false,
+                        "minimum": 2,
+                        "maximum": 4094,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "tag-protocol-identifier": {
+                        "description": "Use this attribute to set the Tpid for the outer vlan. Ox88A8: IEEE 802.1ad Provider Bridging and Ox9100: IEEE 802.1Q VLAN-tagged frame with double tagging",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "interface-name": {
+                        "description": "Use this attribute to map a physical interface to identify the tenant traffic and to enter NVO access interface mode",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "admin-shutdown": {
+                        "description": "Use this attribute to shutdown vxlan access interface",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Use this attribute to set description of access interface",
+                        "readOnly": true,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "dynamic-learning-disable": {
+                        "description": "Use this attribute to disable dynamic learning of MACs at the access port. This command also disables dynamic learning of MAC/IP from ARP/ND messages received on this access port.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "access-mac-hold-time": {
+                        "description": "Use this attribute to set the time a host mac entry will persist after unconfiguring. The feature holds the MAC in hardware until BGP has withdrawn from the neighbors. This helps to reduce flooding to other access ports. This setting applies when the access port is shut down, the physical port on which the access port is down, or the access port is removed from the VNID using the no form of the map vnid command. When the MAC hold time is configured as -1, then the MAC is not removed from the hardware and is also not withdrawn from EVPN BGP",
+                        "readOnly": true,
+                        "minimum": -1,
+                        "maximum": 300,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "arp-nd-flood-suppress": {
+                        "description": "Use this attribute to restrict the flood of ARP/ND packets towards remote VTEPs or other access ports.This command applies only when the ARP cache and ND cache are enabled. When the ARP cache is disabled, ARP flooding is not suppressed even if this command is given. When the ND cache is disabled, ND flooding is not disabled, even if this command is given",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "garp-gna-enable": {
+                        "description": "Use this attribute to allow garp-gna packets advertisement",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "mac-address": {
+                        "description": "Use this attribute to set the static mac address of host",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      },
+                      "vlan-identifier": {
+                        "description": "S-VLAN on which interface is mapped",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "inner-vlan-identifier": {
+                        "description": "Use this attriute to map VLAN'S on an interface to identify the tenant traffic and to enter NVO access interface mode",
+                        "readOnly": true,
+                        "minimum": 2,
+                        "maximum": 4094,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "map": {
+                    "description": "VxLAN map identifier container",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for VxLAN identifier",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "vxlan-identifier": {
+                            "description": "Use this attribute to map a tenant to an access-port",
+                            "readOnly": false,
+                            "path": "/vxlan/vxlan-tenants/vxlan-tenant/config/vxlan-identifier",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tenant-description": {
+                            "description": "Use this attribute to map VXLAN Identifier Name",
+                            "readOnly": false,
+                            "path": "/vxlan/vxlan-tenants/vxlan-tenant/config/tenant-description",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for VxLAN identifier",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "vxlan-identifier": {
+                            "description": "Use this attribute to map a tenant to an access-port",
+                            "readOnly": true,
+                            "path": "/vxlan/vxlan-tenants/vxlan-tenant/config/vxlan-identifier",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tenant-description": {
+                            "description": "Use this attribute to map VXLAN Identifier Name",
+                            "readOnly": true,
+                            "path": "/vxlan/vxlan-tenants/vxlan-tenant/config/tenant-description",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "cache": {
+                    "description": "ARP/ND cache container",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for ARP/ND cache",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "arp-cache-disable": {
+                            "description": "Use this attribute to disable the ARP cache for MAC/IP. When the ARP cache is disabled on a VxLAN access port, ZebOS-XP does not reply to any ARP arriving on this port from the cache. ZebOS-XP withdraws all MAC/IPs configured/learned on this access port and removes the MAC/IP entry for this access port from the local ARP cache. ZebOS-XP also makes sure that on withdrawing the MAC/IP route, the MAC does not become unknown. If all routes for this MAC are being withdrawn because of this command, then ZebOS-XP advertises a MAC-only route. This is done so that the MAC does not become unknown and only the cache functionality becomes disabled.See also nvo vxlan max-cache-disable. Use the no form of this command to enable ARP cache for MAC/IP. Note: On enabling the cache, an IP will be in conflict, then the cache enable will fail. The conflict has to be manually removed and then the cache enabled.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "nd-cache-disable": {
+                            "description": "Use this attribute to disable ND cache for MAC/IPv6. When the ARP cache is disabled on a VxLAN access port, ZebOS-XP does not reply to any ARP arriving on this port from the cache. ZebOS-XP withdraws all MAC/IPs configured/learned on this access port and removes the MAC/IP entry for this access port from the local ARP cache. ZebOS-XP also makes sure that on withdrawing the MAC/IP route, the MAC does not become unknown. If all routes for this MAC are being withdrawn because of this command, then ZebOS-XP advertises a MAC-only route. This is done so that the MAC does not become unknown and only the cache functionality becomes disabled. Use the no form of this command to enable ND cache for MAC/IPv6. Note: On enabling the cache, an IP will be in conflict, then the cache enable will fail. The conflict has to be manually removed and then the cache enabled.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for ARP/ND cache",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "arp-cache-disable": {
+                            "description": "Use this attribute to disable the ARP cache for MAC/IP. When the ARP cache is disabled on a VxLAN access port, ZebOS-XP does not reply to any ARP arriving on this port from the cache. ZebOS-XP withdraws all MAC/IPs configured/learned on this access port and removes the MAC/IP entry for this access port from the local ARP cache. ZebOS-XP also makes sure that on withdrawing the MAC/IP route, the MAC does not become unknown. If all routes for this MAC are being withdrawn because of this command, then ZebOS-XP advertises a MAC-only route. This is done so that the MAC does not become unknown and only the cache functionality becomes disabled.See also nvo vxlan max-cache-disable. Use the no form of this command to enable ARP cache for MAC/IP. Note: On enabling the cache, an IP will be in conflict, then the cache enable will fail. The conflict has to be manually removed and then the cache enabled.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "nd-cache-disable": {
+                            "description": "Use this attribute to disable ND cache for MAC/IPv6. When the ARP cache is disabled on a VxLAN access port, ZebOS-XP does not reply to any ARP arriving on this port from the cache. ZebOS-XP withdraws all MAC/IPs configured/learned on this access port and removes the MAC/IP entry for this access port from the local ARP cache. ZebOS-XP also makes sure that on withdrawing the MAC/IP route, the MAC does not become unknown. If all routes for this MAC are being withdrawn because of this command, then ZebOS-XP advertises a MAC-only route. This is done so that the MAC does not become unknown and only the cache functionality becomes disabled. Use the no form of this command to enable ND cache for MAC/IPv6. Note: On enabling the cache, an IP will be in conflict, then the cache enable will fail. The conflict has to be manually removed and then the cache enabled.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "host-macs-ipv4": {
+                    "description": "Enclosing container for double tagged access side host MAC IPv4 list",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "host-mac-ipv4": {
+                        "description": "double tagged access side host related configurations",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "mac-address": {
+                              "description": "Use this attribute to know MAC address of the host",
+                              "readOnly": false,
+                              "path": "../config/mac-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "ipv4-address": {
+                              "description": "USe this attribute to associate a static MAC address and a static IPv4 or IPv6 address on an access interface.",
+                              "readOnly": false,
+                              "path": "../config/ipv4-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "mac-address": {
+                                  "description": "MAC Address of host connected to vxlan access port",
+                                  "readOnly": false,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ipv4-address": {
+                                  "description": "USe this attribute to associate a static MAC address and a static IPv4 or IPv6 address on an access interface.",
+                                  "readOnly": false,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "mac-address": {
+                                  "description": "MAC Address of host connected to vxlan access port",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ipv4-address": {
+                                  "description": "USe this attribute to associate a static MAC address and a static IPv4 or IPv6 address on an access interface.",
+                                  "readOnly": true,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "mac-address",
+                            "ipv4-address"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "host-macs-ipv6": {
+                    "description": "Enclosing container for double tagged access side host MAC IPv6 list",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "host-mac-ipv6": {
+                        "description": "double tagged access side host related configurations",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "mac-address": {
+                              "description": "Use this attribute to know MAC address of the host",
+                              "readOnly": false,
+                              "path": "../config/mac-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "ipv6-address": {
+                              "description": "USe this attribute to associate a static MAC address and a static IPv4 or IPv6 address on an access interface.",
+                              "readOnly": false,
+                              "path": "../config/ipv6-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "mac-address": {
+                                  "description": "MAC Address of host connected to vxlan access port",
+                                  "readOnly": false,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ipv6-address": {
+                                  "description": "USe this attribute to associate a static MAC address and a static IPv4 or IPv6 address on an access interface.",
+                                  "readOnly": false,
+                                  "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "mac-address": {
+                                  "description": "MAC Address of host connected to vxlan access port",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ipv6-address": {
+                                  "description": "USe this attribute to associate a static MAC address and a static IPv4 or IPv6 address on an access interface.",
+                                  "readOnly": true,
+                                  "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "mac-address",
+                            "ipv6-address"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "access-interface-qos-type-mappings": {
+                    "description": "Enclosing container for untagged access side QoS map list",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "access-interface-qos-type-mapping": {
+                        "description": "untagged access side QoS map related configurations",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "profile-map-type": {
+                              "description": "Use this attribute to map the profile type for which qos profile is already created globally to access port",
+                              "readOnly": false,
+                              "path": "../config/profile-map-type",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "profile-map-type": {
+                                  "description": "Use this attribute to map the profile type for which qos profile is already created globally to access port",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "cos-to-queue",
+                                    "queue-color-to-cos"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "profile-name": {
+                                  "description": "Use this attribute to map QOS profile name to port for which QOS profile is already created globally",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": true
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "profile-map-type": {
+                                  "description": "Use this attribute to map the profile type for which qos profile is already created globally to access port",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "cos-to-queue",
+                                    "queue-color-to-cos"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "profile-name": {
+                                  "description": "Use this attribute to map QOS profile name to port for which QOS profile is already created globally",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": true
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "profile-map-type"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "interface-name",
+                  "vlan-identifier",
+                  "inner-vlan-identifier"
+                ]
+              }
+            }
+          }
+        },
+        "access-interfaces": {
+          "description": "access-interfaces container",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "access-interface": {
+              "description": "access port counters list",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "interface-index": {
+                    "description": "Use this attribute to fetch nvo access port counters",
+                    "readOnly": true,
+                    "path": "../state/interface-index",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "interface-index": {
+                        "description": "Use this attribute to fetch nvo access port counters",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "if-name": {
+                        "description": "Use this attribute to fetch nvo access port name",
+                        "readOnly": true,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "access-counters": {
+                        "description": "A collection of vxlan access-port-related statistics",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "rx-arp-discard-packets": {
+                            "description": "This Object describes Arp Discard Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tx-arp-discard-packet": {
+                            "description": "This Object describes Arp Out Discard Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "rx-arp-request-packets": {
+                            "description": "This Object describes Arp request Received Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "rx-arp-reply-packets": {
+                            "description": "This Object describes Arp reply Received Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tx-arp-request-packet": {
+                            "description": "This Object describes Arp request Transmitted Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tx-arp-reply-packet": {
+                            "description": "This Object describes Arp reply Transmitted Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "rx-nd-discard-packets": {
+                            "description": "This Object describes ND Discard Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tx-nd-discard-packet": {
+                            "description": "This Object describes ND Out Discard Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "rx-neighbor-solicitation-packets": {
+                            "description": "This Object describes ND Solicitaion Received Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "rx-neighbor-advertisement-packets": {
+                            "description": "This Object describes ND Advertisement Received Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tx-neighbor-solicitation-packet": {
+                            "description": "This Object describes ND Solicitaion Transmitted Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tx-neighbor-advertisement-packet": {
+                            "description": "This Object describes ND Advertisement Transmitted Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "rx-gratuitous-arp-packets": {
+                            "description": "This Object describes Gratuitous ARP (Garp) Received Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tx-gratuitous-arp-packets": {
+                            "description": "This Object describes Gratuitous ARP (Garp) Transmitted Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "rx-gratuitous-na-packets": {
+                            "description": "This Object describes Gratuitous NA (Gna) Received Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tx-gratuitous-na-packets": {
+                            "description": "This Object describes Gratuitous NA (Gna) Transmitted Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "rx-data-packets": {
+                            "description": "This Object describes Received Data Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "rx-data-bytes": {
+                            "description": "This Object describes Received bytes(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tx-data-packets": {
+                            "description": "This Object describes Transmitted Packets(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "tx-data-bytes": {
+                            "description": "This Object describes Transmitted Bytes(Applicable only for logical VxLAN-access ports)",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "interface-index"
+                ]
+              }
+            }
+          }
+        },
+        "vtep-entries": {
+          "description": "Top level container for vtep-entries",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "vtep-entry": {
+              "description": "VTEP locally configured details",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "description": "VTEP ip address",
+                    "readOnly": false,
+                    "path": "../config/address",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Config container",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "description": "VTEP ip address",
+                        "readOnly": false,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "VTEP description",
+                        "readOnly": false,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "redund-type": {
+                        "description": "VTEP redundancy type",
+                        "readOnly": false,
+                        "enum": [
+                          "s-home",
+                          "m-home",
+                          "mclag",
+                          "sh-mh",
+                          "sh-mclag",
+                          "other"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "description": "VTEP ip address",
+                        "readOnly": true,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "VTEP description",
+                        "readOnly": true,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "redund-type": {
+                        "description": "VTEP redundancy type",
+                        "readOnly": true,
+                        "enum": [
+                          "s-home",
+                          "m-home",
+                          "mclag",
+                          "sh-mh",
+                          "sh-mclag",
+                          "other"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "address"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "title": "ipi-ping",
+  "description": "IPI Ping",
+  "type": "object",
+  "properties": {
+    "ipi-ping:ping": {
+      "description": "Top level container for ping data model",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "test-result": {
+          "description": "Ping Test Results",
+          "readOnly": true,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "test-name": {
+                "description": "This attribute uniquely identifies the ping test instance. Since the ping test is executed in asynchronous mode, this attribute is used to associate the ping test command with test results and to stop ongoing test",
+                "readOnly": true,
+                "path": "../state/test-name",
+                "type": "string",
+                "mandatory": false
+              },
+              "replies": {
+                "description": "Ping Replies of the Ping Test conducted",
+                "readOnly": true,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sequence-number": {
+                      "description": "Sequence number of the ICMP echo response packet",
+                      "readOnly": true,
+                      "path": "../state/sequence-number",
+                      "type": "string",
+                      "mandatory": false
+                    },
+                    "state": {
+                      "description": "State container to display the ping replies",
+                      "readOnly": true,
+                      "type": "object",
+                      "properties": {
+                        "sequence-number": {
+                          "description": "Sequence number of the ICMP echo response packet",
+                          "readOnly": true,
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 4294967295,
+                          "mandatory": false
+                        },
+                        "ttl-or-hop-limit": {
+                          "description": "TTL or Hop Limit in received ICMP echo response",
+                          "readOnly": true,
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 255,
+                          "mandatory": false
+                        },
+                        "round-trip-time": {
+                          "description": "Round Trip Time",
+                          "readOnly": true,
+                          "fraction-digits": "6",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "result": {
+                          "description": "Ping Result",
+                          "readOnly": true,
+                          "enum": [
+                            "Success",
+                            "Destination-Net-Unreachable",
+                            "Destination-Host-Unreachable",
+                            "Destination-Protocol-Unreachable",
+                            "Destination-Port-Unreachable",
+                            "Frag-needed-and-DF-set",
+                            "Source-Route-Failed",
+                            "Destination-Net-Unknown",
+                            "Destination-Host-Unknown",
+                            "Source-Host-Isolated",
+                            "Destination-Net-Prohibited",
+                            "Destination-Host-Prohibited",
+                            "Destination-Net-Unreachable-for-Type-of-Service",
+                            "Destination-Host-Unreachable-for-Type-of-Service",
+                            "Packet-filtered",
+                            "Precedence-Violation",
+                            "Precedence-Cutoff",
+                            "Time-to-live-exceeded",
+                            "Frag-reassembly-time-exceeded",
+                            "Unknown-Error"
+                          ],
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  },
+                  "keyFields": [
+                    "sequence-number"
+                  ]
+                }
+              },
+              "state": {
+                "description": "State container to display the ping test results",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "test-name": {
+                    "description": "This attribute uniquely identifies the ping test instance. Since the ping test is executed in asynchronous mode, this attribute is used to associate the ping test command with test results and to stop ongoing test",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "test-status": {
+                    "description": "Ping Test Status",
+                    "readOnly": true,
+                    "enum": [
+                      "In-Progress",
+                      "Completed",
+                      "Cancelled",
+                      "Temporary-failure-in-name-resolution",
+                      "Unknown-Host",
+                      "Address-family-for-hostname-not-supported"
+                    ],
+                    "mandatory": false
+                  },
+                  "start-time": {
+                    "description": "Start time of the test",
+                    "readOnly": true,
+                    "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "end-time": {
+                    "description": "End time of the test",
+                    "readOnly": true,
+                    "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                }
+              },
+              "test-parameters": {
+                "description": "Ping Test Parameters which were specified in ping test RPC",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "description": "State container to display the ping test parameters",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "destination": {
+                        "description": "Destination IP/IPv6 address or host name specified in the ping test",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "protocol": {
+                        "description": "Ping protocol to use used",
+                        "readOnly": true,
+                        "enum": [
+                          "ipv4",
+                          "ipv6"
+                        ],
+                        "mandatory": false
+                      },
+                      "vrf-name": {
+                        "description": "VRF Name",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "repeat-count": {
+                        "description": "Repeat count which was specified in the ping test",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "interval": {
+                        "description": "Time Interval in sec which was specified in the ping test",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "mandatory": false
+                      },
+                      "time-to-live": {
+                        "description": "Time to live value used for the ping test",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 255,
+                        "mandatory": false
+                      },
+                      "datagram-size": {
+                        "description": "Datagram Size used for the ping test",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "timeout": {
+                        "description": "Timeout value used for the ping test. The timeout value specifies the time to wait for a ping packet response, in seconds",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "deadline": {
+                        "description": "Deadline value used for the ping test. The deadline value specifies a timeout, in seconds, before ping test exits regardless of how many packets have been sent or received",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      }
+                    }
+                  }
+                }
+              },
+              "summary-info": {
+                "description": "Summary of the Ping Test conducted",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "description": "State container to display the ping summary info",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "packets-transmitted": {
+                        "description": "Total ping packets transmitted",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "packets-received": {
+                        "description": "Total ping packets received",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "success-rate": {
+                        "description": "Success Rate",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 100,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "loss-rate": {
+                        "description": "Loss Rate",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 100,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "min-rtt": {
+                        "description": "Minimum Round trip Time",
+                        "readOnly": true,
+                        "fraction-digits": "6",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "rtt-avg": {
+                        "description": "Average Round trip Time",
+                        "readOnly": true,
+                        "fraction-digits": "6",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "max-rtt": {
+                        "description": "Maximum Round trip Time",
+                        "readOnly": true,
+                        "fraction-digits": "6",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "test-name"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

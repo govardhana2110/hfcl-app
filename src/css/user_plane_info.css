@@ -1,0 +1,2031 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
+
+@media only screen  and (max-width: 768px) {
+  .user_table {
+    margin: auto;
+    width: 50px;
+    border-collapse: collapse;
+  }
+  .cardDash-wrapper
+  {
+    margin-top:2.5px
+  }
+  
+  .user_table thead {
+      
+      border-top: none;
+      background:white;
+      color: black;
+      font-size: medium;
+      font-weight: 100;
+    }
+  
+  .user_table tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #d7dfe585;
+  }
+  
+  .user_table tr:nth-child(odd) {
+    background-color: #ebf3f9;
+  }
+  .user_table td {
+    display: block;
+    font-size: medium;
+    font-weight: light;
+  }
+  
+  .user_table td:first-child {
+    margin-top: .5em;
+  }
+  .cc
+{
+margin-Left:'2%';
+margin-Top:'16%';
+width:'94%';
+height:'100%';
+}
+  
+  
+  
+  .user_table td:before {
+    content: attr(data-th) ": ";
+    font-weight:lighter;
+    width: 120px;
+    display: inline-block;
+    color: #000;
+  }
+  
+  
+  .user_table {
+    color: #333;
+    border-radius: .4em;
+  }
+  
+  .user_table tr {
+    border-color: #bfbfbf;
+  }
+  
+  .user_table th,
+  .user_table td {
+    padding: 0.2em 0.5em;
+  }
+  @media screen and (max-width: 601px) {
+    .user_table tr:nth-child(2) {
+      border-top: none;
+    }
+  }
+  @media screen and (min-width: 600px) {
+    .user_table tr:hover {
+      background-color: #d8e7f3;
+    }
+    .user_table td:before {
+      display: none;
+    }
+    .user_table th,
+    .user_table td {
+      display: table-cell;
+      font-size: 13px;
+    }
+   
+    .user_table th:last-child,
+    .user_table td:last-child {
+      padding-right: 10px;
+    }
+  }
+  
+  .new_user_input_fields{
+      margin-left: 10px;
+      margin-top: 1%;
+  }
+  .input_field_new{
+      border: 0;
+      outline: 0;
+      background: transparent;
+      border-bottom: 1px solid black;
+  }
+  .choose_role_option{
+    background-color: white;
+    color: black;
+    border-color: #d1bdbd;
+    border-radius: 3px;
+    margin-top: 6%;
+    font-size: small;
+    padding: 3%;
+    padding-right: 12%;
+  }
+  .add_user_button{
+      color: white;
+      background-color: rgb(8, 97, 148);
+      border: 0;
+      padding: 7px;
+      border-radius: 6px;
+      margin-left: 55%;
+  }
+  .add_user_button[disabled] {
+    opacity: 0.6; 
+    cursor: not-allowed;
+    background-color: grey;
+  }
+  .add_user_button:hover{
+      cursor: pointer;
+      background-color: rgb(8, 62, 94);
+      
+  }
+  table.user_table{
+      width: 100%;
+      background: #f5f5f5;
+      border-collapse: separate;
+      box-shadow: inset 0 1px 0 #fff;
+      font-size: 12px;
+      line-height: 24px;
+      margin: 30px auto;
+      text-align: left;
+  }
+  
+  .add_icon{
+    width: 23px;
+    height: auto;
+  }
+  .add_LicenseButton{
+    width: 23px;
+    position: relative;
+    left: -150px;
+    height: auto;
+  }
+  
+  .user_list_header{
+      font-weight: 700;
+      font-size: x-large;
+      margin-left: 25px;
+      
+  }
+  thead.user_table_head{
+      height: 46px;
+      /* border-right-width: thick; */
+      /* border-top-width: thick; */
+      border-bottom-width: initial;
+  }
+  .user_droparrow{
+      font-size: 20px;
+      margin-left: 5px;
+      margin-top: 5px;
+  }
+  
+  .add_button{
+    color: white;
+    background-color: rgb(8, 97, 148);
+    border: 0;
+    display: flex;
+    border-radius: 6px;
+    margin-left: 90%;
+    margin-top: 1%;
+  }
+  .add_button:hover{
+    cursor: pointer;
+    background-color: rgb(8, 62, 94);
+  } 
+  
+  .user_dashboard{
+    color: rgb(84 98 98);
+    background-color: #f5f4f442;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    padding: 12px;
+    border-radius: 9px;
+    width: 700px;
+    margin-left: 17%;
+    margin-bottom: 2%;
+  }
+  
+  .role_content{
+    color: rgb(84, 98, 98);
+      background-color: white;
+      box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+      padding: 6px;
+      border-radius: 4px;
+      width: 43%;
+      margin-left: 22%;
+      margin-bottom: 2%;
+      position: fixed;
+      top: 20%;
+      z-index: 1000;
+  }
+  
+  
+  .input_fiels_with_icon{
+      width: 175px;
+      height: 32px;
+      display: flex;
+      margin-top: 15px;
+  }
+  .licensePopup{
+    position: fixed;
+      top: 24%;
+      left: 40%;
+      width: 33%;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-right: 20px;
+      /* height: 345px; */
+      color: rgb(84 98 98);
+      background-color: white;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      color: #011627;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+      /* border: 1px solid black; */
+  }
+  
+  .profileBox{
+    width: 20vw;
+    height: 78vh;
+    background-color: white;
+    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+  }
+  
+  .partLeft{
+    margin-right: 15px;
+  }
+  
+  .proficeIcon{
+    width: 90px;
+    height: auto;
+    margin-top: 40px;
+  }
+  
+  .roleBox{
+    padding-left: 8px;
+    padding-right: 8px;
+    font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 10px;
+    display: inline-flex;
+    align-items: center;
+    height: 18px;
+    border-radius: 16px;
+    color: rgb(255, 76, 81);
+    background-color: rgba(255, 76, 81, 0.12);
+    text-transform: capitalize;
+  }
+  
+  .detailText{
+    margin: 0px;
+      letter-spacing: 0.15px;
+      font-weight: 500;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(58, 53, 65, 0.87);
+  }
+  
+  .nameText{
+    margin: 0px 0px 0.2rem;
+    letter-spacing: 0.15px;
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgba(58, 53, 65, 0.87);
+  }
+  
+  .underLine{
+  height: 1px;
+  width: 230px;
+  background-color: rgb(207, 207, 207);
+  }
+  
+  .detailKey{
+    display: flex;
+    margin: 0px 0.5rem 0px 0px;
+      letter-spacing: 0.15px;
+      /* font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+      line-height: 1.5;
+      color: rgba(58, 53, 65, 0.87);
+      font-weight: 600;
+      font-size: 12px;
+  }
+  
+  .detailValue{
+    font-weight: 400;
+    margin-left: 5px;
+  }
+  
+  .filterText{
+    margin-top: 10px;
+      font-size: 0.8rem;
+      line-height: 1.625;
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      letter-spacing: 0.0075em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      opacity: 1;
+      text-transform: capitalize;
+      vertical-align: unset;
+      text-decoration: none;
+      color: rgb(52, 71, 103);
+      font-weight: 700;
+  }
+  
+  .cardUser{
+      height: 157px;
+      color: rgba(58, 53, 65, 0.87);
+      transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      border-radius: 6px;
+      box-shadow: 0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+      min-width:327px;
+      flex:1;
+      margin-top:42px;
+      background-color: white;
+
+  }
+  
+  .licenceText{
+    margin: 0 20px 20px 20px;
+      line-height: 1.5;
+      letter-spacing: 0.15px;
+      font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-weight: 400;
+      font-size: 0.8rem;
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+  }
+  
+  .licenceKey{
+    display: flex;
+    margin-left: 20px;
+    line-height: 1.5;
+    letter-spacing: 0.15px;
+    font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 600;
+    font-size: 0.675rem;
+  }
+  
+  .licenceValue{
+    font-weight: 400;
+    margin-left: 7%;
+    font-size: 0.675rem;
+  }
+  
+  .addUser{
+    margin-left: 25%;
+      line-height: 1.5;
+      letter-spacing: 0.15px;
+      font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-weight: 400;
+      font-size: 0.875rem;
+      color: #004f68;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  .addUser:hover{
+    cursor: pointer;
+    text-decoration: underline;
+  
+  }
+  
+  .checkList{
+    display: flex;
+    position: absolute;
+    margin-left: 12%;
+  }
+  
+  .cancelRole{
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+    outline: 0px;
+    margin: 0px;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    appearance: none;
+    text-decoration: none;
+    font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    min-width: 64px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border: 1px solid rgba(255, 76, 81, 0.5);
+    color: rgb(255, 76, 81);
+    font-weight: 500;
+    border-radius: 4px;
+    line-height: 1.71;
+    letter-spacing: 0.3px;
+    padding: 0.40625rem 1.3125rem;
+    margin-right: 8%;
+  }
+  .cancelRole:hover{
+    background: rgb(255, 76, 81);
+    color: white;
+  }
+  
+  .confirmRole{
+    display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      outline: 0px;
+      border: 0px;
+      margin: 0px 0.5rem 0px 0px;
+      cursor: pointer;
+      -webkit-user-select: none;
+      user-select: none;
+      vertical-align: middle;
+      appearance: none;
+      text-decoration: none;
+      font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      color: rgb(255, 255, 255);
+      background-color: #004f68;
+      border-radius: 2px;
+      box-shadow: rgba(58, 53, 65, 0.42) 0px 4px 8px -4px;
+      padding: 0.46875rem 1.375rem;
+  }
+  
+  .FirstLast{
+    display: flex;
+      font-size: 0.875rem;
+      white-space: nowrap;
+      -webkit-box-align: center;
+      align-items: center;
+      text-transform: capitalize;
+      font-weight: 600;
+      letter-spacing: 0.13px;
+  }
+  
+  .labelTextUser{
+    margin: 0px;
+    letter-spacing: 0.15px;
+    font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: rgba(58, 53, 65, 0.87);
+  }
+  
+  .updateLicense{
+    border: 1px solid #263d80;
+    color: #263d80;
+    padding: 1px 9px;
+    font-size: xx-small;
+    cursor: pointer;
+    margin-top: -5.5%;
+    margin-left: 58%;
+    width: fit-content;
+  }
+  
+  .updateLicense:hover{
+    color: #ffffff;
+    background-color: #263d80;
+  }
+  
+  a{
+    text-decoration: none !important;
+  }
+  .userPage{
+    /* display: flex; */
+      background: #f4f7fe;
+      height: 100vh;
+      overflow: hidden;
+  }
+
+}
+@media screen and (min-width: 1023px) and (max-width: 1440px){
+  .user_table {
+    margin: auto;
+    width: 50px;
+    border-collapse: collapse;
+  }
+  
+  .user_table thead {
+      
+      border-top: none;
+      background:white;
+      color: black;
+      font-size: medium;
+      font-weight: 100;
+    }
+  
+  .user_table tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #d7dfe585;
+  }
+  
+  .user_table tr:nth-child(odd) {
+    background-color: #ebf3f9;
+  }
+  .user_table td {
+    display: block;
+    font-size: medium;
+    font-weight: light;
+  }
+  
+  .user_table td:first-child {
+    margin-top: .5em;
+  }
+  
+  
+  
+  .user_table td:before {
+    content: attr(data-th) ": ";
+    font-weight:lighter;
+    width: 120px;
+    display: inline-block;
+    color: #000;
+  }
+  
+  
+  .user_table {
+    color: #333;
+    border-radius: .4em;
+  }
+  
+  .user_table tr {
+    border-color: #bfbfbf;
+  }
+  .cc
+  {
+  margin-Left:'3%';
+  margin-Top:'9%';
+  width:'94%';
+  height:'100%';
+  }
+  
+  .user_table th,
+  .user_table td {
+    padding: 0.2em 0.5em;
+  }
+  @media screen and (max-width: 601px) {
+    .user_table tr:nth-child(2) {
+      border-top: none;
+    }
+  }
+  @media screen and (min-width: 600px) {
+    .user_table tr:hover {
+      background-color: #d8e7f3;
+    }
+    .user_table td:before {
+      display: none;
+    }
+    .user_table th,
+    .user_table td {
+      display: table-cell;
+      font-size: 13px;
+    }
+   
+    .user_table th:last-child,
+    .user_table td:last-child {
+      padding-right: 10px;
+    }
+  }
+  
+  .new_user_input_fields{
+      margin-left: 10px;
+      margin-top: 1%;
+  }
+  .input_field_new{
+      border: 0;
+      outline: 0;
+      background: transparent;
+      border-bottom: 1px solid black;
+  }
+  .choose_role_option{
+    background-color: white;
+    color: black;
+    border-color: #d1bdbd;
+    border-radius: 3px;
+    margin-top: 6%;
+    font-size: small;
+    padding: 3%;
+    padding-right: 12%;
+  }
+  .add_user_button{
+      color: white;
+      background-color: rgb(8, 97, 148);
+      border: 0;
+      padding: 7px;
+      border-radius: 6px;
+      margin-left: 55%;
+  }
+  .add_user_button[disabled] {
+    opacity: 0.6; 
+    cursor: not-allowed;
+    background-color: grey;
+  }
+  .add_user_button:hover{
+      cursor: pointer;
+      background-color: rgb(8, 62, 94);
+      
+  }
+  table.user_table{
+      width: 100%;
+      background: #f5f5f5;
+      border-collapse: separate;
+      box-shadow: inset 0 1px 0 #fff;
+      font-size: 12px;
+      line-height: 24px;
+      margin: 30px auto;
+      text-align: left;
+  }
+  
+  .add_icon{
+    width: 23px;
+    height: auto;
+  }
+  .add_LicenseButton{
+    width: 23px;
+    position: relative;
+    left: -150px;
+    height: auto;
+  }
+  
+  .user_list_header{
+      font-weight: 700;
+      font-size: x-large;
+      margin-left: 25px;
+      
+  }
+  thead.user_table_head{
+      height: 46px;
+      /* border-right-width: thick; */
+      /* border-top-width: thick; */
+      border-bottom-width: initial;
+  }
+  .user_droparrow{
+      font-size: 20px;
+      margin-left: 5px;
+      margin-top: 5px;
+  }
+  
+  .add_button{
+    color: white;
+    background-color: rgb(8, 97, 148);
+    border: 0;
+    display: flex;
+    border-radius: 6px;
+    margin-left: 90%;
+    margin-top: 1%;
+  }
+  .add_button:hover{
+    cursor: pointer;
+    background-color: rgb(8, 62, 94);
+  } 
+  
+  .user_dashboard{
+    color: rgb(84 98 98);
+    background-color: #f5f4f442;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    padding: 12px;
+    border-radius: 9px;
+    width: 700px;
+    margin-left: 17%;
+    margin-bottom: 2%;
+  }
+  
+  .role_content{
+    color: rgb(84, 98, 98);
+      background-color: white;
+      box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+      padding: 6px;
+      border-radius: 4px;
+      width: 43%;
+      margin-left: 22%;
+      margin-bottom: 2%;
+      position: fixed;
+      top: 20%;
+      z-index: 1000;
+  }
+  
+  
+  .input_fiels_with_icon{
+      width: 175px;
+      height: 32px;
+      display: flex;
+      margin-top: 15px;
+  }
+  .licensePopup{
+    position: fixed;
+      top: 24%;
+      left: 40%;
+      width: 33%;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-right: 20px;
+      /* height: 345px; */
+      color: rgb(84 98 98);
+      background-color: white;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      color: #011627;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+      /* border: 1px solid black; */
+  }
+  
+  .profileBox{
+    width: 20vw;
+    height: 78vh;
+    background-color: white;
+    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+  }
+  
+  .partLeft{
+    margin-right: 15px;
+  }
+  
+  .proficeIcon{
+    width: 90px;
+    height: auto;
+    margin-top: 40px;
+  }
+  
+  .roleBox{
+    padding-left: 8px;
+    padding-right: 8px;
+    font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 10px;
+    display: inline-flex;
+    align-items: center;
+    height: 18px;
+    border-radius: 16px;
+    color: rgb(255, 76, 81);
+    background-color: rgba(255, 76, 81, 0.12);
+    text-transform: capitalize;
+  }
+  
+  .detailText{
+    margin: 0px;
+      letter-spacing: 0.15px;
+      font-weight: 500;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(58, 53, 65, 0.87);
+  }
+  
+  .nameText{
+    margin: 0px 0px 0.2rem;
+    letter-spacing: 0.15px;
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgba(58, 53, 65, 0.87);
+  }
+  
+  .underLine{
+  height: 1px;
+  width: 230px;
+  background-color: rgb(207, 207, 207);
+  }
+  
+  .detailKey{
+    display: flex;
+    margin: 0px 0.5rem 0px 0px;
+      letter-spacing: 0.15px;
+      /* font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+      line-height: 1.5;
+      color: rgba(58, 53, 65, 0.87);
+      font-weight: 600;
+      font-size: 12px;
+  }
+  
+  .detailValue{
+    font-weight: 400;
+    margin-left: 5px;
+  }
+  
+  .filterText{
+    margin-top: 10px;
+      font-size: 0.8rem;
+      line-height: 1.625;
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      letter-spacing: 0.0075em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      opacity: 1;
+      text-transform: capitalize;
+      vertical-align: unset;
+      text-decoration: none;
+      color: rgb(52, 71, 103);
+      font-weight: 700;
+  }
+  
+  .cardUser{
+    flex: 1;
+    min-width: 321px;
+    flex-direction: row;
+    gap:3rem;
+    height: 150px;
+      color: rgba(58, 53, 65, 0.87);
+      transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      border-radius: 6px;
+      box-shadow: 0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+    background-color: white;
+    margin-top: 26px;
+    }
+  
+  .licenceText{
+    margin: 0 20px 20px 20px;
+      line-height: 1.5;
+      letter-spacing: 0.15px;
+      font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-weight: 400;
+      font-size: 0.875rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+  }
+  
+  .licenceKey{
+    display: flex;
+    margin-left: 20px;
+    line-height: 1.5;
+    letter-spacing: 0.15px;
+    font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 600;
+    font-size: 0.675rem;
+  }
+  
+  .licenceValue{
+    font-weight: 400;
+    margin-left: 7%;
+    font-size: 0.675rem;
+  }
+  
+  .addUser{
+    margin-left: 25%;
+      line-height: 1.5;
+      letter-spacing: 0.15px;
+      font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-weight: 400;
+      font-size: 0.875rem;
+      color: #004f68;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  .addUser:hover{
+    cursor: pointer;
+    text-decoration: underline;
+  
+  }
+  
+  .checkList{
+    display: flex;
+    position: absolute;
+    margin-left: 12%;
+  }
+  
+  .cancelRole{
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+    outline: 0px;
+    margin: 0px;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    appearance: none;
+    text-decoration: none;
+    font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    min-width: 64px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border: 1px solid rgba(255, 76, 81, 0.5);
+    color: rgb(255, 76, 81);
+    font-weight: 500;
+    border-radius: 4px;
+    line-height: 1.71;
+    letter-spacing: 0.3px;
+    padding: 0.40625rem 1.3125rem;
+    margin-right: 8%;
+  }
+  .cancelRole:hover{
+    background: rgb(255, 76, 81);
+    color: white;
+  }
+  
+  .confirmRole{
+    display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      outline: 0px;
+      border: 0px;
+      margin: 0px 0.5rem 0px 0px;
+      cursor: pointer;
+      -webkit-user-select: none;
+      user-select: none;
+      vertical-align: middle;
+      appearance: none;
+      text-decoration: none;
+      font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      color: rgb(255, 255, 255);
+      background-color: #004f68;
+      border-radius: 2px;
+      box-shadow: rgba(58, 53, 65, 0.42) 0px 4px 8px -4px;
+      padding: 0.46875rem 1.375rem;
+  }
+  
+  .FirstLast{
+    display: flex;
+      font-size: 0.875rem;
+      white-space: nowrap;
+      -webkit-box-align: center;
+      align-items: center;
+      text-transform: capitalize;
+      font-weight: 600;
+      letter-spacing: 0.13px;
+  }
+  
+  .labelTextUser{
+    margin: 0px;
+    letter-spacing: 0.15px;
+    font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: rgba(58, 53, 65, 0.87);
+  }
+  
+  .updateLicense{
+    border: 1px solid #263d80;
+    color: #263d80;
+    padding: 3px 10px;
+    font-size: xx-small;
+    cursor: pointer;
+    margin-top: -8.5%;
+    margin-left: 63%;
+    width: fit-content;
+  }
+  
+  .updateLicense:hover{
+    color: #ffffff;
+    background-color: #263d80;
+  }
+  
+  a{
+    text-decoration: none !important;
+  }
+  .userPage{
+    /* display: flex; */
+      background: #f4f7fe;
+      height: 100vh;
+      overflow: hidden;
+  }
+  }
+  
+  @media screen and (min-width: 1339px) and (max-width: 2559px){
+    .user_table {
+  margin: auto;
+  width: 50px;
+  border-collapse: collapse;
+}
+
+.user_table thead {
+    
+    border-top: none;
+    background:white;
+    color: black;
+    font-size: medium;
+    font-weight: 100;
+  }
+
+.user_table tr {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  background-color: #d7dfe585;
+}
+
+.user_table tr:nth-child(odd) {
+  background-color: #ebf3f9;
+}
+.user_table td {
+  display: block;
+  font-size: medium;
+  font-weight: light;
+}
+
+.user_table td:first-child {
+  margin-top: .5em;
+}
+
+
+
+.user_table td:before {
+  content: attr(data-th) ": ";
+  font-weight:lighter;
+  width: 120px;
+  display: inline-block;
+  color: #000;
+}
+
+
+.user_table {
+  color: #333;
+  border-radius: .4em;
+}
+
+.user_table tr {
+  border-color: #bfbfbf;
+}
+.cc
+{
+margin-Left:'3%';
+margin-Top:'9%';
+width:'94%';
+height:'100%';
+}
+
+.user_table th,
+.user_table td {
+  padding: 0.2em 0.5em;
+}
+@media screen and (max-width: 601px) {
+  .user_table tr:nth-child(2) {
+    border-top: none;
+  }
+}
+@media screen and (min-width: 600px) {
+  .user_table tr:hover {
+    background-color: #d8e7f3;
+  }
+  .user_table td:before {
+    display: none;
+  }
+  .user_table th,
+  .user_table td {
+    display: table-cell;
+    font-size: 13px;
+  }
+ 
+  .user_table th:last-child,
+  .user_table td:last-child {
+    padding-right: 10px;
+  }
+}
+
+.new_user_input_fields{
+    margin-left: 10px;
+    margin-top: 1%;
+}
+.input_field_new{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+}
+.choose_role_option{
+  background-color: white;
+  color: black;
+  border-color: #d1bdbd;
+  border-radius: 3px;
+  margin-top: 6%;
+  font-size: small;
+  padding: 3%;
+  padding-right: 12%;
+}
+.add_user_button{
+    color: white;
+    background-color: rgb(8, 97, 148);
+    border: 0;
+    padding: 7px;
+    border-radius: 6px;
+    margin-left: 55%;
+}
+.add_user_button[disabled] {
+  opacity: 0.6; 
+  cursor: not-allowed;
+  background-color: grey;
+}
+.add_user_button:hover{
+    cursor: pointer;
+    background-color: rgb(8, 62, 94);
+    
+}
+table.user_table{
+    width: 100%;
+    background: #f5f5f5;
+    border-collapse: separate;
+    box-shadow: inset 0 1px 0 #fff;
+    font-size: 12px;
+    line-height: 24px;
+    margin: 30px auto;
+    text-align: left;
+}
+
+.add_icon{
+  width: 23px;
+  height: auto;
+}
+.add_LicenseButton{
+  width: 23px;
+  position: relative;
+  left: -150px;
+  height: auto;
+}
+
+.user_list_header{
+    font-weight: 700;
+    font-size: x-large;
+    margin-left: 25px;
+    
+}
+thead.user_table_head{
+    height: 46px;
+    /* border-right-width: thick; */
+    /* border-top-width: thick; */
+    border-bottom-width: initial;
+}
+.user_droparrow{
+    font-size: 20px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.add_button{
+  color: white;
+  background-color: rgb(8, 97, 148);
+  border: 0;
+  display: flex;
+  border-radius: 6px;
+  margin-left: 90%;
+  margin-top: 1%;
+}
+.add_button:hover{
+  cursor: pointer;
+  background-color: rgb(8, 62, 94);
+} 
+
+.user_dashboard{
+  color: rgb(84 98 98);
+  background-color: #f5f4f442;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  padding: 12px;
+  border-radius: 9px;
+  width: 700px;
+  margin-left: 17%;
+  margin-bottom: 2%;
+}
+
+.role_content{
+  color: rgb(84, 98, 98);
+    background-color: white;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    padding: 6px;
+    border-radius: 4px;
+    width: 43%;
+    margin-left: 22%;
+    margin-bottom: 2%;
+    position: fixed;
+    top: 20%;
+    z-index: 1000;
+}
+
+
+.input_fiels_with_icon{
+    width: 175px;
+    height: 32px;
+    display: flex;
+    margin-top: 15px;
+}
+.licensePopup{
+  position: fixed;
+    top: 24%;
+    left: 40%;
+    width: 33%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    /* height: 345px; */
+    color: rgb(84 98 98);
+    background-color: white;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #011627;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    /* border: 1px solid black; */
+}
+
+.profileBox{
+  width: 20vw;
+  height: 78vh;
+  background-color: white;
+  box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.partLeft{
+  margin-right: 15px;
+}
+
+.proficeIcon{
+  width: 90px;
+  height: auto;
+  margin-top: 40px;
+}
+
+.roleBox{
+  padding-left: 8px;
+  padding-right: 8px;
+  font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 10px;
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  border-radius: 16px;
+  color: rgb(255, 76, 81);
+  background-color: rgba(255, 76, 81, 0.12);
+  text-transform: capitalize;
+}
+
+.detailText{
+  margin: 0px;
+    letter-spacing: 0.15px;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(58, 53, 65, 0.87);
+}
+
+.nameText{
+  margin: 0px 0px 0.2rem;
+  letter-spacing: 0.15px;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(58, 53, 65, 0.87);
+}
+
+.underLine{
+height: 1px;
+width: 230px;
+background-color: rgb(207, 207, 207);
+}
+
+.detailKey{
+  display: flex;
+  margin: 0px 0.5rem 0px 0px;
+    letter-spacing: 0.15px;
+    /* font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+    line-height: 1.5;
+    color: rgba(58, 53, 65, 0.87);
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.detailValue{
+  font-weight: 400;
+  margin-left: 5px;
+}
+
+.filterText{
+  margin-top: 10px;
+    font-size: 0.8rem;
+    line-height: 1.625;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    letter-spacing: 0.0075em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: 1;
+    text-transform: capitalize;
+    vertical-align: unset;
+    text-decoration: none;
+    color: rgb(52, 71, 103);
+    font-weight: 700;
+}
+
+.cardUser{
+  flex: 1;
+  min-width: 250px;
+  flex-direction: row;
+  gap:3rem;
+  height: 150px;
+    color: rgba(58, 53, 65, 0.87);
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+  background-color: white;
+  }
+
+.licenceText{
+  margin: 0 20px 20px 20px;
+    line-height: 1.5;
+    letter-spacing: 0.15px;
+    font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 400;
+    font-size: 0.875rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.licenceKey{
+  display: flex;
+  margin-left: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.15px;
+  font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 600;
+  font-size: 0.675rem;
+}
+
+.licenceValue{
+  font-weight: 400;
+  margin-left: 7%;
+  font-size: 0.675rem;
+}
+
+.addUser{
+  margin-left: 25%;
+    line-height: 1.5;
+    letter-spacing: 0.15px;
+    font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: #004f68;
+    text-decoration: none;
+    cursor: pointer;
+}
+.addUser:hover{
+  cursor: pointer;
+  text-decoration: underline;
+
+}
+
+.checkList{
+  display: flex;
+  position: absolute;
+  margin-left: 12%;
+}
+
+.cancelRole{
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0px;
+  margin: 0px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  min-width: 64px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border: 1px solid rgba(255, 76, 81, 0.5);
+  color: rgb(255, 76, 81);
+  font-weight: 500;
+  border-radius: 4px;
+  line-height: 1.71;
+  letter-spacing: 0.3px;
+  padding: 0.40625rem 1.3125rem;
+  margin-right: 8%;
+}
+.cancelRole:hover{
+  background: rgb(255, 76, 81);
+  color: white;
+}
+
+.confirmRole{
+  display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    outline: 0px;
+    border: 0px;
+    margin: 0px 0.5rem 0px 0px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+    appearance: none;
+    text-decoration: none;
+    font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    color: rgb(255, 255, 255);
+    background-color: #004f68;
+    border-radius: 2px;
+    box-shadow: rgba(58, 53, 65, 0.42) 0px 4px 8px -4px;
+    padding: 0.46875rem 1.375rem;
+}
+
+.FirstLast{
+  display: flex;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    text-transform: capitalize;
+    font-weight: 600;
+    letter-spacing: 0.13px;
+}
+
+.labelTextUser{
+  margin: 0px;
+  letter-spacing: 0.15px;
+  font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 400;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: rgba(58, 53, 65, 0.87);
+}
+
+.updateLicense{
+  border: 1px solid #263d80;
+  color: #263d80;
+  padding: 3px 10px;
+  font-size: xx-small;
+  cursor: pointer;
+  margin-top: -8.5%;
+  margin-left: 63%;
+  width: fit-content;
+}
+
+.updateLicense:hover{
+  color: #ffffff;
+  background-color: #263d80;
+}
+
+a{
+  text-decoration: none !important;
+}
+.userPage{
+  /* display: flex; */
+    background: #f4f7fe;
+    height: 100vh;
+    overflow: hidden;
+}
+}
+@media only screen and (min-width: 2559px){
+  .user_table {
+    margin: auto;
+    width: 50px;
+    border-collapse: collapse;
+  }
+  
+  .user_table thead {
+      
+      border-top: none;
+      background:white;
+      color: black;
+      font-size: medium;
+      font-weight: 100;
+    }
+  
+  .user_table tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #d7dfe585;
+  }
+  
+  .user_table tr:nth-child(odd) {
+    background-color: #ebf3f9;
+  }
+  .user_table td {
+    display: block;
+    font-size: medium;
+    font-weight: light;
+  }
+  
+  .user_table td:first-child {
+    margin-top: .5em;
+  }
+  
+  
+  
+  .user_table td:before {
+    content: attr(data-th) ": ";
+    font-weight:lighter;
+    width: 120px;
+    display: inline-block;
+    color: #000;
+  }
+  
+  
+  .user_table {
+    color: #333;
+    border-radius: .4em;
+  }
+  
+  .user_table tr {
+    border-color: #bfbfbf;
+  }
+  .cc
+  {
+  margin-Left:'3%';
+  margin-Top:'9%';
+  width:'94%';
+  height:'100%';
+  }
+  
+  .user_table th,
+  .user_table td {
+    padding: 0.2em 0.5em;
+  }
+  @media screen and (max-width: 601px) {
+    .user_table tr:nth-child(2) {
+      border-top: none;
+    }
+  }
+  @media screen and (min-width: 600px) {
+    .user_table tr:hover {
+      background-color: #d8e7f3;
+    }
+    .user_table td:before {
+      display: none;
+    }
+    .user_table th,
+    .user_table td {
+      display: table-cell;
+      font-size: 13px;
+    }
+   
+    .user_table th:last-child,
+    .user_table td:last-child {
+      padding-right: 10px;
+    }
+  }
+  
+  .new_user_input_fields{
+      margin-left: 10px;
+      margin-top: 1%;
+  }
+  .input_field_new{
+      border: 0;
+      outline: 0;
+      background: transparent;
+      border-bottom: 1px solid black;
+  }
+  .choose_role_option{
+    background-color: white;
+    color: black;
+    border-color: #d1bdbd;
+    border-radius: 3px;
+    margin-top: 6%;
+    font-size: small;
+    padding: 3%;
+    padding-right: 12%;
+  }
+  .add_user_button{
+      color: white;
+      background-color: rgb(8, 97, 148);
+      border: 0;
+      padding: 7px;
+      border-radius: 6px;
+      margin-left: 55%;
+  }
+  .add_user_button[disabled] {
+    opacity: 0.6; 
+    cursor: not-allowed;
+    background-color: grey;
+  }
+  .add_user_button:hover{
+      cursor: pointer;
+      background-color: rgb(8, 62, 94);
+      
+  }
+  table.user_table{
+      width: 100%;
+      background: #f5f5f5;
+      border-collapse: separate;
+      box-shadow: inset 0 1px 0 #fff;
+      font-size: 12px;
+      line-height: 24px;
+      margin: 30px auto;
+      text-align: left;
+  }
+  
+  .add_icon{
+    width: 23px;
+    height: auto;
+  }
+  .add_LicenseButton{
+    width: 23px;
+    position: relative;
+    left: -150px;
+    height: auto;
+  }
+  
+  .user_list_header{
+      font-weight: 700;
+      font-size: x-large;
+      margin-left: 25px;
+      
+  }
+  thead.user_table_head{
+      height: 46px;
+      /* border-right-width: thick; */
+      /* border-top-width: thick; */
+      border-bottom-width: initial;
+  }
+  .user_droparrow{
+      font-size: 20px;
+      margin-left: 5px;
+      margin-top: 5px;
+  }
+  
+  .add_button{
+    color: white;
+    background-color: rgb(8, 97, 148);
+    border: 0;
+    display: flex;
+    border-radius: 6px;
+    margin-left: 90%;
+    margin-top: 1%;
+  }
+  .add_button:hover{
+    cursor: pointer;
+    background-color: rgb(8, 62, 94);
+  } 
+  
+  .user_dashboard{
+    color: rgb(84 98 98);
+    background-color: #f5f4f442;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    padding: 12px;
+    border-radius: 9px;
+    width: 700px;
+    margin-left: 17%;
+    margin-bottom: 2%;
+  }
+  
+  .role_content{
+    color: rgb(84, 98, 98);
+      background-color: white;
+      box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+      padding: 6px;
+      border-radius: 4px;
+      width: 43%;
+      margin-left: 22%;
+      margin-bottom: 2%;
+      position: fixed;
+      top: 20%;
+      z-index: 1000;
+  }
+  
+  
+  .input_fiels_with_icon{
+      width: 175px;
+      height: 32px;
+      display: flex;
+      margin-top: 15px;
+  }
+  .licensePopup{
+    position: fixed;
+      top: 24%;
+      left: 40%;
+      width: 33%;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-right: 20px;
+      /* height: 345px; */
+      color: rgb(84 98 98);
+      background-color: white;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      color: #011627;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+      /* border: 1px solid black; */
+  }
+  
+  .profileBox{
+    width: 20vw;
+    height: 78vh;
+    background-color: white;
+    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+  }
+  
+  .partLeft{
+    margin-right: 15px;
+  }
+  
+  .proficeIcon{
+    width: 90px;
+    height: auto;
+    margin-top: 40px;
+  }
+  
+  .roleBox{
+    padding-left: 8px;
+    padding-right: 8px;
+    font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 10px;
+    display: inline-flex;
+    align-items: center;
+    height: 18px;
+    border-radius: 16px;
+    color: rgb(255, 76, 81);
+    background-color: rgba(255, 76, 81, 0.12);
+    text-transform: capitalize;
+  }
+  
+  .detailText{
+    margin: 0px;
+      letter-spacing: 0.15px;
+      font-weight: 500;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(58, 53, 65, 0.87);
+  }
+  
+  .nameText{
+    margin: 0px 0px 0.2rem;
+    letter-spacing: 0.15px;
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgba(58, 53, 65, 0.87);
+  }
+  
+  .underLine{
+  height: 1px;
+  width: 230px;
+  background-color: rgb(207, 207, 207);
+  }
+  
+  .detailKey{
+    display: flex;
+    margin: 0px 0.5rem 0px 0px;
+      letter-spacing: 0.15px;
+      /* font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+      line-height: 1.5;
+      color: rgba(58, 53, 65, 0.87);
+      font-weight: 600;
+      font-size: 12px;
+  }
+  
+  .detailValue{
+    font-weight: 400;
+    margin-left: 5px;
+  }
+  
+  .filterText{
+    margin-top: 10px;
+      font-size: 0.8rem;
+      line-height: 1.625;
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      letter-spacing: 0.0075em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      opacity: 1;
+      text-transform: capitalize;
+      vertical-align: unset;
+      text-decoration: none;
+      color: rgb(52, 71, 103);
+      font-weight: 700;
+  }
+  
+  .cardUser{
+    flex: 1;
+    min-width: 250px;
+    flex-direction: row;
+    gap:3rem;
+    height: 168px;
+      color: rgba(58, 53, 65, 0.87);
+      transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      border-radius: 6px;
+      box-shadow: 0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+    background-color: white;
+    margin-top: -81px;
+    }
+  
+  .licenceText{
+    margin: 0 20px 20px 20px;
+      line-height: 1.5;
+      letter-spacing: 0.15px;
+      font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-weight: 400;
+      font-size: 0.875rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+  }
+  
+  .licenceKey{
+    display: flex;
+    margin-left: 20px;
+    line-height: 1.5;
+    letter-spacing: 0.15px;
+    font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 600;
+    font-size: 0.675rem;
+  }
+  
+  .licenceValue{
+    font-weight: 400;
+    margin-left: 7%;
+    font-size: 0.675rem;
+  }
+  
+  .addUser{
+    margin-left: 25%;
+      line-height: 1.5;
+      letter-spacing: 0.15px;
+      font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-weight: 400;
+      font-size: 0.875rem;
+      color: #004f68;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  .addUser:hover{
+    cursor: pointer;
+    text-decoration: underline;
+  
+  }
+  
+  .checkList{
+    display: flex;
+    position: absolute;
+    margin-left: 12%;
+  }
+  
+  .cancelRole{
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+    outline: 0px;
+    margin: 0px;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    appearance: none;
+    text-decoration: none;
+    font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    min-width: 64px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border: 1px solid rgba(255, 76, 81, 0.5);
+    color: rgb(255, 76, 81);
+    font-weight: 500;
+    border-radius: 4px;
+    line-height: 1.71;
+    letter-spacing: 0.3px;
+    padding: 0.40625rem 1.3125rem;
+    margin-right: 8%;
+  }
+  .cancelRole:hover{
+    background: rgb(255, 76, 81);
+    color: white;
+  }
+  
+  .confirmRole{
+    display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      outline: 0px;
+      border: 0px;
+      margin: 0px 0.5rem 0px 0px;
+      cursor: pointer;
+      -webkit-user-select: none;
+      user-select: none;
+      vertical-align: middle;
+      appearance: none;
+      text-decoration: none;
+      font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      color: rgb(255, 255, 255);
+      background-color: #004f68;
+      border-radius: 2px;
+      box-shadow: rgba(58, 53, 65, 0.42) 0px 4px 8px -4px;
+      padding: 0.46875rem 1.375rem;
+  }
+  
+  .FirstLast{
+    display: flex;
+      font-size: 0.875rem;
+      white-space: nowrap;
+      -webkit-box-align: center;
+      align-items: center;
+      text-transform: capitalize;
+      font-weight: 600;
+      letter-spacing: 0.13px;
+  }
+  
+  .labelTextUser{
+    margin: 0px;
+    letter-spacing: 0.15px;
+    font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: rgba(58, 53, 65, 0.87);
+  }
+  
+  .updateLicense{
+    border: 1px solid #263d80;
+    color: #263d80;
+    padding: 3px 10px;
+    font-size: xx-small;
+    cursor: pointer;
+    margin-top: -8.5%;
+    margin-left: 63%;
+    width: fit-content;
+  }
+  
+  .updateLicense:hover{
+    color: #ffffff;
+    background-color: #263d80;
+  }
+  
+  a{
+    text-decoration: none !important;
+  }
+  .userPage{
+    /* display: flex; */
+      background: #f4f7fe;
+      height: 100vh;
+      overflow: hidden;
+  }
+  }
+
+/* @media (min-width: 768px){
+  table.user_table{
+    width: 92%;
+}
+} */
+
+/* awfsedfghjklfdghjklsdfghjkldfghjkl */

@@ -1,0 +1,185 @@
+{
+    "isis": {
+        "blr-hsr-172.24.30.138-830-ocnos-csar": [
+            {
+                "instance": "L3VPN",
+                "net": "49.0000.0000.0003.00",
+                "peers": [
+                    {
+                        "local-interface-address": "4.4.4.1",
+                        "local-interface-name": "ge1",
+                        "local-snpa": "0013.95a0.ef03",
+                        "remote-interface-address": "4.4.4.2",
+                        "remote-interface-name": "ge2",
+                        "remote-snpa": "0013.9563.30e8",
+                        "remote-unique-id": "amd-hsr-172.24.30.223-830-ocnos-csar",
+                        "up-time": "4d19h45m"
+                    },
+                    {
+                        "local-interface-address": "9.9.9.9",
+                        "local-interface-name": "ge3",
+                        "local-snpa": "0000.0000.0000",
+                        "remote-interface-address": "9.9.9.9",
+                        "remote-interface-name": "ge4",
+                        "remote-snpa": "0000.0000.0000",
+                        "remote-unique-id": "mumb-hsr-172.24.30.146-830-ocnos-csar",
+                        "up-time": null
+                    }
+                ]
+            }
+        ],
+        "mumb-hsr-172.24.30.146-830-ocnos-csar": [
+            {
+                "instance": "L3VPN",
+                "net": "49.0000.0000.0001.00",
+                "peers": [
+                    {
+                        "local-interface-address": "2.2.2.1",
+                        "local-interface-name": "ge5",
+                        "local-snpa": "0013.95be.f3be",
+                        "remote-interface-address": "2.2.2.2",
+                        "remote-interface-name":"ge6",
+                        "remote-snpa": "0013.9563.30e9",
+                        "remote-unique-id": "blr-hsr-172.24.30.133-830-ocnos-csar",
+                        "up-time": "5d21h59m"
+                    },
+                    {
+                        "local-interface-address": "7.7.7.7",
+                        "local-interface-name": "ge7",
+                        "local-snpa": "0000.0000.0000",
+                        "remote-interface-address": "7.7.7.7",
+                        "remote-interface-name": "ge8",
+                        "remote-snpa": "0000.0000.0000",
+                        "remote-unique-id": "amd-hsr-172.24.30.223-830-ocnos-csar",
+                        "up-time": null
+                    }
+                ]
+            }
+        ]
+    },
+
+    "bgp" :{
+        "amd-hsr-172.24.30.223-830-ocnos-csar": [
+            {
+                "peers": [
+                    {
+                        "afi": "ipv4",
+                        "connection-state": "idle",
+                        "local-interface-address": null,
+                        "local-interface-name": "ge9",
+                        "remote-as": "100",
+                        "remote-interface-address": "12.12.12.12",
+                        "remote-interface-name": "ge10",
+                        "remote-router-id": "0.0.0.0",
+                        "remote-unique-id": "blr-hsr-172.24.30.138-830-ocnos-csar",
+                        "safi": "unicast",
+                        "up-time": null
+                    },
+                    {
+                        "afi": "ipv4",
+                        "connection-state": "idle",
+                        "local-interface-address": null,
+                        "local-interface-name": "ge11",
+                        "remote-as": "100",
+                        "remote-interface-address": "7.7.7.7",
+                        "remote-interface-name": "ge12",
+                        "remote-router-id": "0.0.0.0",
+                        "remote-unique-id": "blr-hsr-172.24.30.133-830-ocnos-csar",
+                        "safi": "unicast",
+                        "up-time": null
+                    }
+                ],
+                "router-as": "100",
+                "router-id": "11.11.11.11"
+            }
+        ],
+        "blr-hsr-172.24.30.133-830-ocnos-csar": [
+            {
+                "peers": [
+                    {
+                        "afi": "ipv4",
+                        "connection-state": "active",
+                        "local-interface-address": null,
+                        "local-interface-name": "ge13",
+                        "remote-as": "100",
+                        "remote-interface-address": "200.1.1.1",
+                        "remote-interface-name": "ge14",
+                        "remote-router-id": "0.0.0.0",
+                        "remote-unique-id": "blr-hsr-172.24.30.138-830-ocnos-csar",
+                        "safi": "unicast",
+                        "up-time": null
+                    },
+                    {
+                        "afi": "ipv4",
+                        "connection-state": "active",
+                        "local-interface-address": null,
+                        "local-interface-name": "ge15",
+                        "remote-as": "100",
+                        "remote-interface-address": "200.1.1.1",
+                        "remote-interface-name": "ge16",
+                        "remote-router-id": "0.0.0.0",
+                        "remote-unique-id": "mumb-hsr-172.24.30.146-830-ocnos-csar",
+                        "safi": "unicast",
+                        "up-time": null
+                    }
+                ],
+                "router-as": "100",
+                "router-id": "12.12.12.12"
+            }
+        ],
+        "blr-hsr-172.24.30.138-830-ocnos-csar": [
+            {
+                "peers": [
+                    {
+                        "afi": "ipv4",
+                        "connection-state": "idle",
+                        "local-interface-address": null,
+                        "local-interface-name": "ge17",
+                        "remote-as": "100",
+                        "remote-interface-address": "200.1.1.2",
+                        "remote-interface-name": "ge18",
+                        "remote-router-id": "0.0.0.0",
+                        "remote-unique-id": "blr-hsr-172.24.30.133-830-ocnos-csar",
+                        "safi": "unicast",
+                        "up-time": null
+                    }
+                ],
+                "router-as": "100",
+                "router-id": "9.9.9.9"
+            }
+        ]
+    },
+    "ldp": {
+        "blr-hsr-172.24.30.138-830-ocnos-csar": {
+            "ldp-instance": "ldp",
+            "peers": [
+                {
+                    "local-interface-address": "4.4.4.1",
+                    "local-interface-name": "ge19",
+                    "remote-identifier": "8.8.8.8",
+                    "remote-interface-address": "4.4.4.2",
+                    "remote-interface-name": "ge20",
+                    "remote-unique-id": "blr-hsr-172.24.30.133-830-ocnos-csar",
+                    "up-time": "4d19h45m"
+                }
+            ],
+            "router-identifier": "9.9.9.9"
+        },
+        "mumb-hsr-172.24.30.146-830-ocnos-csar": {
+            "ldp-instance": "ldp",
+            "peers": [
+                {
+                    "local-interface-address": "2.2.2.1",
+                    "local-interface-name": "ge21",
+                    "remote-identifier": "8.8.8.8",
+                    "remote-interface-address": "2.2.2.2",
+                    "remote-interface-name": "ge22",
+                    "remote-unique-id": "blr-hsr-172.24.30.133-830-ocnos-csar",
+                    "up-time": "5d21h52m"
+                }
+            ],
+            "router-identifier": "7.7.7.7"
+        }
+    }
+
+}

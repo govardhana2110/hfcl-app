@@ -1,0 +1,449 @@
+{
+  "title": "ipi-prefix-list",
+  "description": "YANG version of the ipi-prefix-list",
+  "type": "object",
+  "properties": {
+    "ipi-prefix-list:prefixes": {
+      "description": "Prefix-list information",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "prefix": {
+          "description": "IPV4 prefix-list configurations",
+          "readOnly": false,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "prefix-list-name": {
+                "description": "prefix-list name",
+                "readOnly": false,
+                "path": "../config/prefix-list-name",
+                "type": "string",
+                "mandatory": false
+              },
+              "prefix-list-type": {
+                "description": "prefix-list type",
+                "readOnly": false,
+                "path": "../config/prefix-list-type",
+                "type": "string",
+                "mandatory": false
+              },
+              "config": {
+                "description": "Configuration data for prefix list",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "prefix-list-name": {
+                    "description": "Name of the prefix list",
+                    "readOnly": false,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[a-zA-Z0-9][^?' =,>|]*",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "prefix-list-type": {
+                    "description": "prefix-list type",
+                    "readOnly": false,
+                    "enum": [
+                      "ip",
+                      "ipv6"
+                    ],
+                    "mandatory": false
+                  },
+                  "description": {
+                    "description": "Up to 80 characters describing this prefix-list",
+                    "readOnly": false,
+                    "pattern": "[^?'=,>|]*",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                }
+              },
+              "state": {
+                "description": "Operational state data",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "prefix-list-name": {
+                    "description": "Name of the prefix list",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[a-zA-Z0-9][^?' =,>|]*",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "prefix-list-type": {
+                    "description": "prefix-list type",
+                    "readOnly": true,
+                    "enum": [
+                      "ip",
+                      "ipv6"
+                    ],
+                    "mandatory": false
+                  },
+                  "description": {
+                    "description": "Up to 80 characters describing this prefix-list",
+                    "readOnly": true,
+                    "pattern": "[^?'=,>|]*",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                }
+              },
+              "prefix-entries": {
+                "description": "List of sequences",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "prefix-entry": {
+                    "description": "List of sequences",
+                    "readOnly": false,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "sequence-id": {
+                          "description": "Sequence number of the prefix list",
+                          "readOnly": false,
+                          "path": "../config/sequence-id",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "config": {
+                          "description": "Configuration data for ipv4 prefix-list sequence",
+                          "readOnly": false,
+                          "type": "object",
+                          "properties": {
+                            "sequence-id": {
+                              "description": "Sequence number of the prefix list",
+                              "readOnly": false,
+                              "minimum": 1,
+                              "maximum": 4294967295,
+                              "type": "number",
+                              "mandatory": false
+                            }
+                          }
+                        },
+                        "state": {
+                          "description": "Operational state data",
+                          "readOnly": true,
+                          "type": "object",
+                          "properties": {
+                            "sequence-id": {
+                              "description": "Sequence number of the prefix list",
+                              "readOnly": true,
+                              "minimum": 1,
+                              "maximum": 4294967295,
+                              "type": "number",
+                              "mandatory": false
+                            }
+                          }
+                        },
+                        "ipv4": {
+                          "description": "prefix-list network information",
+                          "readOnly": false,
+                          "type": "object",
+                          "properties": {
+                            "entry": {
+                              "description": "prefix-list network information",
+                              "readOnly": false,
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "action": {
+                                    "description": "Router starts to match prefixes from the top of the prefix list, and stops whenever a match or deny occurs. To promote efficiency, use the seq parameter and place common matches or denials towards the top of the list. The sequence values are generated in the sequence of 5. The parameters ge and le specify the range of the prefix length to be matched",
+                                    "readOnly": false,
+                                    "path": "../config/action",
+                                    "type": "string",
+                                    "mandatory": false
+                                  },
+                                  "prefix-addr": {
+                                    "description": "Either IP address mask and length of the prefix list mask or Take all packets of any length. This parameter is the same as using 0.0.0.0/0 le 32 for A.B.C.D/M.",
+                                    "readOnly": false,
+                                    "path": "../config/prefix-addr",
+                                    "type": "string",
+                                    "mandatory": false
+                                  },
+                                  "config": {
+                                    "description": "Configuration data for ipv4 prefix-list sequence",
+                                    "readOnly": false,
+                                    "type": "object",
+                                    "properties": {
+                                      "action": {
+                                        "description": "Router starts to match prefixes from the top of the prefix list, and stops whenever a match or deny occurs. To promote efficiency, use the seq parameter and place common matches or denials towards the top of the list. The sequence values are generated in the sequence of 5. The parameters ge and le specify the range of the prefix length to be matched",
+                                        "readOnly": false,
+                                        "enum": [
+                                          "deny",
+                                          "permit"
+                                        ],
+                                        "mandatory": false
+                                      },
+                                      "minimum-prefix-length-match": {
+                                        "description": "Minimum prefix length match",
+                                        "readOnly": false,
+                                        "minimum": 0,
+                                        "maximum": 32,
+                                        "type": "number",
+                                        "mandatory": false
+                                      },
+                                      "maximum-prefix-length-match": {
+                                        "description": "Maximum prefix length match",
+                                        "readOnly": false,
+                                        "minimum": 0,
+                                        "maximum": 32,
+                                        "type": "number",
+                                        "mandatory": false
+                                      },
+                                      "prefix-addr": {
+                                        "description": "Either IP address mask and length of the prefix list mask or Take all packets of any length. This parameter is the same as using 0.0.0.0/0 le 32 for A.B.C.D/M.",
+                                        "readOnly": false,
+                                        "oneOf": [
+                                          {
+                                            "enum": [
+                                              "any"
+                                            ]
+                                          },
+                                          {
+                                            "minLength": 0,
+                                            "maxLength": 18,
+                                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                                            "type": "string"
+                                          }
+                                        ],
+                                        "mandatory": false
+                                      },
+                                      "exact-prefix-length-match": {
+                                        "description": "Exact prefix length match",
+                                        "readOnly": false,
+                                        "minimum": 0,
+                                        "maximum": 32,
+                                        "type": "number",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  },
+                                  "state": {
+                                    "description": "Operational state data",
+                                    "readOnly": true,
+                                    "type": "object",
+                                    "properties": {
+                                      "action": {
+                                        "description": "Router starts to match prefixes from the top of the prefix list, and stops whenever a match or deny occurs. To promote efficiency, use the seq parameter and place common matches or denials towards the top of the list. The sequence values are generated in the sequence of 5. The parameters ge and le specify the range of the prefix length to be matched",
+                                        "readOnly": true,
+                                        "enum": [
+                                          "deny",
+                                          "permit"
+                                        ],
+                                        "mandatory": false
+                                      },
+                                      "minimum-prefix-length-match": {
+                                        "description": "Minimum prefix length match",
+                                        "readOnly": true,
+                                        "minimum": 0,
+                                        "maximum": 32,
+                                        "type": "number",
+                                        "mandatory": false
+                                      },
+                                      "maximum-prefix-length-match": {
+                                        "description": "Maximum prefix length match",
+                                        "readOnly": true,
+                                        "minimum": 0,
+                                        "maximum": 32,
+                                        "type": "number",
+                                        "mandatory": false
+                                      },
+                                      "prefix-addr": {
+                                        "description": "Either IP address mask and length of the prefix list mask or Take all packets of any length. This parameter is the same as using 0.0.0.0/0 le 32 for A.B.C.D/M.",
+                                        "readOnly": true,
+                                        "oneOf": [
+                                          {
+                                            "enum": [
+                                              "any"
+                                            ]
+                                          },
+                                          {
+                                            "minLength": 0,
+                                            "maxLength": 18,
+                                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                                            "type": "string"
+                                          }
+                                        ],
+                                        "mandatory": false
+                                      },
+                                      "exact-prefix-length-match": {
+                                        "description": "Exact prefix length match",
+                                        "readOnly": true,
+                                        "minimum": 0,
+                                        "maximum": 32,
+                                        "type": "number",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  }
+                                },
+                                "keyFields": [
+                                  "action",
+                                  "prefix-addr"
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        "ipv6": {
+                          "description": "prefix-list network information",
+                          "readOnly": false,
+                          "type": "object",
+                          "properties": {
+                            "entry": {
+                              "description": "prefix-list network information",
+                              "readOnly": false,
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "action": {
+                                    "description": "Router starts to match prefixes from the top of the prefix list, and stops whenever a match or deny occurs. To promote efficiency, use the seq parameter and place common matches or denials towards the top of the list. The sequence values are generated in the sequence of 5. The parameters ge and le specify the range of the prefix length to be matched",
+                                    "readOnly": false,
+                                    "path": "../config/action",
+                                    "type": "string",
+                                    "mandatory": false
+                                  },
+                                  "ipv6-prefix-addr": {
+                                    "description": "Either IPv6 address mask and length of the prefix list mask or This is the same as specifying ::/0 for X:X::X:X/M",
+                                    "readOnly": false,
+                                    "path": "../config/ipv6-prefix-addr",
+                                    "type": "string",
+                                    "mandatory": false
+                                  },
+                                  "config": {
+                                    "description": "Configuration data for ipv4 prefix-list sequence",
+                                    "readOnly": false,
+                                    "type": "object",
+                                    "properties": {
+                                      "ipv6-prefix-addr": {
+                                        "description": "Either IPv6 address mask and length of the prefix list mask or This is the same as specifying ::/0 for X:X::X:X/M",
+                                        "readOnly": false,
+                                        "oneOf": [
+                                          {
+                                            "enum": [
+                                              "any"
+                                            ]
+                                          },
+                                          {
+                                            "minLength": 0,
+                                            "maxLength": 50,
+                                            "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                                            "type": "string"
+                                          }
+                                        ],
+                                        "mandatory": false
+                                      },
+                                      "action": {
+                                        "description": "Router starts to match prefixes from the top of the prefix list, and stops whenever a match or deny occurs. To promote efficiency, use the seq parameter and place common matches or denials towards the top of the list. The sequence values are generated in the sequence of 5. The parameters ge and le specify the range of the prefix length to be matched",
+                                        "readOnly": false,
+                                        "enum": [
+                                          "deny",
+                                          "permit"
+                                        ],
+                                        "mandatory": false
+                                      },
+                                      "minimum-prefix-length-match": {
+                                        "description": "Minimum prefix length match",
+                                        "readOnly": false,
+                                        "minimum": 0,
+                                        "maximum": 128,
+                                        "type": "number",
+                                        "mandatory": false
+                                      },
+                                      "maximum-prefix-length-match": {
+                                        "description": "Maximum prefix length match",
+                                        "readOnly": false,
+                                        "minimum": 0,
+                                        "maximum": 128,
+                                        "type": "number",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  },
+                                  "state": {
+                                    "description": "Operational state data",
+                                    "readOnly": true,
+                                    "type": "object",
+                                    "properties": {
+                                      "ipv6-prefix-addr": {
+                                        "description": "Either IPv6 address mask and length of the prefix list mask or This is the same as specifying ::/0 for X:X::X:X/M",
+                                        "readOnly": true,
+                                        "oneOf": [
+                                          {
+                                            "enum": [
+                                              "any"
+                                            ]
+                                          },
+                                          {
+                                            "minLength": 0,
+                                            "maxLength": 50,
+                                            "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                                            "type": "string"
+                                          }
+                                        ],
+                                        "mandatory": false
+                                      },
+                                      "action": {
+                                        "description": "Router starts to match prefixes from the top of the prefix list, and stops whenever a match or deny occurs. To promote efficiency, use the seq parameter and place common matches or denials towards the top of the list. The sequence values are generated in the sequence of 5. The parameters ge and le specify the range of the prefix length to be matched",
+                                        "readOnly": true,
+                                        "enum": [
+                                          "deny",
+                                          "permit"
+                                        ],
+                                        "mandatory": false
+                                      },
+                                      "minimum-prefix-length-match": {
+                                        "description": "Minimum prefix length match",
+                                        "readOnly": true,
+                                        "minimum": 0,
+                                        "maximum": 128,
+                                        "type": "number",
+                                        "mandatory": false
+                                      },
+                                      "maximum-prefix-length-match": {
+                                        "description": "Maximum prefix length match",
+                                        "readOnly": true,
+                                        "minimum": 0,
+                                        "maximum": 128,
+                                        "type": "number",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  }
+                                },
+                                "keyFields": [
+                                  "action",
+                                  "ipv6-prefix-addr"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "keyFields": [
+                        "sequence-id"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "prefix-list-name",
+              "prefix-list-type"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

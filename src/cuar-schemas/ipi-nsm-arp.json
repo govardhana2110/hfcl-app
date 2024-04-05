@@ -1,0 +1,302 @@
+{
+  "title": "ipi-nsm-arp",
+  "description": "Address Resolution Protocol",
+  "type": "object",
+  "properties": {
+    "ipi-nsm-arp:arp": {
+      "description": "arp global level information",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "entries": {
+          "description": "static ARP entries information",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "entry": {
+              "description": "static ARP entry information",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "ip-address": {
+                    "description": "This attribute describes the IP address of the ARP",
+                    "readOnly": false,
+                    "path": "../config/ip-address",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "static ARP entry information",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "ip-address": {
+                        "description": "This attribute describes the IP address of the ARP",
+                        "readOnly": false,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "ipv4-address": {
+                        "description": "This attribute describes the IP address of the ARP",
+                        "readOnly": true,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "link-layer-addresses": {
+                    "description": "link-layer addresses of the neighbor",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "link-layer-address": {
+                        "description": "link-layer address of the neighbor",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "mac-address": {
+                              "description": "This attribute describes the MAC address of the ARP",
+                              "readOnly": false,
+                              "path": "../config/mac-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "link-layer address information",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "mac-address": {
+                                  "description": "This attribute describes the MAC address of the ARP",
+                                  "readOnly": false,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "respond-to-arp-request": {
+                                  "description": "This attribute is used to respond the ARP requests for the IP address",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "mac-address": {
+                                  "description": "This attribute describes the MAC address of the ARP",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "respond-to-arp-request": {
+                                  "description": "This attribute is used to respond the ARP requests for the IP address",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "interface-name": {
+                                  "description": "Name of the interface",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "arp-type": {
+                                  "description": "This attribute describes the ARP type",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "static",
+                                    "dynamic"
+                                  ],
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "mac-address"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "ip-address"
+                ]
+              }
+            }
+          }
+        },
+        "dynamic-entries": {
+          "description": "Top level Dynamic ARP entry information",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "arp-type": {
+              "description": "This attribute describes the ARP type",
+              "readOnly": true,
+              "enum": [
+                "static",
+                "dynamic"
+              ],
+              "mandatory": false
+            },
+            "entry": {
+              "description": "Dynamic ARP entry",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "ip-address": {
+                    "description": "This attribute describes the IP address of the ARP",
+                    "readOnly": true,
+                    "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "mac-address": {
+                    "description": "This attribute describes the MAC address of the ARP",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "interface-name": {
+                    "description": "Name of the Interface",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                },
+                "keyFields": [
+                  "ip-address"
+                ]
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Top level container for arp on each interface",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "List of interfaces on which arp is enabled/available",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The textual name of the interface. The value of this object should be the name of the interface as assigned by the local device and should be suitable for use in commands entered at the device's `console'. This might be a text name, such as `le0' or a simple port number, such as `1', depending on the interface naming syntax of the device. If several entries in the ifTable together represent a single interface as named by the device, then each will have the same value of name. Note that for an agent which responds to SNMP queries concerning an interface on some other (proxied) device, then the value of name for such an interface is the proxied device's local name for it. If there is no local name, or this object is otherwise not applicable, then this object contains a zero-length string.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for ndd on each interface",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Name of the Interface",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable-proxy-arp": {
+                        "description": "Use this Attribute to set the Internet protocol proxy arp",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "arp-ageing-timeout": {
+                        "description": "This attribute is used to set ARP Ageing timeout in sec and arp age timeout value to interface",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 3000,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Name of the Interface",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable-proxy-arp": {
+                        "description": "Use this Attribute to set the Internet protocol proxy arp",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "arp-ageing-timeout": {
+                        "description": "This attribute is used to set ARP Ageing timeout in sec and arp age timeout value to interface",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 3000,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "title": "ipi-udld",
+  "description": "Datamodel for Layer-2 UnDirectional Link Detection",
+  "type": "object",
+  "properties": {
+    "ipi-udld:udld": {
+      "description": "UniDirectional Link Detection (UDLD) data model",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "global": {
+          "description": "Container for UDLD Global configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for UDLD Global",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this attribute to enable UDLD",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "message-time": {
+                  "description": "Use this attribute to set UDLD message interval value",
+                  "readOnly": false,
+                  "minimum": 7,
+                  "maximum": 90,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for UDLD Global",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this attribute to enable UDLD",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "message-time": {
+                  "description": "Use this attribute to set UDLD message interval value",
+                  "readOnly": true,
+                  "minimum": 7,
+                  "maximum": 90,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "Container for UDLD debugging functions",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for UDLD debug",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Use this attribute to enable or disable UDLD debugging at various levels",
+                  "readOnly": false,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "packet": "1",
+                    "timer": "2",
+                    "nsm": "3",
+                    "hal": "4"
+                  },
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for UDLD debug",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Use this attribute to enable or disable UDLD debugging at various levels",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "packet": "1",
+                    "timer": "2",
+                    "nsm": "3",
+                    "hal": "4"
+                  },
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "This attribute returns the terminal debug options which are enabled",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "packet": "1",
+                    "timer": "2",
+                    "nsm": "3",
+                    "hal": "4"
+                  },
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Container for UDLD Interface configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "List of interfaces on which udld will be configured",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Use this attribute to configure UDLD for an interface.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for UDLD Interface",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Use this attribute to configure UDLD for an interface.",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mode": {
+                        "description": "Use this attribute to configure UDLD mode for an interface",
+                        "readOnly": false,
+                        "enum": [
+                          "normal",
+                          "aggressive"
+                        ],
+                        "mandatory": false
+                      },
+                      "administrative-state": {
+                        "description": "Use this attribute configure UDLD administrative state for an interface",
+                        "readOnly": false,
+                        "enum": [
+                          "disable",
+                          "enable"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for UDLD Interface",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Use this attribute to configure UDLD for an interface.",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mode": {
+                        "description": "Use this attribute to configure UDLD mode for an interface",
+                        "readOnly": true,
+                        "enum": [
+                          "normal",
+                          "aggressive"
+                        ],
+                        "mandatory": false
+                      },
+                      "administrative-state": {
+                        "description": "Use this attribute configure UDLD administrative state for an interface",
+                        "readOnly": true,
+                        "enum": [
+                          "disable",
+                          "enable"
+                        ],
+                        "mandatory": false
+                      },
+                      "link-state": {
+                        "description": "Use this attribute to get the interface operational state",
+                        "readOnly": true,
+                        "enum": [
+                          "Unknown",
+                          "Loopback",
+                          "Neighbor-Mismatch",
+                          "Unidirectional",
+                          "Undetermined",
+                          "Bi-Directional"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

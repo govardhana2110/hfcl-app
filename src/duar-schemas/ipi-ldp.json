@@ -1,0 +1,3433 @@
+{
+  "title": "ipi-ldp",
+  "description": "Datamodel for LDP protocol",
+  "type": "object",
+  "properties": {
+    "ipi-ldp:ldp": {
+      "description": "LDP global level container",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "global": {
+          "description": "Configuration data for LDP global capability configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "LDP global structure for Configuration parameters",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "ldp-instance": {
+                  "description": "This command is used to enter the LDP specific command-line mode in which global attributes for the LDP process can be set. Without this command, the LSR does not perform any LDP operations, such as sending hello packets.",
+                  "readOnly": false,
+                  "enum": [
+                    "ldp"
+                  ],
+                  "mandatory": true
+                },
+                "router-identifier": {
+                  "description": "This attribute sets the router-id to the supplied IP address; the router uses this address to generate the LDP-ID",
+                  "readOnly": false,
+                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "pseudowire-status-tlv": {
+                  "description": "This attribute enables the use of the PW Status TLV to signal the pseudowire status",
+                  "readOnly": false,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "rlfa-ilm-optimization": {
+                  "description": "This attribute enables the rlfa ilm optimization",
+                  "readOnly": false,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "entropy-label-capability-enable": {
+                  "description": "This attribute enables ELC for the router. An ELC TLV will be inserted in the label mapping message if the router is capable of processing Entropy Label.",
+                  "readOnly": false,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "multicast-hello-disable": {
+                  "description": "This attribute enable multicast hello exchange on all interfaces enabled for LDP. This is used for autodiscovery of LDP peers on directly connected networks. This option is enabled by default.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "advertise-label-for-default-route": {
+                  "description": "Advertise the label for default route.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "import-bgp-routes": {
+                  "description": "This attribute is used to import BGP routes into LDP. BGP routes are not imported into LDP by default. Use the no parameter to flush out all BGP routes currently being used by LDP, and to reject any further BGP specific routing updates from ZebOS-XP.",
+                  "readOnly": false,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "ldp-optimization": {
+                  "description": "This command helps optimize the resetting of an LDP session by enabling the two scalability features for LDP. It Resets the session keepalive timer on receipt of a hello message and Resets the hold timer on receipt of any LDP control message.",
+                  "readOnly": false,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "explicit-null": {
+                  "description": "This attribute is used to configure the router to send explicit-null labels for directly connected FECs instead of implicit-null labels. Implicit-nulls are the default labels.",
+                  "readOnly": false,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "global-merge": {
+                  "description": "This attribute is used to override the default merge capability setting of all the interfaces for the current LSR. The merge capability aggregates multiple incoming flows with the same destination address into a single outgoing flow.",
+                  "readOnly": false,
+                  "enum": [
+                    "merge-capable",
+                    "non-merge-capable"
+                  ],
+                  "mandatory": false
+                },
+                "propagate-release": {
+                  "description": "This attribute is used to propagate the release of labels to downstream routers",
+                  "readOnly": false,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "fast-reroute": {
+                  "description": "This attribute is used to enable the use by LDP of the LFA next-hop",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "auto-targeted-session": {
+                  "description": "This attribute is used to dynamically create TLDP session for LDP RLFA.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "ldp-instance": {
+                  "description": "This command is used to enter the LDP specific command-line mode in which global attributes for the LDP process can be set. Without this command, the LSR does not perform any LDP operations, such as sending hello packets.",
+                  "readOnly": true,
+                  "enum": [
+                    "ldp"
+                  ],
+                  "mandatory": true
+                },
+                "router-identifier": {
+                  "description": "This attribute sets the router-id to the supplied IP address; the router uses this address to generate the LDP-ID",
+                  "readOnly": true,
+                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "pseudowire-status-tlv": {
+                  "description": "This attribute enables the use of the PW Status TLV to signal the pseudowire status",
+                  "readOnly": true,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "rlfa-ilm-optimization": {
+                  "description": "This attribute enables the rlfa ilm optimization",
+                  "readOnly": true,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "entropy-label-capability-enable": {
+                  "description": "This attribute enables ELC for the router. An ELC TLV will be inserted in the label mapping message if the router is capable of processing Entropy Label.",
+                  "readOnly": true,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "multicast-hello-disable": {
+                  "description": "This attribute enable multicast hello exchange on all interfaces enabled for LDP. This is used for autodiscovery of LDP peers on directly connected networks. This option is enabled by default.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "advertise-label-for-default-route": {
+                  "description": "Advertise the label for default route.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "import-bgp-routes": {
+                  "description": "This attribute is used to import BGP routes into LDP. BGP routes are not imported into LDP by default. Use the no parameter to flush out all BGP routes currently being used by LDP, and to reject any further BGP specific routing updates from ZebOS-XP.",
+                  "readOnly": true,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "ldp-optimization": {
+                  "description": "This command helps optimize the resetting of an LDP session by enabling the two scalability features for LDP. It Resets the session keepalive timer on receipt of a hello message and Resets the hold timer on receipt of any LDP control message.",
+                  "readOnly": true,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "explicit-null": {
+                  "description": "This attribute is used to configure the router to send explicit-null labels for directly connected FECs instead of implicit-null labels. Implicit-nulls are the default labels.",
+                  "readOnly": true,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "global-merge": {
+                  "description": "This attribute is used to override the default merge capability setting of all the interfaces for the current LSR. The merge capability aggregates multiple incoming flows with the same destination address into a single outgoing flow.",
+                  "readOnly": true,
+                  "enum": [
+                    "merge-capable",
+                    "non-merge-capable"
+                  ],
+                  "mandatory": false
+                },
+                "propagate-release": {
+                  "description": "This attribute is used to propagate the release of labels to downstream routers",
+                  "readOnly": true,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "fast-reroute": {
+                  "description": "This attribute is used to enable the use by LDP of the LFA next-hop",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "auto-targeted-session": {
+                  "description": "This attribute is used to dynamically create TLDP session for LDP RLFA.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "label-management": {
+              "description": "Configuration data for LDP global label management configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configuration data",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "control-mode": {
+                      "description": "Use this attribute to override the default merge capability setting of all the interfaces for the current LSR.The merge capability aggregates multiple incoming flows with the same destination address into a single outgoing flow. This reduces the label-space shortage by sharing labels for different flows with the same destination, or the same FEC (Forwarding Equivalence Class).an LSR replies to a request packet from an LSR higher in the chain only after it receives a label from an LSR lower in the chain. Independent processing setthe mode to instant replies.In independent control mode, each LSR might advertise label mappings to its neighbors at any time. In independent downstream-on-demand mode, an LSR might answer requests for label mappings immediately, without waiting for a label mapping from the next hop. In independent downstream unsolicited mode, an LSR might advertise a label mapping for an Forwarding Equivalence Class (FEC) to its neighbors when ever it is prepared to label-switch that FEC.In independent mode, an upstream label can be advertised before a downstream label is received.In ordered control mode, an LSR may initiate the transmission of label mapping only for an FEC for which it has a label mapping for the FEC next hop, or for which the LSR is the egress. For each FEC for which the LSR is not the egress and no mapping exists, the LSR must wait until a label from a downstream LSR is received. An LSR may be an egress for some FECs and a non-egress for others. Changes in control mode only affect labels that were sent or received after the change was made.",
+                      "readOnly": false,
+                      "enum": [
+                        "independent",
+                        "ordered"
+                      ],
+                      "mandatory": false
+                    },
+                    "retention-mode": {
+                      "description": "This attribute is used to set the retention mode to be used for all labels exchanged. When an LSR receives a label binding for a particular FEC (Forwarding Equivalence Class) from another LSR that is not its next hop for that FEC, it might keep track of such bindings or discard them. Use the liberal parameter to retain all labels binding to FEC received from label distribution peers, even if the LSR is not the current next-hop. Use the conservative parameter to maintain only the label bindings for valid next-hops in a LSP.",
+                      "readOnly": false,
+                      "enum": [
+                        "liberal",
+                        "conservative"
+                      ],
+                      "mandatory": false
+                    },
+                    "advertisement-mode": {
+                      "description": "This attribute is used to set the label advertisement mode for all the interfaces for the current LSR. Specifying downstream-on-demand and downstream-unsolicited mode affects which LSR initiates mapping requests and mapping advertisements. This command is a global command used to set the label advertisement mode for all interfaces for the current LSR.",
+                      "readOnly": false,
+                      "enum": [
+                        "downstream-unsolicited",
+                        "downstream-on-demand"
+                      ],
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational state data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "control-mode": {
+                      "description": "Use this attribute to override the default merge capability setting of all the interfaces for the current LSR.The merge capability aggregates multiple incoming flows with the same destination address into a single outgoing flow. This reduces the label-space shortage by sharing labels for different flows with the same destination, or the same FEC (Forwarding Equivalence Class).an LSR replies to a request packet from an LSR higher in the chain only after it receives a label from an LSR lower in the chain. Independent processing setthe mode to instant replies.In independent control mode, each LSR might advertise label mappings to its neighbors at any time. In independent downstream-on-demand mode, an LSR might answer requests for label mappings immediately, without waiting for a label mapping from the next hop. In independent downstream unsolicited mode, an LSR might advertise a label mapping for an Forwarding Equivalence Class (FEC) to its neighbors when ever it is prepared to label-switch that FEC.In independent mode, an upstream label can be advertised before a downstream label is received.In ordered control mode, an LSR may initiate the transmission of label mapping only for an FEC for which it has a label mapping for the FEC next hop, or for which the LSR is the egress. For each FEC for which the LSR is not the egress and no mapping exists, the LSR must wait until a label from a downstream LSR is received. An LSR may be an egress for some FECs and a non-egress for others. Changes in control mode only affect labels that were sent or received after the change was made.",
+                      "readOnly": true,
+                      "enum": [
+                        "independent",
+                        "ordered"
+                      ],
+                      "mandatory": false
+                    },
+                    "retention-mode": {
+                      "description": "This attribute is used to set the retention mode to be used for all labels exchanged. When an LSR receives a label binding for a particular FEC (Forwarding Equivalence Class) from another LSR that is not its next hop for that FEC, it might keep track of such bindings or discard them. Use the liberal parameter to retain all labels binding to FEC received from label distribution peers, even if the LSR is not the current next-hop. Use the conservative parameter to maintain only the label bindings for valid next-hops in a LSP.",
+                      "readOnly": true,
+                      "enum": [
+                        "liberal",
+                        "conservative"
+                      ],
+                      "mandatory": false
+                    },
+                    "advertisement-mode": {
+                      "description": "This attribute is used to set the label advertisement mode for all the interfaces for the current LSR. Specifying downstream-on-demand and downstream-unsolicited mode affects which LSR initiates mapping requests and mapping advertisements. This command is a global command used to set the label advertisement mode for all interfaces for the current LSR.",
+                      "readOnly": true,
+                      "enum": [
+                        "downstream-unsolicited",
+                        "downstream-on-demand"
+                      ],
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "timers": {
+              "description": "Container for LDP timers",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configuration data for timers",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "hello-interval": {
+                      "description": "Use this attribute set the hello interval to send the hello messages to peers",
+                      "readOnly": false,
+                      "minimum": 1,
+                      "maximum": 21845,
+                      "type": "number",
+                      "mandatory": false
+                    },
+                    "hello-holdtime": {
+                      "description": "Use this attribute set the hello hold time as the time out value that the router waits before rejecting an adjacency",
+                      "readOnly": false,
+                      "minimum": 3,
+                      "maximum": 65535,
+                      "type": "number",
+                      "mandatory": false
+                    },
+                    "keepalive-timeout": {
+                      "description": "Use this attribute to set the time period for which an LSR must wait for successive keep-alive messages from LDP peers",
+                      "readOnly": false,
+                      "minimum": 3,
+                      "maximum": 65535,
+                      "type": "number",
+                      "mandatory": false
+                    },
+                    "keepalive-interval": {
+                      "description": "Use this attribute to set the global value for the interval after which keep-alive packets are sent out",
+                      "readOnly": false,
+                      "minimum": 1,
+                      "maximum": 21845,
+                      "type": "number",
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational state data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "hello-interval": {
+                      "description": "Use this attribute set the hello interval to send the hello messages to peers",
+                      "readOnly": true,
+                      "minimum": 1,
+                      "maximum": 21845,
+                      "type": "number",
+                      "mandatory": false
+                    },
+                    "hello-holdtime": {
+                      "description": "Use this attribute set the hello hold time as the time out value that the router waits before rejecting an adjacency",
+                      "readOnly": true,
+                      "minimum": 3,
+                      "maximum": 65535,
+                      "type": "number",
+                      "mandatory": false
+                    },
+                    "keepalive-timeout": {
+                      "description": "Use this attribute to set the time period for which an LSR must wait for successive keep-alive messages from LDP peers",
+                      "readOnly": true,
+                      "minimum": 3,
+                      "maximum": 65535,
+                      "type": "number",
+                      "mandatory": false
+                    },
+                    "keepalive-interval": {
+                      "description": "Use this attribute to set the global value for the interval after which keep-alive packets are sent out",
+                      "readOnly": true,
+                      "minimum": 1,
+                      "maximum": 21845,
+                      "type": "number",
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "label-request-policy": {
+              "description": "Configuration data for LDP policies for label-request",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configuration data",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "request-retry-timeout": {
+                      "description": "Use this attribute to set the interval between retries. Before this time is over, a request is re-sent to a peer. This command changes the interval between request messages that are resent to a peer to account for routing changes.",
+                      "readOnly": false,
+                      "minimum": 1,
+                      "maximum": 65535,
+                      "type": "number",
+                      "mandatory": false
+                    },
+                    "request-retry": {
+                      "description": "Use this attribute to enable the retry of requests once a request for a label has been rejected for a valid reason. This command enables the LSR to send a maximum of five label requests if a label request is rejected by an LDP peer.",
+                      "readOnly": false,
+                      "type": "boolean",
+                      "mandatory": false
+                    },
+                    "label-request-policy-ipv4": {
+                      "description": "Use this attribute to send LDP Label Request Message for certain IPv4 FEC prefixes.",
+                      "readOnly": false,
+                      "minLength": 1,
+                      "maxLength": 1965,
+                      "pattern": "[^?' =,>|]+",
+                      "type": "string",
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational state data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "request-retry-timeout": {
+                      "description": "Use this attribute to set the interval between retries. Before this time is over, a request is re-sent to a peer. This command changes the interval between request messages that are resent to a peer to account for routing changes.",
+                      "readOnly": true,
+                      "minimum": 1,
+                      "maximum": 65535,
+                      "type": "number",
+                      "mandatory": false
+                    },
+                    "request-retry": {
+                      "description": "Use this attribute to enable the retry of requests once a request for a label has been rejected for a valid reason. This command enables the LSR to send a maximum of five label requests if a label request is rejected by an LDP peer.",
+                      "readOnly": true,
+                      "type": "boolean",
+                      "mandatory": false
+                    },
+                    "label-request-policy-ipv4": {
+                      "description": "Use this attribute to send LDP Label Request Message for certain IPv4 FEC prefixes.",
+                      "readOnly": true,
+                      "minLength": 1,
+                      "maxLength": 1965,
+                      "pattern": "[^?' =,>|]+",
+                      "type": "string",
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "loop-detection-policy": {
+              "description": "Configuration data for LDP policies for loop detection",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Ldp structure for loop-detection configurationdata",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "loop-detection-enable": {
+                      "description": "Use this attribute to enable loop detection on the current LSR. This command detects looping LSPs, and prevent Label Request messages from looping because of non-merge capable LSRs. This loop detection mechanism is useful for networks of non time-to-live (non TTL) decrementing devices that can not allocate resources among traffic flows.",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": true
+                    },
+                    "path-vector-limit": {
+                      "description": "Use this attribute to set the loop detection vec (vector) count, which determines the maximum supported path vectors. This command sets the maximum supported path vectors for loop detection, which specifies the permitted path vector length. An LSR that detects a path vector has reached the maximum length behaves as if the containing message has traversed a loop. This command ensures that a loop is detected while establishing a label switched path before any data is passed over that LSP.",
+                      "readOnly": false,
+                      "minimum": 1,
+                      "maximum": 255,
+                      "type": "number",
+                      "mandatory": false
+                    },
+                    "hop-count-limit": {
+                      "description": "Use this attribute to set the loop detection hop count, which determines the maximum hop-count value. This command sets the maximum hop count value, which specifies the permitted maximum permitted hop-count. An LSR that detects a maximum hop count behaves as if the containing message has traversed a loop. The use of this command ensures that a loop is detected while establishing a label switched path before any data is passed via LSP",
+                      "readOnly": false,
+                      "minimum": 1,
+                      "maximum": 255,
+                      "type": "number",
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational state data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "loop-detection-enable": {
+                      "description": "Use this attribute to enable loop detection on the current LSR. This command detects looping LSPs, and prevent Label Request messages from looping because of non-merge capable LSRs. This loop detection mechanism is useful for networks of non time-to-live (non TTL) decrementing devices that can not allocate resources among traffic flows.",
+                      "readOnly": true,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": true
+                    },
+                    "path-vector-limit": {
+                      "description": "Use this attribute to set the loop detection vec (vector) count, which determines the maximum supported path vectors. This command sets the maximum supported path vectors for loop detection, which specifies the permitted path vector length. An LSR that detects a path vector has reached the maximum length behaves as if the containing message has traversed a loop. This command ensures that a loop is detected while establishing a label switched path before any data is passed over that LSP.",
+                      "readOnly": true,
+                      "minimum": 1,
+                      "maximum": 255,
+                      "type": "number",
+                      "mandatory": false
+                    },
+                    "hop-count-limit": {
+                      "description": "Use this attribute to set the loop detection hop count, which determines the maximum hop-count value. This command sets the maximum hop count value, which specifies the permitted maximum permitted hop-count. An LSR that detects a maximum hop count behaves as if the containing message has traversed a loop. The use of this command ensures that a loop is detected while establishing a label switched path before any data is passed via LSP",
+                      "readOnly": true,
+                      "minimum": 1,
+                      "maximum": 255,
+                      "type": "number",
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "session-protection": {
+              "description": "Session protection container",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Session protection config",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "session-protection-enable": {
+                      "description": "This attribute is used to activate adjacency session protection.",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": true
+                    },
+                    "duration": {
+                      "description": "Set adjacency session protection duration. Protection is infinite, it is not configured",
+                      "readOnly": false,
+                      "oneOf": [
+                        {
+                          "enum": [
+                            "infinite"
+                          ]
+                        },
+                        {
+                          "minimum": 5,
+                          "maximum": 86400,
+                          "type": "number"
+                        }
+                      ],
+                      "mandatory": false
+                    },
+                    "session-protection-prefix-list-name": {
+                      "description": "This attribute is used to set adjacency prefixes for session protection.",
+                      "readOnly": false,
+                      "oneOf": [
+                        {
+                          "enum": [
+                            "none"
+                          ]
+                        },
+                        {
+                          "pattern": "[a-zA-Z0-9][^?' =,>|]*",
+                          "type": "string"
+                        }
+                      ],
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Session protection state",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "session-protection-enable": {
+                      "description": "This attribute is used to activate adjacency session protection.",
+                      "readOnly": true,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": true
+                    },
+                    "duration": {
+                      "description": "Set adjacency session protection duration. Protection is infinite, it is not configured",
+                      "readOnly": true,
+                      "oneOf": [
+                        {
+                          "enum": [
+                            "infinite"
+                          ]
+                        },
+                        {
+                          "minimum": 5,
+                          "maximum": 86400,
+                          "type": "number"
+                        }
+                      ],
+                      "mandatory": false
+                    },
+                    "session-protection-prefix-list-name": {
+                      "description": "This attribute is used to set adjacency prefixes for session protection.",
+                      "readOnly": true,
+                      "oneOf": [
+                        {
+                          "enum": [
+                            "none"
+                          ]
+                        },
+                        {
+                          "pattern": "[a-zA-Z0-9][^?' =,>|]*",
+                          "type": "string"
+                        }
+                      ],
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "Configuration data for LDP debugging configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "ldp": {
+                  "description": "Use this attribute to enable the debugging of all LDP events.",
+                  "readOnly": false,
+                  "type": "string",
+                  "bits": {
+                    "events": "0",
+                    "fsm": "1",
+                    "hexdump": "2",
+                    "dsm": "3",
+                    "usm": "4",
+                    "tsm": "5",
+                    "qos": "6",
+                    "nsm": "7",
+                    "advertise-labels": "8",
+                    "cspf": "9",
+                    "vc-usm": "10",
+                    "vc-dsm": "11",
+                    "graceful-restart": "12",
+                    "rib": "13",
+                    "ha": "14",
+                    "inter-area": "15",
+                    "packet-notification": "17",
+                    "packet-hello": "18",
+                    "packet-initialization": "19",
+                    "packet-keepalive": "20",
+                    "packet-address": "21",
+                    "packet-label": "22"
+                  },
+                  "mandatory": false
+                },
+                "iccp": {
+                  "description": "This attribute is used to enable the iccp debug logs",
+                  "readOnly": false,
+                  "type": "string",
+                  "bits": {
+                    "events": "0",
+                    "fsm": "1",
+                    "hexdump": "2",
+                    "packet": "3",
+                    "bfd": "4"
+                  },
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "ldp": {
+                  "description": "Use this attribute to enable the debugging of all LDP events.",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "events": "0",
+                    "fsm": "1",
+                    "hexdump": "2",
+                    "dsm": "3",
+                    "usm": "4",
+                    "tsm": "5",
+                    "qos": "6",
+                    "nsm": "7",
+                    "advertise-labels": "8",
+                    "cspf": "9",
+                    "vc-usm": "10",
+                    "vc-dsm": "11",
+                    "graceful-restart": "12",
+                    "rib": "13",
+                    "ha": "14",
+                    "inter-area": "15",
+                    "packet-notification": "17",
+                    "packet-hello": "18",
+                    "packet-initialization": "19",
+                    "packet-keepalive": "20",
+                    "packet-address": "21",
+                    "packet-label": "22"
+                  },
+                  "mandatory": false
+                },
+                "iccp": {
+                  "description": "This attribute is used to enable the iccp debug logs",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "events": "0",
+                    "fsm": "1",
+                    "hexdump": "2",
+                    "packet": "3",
+                    "bfd": "4"
+                  },
+                  "mandatory": false
+                },
+                "terminal-debug-options": {
+                  "description": "Use this attribute to enable the debugging of all LDP events.",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "events": "0",
+                    "fsm": "1",
+                    "hexdump": "2",
+                    "dsm": "3",
+                    "usm": "4",
+                    "tsm": "5",
+                    "qos": "6",
+                    "nsm": "7",
+                    "advertise-labels": "8",
+                    "cspf": "9",
+                    "vc-usm": "10",
+                    "vc-dsm": "11",
+                    "graceful-restart": "12",
+                    "rib": "13",
+                    "ha": "14",
+                    "inter-area": "15",
+                    "packet-notification": "17",
+                    "packet-hello": "18",
+                    "packet-initialization": "19",
+                    "packet-keepalive": "20",
+                    "packet-address": "21",
+                    "packet-label": "22"
+                  },
+                  "mandatory": false
+                },
+                "terminal-debug-iccp-options": {
+                  "description": "This attribute is used to enable the iccp debug logs",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "events": "0",
+                    "fsm": "1",
+                    "hexdump": "2",
+                    "packet": "3",
+                    "bfd": "4"
+                  },
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "graceful-restart": {
+          "description": "Configuration data for LDP graceful-restart feature",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this attribute with the enable option to enable Graceful Restart capability on a router. This is a global command. LDP decides whether or not to encode FT Session TLV in its initialization message for each session depending on this capability, but the restart capability of each session also depends on support for graceful restart at the peer router",
+                  "readOnly": false,
+                  "enum": [
+                    "full",
+                    "helper-only"
+                  ],
+                  "mandatory": true
+                },
+                "neighbor-liveness-time": {
+                  "description": "Use this attribute to set the Neighbor-Liveness timer. The amount of time the LSR keeps its stale label-FEC (Forwarding Equivalence Class) bindings is set to the lesser of the Fault Tolerant (FT) Reconnect timeout and Neighbor-Liveness timer. This command sets the Neighbor-Liveness timer",
+                  "readOnly": false,
+                  "minimum": 5,
+                  "maximum": 300,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "max-recovery-time": {
+                  "description": "Use this attribute to set the maximum recovery time.If the LSR determines that the neighbor was able to preserve its MPLS forwarding state, the LSR should keep the stale label-FEC (Forwarding Equivalence Class) bindings for as long as the lesser of: the recovery time advertised by the neighbor and a local maximum recovery time. This command sets the maximum recovery time",
+                  "readOnly": false,
+                  "minimum": 15,
+                  "maximum": 600,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this attribute with the enable option to enable Graceful Restart capability on a router. This is a global command. LDP decides whether or not to encode FT Session TLV in its initialization message for each session depending on this capability, but the restart capability of each session also depends on support for graceful restart at the peer router",
+                  "readOnly": true,
+                  "enum": [
+                    "full",
+                    "helper-only"
+                  ],
+                  "mandatory": true
+                },
+                "neighbor-liveness-time": {
+                  "description": "Use this attribute to set the Neighbor-Liveness timer. The amount of time the LSR keeps its stale label-FEC (Forwarding Equivalence Class) bindings is set to the lesser of the Fault Tolerant (FT) Reconnect timeout and Neighbor-Liveness timer. This command sets the Neighbor-Liveness timer",
+                  "readOnly": true,
+                  "minimum": 5,
+                  "maximum": 300,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "max-recovery-time": {
+                  "description": "Use this attribute to set the maximum recovery time.If the LSR determines that the neighbor was able to preserve its MPLS forwarding state, the LSR should keep the stale label-FEC (Forwarding Equivalence Class) bindings for as long as the lesser of: the recovery time advertised by the neighbor and a local maximum recovery time. This command sets the maximum recovery time",
+                  "readOnly": true,
+                  "minimum": 15,
+                  "maximum": 600,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "restart-count": {
+                  "description": "This attribute holds the count for restart",
+                  "readOnly": true,
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 4294967295,
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "iccp": {
+          "description": "Configuration data for ICCP feature",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Structure for ICCP configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "redundancy-group-identifier": {
+                  "description": "This attribute is used to configure redundancy group id",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 65535,
+                  "type": "number",
+                  "mandatory": true
+                },
+                "ldp-peer-member-ip-address": {
+                  "description": "This attribute is used to configure peer Ip address of group member",
+                  "readOnly": false,
+                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "iccp-startup-delay-timer": {
+                  "description": "This attribute is used to configure startup delay timer",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 180,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "bfd-source-ip-address": {
+                  "description": "This attribute is used to configure Source IP address for BFD",
+                  "readOnly": false,
+                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "redundancy-group-identifier": {
+                  "description": "This attribute is used to configure redundancy group id",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 65535,
+                  "type": "number",
+                  "mandatory": true
+                },
+                "ldp-peer-member-ip-address": {
+                  "description": "This attribute is used to configure peer Ip address of group member",
+                  "readOnly": true,
+                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "iccp-startup-delay-timer": {
+                  "description": "This attribute is used to configure startup delay timer",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 180,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "bfd-source-ip-address": {
+                  "description": "This attribute is used to configure Source IP address for BFD",
+                  "readOnly": true,
+                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "lfa": {
+          "description": "State data for LDP LFA feature",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "fecs": {
+              "description": "State data for FECs",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "fec": {
+                  "description": "State data list for FECs",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "prefix-address": {
+                        "description": "This attribute returns the prefix address value of FEC.",
+                        "readOnly": true,
+                        "path": "../state/prefix-address",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "state": {
+                        "description": "LDP LFA FEC state",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "prefix-address": {
+                            "description": "This attribute returns the prefix address value of FEC.",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "primary-paths": {
+                        "description": "State data for FEC primary paths",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "primary-path": {
+                            "description": "State data list for FEC primary paths",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "nexthop-address": {
+                                  "description": "This attribute returns the next-hop address value of FEC primary path.",
+                                  "readOnly": true,
+                                  "path": "../state/nexthop-address",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "nexthop-interface-name": {
+                                  "description": "This attribute returns the interface name of FEC primary path.",
+                                  "readOnly": true,
+                                  "path": "../state/nexthop-interface-name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "state": {
+                                  "description": "FEC primary path state",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "nexthop-address": {
+                                      "description": "This attribute returns the nexthop address value.",
+                                      "readOnly": true,
+                                      "oneOf": [
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "nexthop-interface-name": {
+                                      "description": "This attribute returns the interface name.",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "backup-path": {
+                                  "description": "Backup path for FEC primary path",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "state": {
+                                      "description": "State data for backup path for FEC primary path",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "backup-address": {
+                                          "description": "This attribute returns the backup address value.",
+                                          "readOnly": true,
+                                          "oneOf": [
+                                            {
+                                              "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                              "type": "string"
+                                            },
+                                            {
+                                              "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                              "type": "string"
+                                            }
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "backup-interface-name": {
+                                          "description": "This attribute returns the backup interface name.",
+                                          "readOnly": true,
+                                          "minLength": 1,
+                                          "maxLength": 1965,
+                                          "pattern": "[^?' =,>|]+",
+                                          "type": "string",
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "nexthop-address",
+                                "nexthop-interface-name"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "prefix-address"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "transport-addresses": {
+          "description": "container for transport addresses",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "transport-address": {
+              "description": "Object list for transport address per label-space",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label-space-identifier": {
+                    "description": "This attribute is used to configure Label space for which a transport address is being configured",
+                    "readOnly": false,
+                    "path": "../config/label-space-identifier",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "label-space-identifier": {
+                        "description": "This attribute is used to configure Label space for which a transport address is being configured",
+                        "readOnly": false,
+                        "enum": [
+                          "0"
+                        ],
+                        "mandatory": false
+                      },
+                      "transport-address-ipv4": {
+                        "description": "Use this attribute to configure the IPv4 transport address for a label space.The transport address is the address used for the TCP session over which LDP is running. Use this attribute to manually configure the transport address. Transport addresses may either be bound to a loopback interface, or to a physical interface that is bound to the label space in question. A transport address can also be manually configured using the CLI with the loopback address as the transport address.",
+                        "readOnly": false,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "label-space-identifier": {
+                        "description": "This attribute is used to configure Label space for which a transport address is being configured",
+                        "readOnly": true,
+                        "enum": [
+                          "0"
+                        ],
+                        "mandatory": false
+                      },
+                      "transport-address-ipv4": {
+                        "description": "Use this attribute to configure the IPv4 transport address for a label space.The transport address is the address used for the TCP session over which LDP is running. Use this attribute to manually configure the transport address. Transport addresses may either be bound to a loopback interface, or to a physical interface that is bound to the label space in question. A transport address can also be manually configured using the CLI with the loopback address as the transport address.",
+                        "readOnly": true,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "label-space-identifier"
+                ]
+              }
+            }
+          }
+        },
+        "peer-authentication": {
+          "description": "LDP Peer Authentication container",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "peer-authentication-lists": {
+              "description": "lists for ldp peer authentication information",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "peer-authentication-list": {
+                  "description": "list for ldp peer authentication information",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "peer-address": {
+                        "description": "Use this attribute to configure neighbors of LDP for authentication.",
+                        "readOnly": false,
+                        "path": "../config/peer-address",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "peer-address": {
+                            "description": "Use this attribute to configure neighbors of LDP for authentication.",
+                            "readOnly": false,
+                            "oneOf": [
+                              {
+                                "enum": [
+                                  "all",
+                                  "auto-targeted"
+                                ]
+                              },
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "password-type": {
+                            "description": "Use this attribute to configure password type for LDP peer authentication.",
+                            "readOnly": false,
+                            "enum": [
+                              "plain-text",
+                              "encrypt"
+                            ],
+                            "mandatory": true
+                          },
+                          "password": {
+                            "description": "Use this attribute to configure password of LDP peer for authentication.",
+                            "readOnly": false,
+                            "pattern": "[^? ]*",
+                            "type": "string",
+                            "mandatory": true
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "peer-address": {
+                            "description": "Use this attribute to configure neighbors of LDP for authentication.",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "enum": [
+                                  "all",
+                                  "auto-targeted"
+                                ]
+                              },
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "password-type": {
+                            "description": "Use this attribute to configure password type for LDP peer authentication.",
+                            "readOnly": true,
+                            "enum": [
+                              "plain-text",
+                              "encrypt"
+                            ],
+                            "mandatory": true
+                          },
+                          "password": {
+                            "description": "Use this attribute to configure password of LDP peer for authentication.",
+                            "readOnly": true,
+                            "pattern": "[^? ]*",
+                            "type": "string",
+                            "mandatory": true
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "peer-address"
+                    ]
+                  }
+                }
+              }
+            },
+            "authentication-exclusions": {
+              "description": "ldp peer authentication exclusion list",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "LDP Peer Authentication config",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "peer-address": {
+                      "description": "Use this attribute to exclude neighbors of LDP from authentication.",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "state": {
+                  "description": "LDP Peer Authentication state",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "peer-address": {
+                      "description": "Use this attribute to exclude neighbors of LDP from authentication.",
+                      "readOnly": true,
+                      "type": "array",
+                      "items": {
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "authentication-groups": {
+              "description": "LDP Session groups",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "authentication-group": {
+                  "description": "LDP Session group list",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "group-name": {
+                        "description": "LDP Session group name.",
+                        "readOnly": false,
+                        "path": "../config/group-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "LDP Peer Authentication groups configuration",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "group-name": {
+                            "description": "LDP Session group name.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "prefix-list": {
+                            "description": "Peer authentication group prefix list.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "authentication-group-passwords": {
+                            "description": "LDP Session group passwords",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "authentication-group-password": {
+                                "description": "LDP Session group password list",
+                                "readOnly": false,
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "auth": {
+                                      "description": "Use this attribute to configure session-group authentication.",
+                                      "readOnly": false,
+                                      "path": "../config/auth",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "config": {
+                                      "description": "LDP Session group password configuration",
+                                      "readOnly": false,
+                                      "type": "object",
+                                      "properties": {
+                                        "auth": {
+                                          "description": "Use this attribute to configure session-group authentication.",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "auth"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "password-type": {
+                                          "description": "Peer authentication group password type.",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "plain-text",
+                                            "encrypt"
+                                          ],
+                                          "mandatory": true
+                                        },
+                                        "password": {
+                                          "description": "Peer authentication group password.",
+                                          "readOnly": false,
+                                          "pattern": "[^? ]*",
+                                          "type": "string",
+                                          "mandatory": true
+                                        }
+                                      }
+                                    },
+                                    "state": {
+                                      "description": "LDP Session group password state",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "auth": {
+                                          "description": "Use this attribute to configure session-group authentication.",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "auth"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "password-type": {
+                                          "description": "Peer authentication group password type.",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "plain-text",
+                                            "encrypt"
+                                          ],
+                                          "mandatory": true
+                                        },
+                                        "password": {
+                                          "description": "Peer authentication group password.",
+                                          "readOnly": true,
+                                          "pattern": "[^? ]*",
+                                          "type": "string",
+                                          "mandatory": true
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "keyFields": [
+                                    "auth"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "LDP Peer Authentication groups state",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "group-name": {
+                            "description": "LDP Session group name.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "prefix-list": {
+                            "description": "Peer authentication group prefix list.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "group-name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "label-mapping-access-lists": {
+          "description": "lists for ldp peer ACL information",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "label-mapping-access-list": {
+              "description": "Object list for ldp ACL information",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "peer-access-control-list-name": {
+                    "description": "Use this command to prevent the distribution of any locally assigned labels",
+                    "readOnly": false,
+                    "path": "../config/peer-access-control-list-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "prefix-access-control-list-name": {
+                    "description": "Use this attribute to prevent the distribution of any locally assigned labels",
+                    "readOnly": false,
+                    "path": "../config/prefix-access-control-list-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "prefix-access-control-list-name": {
+                        "description": "Use this attribute to prevent the distribution of any locally assigned labels",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "peer-access-control-list-name": {
+                        "description": "Use this command to prevent the distribution of any locally assigned labels",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "prefix-access-control-list-name": {
+                        "description": "Use this attribute to prevent the distribution of any locally assigned labels",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "peer-access-control-list-name": {
+                        "description": "Use this command to prevent the distribution of any locally assigned labels",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "advertisement-type": {
+                        "description": "This object stores the advertisement-type for Prefix List.",
+                        "readOnly": true,
+                        "enum": [
+                          "enable-distribution",
+                          "Prevent-distribution"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "statistics": {
+                    "description": "state container for the statistics advertisement labels",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "label-deny-mapping": {
+                            "description": "Use this attribute to store the number of label mappings denied",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "label-deny-request": {
+                            "description": "Use this attribute to store the number of label requests denied",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "peer-access-control-list-name",
+                  "prefix-access-control-list-name"
+                ]
+              }
+            }
+          }
+        },
+        "tcp-mss-lists": {
+          "description": "lists for TCP MSS of neighbors",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "tcp-mss-list": {
+              "description": "list for TCP MSS of neighbor",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "peer-address": {
+                    "description": "Use this attribute to specify LDP neighbors",
+                    "readOnly": false,
+                    "path": "../config/peer-address",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "peer-address": {
+                        "description": "Use this attribute to specify LDP neighbors",
+                        "readOnly": false,
+                        "oneOf": [
+                          {
+                            "enum": [
+                              "all",
+                              "auto-targeted"
+                            ]
+                          },
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "tcp-mss-range": {
+                        "description": "Use this attribute to configure TCP MSS for LDP neighbors",
+                        "readOnly": false,
+                        "minimum": 560,
+                        "maximum": 1440,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "peer-address": {
+                        "description": "Use this attribute to specify LDP neighbors",
+                        "readOnly": true,
+                        "oneOf": [
+                          {
+                            "enum": [
+                              "all",
+                              "auto-targeted"
+                            ]
+                          },
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "tcp-mss-range": {
+                        "description": "Use this attribute to configure TCP MSS for LDP neighbors",
+                        "readOnly": true,
+                        "minimum": 560,
+                        "maximum": 1440,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "peer-address"
+                ]
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Configuration data",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "LDP interface related operations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Reference to interface name",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Reference to interface name",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable-ldp-ipv4": {
+                        "description": "Use this attribute to enable LDP IPv4, on a specified interface. This command enables the transmission of Hello packets through the current interface, so that LDP adjacencies and LDP sessions can be created.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "multicast-hello-disable": {
+                        "description": "Use this attribute to enable multicast hello exchange on specified interfaces enabled for LDP.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "maximum-pdu-length": {
+                        "description": "Use this attribute to specify max pdu length",
+                        "readOnly": false,
+                        "minimum": 256,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "ldp-igp-sync-delay-interval": {
+                        "description": "Use this attribute to configure a synchronization delay, that is, a delay for notifications of LDP convergence to the IGP protocol used, which can be either IS-IS or OSPF.",
+                        "readOnly": false,
+                        "minimum": 5,
+                        "maximum": 60,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Reference to interface name",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable-ldp-ipv4": {
+                        "description": "Use this attribute to enable LDP IPv4, on a specified interface. This command enables the transmission of Hello packets through the current interface, so that LDP adjacencies and LDP sessions can be created.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "multicast-hello-disable": {
+                        "description": "Use this attribute to enable multicast hello exchange on specified interfaces enabled for LDP.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "maximum-pdu-length": {
+                        "description": "Use this attribute to specify max pdu length",
+                        "readOnly": true,
+                        "minimum": 256,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "ldp-igp-sync-delay-interval": {
+                        "description": "Use this attribute to configure a synchronization delay, that is, a delay for notifications of LDP convergence to the IGP protocol used, which can be either IS-IS or OSPF.",
+                        "readOnly": true,
+                        "minimum": 5,
+                        "maximum": 60,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "primary-address-ipv4": {
+                        "description": "This attribute acquires primary ipv4 address on the interface",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "primary-address-ipv6": {
+                        "description": "This attribute acquires primary ipv6 address on the interface",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "counters": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "packets": {
+                            "description": "LDP Packets data",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "received": {
+                                "description": "LDP Packets Received",
+                                "readOnly": true,
+                                "type": "object",
+                                "properties": {
+                                  "notification": {
+                                    "description": "This attribute stores counter for LDP Notification message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "hello": {
+                                    "description": "This attribute stores counter for LDP Hello message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "initialization": {
+                                    "description": "This attribute stores counter for LDP Session Initialization message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "keepalive": {
+                                    "description": "This attribute stores counter for LDP Session keepalive message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "address-message": {
+                                    "description": "This attribute stores counter for LDP Session address message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "address-withdraw": {
+                                    "description": "This attribute stores counter for LDP Session address withdraw message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "label-mapping": {
+                                    "description": "This attribute stores counter for LDP Label Mapping message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "label-request": {
+                                    "description": "This attribute stores counter for LDP Label Request message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "label-withdraw": {
+                                    "description": "This attribute stores counter for LDP Label Withdraw message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "label-release": {
+                                    "description": "This attribute stores counter for LDP Label Release message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "request-abort": {
+                                    "description": "This attribute stores counter for LDP Abort message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  }
+                                }
+                              },
+                              "sent": {
+                                "description": "LDP Packets Sent",
+                                "readOnly": true,
+                                "type": "object",
+                                "properties": {
+                                  "notification": {
+                                    "description": "This attribute stores counter for LDP Notification message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "hello": {
+                                    "description": "This attribute stores counter for LDP Hello message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "initialization": {
+                                    "description": "This attribute stores counter for LDP Session Initialization message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "keepalive": {
+                                    "description": "This attribute stores counter for LDP Session keepalive message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "address-message": {
+                                    "description": "This attribute stores counter for LDP Session address message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "address-withdraw": {
+                                    "description": "This attribute stores counter for LDP Session address withdraw message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "label-mapping": {
+                                    "description": "This attribute stores counter for LDP Label Mapping message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "label-request": {
+                                    "description": "This attribute stores counter for LDP Label Request message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "label-withdraw": {
+                                    "description": "This attribute stores counter for LDP Label Withdraw message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "label-release": {
+                                    "description": "This attribute stores counter for LDP Label Release message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "request-abort": {
+                                    "description": "This attribute stores counter for LDP Abort message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "events": {
+                            "description": "LDP events data",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "ldp-shutdown-notification-received": {
+                                "description": "This attribute stores counter for LDP shutdown notification received",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-shutdown-notification-sent": {
+                                "description": "This attribute stores counter for LDP shutdown notification sent",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-sessions-attempted": {
+                                "description": "This attribute stores counter for LDP sessions attempted",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-session-rejected-no-hello-errors": {
+                                "description": "This attribute stores counter for LDP session rejected due to no hello message",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-session-rejected-advertisement-errors": {
+                                "description": "This attribute stores counter for LDP session rejected due to advertisement errors",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-session-rejected-maximum-pdu-errors": {
+                                "description": "This attribute stores counter for LDP session rejected due to maximum pdu errors",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-session-rejected-label-range-errors": {
+                                "description": "This attribute stores counter for LDP session rejected due to label-range errors",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-bad-ldp-identifier-errors": {
+                                "description": "This attribute stores counter for incorrect LDP-ID error",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-bad-pdu-length-errors": {
+                                "description": "This attribute stores counter for incorrect PDU length errors",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-bad-message-length-errors": {
+                                "description": "This attribute stores counter for incorrect message length errors",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-bad-tlv-length-errors": {
+                                "description": "This attribute stores counter for LDP message incorrect TLV length errors",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-malformed-tlv-value-errors": {
+                                "description": "This attribute stores counter for LDP message malformed TLV errors",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-keepalive-timer-expired-errors": {
+                                "description": "This attribute stores counter for LDP keepalive timer exipry",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "hello-timers": {
+                    "description": "Container for Interface hello timers configuration",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "hello-interval": {
+                            "description": "Use this attribute set the hello interval to send the hello messages to peers",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 21845,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "hello-holdtime": {
+                            "description": "Use this attribute set the hello hold time as the time out value that the router waits before rejecting an adjacency",
+                            "readOnly": false,
+                            "minimum": 3,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "hello-interval": {
+                            "description": "Use this attribute set the hello interval to send the hello messages to peers",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 21845,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "hello-holdtime": {
+                            "description": "Use this attribute set the hello hold time as the time out value that the router waits before rejecting an adjacency",
+                            "readOnly": true,
+                            "minimum": 3,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "session-timers": {
+                    "description": "Container for Interface Session timers configuration",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "keepalive-timeout": {
+                            "description": "Use this attribute to set the time period for which an LSR must wait for successive keep-alive messages from LDP peers",
+                            "readOnly": false,
+                            "minimum": 3,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "keepalive-interval": {
+                            "description": "Use this attribute to set the global value for the interval after which keep-alive packets are sent out",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 21845,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "keepalive-timeout": {
+                            "description": "Use this attribute to set the time period for which an LSR must wait for successive keep-alive messages from LDP peers",
+                            "readOnly": true,
+                            "minimum": 3,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "keepalive-interval": {
+                            "description": "Use this attribute to set the global value for the interval after which keep-alive packets are sent out",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 21845,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "label-management": {
+                    "description": "Container for label management configuration",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "interface-advertisement-mode": {
+                            "description": "Use this attribute to set the label advertisement mode for an interface to either downstream-ondemand (label is sent only when requested) or downstream-unsolicited (label is sent unrequested).",
+                            "readOnly": false,
+                            "enum": [
+                              "downstream-unsolicited",
+                              "downstream-on-demand"
+                            ],
+                            "mandatory": false
+                          },
+                          "interface-retention-mode": {
+                            "description": "Use this attribute to set the retention mode to be used for all labels exchanged via the given interface. When an LSR receives a label binding for a particular FEC (Forwarding Equivalence Class) from another LSR that is not its next hop for that FEC, it might keep track of such bindings or discard them. Use the liberal parameter to retain all labels binding to FEC received from label distribution peers, even if the LSR is not the current next-hop. Use the conservative parameter to maintain only the label bindings for valid next-hops in a LSP. Liberal label retention mode allows for quicker adaptation to routing changes, whereas conservative label retention mode requires an LSR to maintain fewer labels.",
+                            "readOnly": false,
+                            "enum": [
+                              "liberal",
+                              "conservative"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "interface-advertisement-mode": {
+                            "description": "Use this attribute to set the label advertisement mode for an interface to either downstream-ondemand (label is sent only when requested) or downstream-unsolicited (label is sent unrequested).",
+                            "readOnly": true,
+                            "enum": [
+                              "downstream-unsolicited",
+                              "downstream-on-demand"
+                            ],
+                            "mandatory": false
+                          },
+                          "interface-retention-mode": {
+                            "description": "Use this attribute to set the retention mode to be used for all labels exchanged via the given interface. When an LSR receives a label binding for a particular FEC (Forwarding Equivalence Class) from another LSR that is not its next hop for that FEC, it might keep track of such bindings or discard them. Use the liberal parameter to retain all labels binding to FEC received from label distribution peers, even if the LSR is not the current next-hop. Use the conservative parameter to maintain only the label bindings for valid next-hops in a LSP. Liberal label retention mode allows for quicker adaptation to routing changes, whereas conservative label retention mode requires an LSR to maintain fewer labels.",
+                            "readOnly": true,
+                            "enum": [
+                              "liberal",
+                              "conservative"
+                            ],
+                            "mandatory": false
+                          },
+                          "label-merge-capability": {
+                            "description": "This attribute acquires ldp merge capability",
+                            "readOnly": true,
+                            "enum": [
+                              "non-merge-capable",
+                              "merge-capable"
+                            ],
+                            "mandatory": false
+                          },
+                          "ldp-identifier": {
+                            "description": "This attribute acquires LDP identifier address",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "l2vpn": {
+          "description": "L2vpn related LDP data",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "vpls-list": {
+              "description": "Object list for VPLS",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vpls-identifier": {
+                    "description": "This attribute acquires the VPLS Id",
+                    "readOnly": true,
+                    "path": "../state/vpls-identifier",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "vpls-identifier": {
+                        "description": "This attribute acquires the VPLS Id",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "mesh-vc-count": {
+                        "description": "This attribute acquires the count of virtual-circuits in this VPLS",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "virtual-circuit-list": {
+                    "description": "VC list established by LDP",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "neighbor-address": {
+                          "description": "This attribute acquires the virtual circuit peer's address",
+                          "readOnly": true,
+                          "path": "../state/neighbor-address",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "state": {
+                          "description": "Operational state data",
+                          "readOnly": true,
+                          "type": "object",
+                          "properties": {
+                            "virtual-circuit-identifier": {
+                              "description": "This attribute acquires virtual circuit Id of a pseudowire",
+                              "readOnly": true,
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 4294967295,
+                              "mandatory": false
+                            },
+                            "neighbor-address": {
+                              "description": "This attribute acquires the virtual circuit peer's address",
+                              "readOnly": true,
+                              "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "virtual-circuit-state": {
+                              "description": "This attribute acquires the virtual circuit status",
+                              "readOnly": true,
+                              "enum": [
+                                "down",
+                                "up"
+                              ],
+                              "mandatory": false
+                            },
+                            "local-pseudowire-status": {
+                              "description": "This attribute acquires the virtual circuit's local status, if status capability is configured",
+                              "readOnly": true,
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 4294967295,
+                              "mandatory": false
+                            },
+                            "remote-pseudowire-status": {
+                              "description": "This attribute acquires the virtual circuit's remote status, if status capability is configured",
+                              "readOnly": true,
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 4294967295,
+                              "mandatory": false
+                            },
+                            "virtual-circuit-label-sent": {
+                              "description": "This attribute acquires the label sent to the neighbor for this virtual circuit",
+                              "readOnly": true,
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 4294967295,
+                              "mandatory": false
+                            },
+                            "virtual-circuit-label-received": {
+                              "description": "This attribute acquires the label received from the neighbor for this virtual circuit",
+                              "readOnly": true,
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 4294967295,
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      },
+                      "keyFields": [
+                        "neighbor-address"
+                      ]
+                    }
+                  }
+                },
+                "keyFields": [
+                  "vpls-identifier"
+                ]
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "counters": {
+                  "description": "Operational container for VPLS counters",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "total-vpls-instances": {
+                      "description": "This attribute acquires total VPLS instances",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "total-virtual-circuit-instances": {
+                      "description": "This attribute acquires total VC instances",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "active-virtual-circuit-instances": {
+                      "description": "This attribute acquires total active VC instances",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "inactive-virtual-circuit-instances": {
+                      "description": "This attribute acquires total non-active VC instances",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "virtual-circuit-list": {
+              "description": "VC list established by LDP",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "virtual-circuit-identifier": {
+                    "description": "This attribute acquires virtual circuit Id of a pseudowire",
+                    "readOnly": true,
+                    "path": "../state/virtual-circuit-identifier",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "virtual-circuit-identifier": {
+                        "description": "This attribute acquires virtual circuit Id of a pseudowire",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "neighbor-address": {
+                        "description": "This attribute acquires the virtual circuit peer's address",
+                        "readOnly": true,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "virtual-circuit-state": {
+                        "description": "This attribute acquires the virtual circuit status",
+                        "readOnly": true,
+                        "enum": [
+                          "down",
+                          "up"
+                        ],
+                        "mandatory": false
+                      },
+                      "local-pseudowire-status": {
+                        "description": "This attribute acquires the virtual circuit's local status, if status capability is configured",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "remote-pseudowire-status": {
+                        "description": "This attribute acquires the virtual circuit's remote status, if status capability is configured",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "virtual-circuit-label-sent": {
+                        "description": "This attribute acquires the label sent to the neighbor for this virtual circuit",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "virtual-circuit-label-received": {
+                        "description": "This attribute acquires the label received from the neighbor for this virtual circuit",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "virtual-circuit-identifier"
+                ]
+              }
+            }
+          }
+        },
+        "targeted-peers": {
+          "description": "Configuration data for Targeted LDP",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "global-timers": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configuration data",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "targeted-global-hello-interval": {
+                      "description": "Use this attribute to set the interval for sending unicast hello packets to targeted peers",
+                      "readOnly": false,
+                      "minimum": 1,
+                      "maximum": 21845,
+                      "type": "number",
+                      "mandatory": false
+                    },
+                    "targeted-global-hello-holdtime": {
+                      "description": "Use this attribute to set the time-out value that is the time that the router waits before rejecting an adjacency with targeted peers.",
+                      "readOnly": false,
+                      "minimum": 3,
+                      "maximum": 65535,
+                      "type": "number",
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational state data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "targeted-global-hello-interval": {
+                      "description": "Use this attribute to set the interval for sending unicast hello packets to targeted peers",
+                      "readOnly": true,
+                      "minimum": 1,
+                      "maximum": 21845,
+                      "type": "number",
+                      "mandatory": false
+                    },
+                    "targeted-global-hello-holdtime": {
+                      "description": "Use this attribute to set the time-out value that is the time that the router waits before rejecting an adjacency with targeted peers.",
+                      "readOnly": true,
+                      "minimum": 3,
+                      "maximum": 65535,
+                      "type": "number",
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "targeted-peer": {
+              "description": "Object list for Targeted-LDP peers configuration",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "target-address": {
+                    "description": "Use this attribute to enter a targeted IPv4 or IPv6 LDP peer mode. A targeted session is an LDP session between non-directly connected LSRs. Set this command to send a targeted hello messages to specific IP addresses. This command is specific to a targeted IPv4 or IPv6 LDP peer.",
+                    "readOnly": false,
+                    "path": "../config/target-address",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "target-address": {
+                        "description": "Use this attribute to enter a targeted IPv4 or IPv6 LDP peer mode. A targeted session is an LDP session between non-directly connected LSRs. Set this command to send a targeted hello messages to specific IP addresses. This command is specific to a targeted IPv4 or IPv6 LDP peer.",
+                        "readOnly": false,
+                        "oneOf": [
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "hello-interval": {
+                        "description": "Use this attribute set the hello interval to send the hello messages to peers",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 21845,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "hello-holdtime": {
+                        "description": "Use this attribute set the hello hold time as the time out value that the router waits before rejecting an adjacency",
+                        "readOnly": false,
+                        "minimum": 3,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "target-address": {
+                        "description": "Use this attribute to enter a targeted IPv4 or IPv6 LDP peer mode. A targeted session is an LDP session between non-directly connected LSRs. Set this command to send a targeted hello messages to specific IP addresses. This command is specific to a targeted IPv4 or IPv6 LDP peer.",
+                        "readOnly": true,
+                        "oneOf": [
+                          {
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "hello-interval": {
+                        "description": "Use this attribute set the hello interval to send the hello messages to peers",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 21845,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "hello-holdtime": {
+                        "description": "Use this attribute set the hello hold time as the time out value that the router waits before rejecting an adjacency",
+                        "readOnly": true,
+                        "minimum": 3,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "counters": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "packets": {
+                            "description": "LDP Packets data",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "received": {
+                                "description": "LDP Packets Received",
+                                "readOnly": true,
+                                "type": "object",
+                                "properties": {
+                                  "notification": {
+                                    "description": "This attribute stores counter for LDP Notification message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "hello": {
+                                    "description": "This attribute stores counter for LDP Hello message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "initialization": {
+                                    "description": "This attribute stores counter for LDP Session Initialization message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "keepalive": {
+                                    "description": "This attribute stores counter for LDP Session keepalive message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "address-message": {
+                                    "description": "This attribute stores counter for LDP Session address message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "address-withdraw": {
+                                    "description": "This attribute stores counter for LDP Session address withdraw message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "label-mapping": {
+                                    "description": "This attribute stores counter for LDP Label Mapping message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "label-request": {
+                                    "description": "This attribute stores counter for LDP Label Request message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "label-withdraw": {
+                                    "description": "This attribute stores counter for LDP Label Withdraw message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "label-release": {
+                                    "description": "This attribute stores counter for LDP Label Release message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "request-abort": {
+                                    "description": "This attribute stores counter for LDP Abort message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  }
+                                }
+                              },
+                              "sent": {
+                                "description": "LDP Packets Sent",
+                                "readOnly": true,
+                                "type": "object",
+                                "properties": {
+                                  "notification": {
+                                    "description": "This attribute stores counter for LDP Notification message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "hello": {
+                                    "description": "This attribute stores counter for LDP Hello message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "initialization": {
+                                    "description": "This attribute stores counter for LDP Session Initialization message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "keepalive": {
+                                    "description": "This attribute stores counter for LDP Session keepalive message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "address-message": {
+                                    "description": "This attribute stores counter for LDP Session address message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "address-withdraw": {
+                                    "description": "This attribute stores counter for LDP Session address withdraw message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "label-mapping": {
+                                    "description": "This attribute stores counter for LDP Label Mapping message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "label-request": {
+                                    "description": "This attribute stores counter for LDP Label Request message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "label-withdraw": {
+                                    "description": "This attribute stores counter for LDP Label Withdraw message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "label-release": {
+                                    "description": "This attribute stores counter for LDP Label Release message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "request-abort": {
+                                    "description": "This attribute stores counter for LDP Abort message",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "events": {
+                            "description": "LDP events data",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "ldp-shutdown-notification-received": {
+                                "description": "This attribute stores counter for LDP shutdown notification received",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-shutdown-notification-sent": {
+                                "description": "This attribute stores counter for LDP shutdown notification sent",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-sessions-attempted": {
+                                "description": "This attribute stores counter for LDP sessions attempted",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-session-rejected-no-hello-errors": {
+                                "description": "This attribute stores counter for LDP session rejected due to no hello message",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-session-rejected-advertisement-errors": {
+                                "description": "This attribute stores counter for LDP session rejected due to advertisement errors",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-session-rejected-maximum-pdu-errors": {
+                                "description": "This attribute stores counter for LDP session rejected due to maximum pdu errors",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-session-rejected-label-range-errors": {
+                                "description": "This attribute stores counter for LDP session rejected due to label-range errors",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-bad-ldp-identifier-errors": {
+                                "description": "This attribute stores counter for incorrect LDP-ID error",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-bad-pdu-length-errors": {
+                                "description": "This attribute stores counter for incorrect PDU length errors",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-bad-message-length-errors": {
+                                "description": "This attribute stores counter for incorrect message length errors",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-bad-tlv-length-errors": {
+                                "description": "This attribute stores counter for LDP message incorrect TLV length errors",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-malformed-tlv-value-errors": {
+                                "description": "This attribute stores counter for LDP message malformed TLV errors",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "ldp-keepalive-timer-expired-errors": {
+                                "description": "This attribute stores counter for LDP keepalive timer exipry",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "target-address"
+                ]
+              }
+            }
+          }
+        },
+        "peers": {
+          "description": "LDP peers container",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "peer": {
+              "description": "State data list for LDP Peers",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "peer-address": {
+                    "description": "This attribute acquires LDP peer address",
+                    "readOnly": true,
+                    "path": "../state/peer-address",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "adjacency-list": {
+                    "description": "State data list for LDP adjacencies",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "adjacency-prefix": {
+                          "description": "This attribute acquires prefix IP address for adjacency",
+                          "readOnly": true,
+                          "path": "../state/adjacency-prefix",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "state": {
+                          "description": "Operational state data",
+                          "readOnly": true,
+                          "type": "object",
+                          "properties": {
+                            "adjacency-prefix": {
+                              "description": "This attribute acquires prefix IP address for adjacency",
+                              "readOnly": true,
+                              "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "is-targeted-peer": {
+                              "description": "This attribute acquires information if adjacency formed is for targeted session",
+                              "readOnly": true,
+                              "type": "boolean",
+                              "mandatory": false
+                            },
+                            "name": {
+                              "description": "This attribute acquires interface name using which LDP adjacency was formed",
+                              "readOnly": true,
+                              "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "local-address": {
+                              "description": "This attribute is used to specify the local address of ldp adjacency",
+                              "readOnly": true,
+                              "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      },
+                      "keyFields": [
+                        "adjacency-prefix"
+                      ]
+                    }
+                  },
+                  "received-label-list": {
+                    "description": "State labels received from LDP Peers",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "fec-prefix": {
+                          "description": "This attribute acquires FEC (IP-Prefix) for which label mapping is formed",
+                          "readOnly": true,
+                          "path": "../state/fec-prefix",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "state": {
+                          "description": "Operational state data",
+                          "readOnly": true,
+                          "type": "object",
+                          "properties": {
+                            "fec-prefix": {
+                              "description": "This attribute acquires FEC (IP-Prefix) for which label mapping is formed",
+                              "readOnly": true,
+                              "minLength": 0,
+                              "maxLength": 18,
+                              "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "label": {
+                              "description": "This attribute acquires label value for a fec-prefix",
+                              "readOnly": true,
+                              "minLength": 1,
+                              "maxLength": 1965,
+                              "pattern": "[^?' =,>|]+",
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      },
+                      "keyFields": [
+                        "fec-prefix"
+                      ]
+                    }
+                  },
+                  "sent-label-list": {
+                    "description": "State labels sent to LDP Peers",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "fec-prefix": {
+                          "description": "This attribute acquires FEC (IP-Prefix) for which label mapping is formed",
+                          "readOnly": true,
+                          "path": "../state/fec-prefix",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "state": {
+                          "description": "Operational state data",
+                          "readOnly": true,
+                          "type": "object",
+                          "properties": {
+                            "fec-prefix": {
+                              "description": "This attribute acquires FEC (IP-Prefix) for which label mapping is formed",
+                              "readOnly": true,
+                              "minLength": 0,
+                              "maxLength": 18,
+                              "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "label": {
+                              "description": "This attribute acquires label value for a fec-prefix",
+                              "readOnly": true,
+                              "minLength": 1,
+                              "maxLength": 1965,
+                              "pattern": "[^?' =,>|]+",
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      },
+                      "keyFields": [
+                        "fec-prefix"
+                      ]
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "peer-address": {
+                        "description": "This attribute acquires LDP peer address",
+                        "readOnly": true,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ldp-identifier": {
+                        "description": "This attribute acquires LDP-ID of peer",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "label-space": {
+                        "description": "This attribute acquires label space of peer",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "mandatory": false
+                      },
+                      "keepalive-timeout": {
+                        "description": "This attribute acquires keepalive timeout of peer",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "session-up-time": {
+                        "description": "This attribute acquires LDP session uptime",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "session-state": {
+                        "description": "This attribute acquires state of LDP Session",
+                        "readOnly": true,
+                        "enum": [
+                          "non-existant",
+                          "initialized",
+                          "open-sent",
+                          "open-recieved",
+                          "operational"
+                        ],
+                        "mandatory": false
+                      },
+                      "session-role": {
+                        "description": "This attribute acquires role of LDP Session",
+                        "readOnly": true,
+                        "enum": [
+                          "passive",
+                          "active"
+                        ],
+                        "mandatory": false
+                      },
+                      "advertisement-mode": {
+                        "description": "This attribute acquires advertisement mode of LDP Session",
+                        "readOnly": true,
+                        "enum": [
+                          "downstream-unsolicited",
+                          "downstream-on-demand"
+                        ],
+                        "mandatory": false
+                      },
+                      "retention-mode": {
+                        "description": "This attribute acquires retention mode of LDP Session",
+                        "readOnly": true,
+                        "enum": [
+                          "liberal",
+                          "conservative"
+                        ],
+                        "mandatory": false
+                      },
+                      "tcp-established": {
+                        "description": "This attribute acquires informatoin for establishment of TCP connection",
+                        "readOnly": true,
+                        "enum": [
+                          "not-established",
+                          "established"
+                        ],
+                        "mandatory": false
+                      },
+                      "ldp-interface-name": {
+                        "description": "This attribute acquires interface name over which ldp session is established",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "discontinuity-time": {
+                        "description": "The value on the most recent occasion at which any one or more of this session's counters suffered a discontinuity.",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "unknown-message-type-errors": {
+                        "description": "This object counts the number of Unknown Message Type Errors detected by this LSR/LER during this session",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "unknown-tlv-type-errors": {
+                        "description": "This object counts the number of Unknown TLV Errors detected by this LSR/LER during this session",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "initialization-session-threshold-limit": {
+                        "description": "This attribute acquires the threshold value of number of Session Initialization messages can be sent.",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "entity-path-vector-limit": {
+                        "description": "If this object has a value greater than zero, then Loop Dection for Path Vectors is enabled, and the Path Vector Limit is this value.",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "peer-path-vector-limit": {
+                        "description": "This object acquires the peer's Path Vector Limit value.",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "session-protection-status": {
+                        "description": "LDP Session Protection Status",
+                        "readOnly": true,
+                        "enum": [
+                          "disabled",
+                          "incomplete",
+                          "protecting",
+                          "expired",
+                          "ready"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "peer-address"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

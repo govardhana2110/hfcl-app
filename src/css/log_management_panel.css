@@ -1,0 +1,307 @@
+@media only screen and (max-width: 768px) {
+  #Application
+  {
+     color: #344767; 
+     font-weight: 600; 
+     margin-top:15px;
+  }
+  #Filter
+{
+  margin-left:27%;
+}
+.closeX{
+  width: 9px;
+    height: 9px;
+    margin-left: 98.5%;
+    margin-top: -9%;
+    cursor: pointer;
+}
+}
+#Filter
+{
+  margin-left:63px;
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+  .closeX{
+    width: 10px;
+      height: 10px;
+      margin-left: 89.5%;
+      margin-top: 1%;
+      cursor: pointer;
+  }
+
+}
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+
+  .closeX{
+    width: 9px;
+      height: 9px;
+      margin-left: 99%;
+      margin-top:-5%;
+      cursor: pointer;
+  }
+
+}
+@media screen and (min-width: 1441px) and (max-width: 2560px) {
+
+  .closeX{
+    width: 9px;
+      height: 9px;
+      margin-left: 99.5%;
+      margin-top:-2.5%;
+      cursor: pointer;
+  }
+
+}
+
+
+
+.logs_header{
+  width: 500px;
+  background-color: rgba(69, 140, 221, 0.849);
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.table-container {
+overflow-x: auto;
+}
+
+.log-table {
+width: 100%;
+table-layout: fixed;
+border-collapse: collapse;
+border: 1px solid #ddd;
+}
+
+.log-table th,
+.log-table td {
+word-wrap: break-word;
+padding: 10px;
+border: 1px solid #ddd;
+}
+
+.log-table th {
+background-color: #f5f5f5;
+font-weight: bold;
+}
+
+.log-table tbody tr:nth-child(even) {
+background-color: #f9f9f9;
+}
+
+.log-table tbody tr:hover {
+background-color: #ebebeb;
+}
+
+.log-table td button.btndel {
+background-color: #ff7f7f;
+color: #fff;
+border: none;
+padding: 5px 10px;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.log-table td button.btndel:hover {
+background-color: #ff5656;
+}
+
+.log-table td button.btndel:focus {
+outline: none;
+}
+
+.log-table td button.btndel:active {
+transform: translateY(1px);
+}
+
+.log-type-select {
+  margin-right: 3%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid rgb(204, 204, 204);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px inset;
+  background-color: rgb(249, 249, 249);
+  color: rgb(85, 85, 85);
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  height: 35px;
+}
+
+/* Styling the options within the select */
+.log-type-select option {
+padding: 10px;
+font-size: 15px;
+background-color: #fff; /* Set the background color for options */
+color: #333; /* Set the text color for options */
+}
+
+/* Styling the selected option */
+.log-type-select option:checked {
+background-color: #007bff; /* Set a different background color for the selected option */
+color: #fff; /* Set the text color for the selected option */
+}
+
+
+.log-type-select select {
+appearance: none;
+outline: none;
+border: 1px solid #ccc;
+background-color: #f5f5f5;
+padding: 8px;
+font-size: 16px;
+width: 250px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.log-type-select select:focus {
+box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
+background-color: #fff;
+}
+
+.log-type-select::after {
+content: '\25BE';
+position: absolute;
+top: 50%;
+right: 8px;
+transform: translateY(-50%);
+font-size: 12px;
+pointer-events: none;
+transition: transform 0.3s ease;
+}
+
+.log-type-select:hover::after {
+transform: translateY(-50%) rotate(180deg);
+}
+
+.filterLabels{
+color: #100a2a;
+font-weight: 600;
+text-transform: uppercase;
+display: flex;
+flex-direction: column;
+}
+.filtertext{
+  color: rgb(0, 79, 104);
+    font-weight: bold;
+    margin-left: 1%;
+}
+/* CSS for Filter Popup */
+.filter-popup {
+  margin-top: 1%;
+  width: 100%;
+  height: 200px;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+/* Styles for Apply and Clear buttons */
+.filter-popup button {
+margin: 5px;
+padding: 8px 15px;
+font-size: 14px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+/* Style for Apply button */
+.filter-popup button.apply-filter-btn {
+background-color: #004f68;
+color: white;
+}
+.filter-popup button.apply-filter-btn:hover {
+background-color: #117897;
+color: white;
+}
+
+/* Style for Clear button */
+.filter-popup button.clear-filter-btn {
+background-color: #f44336;
+color: white;
+}
+.filter-popup button.clear-filter-btn:hover {
+background-color: #f32618;
+color: white;
+}
+/* Style for labels in the filter popup */
+.filter-popup label {
+font-size: 11px;
+/* font-weight: bold; */
+}
+
+/* Style for select elements in the filter popup */
+.filter-popup select {
+margin-top: 5px;
+padding: 4px;
+}
+
+/* Style for input elements in the filter popup */
+.filter-popup input[type="text"] {
+margin-top: 5px;
+padding: 5px;
+width: 100%;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+
+/* Style for "All" option in select elements */
+.filter-popup select option[value=""] {
+color: #999;
+}
+
+.checkbox-scroll-box {
+  max-height: 151px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 235px;
+}
+.select-box {
+display: inline-block;
+cursor: pointer;
+margin-top: 2%;
+}
+
+.selected-option {
+  padding: 3px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border-right-width: thick;
+  width: 100px; 
+  height: 26px; 
+  font-size: x-small;
+  overflow-y: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+}
+
+.dropdown-box {
+position: absolute;
+top: 100%;
+left: 0;
+z-index: 1;
+background-color: #fff;
+border: 1px solid #ccc;
+border-radius: 4px;
+max-height: 150px; /* Adjust the max-height based on your requirement */
+overflow-y: auto;
+}
+
+.checkbox-scroll-box {
+max-height: 127px; /* Adjust the max-height based on your requirement */
+overflow-y: auto;
+width: 165px;
+}
+
+/* Optional styles for checkboxes and labels inside the dropdown */
+.checkbox-scroll-box input[type="checkbox"] {
+margin-right: 5px;
+}
+

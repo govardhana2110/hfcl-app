@@ -1,0 +1,107 @@
+@media only screen and (max-width: 768px) {
+    #ReportButton
+    {
+        position:sticky;
+        margin-left:236px;
+        margin-top:-62px;
+        font-size:13px
+
+
+    }
+    
+    .fontsNetwork
+    {
+        font-size:14px;
+    }
+    .uniquereporttab
+    {
+        margin-top:4%;
+    }
+    .viewReport{
+        position: sticky;
+        margin-left: 78%;
+        margin-top: -11%;
+        border-radius: 4px;
+        font-size: 13px;
+    
+    }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    #ReportButton
+    {
+        position:sticky;
+        margin-left:236px;
+        margin-top:-69px;
+
+    }
+   .uniquereporttab
+    {
+        margin-top:4%;
+    }
+    .viewReport{
+        position: sticky;
+        margin-left: 78%;
+        margin-top: -11%;
+        border-radius: 4px;
+        font-size: 13px;
+    }
+}
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+    #ReportButton
+    {
+        position:sticky;
+        margin-left:236px;
+        margin-top:-84px;
+
+    }
+    .uniquereporttab
+    {
+        margin-top:2%;
+    }
+    .viewReport{
+        position: sticky;
+    margin-left: 85%;
+    margin-top: -8%;
+    border-radius: 4px;
+}
+    
+}
+@media screen and (min-width: 1441px) and (max-width: 2560px) {
+    #ReportButton
+    {
+        position:sticky;
+        margin-left:311px;
+        margin-top:-110x;
+
+    }
+    .viewReport{
+        position: sticky;
+    margin-left: 85%;
+    margin-top: -6%;
+    border-radius: 4px;
+}
+}
+
+
+
+.report_tabs{
+    width: 100%;
+}
+
+.report_download{
+    margin-top: 5.5rem !important;
+    margin-left: -8rem !important;
+}
+
+.custom-dropdown{
+    margin: 2%;
+}
+
+.deviceListForm{
+    overflow-y: scroll;
+    height: 300px;
+    margin: 6%;
+    box-shadow: 0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+    padding: 2%;
+    border-radius: 4px;
+}

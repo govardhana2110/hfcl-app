@@ -1,0 +1,114 @@
+{
+  "title": "ipi-system",
+  "description": "system global configs",
+  "type": "object",
+  "properties": {
+    "ipi-system:system-info": {
+      "description": "Enclosing container for system-related configuration and operational    state data",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "config": {
+          "description": "Global configuration data for the system",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "hostname": {
+              "description": "Use this command to set the network name for the device. OcNOS uses this name in system prompts and default configuration filenames. Setting a host name using this command also sets the host name in the kernel.After giving the hostname command, you must write to memory using the write command. If you do not write to memory, the change made by this command (the new host name) is not set after the device reboots.",
+              "readOnly": false,
+              "minLength": 1,
+              "maxLength": 63,
+              "pattern": "[^?' =,>|]+",
+              "type": "string",
+              "mandatory": false
+            }
+          }
+        },
+        "state": {
+          "description": "Global operational state data for the system",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "hostname": {
+              "description": "Use this command to set the network name for the device. OcNOS uses this name in system prompts and default configuration filenames. Setting a host name using this command also sets the host name in the kernel.After giving the hostname command, you must write to memory using the write command. If you do not write to memory, the change made by this command (the new host name) is not set after the device reboots.",
+              "readOnly": true,
+              "minLength": 1,
+              "maxLength": 63,
+              "pattern": "[^?' =,>|]+",
+              "type": "string",
+              "mandatory": false
+            },
+            "software-version": {
+              "description": "This attribute display software version",
+              "readOnly": true,
+              "minLength": 1,
+              "maxLength": 1965,
+              "type": "string",
+              "mandatory": false
+            },
+            "software-build-number": {
+              "description": "This attribute display software Build Number",
+              "readOnly": true,
+              "minLength": 1,
+              "maxLength": 1965,
+              "type": "string",
+              "mandatory": false
+            },
+            "system-uptime": {
+              "description": "This attribute display how long the system has been up and running",
+              "readOnly": true,
+              "type": "string",
+              "mandatory": false
+            },
+            "boot-time": {
+              "description": "This timestamp indicates the time that the system was last restarted. The value is the timestamp in seconds relative to the Unix Epoch (Jan 1, 1970 00:00:00 UTC)",
+              "readOnly": true,
+              "type": "string",
+              "mandatory": false
+            },
+            "current-datetime": {
+              "description": "This attribute display the current system date and time.",
+              "readOnly": true,
+              "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+              "type": "string",
+              "mandatory": false
+            }
+          }
+        },
+        "clock": {
+          "description": "Top-level container for clock configuration data",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "config data for system clock",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "timezone-name": {
+                  "description": "The attribute display timezone name used for the system",
+                  "readOnly": false,
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for system clock",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "timezone-name": {
+                  "description": "The attribute display timezone name used for the system",
+                  "readOnly": true,
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

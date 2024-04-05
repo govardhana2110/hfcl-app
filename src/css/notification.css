@@ -1,0 +1,36 @@
+.notifContent{
+    margin-top: 0.5%;
+    margin-left: 4%;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 2%;
+
+}
+.dropdownFilter{
+    background: white;
+    font-size: small;
+    font-weight: 500;
+}
+.notifList{
+    margin-top: 0.5%;
+    margin-left: 4%;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+    padding: 2%;
+    border-radius: 2px;
+}
+.notifList:hover{
+    cursor: pointer;
+    background-color: rgb(58, 58, 196);
+    color: white;
+}
+.unreadCountKey{
+    color: #0d0d81;
+    font-weight: 500;
+}
+.unreadCountValue{
+    margin-left: 6px;
+    color: #c31f1f;
+    font-weight: 500;
+}

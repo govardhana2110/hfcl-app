@@ -1,0 +1,6 @@
+{
+  "title": "ipi-crypto",
+  "description": "This module defines configurations related to cryptographic    certificate generation and management",
+  "type": "object",
+  "properties": {}
+}

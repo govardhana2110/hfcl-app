@@ -1,0 +1,456 @@
+{
+  "title": "ipi-event-manager",
+  "description": "Event Manager",
+  "type": "object",
+  "properties": {
+    "ipi-event-manager:event-manager": {
+      "description": "Event Manager configuration",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "config": {
+          "description": "Configuration data for Event Manager",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "feature": {
+              "description": "Enable Event Manager",
+              "readOnly": false,
+              "enum": [
+                "disable",
+                "enable"
+              ],
+              "mandatory": false
+            }
+          }
+        },
+        "state": {
+          "description": "Operational state data for Event Manager",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "feature": {
+              "description": "Enable Event Manager",
+              "readOnly": true,
+              "enum": [
+                "disable",
+                "enable"
+              ],
+              "mandatory": false
+            }
+          }
+        },
+        "event-entries": {
+          "description": "Event Manager Event Configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "event-entry": {
+              "description": "List of event entries",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "event-name": {
+                    "description": "Name of event",
+                    "readOnly": false,
+                    "path": "../config/event-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration Data for event entry",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "event-name": {
+                        "description": "Name of event",
+                        "readOnly": false,
+                        "minLength": 2,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "event-type": {
+                        "description": "Event Type",
+                        "readOnly": false,
+                        "enum": [
+                          "syslog"
+                        ],
+                        "mandatory": true
+                      },
+                      "event-id": {
+                        "description": "Event ID Name",
+                        "readOnly": false,
+                        "minLength": 4,
+                        "maxLength": 128,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "event-pattern": {
+                        "description": "Pattern to match",
+                        "readOnly": false,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "severity": {
+                        "description": "Severity level",
+                        "readOnly": false,
+                        "enum": [
+                          "0",
+                          "1",
+                          "2",
+                          "3",
+                          "4",
+                          "5",
+                          "all"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for event entry",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "event-name": {
+                        "description": "Name of event",
+                        "readOnly": true,
+                        "minLength": 2,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "event-type": {
+                        "description": "Event Type",
+                        "readOnly": true,
+                        "enum": [
+                          "syslog"
+                        ],
+                        "mandatory": true
+                      },
+                      "event-id": {
+                        "description": "Event ID Name",
+                        "readOnly": true,
+                        "minLength": 4,
+                        "maxLength": 128,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "event-pattern": {
+                        "description": "Pattern to match",
+                        "readOnly": true,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "severity": {
+                        "description": "Severity level",
+                        "readOnly": true,
+                        "enum": [
+                          "0",
+                          "1",
+                          "2",
+                          "3",
+                          "4",
+                          "5",
+                          "all"
+                        ],
+                        "mandatory": false
+                      },
+                      "trigger-count": {
+                        "description": "Counter for number of times trigger is invoked",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "policy-count": {
+                        "description": "Counter for number of associated policies",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "status": {
+                        "description": "Status of event",
+                        "readOnly": true,
+                        "enum": [
+                          "Inactive",
+                          "Active"
+                        ],
+                        "mandatory": false
+                      },
+                      "policy-map": {
+                        "description": "Event-Policy mapping",
+                        "readOnly": true,
+                        "path": "/event-manager/policies/policy/config/policy-name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "event-name"
+                ]
+              },
+              "maxItems": 50
+            }
+          }
+        },
+        "action-entries": {
+          "description": "Event Manager Action Configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "action-entry": {
+              "description": "List of action entries",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "action-name": {
+                    "description": "Name of action",
+                    "readOnly": false,
+                    "path": "../config/action-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration Data for Action Entry",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "action-name": {
+                        "description": "Name of action",
+                        "readOnly": false,
+                        "minLength": 2,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "action-type": {
+                        "description": "Type of action",
+                        "readOnly": false,
+                        "enum": [
+                          "script"
+                        ],
+                        "mandatory": true
+                      },
+                      "action-script": {
+                        "description": "Name of script",
+                        "readOnly": false,
+                        "minLength": 4,
+                        "maxLength": 64,
+                        "pattern": "[a-zA-Z][a-zA-Z0-9_]*.py",
+                        "type": "string",
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for Action Entry",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "action-name": {
+                        "description": "Name of action",
+                        "readOnly": true,
+                        "minLength": 2,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "action-type": {
+                        "description": "Type of action",
+                        "readOnly": true,
+                        "enum": [
+                          "script"
+                        ],
+                        "mandatory": true
+                      },
+                      "action-script": {
+                        "description": "Name of script",
+                        "readOnly": true,
+                        "minLength": 4,
+                        "maxLength": 64,
+                        "pattern": "[a-zA-Z][a-zA-Z0-9_]*.py",
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "trigger-count": {
+                        "description": "Counter for number of times trigger is invoked",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "policy-count": {
+                        "description": "Counter for number of associated policies",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "status": {
+                        "description": "Status of action",
+                        "readOnly": true,
+                        "enum": [
+                          "Inactive",
+                          "Active"
+                        ],
+                        "mandatory": false
+                      },
+                      "policy-map": {
+                        "description": "Action-Policy Mapping",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "path": "/event-manager/policies/policy/config/policy-name",
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "action-name"
+                ]
+              },
+              "maxItems": 50
+            }
+          }
+        },
+        "policies": {
+          "description": "Event Manager Policy configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "policy": {
+              "description": "List of policy entries",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "policy-name": {
+                    "description": "Name of policy",
+                    "readOnly": false,
+                    "path": "../config/policy-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration Data for policy entry",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "policy-name": {
+                        "description": "Name of policy",
+                        "readOnly": false,
+                        "minLength": 2,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "event-name": {
+                        "description": "Name of event",
+                        "readOnly": false,
+                        "path": "/event-manager/event-entries/event-entry/event-name",
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "action-name": {
+                        "description": "Name of action",
+                        "readOnly": false,
+                        "path": "/event-manager/action-entries/action-entry/action-name",
+                        "type": "string",
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for policy entry",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "policy-name": {
+                        "description": "Name of policy",
+                        "readOnly": true,
+                        "minLength": 2,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "event-name": {
+                        "description": "Name of event",
+                        "readOnly": true,
+                        "path": "/event-manager/event-entries/event-entry/event-name",
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "action-name": {
+                        "description": "Name of action",
+                        "readOnly": true,
+                        "path": "/event-manager/action-entries/action-entry/action-name",
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "trigger-count": {
+                        "description": "Counter for number of times trigger is invoked",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "status": {
+                        "description": "Policy status",
+                        "readOnly": true,
+                        "enum": [
+                          "Inactive",
+                          "Active"
+                        ],
+                        "mandatory": false
+                      },
+                      "last-execution-status": {
+                        "description": "Last execution status of policy",
+                        "readOnly": true,
+                        "enum": [
+                          "Success",
+                          "Fail",
+                          "Not-Run"
+                        ],
+                        "mandatory": false
+                      },
+                      "last-execution-time": {
+                        "description": "Last execution time of policy",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "policy-name"
+                ]
+              },
+              "maxItems": 50
+            }
+          }
+        }
+      }
+    }
+  }
+}

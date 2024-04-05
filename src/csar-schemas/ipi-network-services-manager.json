@@ -1,0 +1,426 @@
+{
+  "title": "ipi-network-services-manager",
+  "description": "This module provides user with the possibility of configuring debug    options for Network Services Manager and Packet Manager",
+  "type": "object",
+  "properties": {
+    "ipi-network-services-manager:network-services-manager": {
+      "description": "Container for all data related to network services manager",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "debug": {
+          "description": "Container that stores all debug data for network services manager",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "nsm": {
+              "description": "Container that holds nsm debug data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configuration data for nsm debug data",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "options": {
+                      "description": "Use this attribute to debug nsm",
+                      "readOnly": false,
+                      "type": "string",
+                      "bits": {
+                        "addressmonitor": "1",
+                        "bfd": "2",
+                        "events": "3",
+                        "hal-events": "4",
+                        "hal-ipc": "5",
+                        "linkmonitor": "6",
+                        "packet-recv": "9",
+                        "packet-recv-detail": "10",
+                        "packet-send": "11",
+                        "packet-send-detail": "12",
+                        "ha": "13",
+                        "ha-all": "14",
+                        "vxlan": "15",
+                        "trill": "16",
+                        "ipsec": "17",
+                        "kernel": "18",
+                        "mpls": "19"
+                      },
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational state data for nsm debug data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "options": {
+                      "description": "Use this attribute to debug nsm",
+                      "readOnly": true,
+                      "type": "string",
+                      "bits": {
+                        "addressmonitor": "1",
+                        "bfd": "2",
+                        "events": "3",
+                        "hal-events": "4",
+                        "hal-ipc": "5",
+                        "linkmonitor": "6",
+                        "packet-recv": "9",
+                        "packet-recv-detail": "10",
+                        "packet-send": "11",
+                        "packet-send-detail": "12",
+                        "ha": "13",
+                        "ha-all": "14",
+                        "vxlan": "15",
+                        "trill": "16",
+                        "ipsec": "17",
+                        "kernel": "18",
+                        "mpls": "19"
+                      },
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "pkt-mgr": {
+              "description": "Container that holds pkt-mgr debug data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configuration data for pkt-mgr debug data",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "options": {
+                      "description": "Use this attribute to debug vlan packet",
+                      "readOnly": false,
+                      "type": "string",
+                      "bits": {
+                        "l2-protocol-cfm": "2",
+                        "l2-protocol-eapol": "3",
+                        "l2-protocol-efm": "4",
+                        "l2-protocol-igmp-snoop": "5",
+                        "l2-protocol-lacp": "6",
+                        "l2-protocol-lldp": "7",
+                        "l2-protocol-mldp-snoop": "8",
+                        "l2-protocol-mstp": "9",
+                        "l2-protocol-ptp": "10"
+                      },
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational state data for pkt-mgr debug data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "options": {
+                      "description": "Use this attribute to debug vlan packet",
+                      "readOnly": true,
+                      "type": "string",
+                      "bits": {
+                        "l2-protocol-cfm": "2",
+                        "l2-protocol-eapol": "3",
+                        "l2-protocol-efm": "4",
+                        "l2-protocol-igmp-snoop": "5",
+                        "l2-protocol-lacp": "6",
+                        "l2-protocol-lldp": "7",
+                        "l2-protocol-mldp-snoop": "8",
+                        "l2-protocol-mstp": "9",
+                        "l2-protocol-ptp": "10"
+                      },
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "hsl": {
+              "description": "Container that holds HSL debug data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "hsl-module": {
+                  "description": "objectlist that holds HSL debug data",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "module-name": {
+                        "description": "Use this attribute to set debug HSL module",
+                        "readOnly": false,
+                        "path": "../config/module-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data for HSL debug data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "module-name": {
+                            "description": "Use this Attribute to set debug HSL module",
+                            "readOnly": false,
+                            "enum": [
+                              "general",
+                              "ifmgr",
+                              "bridge",
+                              "msg",
+                              "fib",
+                              "fdb",
+                              "devdrv",
+                              "pktdrv",
+                              "platform",
+                              "pbr",
+                              "bfd",
+                              "lacp",
+                              "qos",
+                              "helper",
+                              "rbridge",
+                              "nvo",
+                              "ofl",
+                              "mlag",
+                              "mpls",
+                              "srv6",
+                              "ptp",
+                              "extphy"
+                            ],
+                            "mandatory": false
+                          },
+                          "level": {
+                            "description": "Use this Attribute to set debug level for HSL module",
+                            "readOnly": false,
+                            "type": "string",
+                            "bits": {
+                              "info": "0",
+                              "debug": "1",
+                              "warn": "2",
+                              "error": "3",
+                              "fatal": "4",
+                              "admin": "5",
+                              "counter": "6",
+                              "pkt": "7"
+                            },
+                            "mandatory": true
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for HSL debug data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "module-name": {
+                            "description": "Use this Attribute to set debug HSL module",
+                            "readOnly": true,
+                            "enum": [
+                              "general",
+                              "ifmgr",
+                              "bridge",
+                              "msg",
+                              "fib",
+                              "fdb",
+                              "devdrv",
+                              "pktdrv",
+                              "platform",
+                              "pbr",
+                              "bfd",
+                              "lacp",
+                              "qos",
+                              "helper",
+                              "rbridge",
+                              "nvo",
+                              "ofl",
+                              "mlag",
+                              "mpls",
+                              "srv6",
+                              "ptp",
+                              "extphy"
+                            ],
+                            "mandatory": false
+                          },
+                          "level": {
+                            "description": "Use this Attribute to set debug level for HSL module",
+                            "readOnly": true,
+                            "type": "string",
+                            "bits": {
+                              "info": "0",
+                              "debug": "1",
+                              "warn": "2",
+                              "error": "3",
+                              "fatal": "4",
+                              "admin": "5",
+                              "counter": "6",
+                              "pkt": "7"
+                            },
+                            "mandatory": true
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "module-name"
+                    ]
+                  }
+                }
+              }
+            },
+            "lbd": {
+              "description": "Container that holds LBD debug data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configuration data for LBD debug data",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "debug-options": {
+                      "description": "Use this attribute to debug LBD packet",
+                      "readOnly": false,
+                      "type": "string",
+                      "bits": {
+                        "tx": "1",
+                        "rx": "2",
+                        "event": "3",
+                        "info": "4"
+                      },
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational state data for LBD debug data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "debug-options": {
+                      "description": "Use this attribute to debug LBD packet",
+                      "readOnly": true,
+                      "type": "string",
+                      "bits": {
+                        "tx": "1",
+                        "rx": "2",
+                        "event": "3",
+                        "info": "4"
+                      },
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "terminal": {
+              "description": "Container for terminal debug",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "nsm": {
+                  "description": "Container for nsm terminal debug",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "state": {
+                      "description": "Operational state data",
+                      "readOnly": true,
+                      "type": "object",
+                      "properties": {
+                        "terminal-debug-status": {
+                          "description": "Terminal debug for nsm debug",
+                          "readOnly": true,
+                          "type": "string",
+                          "bits": {
+                            "addressmonitor": "1",
+                            "bfd": "2",
+                            "events": "3",
+                            "hal-events": "4",
+                            "hal-ipc": "5",
+                            "linkmonitor": "6",
+                            "packet-recv": "9",
+                            "packet-recv-detail": "10",
+                            "packet-send": "11",
+                            "packet-send-detail": "12",
+                            "ha": "13",
+                            "ha-all": "14",
+                            "vxlan": "15",
+                            "trill": "16",
+                            "ipsec": "17",
+                            "kernel": "18",
+                            "mpls": "19"
+                          },
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  }
+                },
+                "pkt-mgr": {
+                  "description": "Container for pkt-mgr terminal debug",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "state": {
+                      "description": "Operational state data",
+                      "readOnly": true,
+                      "type": "object",
+                      "properties": {
+                        "terminal-debug-status": {
+                          "description": "Terminal debug for pkt-mgr debug",
+                          "readOnly": true,
+                          "type": "string",
+                          "bits": {
+                            "l2-protocol-cfm": "2",
+                            "l2-protocol-eapol": "3",
+                            "l2-protocol-efm": "4",
+                            "l2-protocol-igmp-snoop": "5",
+                            "l2-protocol-lacp": "6",
+                            "l2-protocol-lldp": "7",
+                            "l2-protocol-mldp-snoop": "8",
+                            "l2-protocol-mstp": "9",
+                            "l2-protocol-ptp": "10"
+                          },
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  }
+                },
+                "lbd": {
+                  "description": "Container for LBD terminal debug",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "state": {
+                      "description": "Operational state data",
+                      "readOnly": true,
+                      "type": "object",
+                      "properties": {
+                        "debug-options-lbd": {
+                          "description": "Terminal debug for LBD debug",
+                          "readOnly": true,
+                          "type": "string",
+                          "bits": {
+                            "tx": "1",
+                            "rx": "2",
+                            "event": "3",
+                            "info": "4"
+                          },
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

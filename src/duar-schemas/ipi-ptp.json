@@ -1,0 +1,3158 @@
+{
+  "title": "ipi-ptp",
+  "description": "Datamodel for PTP configurations",
+  "type": "object",
+  "properties": {
+    "ipi-ptp:ptp": {
+      "description": "PTP clock",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "ptp-instances": {
+          "description": "Top level container for PTP instances",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "ptp-instance": {
+              "description": "PTP instance list",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "instance-type": {
+                    "description": "PTP instance type",
+                    "readOnly": false,
+                    "path": "../config/instance-type",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "instance-type": {
+                        "description": "PTP instance type",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 1,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "profile": {
+                        "description": "Select PTP clock profile g8265.1, g8275.1, g8275.2 or default or e2e-transparent",
+                        "readOnly": false,
+                        "enum": [
+                          "g8265.1",
+                          "g8275.1",
+                          "g8275.2",
+                          "e2e-transparent",
+                          "default",
+                          "smpte"
+                        ],
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "tlv": {
+                    "description": "Debugging functions",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "color-frame": {
+                            "description": "setting color-frame",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "drop-frame": {
+                            "description": "setting drop-frame",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "numerator": {
+                            "description": "Setting numerator for the default system frame rate",
+                            "readOnly": false,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "denominator": {
+                            "description": "Setting denominator for the default system frame rate",
+                            "readOnly": false,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "color-frame": {
+                            "description": "setting color-frame",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "drop-frame": {
+                            "description": "setting drop-frame",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "numerator": {
+                            "description": "Setting numerator for the default system frame rate",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "denominator": {
+                            "description": "Setting denominator for the default system frame rate",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "default-data-set": {
+                    "description": "The default data set of the clock",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "l2-pkt-forward": {
+                            "description": "l2-pkt-forward",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "domain": {
+                            "description": "The domain number of the current domain",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 127,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "servo-config": {
+                            "description": "servo config",
+                            "readOnly": false,
+                            "enum": [
+                              "fts",
+                              "fts-no-synce"
+                            ],
+                            "mandatory": false
+                          },
+                          "external-clock-holdover-duration": {
+                            "description": "External clock holdover duration",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 10080,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "system-clock-sync": {
+                            "description": "External clock holdover duration",
+                            "readOnly": false,
+                            "minimum": 5,
+                            "maximum": 600,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "ptp-clock-sync": {
+                            "description": "Initialise ptp clock from operating system clock",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "ptsf-wtr-duration": {
+                            "description": "External clock holdover duration",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 1440,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "g8265p1-wtr-duration": {
+                            "description": "g8265.1 master wtr",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 3600,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "g8265p1-option": {
+                            "description": "g8265.1 option",
+                            "readOnly": false,
+                            "enum": [
+                              "1",
+                              "2"
+                            ],
+                            "mandatory": false
+                          },
+                          "reserved-vlan-base": {
+                            "description": "Reserved vlan base index",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 4064,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "two-step": {
+                            "description": "two step",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "clock-type-tgm": {
+                            "description": "clock type as tgm",
+                            "readOnly": false,
+                            "enum": [
+                              "tgm"
+                            ],
+                            "mandatory": false
+                          },
+                          "one-way": {
+                            "description": "For G.8265.1 one-way ptp",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "number-ports": {
+                            "description": "Number of ports",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 31,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "pps-pulse-offset": {
+                            "description": "1pps Out Pulse Offset in nanoseconds",
+                            "readOnly": false,
+                            "minimum": -2048,
+                            "maximum": 2048,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "pps-in-smx-tod-type": {
+                            "description": "1pps in SMX tod type",
+                            "readOnly": false,
+                            "enum": [
+                              "smx",
+                              "tod"
+                            ],
+                            "mandatory": false
+                          },
+                          "priority-1": {
+                            "description": "The priority1 attribute of the local clock",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "priority-2": {
+                            "description": "The priority2 attribute of the local clock",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "slave-only": {
+                            "description": "When set the clock is a slave-only clock",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "local-priority": {
+                            "description": "The local priority attribute of the local clock",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "max-steps-removed": {
+                            "description": "The maximum number of communication paths between the local clock and the grandmaster clock",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "start-boundary-hops": {
+                            "description": "The maximum number of communication paths between the local clock and the grandmaster clock",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "l2-pkt-forward": {
+                            "description": "l2-pkt-forward",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "domain": {
+                            "description": "The domain number of the current domain",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 127,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "servo-config": {
+                            "description": "servo config",
+                            "readOnly": true,
+                            "enum": [
+                              "fts",
+                              "fts-no-synce"
+                            ],
+                            "mandatory": false
+                          },
+                          "external-clock-holdover-duration": {
+                            "description": "External clock holdover duration",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 10080,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "system-clock-sync": {
+                            "description": "External clock holdover duration",
+                            "readOnly": true,
+                            "minimum": 5,
+                            "maximum": 600,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "ptp-clock-sync": {
+                            "description": "Initialise ptp clock from operating system clock",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "ptsf-wtr-duration": {
+                            "description": "External clock holdover duration",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 1440,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "g8265p1-wtr-duration": {
+                            "description": "g8265.1 master wtr",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 3600,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "g8265p1-option": {
+                            "description": "g8265.1 option",
+                            "readOnly": true,
+                            "enum": [
+                              "1",
+                              "2"
+                            ],
+                            "mandatory": false
+                          },
+                          "reserved-vlan-base": {
+                            "description": "Reserved vlan base index",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 4064,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "two-step": {
+                            "description": "two step",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "clock-type-tgm": {
+                            "description": "clock type as tgm",
+                            "readOnly": true,
+                            "enum": [
+                              "tgm"
+                            ],
+                            "mandatory": false
+                          },
+                          "one-way": {
+                            "description": "For G.8265.1 one-way ptp",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "number-ports": {
+                            "description": "Number of ports",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 31,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "pps-pulse-offset": {
+                            "description": "1pps Out Pulse Offset in nanoseconds",
+                            "readOnly": true,
+                            "minimum": -2048,
+                            "maximum": 2048,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "pps-in-smx-tod-type": {
+                            "description": "1pps in SMX tod type",
+                            "readOnly": true,
+                            "enum": [
+                              "smx",
+                              "tod"
+                            ],
+                            "mandatory": false
+                          },
+                          "priority-1": {
+                            "description": "The priority1 attribute of the local clock",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "priority-2": {
+                            "description": "The priority2 attribute of the local clock",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "slave-only": {
+                            "description": "When set the clock is a slave-only clock",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "local-priority": {
+                            "description": "The local priority attribute of the local clock",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "max-steps-removed": {
+                            "description": "The maximum number of communication paths between the local clock and the grandmaster clock",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "start-boundary-hops": {
+                            "description": "The maximum number of communication paths between the local clock and the grandmaster clock",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "clock-identity": {
+                            "description": "The clock identity of the local clock",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "servo-history": {
+                        "description": "PTP servo-history parameters",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration data",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "servo-history-enabled": {
+                                "description": "PTP servo history",
+                                "readOnly": false,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": true
+                              },
+                              "servo-history-interval": {
+                                "description": "PTP servo history interval",
+                                "readOnly": false,
+                                "minimum": 1,
+                                "maximum": 60,
+                                "type": "number",
+                                "mandatory": true
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational data",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "servo-history-enabled": {
+                                "description": "PTP servo history",
+                                "readOnly": true,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": true
+                              },
+                              "servo-history-interval": {
+                                "description": "PTP servo history interval",
+                                "readOnly": true,
+                                "minimum": 1,
+                                "maximum": 60,
+                                "type": "number",
+                                "mandatory": true
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "clock-quality": {
+                        "description": "PTP clock quality parameters",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration data",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "clock-class": {
+                                "description": "The clock-class denotes the traceability of the time or frequency distributed by the clock",
+                                "readOnly": false,
+                                "minimum": 0,
+                                "maximum": 255,
+                                "type": "number",
+                                "mandatory": false
+                              },
+                              "clock-accuracy": {
+                                "description": "The clock-accuracy indicates the expected accuracy of the clock",
+                                "readOnly": false,
+                                "minimum": 0,
+                                "maximum": 255,
+                                "type": "number",
+                                "mandatory": false
+                              },
+                              "offset-scaled-log-variance": {
+                                "description": "The offset-scaled-log-variance provides an estimate of the variations of the clock from a linear timescale when it is not synchronized to another clock using the protocol",
+                                "readOnly": false,
+                                "minimum": 0,
+                                "maximum": 65535,
+                                "type": "number",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational state data",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "clock-class": {
+                                "description": "The clock-class denotes the traceability of the time or frequency distributed by the clock",
+                                "readOnly": true,
+                                "minimum": 0,
+                                "maximum": 255,
+                                "type": "number",
+                                "mandatory": false
+                              },
+                              "clock-accuracy": {
+                                "description": "The clock-accuracy indicates the expected accuracy of the clock",
+                                "readOnly": true,
+                                "minimum": 0,
+                                "maximum": 255,
+                                "type": "number",
+                                "mandatory": false
+                              },
+                              "offset-scaled-log-variance": {
+                                "description": "The offset-scaled-log-variance provides an estimate of the variations of the clock from a linear timescale when it is not synchronized to another clock using the protocol",
+                                "readOnly": true,
+                                "minimum": 0,
+                                "maximum": 65535,
+                                "type": "number",
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "gps-offset": {
+                        "description": "GPS offset configuration parameters",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration data",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "offset-seconds": {
+                                "description": "GPS offset in sec",
+                                "readOnly": false,
+                                "minimum": -100,
+                                "maximum": 100,
+                                "type": "number",
+                                "mandatory": true
+                              },
+                              "offset-nano-seconds": {
+                                "description": "GPS offset in ns",
+                                "readOnly": false,
+                                "minimum": -2048,
+                                "maximum": 2048,
+                                "type": "number",
+                                "mandatory": true
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational state data",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "offset-seconds": {
+                                "description": "GPS offset in sec",
+                                "readOnly": true,
+                                "minimum": -100,
+                                "maximum": 100,
+                                "type": "number",
+                                "mandatory": true
+                              },
+                              "offset-nano-seconds": {
+                                "description": "GPS offset in ns",
+                                "readOnly": true,
+                                "minimum": -2048,
+                                "maximum": 2048,
+                                "type": "number",
+                                "mandatory": true
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "ports": {
+                    "description": "Top level container for ports data set of the clock",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "port": {
+                        "description": "List of port data sets of the clock",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "port-number": {
+                              "description": "PTP port clock number. Default value is 1.",
+                              "readOnly": false,
+                              "path": "../config/port-number",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "port-number": {
+                                  "description": "PTP port clock number. Default value is 1.",
+                                  "readOnly": false,
+                                  "minimum": 1,
+                                  "maximum": 31,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "local-priority": {
+                                  "description": "The local priority attribute of the PTP port clock",
+                                  "readOnly": false,
+                                  "minimum": 1,
+                                  "maximum": 255,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "description": {
+                                  "description": "This parameter is used to set port clock description",
+                                  "readOnly": false,
+                                  "pattern": "[^?'=,>|]*",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "transport-type": {
+                                  "description": "Set transport type",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "ipv4",
+                                    "ipv6",
+                                    "ipv4-multicast",
+                                    "ipv6-multicast"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "transport-v6-multicast-type": {
+                                  "description": "Set transport type Ipv6 multicast",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "site-local",
+                                    "interface-local",
+                                    "link-local",
+                                    "admin-local",
+                                    "organization-local",
+                                    "global-local"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "non-forwardable-mac-addr": {
+                                  "description": "Set dst mac as non forwardable mac 01:80:C2:00:00:0E",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "log-min-delay-req-interval": {
+                                  "description": "The base-two logarithm of the minDelayReqInterval (the minimum permitted mean time interval between successive Delay_Req messages)",
+                                  "readOnly": false,
+                                  "minimum": -7,
+                                  "maximum": 5,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "log-announce-interval": {
+                                  "description": "The base-two logarithm of the mean announceInterval (mean time interval between successive Announce messages)",
+                                  "readOnly": false,
+                                  "minimum": -3,
+                                  "maximum": 4,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "announce-receipt-timeout": {
+                                  "description": "The number of announceInterval that have to pass without receipt of an Announce message before the occurrence of the event ANNOUNCE_RECEIPT_TIMEOUT_ EXPIRES",
+                                  "readOnly": false,
+                                  "minimum": 2,
+                                  "maximum": 10,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "log-sync-interval": {
+                                  "description": "The base-two logarithm of the mean SyncInterval for multicast messages",
+                                  "readOnly": false,
+                                  "minimum": -7,
+                                  "maximum": 4,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "time-to-live": {
+                                  "description": "The ttl value for clock-port",
+                                  "readOnly": false,
+                                  "minimum": 1,
+                                  "maximum": 255,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "ip-dscp": {
+                                  "description": "The ip-dscp value for clock-port",
+                                  "readOnly": false,
+                                  "minimum": 0,
+                                  "maximum": 63,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "unicast-grant-duration": {
+                                  "description": "Unicast grant duration field in signalling messages",
+                                  "readOnly": false,
+                                  "minimum": 60,
+                                  "maximum": 1000,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "delay-mechanism": {
+                                  "description": "The propagation delay measuring option used by the port in computing meanPathDelay",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "E2E",
+                                    "P2P",
+                                    "disabled"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "version-number": {
+                                  "description": "The PTP version in use on the port",
+                                  "readOnly": false,
+                                  "type": "number",
+                                  "minimum": -128,
+                                  "maximum": 127,
+                                  "mandatory": false
+                                },
+                                "master-only": {
+                                  "description": "When set the port is a master-only port",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "grandmaster-priority-2": {
+                                  "description": "The priority2 denotes priority2 attribute of grandmaster clock",
+                                  "readOnly": false,
+                                  "minimum": 0,
+                                  "maximum": 255,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "append": {
+                                  "description": "Appending TLV",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "process": {
+                                  "description": "Processing TLV",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "source-ipv6-link-local-address": {
+                                  "description": "When set the clock source addrress is a linklocal address",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "source-ipv6-interface-address": {
+                                  "description": "When set the clock source addrress as ipv6",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "source-ipv4-interface-address": {
+                                  "description": "When set the clock source addrress as ipv4",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "source-ipv6-address": {
+                                  "description": "set the absolute source addrress as ipv6 for clock-port",
+                                  "readOnly": false,
+                                  "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "source-ipv4-address": {
+                                  "description": "set the absolute source addrress as ipv4 for clock-port",
+                                  "readOnly": false,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "port-number": {
+                                  "description": "PTP port clock number. Default value is 1.",
+                                  "readOnly": true,
+                                  "minimum": 1,
+                                  "maximum": 31,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "local-priority": {
+                                  "description": "The local priority attribute of the PTP port clock",
+                                  "readOnly": true,
+                                  "minimum": 1,
+                                  "maximum": 255,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "description": {
+                                  "description": "This parameter is used to set port clock description",
+                                  "readOnly": true,
+                                  "pattern": "[^?'=,>|]*",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "transport-type": {
+                                  "description": "Set transport type",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "ipv4",
+                                    "ipv6",
+                                    "ipv4-multicast",
+                                    "ipv6-multicast"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "transport-v6-multicast-type": {
+                                  "description": "Set transport type Ipv6 multicast",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "site-local",
+                                    "interface-local",
+                                    "link-local",
+                                    "admin-local",
+                                    "organization-local",
+                                    "global-local"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "non-forwardable-mac-addr": {
+                                  "description": "Set dst mac as non forwardable mac 01:80:C2:00:00:0E",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "log-min-delay-req-interval": {
+                                  "description": "The base-two logarithm of the minDelayReqInterval (the minimum permitted mean time interval between successive Delay_Req messages)",
+                                  "readOnly": true,
+                                  "minimum": -7,
+                                  "maximum": 5,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "log-announce-interval": {
+                                  "description": "The base-two logarithm of the mean announceInterval (mean time interval between successive Announce messages)",
+                                  "readOnly": true,
+                                  "minimum": -3,
+                                  "maximum": 4,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "announce-receipt-timeout": {
+                                  "description": "The number of announceInterval that have to pass without receipt of an Announce message before the occurrence of the event ANNOUNCE_RECEIPT_TIMEOUT_ EXPIRES",
+                                  "readOnly": true,
+                                  "minimum": 2,
+                                  "maximum": 10,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "log-sync-interval": {
+                                  "description": "The base-two logarithm of the mean SyncInterval for multicast messages",
+                                  "readOnly": true,
+                                  "minimum": -7,
+                                  "maximum": 4,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "time-to-live": {
+                                  "description": "The ttl value for clock-port",
+                                  "readOnly": true,
+                                  "minimum": 1,
+                                  "maximum": 255,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "ip-dscp": {
+                                  "description": "The ip-dscp value for clock-port",
+                                  "readOnly": true,
+                                  "minimum": 0,
+                                  "maximum": 63,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "unicast-grant-duration": {
+                                  "description": "Unicast grant duration field in signalling messages",
+                                  "readOnly": true,
+                                  "minimum": 60,
+                                  "maximum": 1000,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "delay-mechanism": {
+                                  "description": "The propagation delay measuring option used by the port in computing meanPathDelay",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "E2E",
+                                    "P2P",
+                                    "disabled"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "version-number": {
+                                  "description": "The PTP version in use on the port",
+                                  "readOnly": true,
+                                  "type": "number",
+                                  "minimum": -128,
+                                  "maximum": 127,
+                                  "mandatory": false
+                                },
+                                "master-only": {
+                                  "description": "When set the port is a master-only port",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "grandmaster-priority-2": {
+                                  "description": "The priority2 denotes priority2 attribute of grandmaster clock",
+                                  "readOnly": true,
+                                  "minimum": 0,
+                                  "maximum": 255,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "append": {
+                                  "description": "Appending TLV",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "process": {
+                                  "description": "Processing TLV",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "port-state": {
+                                  "description": "Current state associated with the port",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "initializing",
+                                    "faulty",
+                                    "disabled",
+                                    "listening",
+                                    "pre-master",
+                                    "master",
+                                    "passive",
+                                    "uncalibrated",
+                                    "slave"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "peer-mean-path-delay": {
+                                  "description": "Peer Mean path delay",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "signal-fail": {
+                                  "description": "signal fail info of PTP port",
+                                  "readOnly": true,
+                                  "type": "boolean",
+                                  "mandatory": false
+                                },
+                                "port-identity": {
+                                  "description": "The identity of the port",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "clock-quality": {
+                              "description": "Port clock quality parameters",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "config": {
+                                  "description": "Configuration data",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "clock-class": {
+                                      "description": "The clock-class denotes the traceability of the time or frequency distributed by the clock",
+                                      "readOnly": false,
+                                      "minimum": 0,
+                                      "maximum": 255,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "clock-accuracy": {
+                                      "description": "The clock-accuracy indicates the expected accuracy of the clock",
+                                      "readOnly": false,
+                                      "minimum": 0,
+                                      "maximum": 255,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "offset-scaled-log-variance": {
+                                      "description": "The offset-scaled-log-variance provides an estimate of the variations of the clock from a linear timescale when it is not synchronized to another clock using the protocol",
+                                      "readOnly": false,
+                                      "minimum": 0,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "clock-class": {
+                                      "description": "The clock-class denotes the traceability of the time or frequency distributed by the clock",
+                                      "readOnly": true,
+                                      "minimum": 0,
+                                      "maximum": 255,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "clock-accuracy": {
+                                      "description": "The clock-accuracy indicates the expected accuracy of the clock",
+                                      "readOnly": true,
+                                      "minimum": 0,
+                                      "maximum": 255,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "offset-scaled-log-variance": {
+                                      "description": "The offset-scaled-log-variance provides an estimate of the variations of the clock from a linear timescale when it is not synchronized to another clock using the protocol",
+                                      "readOnly": true,
+                                      "minimum": 0,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "asymmetry-delay": {
+                              "description": "PTP asymetry delay parameters",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "config": {
+                                  "description": "Configuration data",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "delay-asymmetry-msec": {
+                                      "description": "Set delay-asymmetry in milliseconds",
+                                      "readOnly": false,
+                                      "minimum": -100,
+                                      "maximum": 100,
+                                      "type": "number",
+                                      "mandatory": true
+                                    },
+                                    "delay-asymmetry-nsec": {
+                                      "description": "Set delay-asymmetry in nanoseconds",
+                                      "readOnly": false,
+                                      "minimum": -1000000,
+                                      "maximum": 1000000,
+                                      "type": "number",
+                                      "mandatory": true
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "delay-asymmetry-msec": {
+                                      "description": "Set delay-asymmetry in milliseconds",
+                                      "readOnly": true,
+                                      "minimum": -100,
+                                      "maximum": 100,
+                                      "type": "number",
+                                      "mandatory": true
+                                    },
+                                    "delay-asymmetry-nsec": {
+                                      "description": "Set delay-asymmetry in nanoseconds",
+                                      "readOnly": true,
+                                      "minimum": -1000000,
+                                      "maximum": 1000000,
+                                      "type": "number",
+                                      "mandatory": true
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "network-interfaces": {
+                              "description": "Top level container for PTP network-interfaces parameters",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "network-interface": {
+                                  "description": "PTP network-interface parameters list",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "network-interface": {
+                                        "description": "Reference to the configured underlying interface that is used by this PTP Port",
+                                        "readOnly": false,
+                                        "path": "../config/network-interface",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "config": {
+                                        "description": "Configuration data",
+                                        "readOnly": false,
+                                        "type": "object",
+                                        "properties": {
+                                          "network-interface": {
+                                            "description": "Reference to the configured underlying interface that is used by this PTP Port",
+                                            "readOnly": false,
+                                            "oneOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "enum": [
+                                                  "gps",
+                                                  "prc"
+                                                ]
+                                              }
+                                            ],
+                                            "mandatory": false
+                                          },
+                                          "vlan-physical-interface-name": {
+                                            "description": "Reference to the configured underlying interface that is used by this vlan interface PTP Port",
+                                            "readOnly": false,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "vlan-physical-dot1q-vlan-id": {
+                                            "description": "Reference to the configured underlying interface that is used by this PTP Port. The valid range for this attribute vlan-id is related to the value configured in reserved-vlan-base which defines a range of 31 reserved vlans for PTP from the configured value in reserved-vlan-base. By default the range reserved vlan values are 4064-4095. By default the maximum valid value for vlan-id is 4063.",
+                                            "readOnly": false,
+                                            "minimum": 1,
+                                            "maximum": 4095,
+                                            "type": "number",
+                                            "mandatory": false
+                                          },
+                                          "dot1q-vlan-id": {
+                                            "description": "Reference to the configured underlying interface that is used by this PTP Port. The valid range for this attribute vlan-id is related to the value configured in reserved-vlan-base which defines a range of 31 reserved vlans for PTP from the configured value in reserved-vlan-base. By default the range reserved vlan values are 4064-4095. By default the maximum valid value for vlan-id is 4063.",
+                                            "readOnly": false,
+                                            "minimum": 1,
+                                            "maximum": 4095,
+                                            "type": "number",
+                                            "mandatory": false
+                                          },
+                                          "dot1ad-vlan-id": {
+                                            "description": "Reference to the configured underlying interface that is used by this PTP Port. The valid range for this attribute vlan-id is related to the value configured in reserved-vlan-base which defines a range of 31 reserved vlans for PTP from the configured value in reserved-vlan-base. By default the range reserved vlan values are 4064-4095. By default the maximum valid value for vlan-id is 4063.",
+                                            "readOnly": false,
+                                            "minimum": 1,
+                                            "maximum": 4095,
+                                            "type": "number",
+                                            "mandatory": false
+                                          },
+                                          "inner-dot1q-vlan-id": {
+                                            "description": "Reference to the configured underlying interface that is used by this PTP Port. The valid range for this attribute vlan-id is related to the value configured in reserved-vlan-base which defines a range of 31 reserved vlans for PTP from the configured value in reserved-vlan-base. By default the range reserved vlan values are 4064-4095. By default the maximum valid value for vlan-id is 4063.",
+                                            "readOnly": false,
+                                            "minimum": 1,
+                                            "maximum": 4095,
+                                            "type": "number",
+                                            "mandatory": false
+                                          }
+                                        }
+                                      },
+                                      "state": {
+                                        "description": "Operational state data",
+                                        "readOnly": true,
+                                        "type": "object",
+                                        "properties": {
+                                          "network-interface": {
+                                            "description": "Reference to the configured underlying interface that is used by this PTP Port",
+                                            "readOnly": true,
+                                            "oneOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "enum": [
+                                                  "gps",
+                                                  "prc"
+                                                ]
+                                              }
+                                            ],
+                                            "mandatory": false
+                                          },
+                                          "vlan-physical-interface-name": {
+                                            "description": "Reference to the configured underlying interface that is used by this vlan interface PTP Port",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "vlan-physical-dot1q-vlan-id": {
+                                            "description": "Reference to the configured underlying interface that is used by this PTP Port. The valid range for this attribute vlan-id is related to the value configured in reserved-vlan-base which defines a range of 31 reserved vlans for PTP from the configured value in reserved-vlan-base. By default the range reserved vlan values are 4064-4095. By default the maximum valid value for vlan-id is 4063.",
+                                            "readOnly": true,
+                                            "minimum": 1,
+                                            "maximum": 4095,
+                                            "type": "number",
+                                            "mandatory": false
+                                          },
+                                          "dot1q-vlan-id": {
+                                            "description": "Reference to the configured underlying interface that is used by this PTP Port. The valid range for this attribute vlan-id is related to the value configured in reserved-vlan-base which defines a range of 31 reserved vlans for PTP from the configured value in reserved-vlan-base. By default the range reserved vlan values are 4064-4095. By default the maximum valid value for vlan-id is 4063.",
+                                            "readOnly": true,
+                                            "minimum": 1,
+                                            "maximum": 4095,
+                                            "type": "number",
+                                            "mandatory": false
+                                          },
+                                          "dot1ad-vlan-id": {
+                                            "description": "Reference to the configured underlying interface that is used by this PTP Port. The valid range for this attribute vlan-id is related to the value configured in reserved-vlan-base which defines a range of 31 reserved vlans for PTP from the configured value in reserved-vlan-base. By default the range reserved vlan values are 4064-4095. By default the maximum valid value for vlan-id is 4063.",
+                                            "readOnly": true,
+                                            "minimum": 1,
+                                            "maximum": 4095,
+                                            "type": "number",
+                                            "mandatory": false
+                                          },
+                                          "inner-dot1q-vlan-id": {
+                                            "description": "Reference to the configured underlying interface that is used by this PTP Port. The valid range for this attribute vlan-id is related to the value configured in reserved-vlan-base which defines a range of 31 reserved vlans for PTP from the configured value in reserved-vlan-base. By default the range reserved vlan values are 4064-4095. By default the maximum valid value for vlan-id is 4063.",
+                                            "readOnly": true,
+                                            "minimum": 1,
+                                            "maximum": 4095,
+                                            "type": "number",
+                                            "mandatory": false
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "keyFields": [
+                                      "network-interface"
+                                    ]
+                                  },
+                                  "maxItems": 1
+                                }
+                              }
+                            },
+                            "master-ipv4-addresses": {
+                              "description": "Top level container for port master-IPv4-addresses parameters",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "master-ipv4-address": {
+                                  "description": "Port master-IPv4-address parameters list",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "master-clock-source-ipv4-address": {
+                                        "description": "Set master clock ipv4 source address",
+                                        "readOnly": false,
+                                        "path": "../config/master-clock-source-ipv4-address",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "config": {
+                                        "description": "Configuration data",
+                                        "readOnly": false,
+                                        "type": "object",
+                                        "properties": {
+                                          "master-clock-source-ipv4-address": {
+                                            "description": "Set master clock IPv4 source address",
+                                            "readOnly": false,
+                                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "master-ipv4-address-priority": {
+                                            "description": "Set master clock IPv4 source address priority",
+                                            "readOnly": false,
+                                            "minimum": 0,
+                                            "maximum": 15,
+                                            "type": "number",
+                                            "mandatory": false
+                                          }
+                                        }
+                                      },
+                                      "state": {
+                                        "description": "Operational state data",
+                                        "readOnly": true,
+                                        "type": "object",
+                                        "properties": {
+                                          "master-clock-source-ipv4-address": {
+                                            "description": "Set master clock IPv4 source address",
+                                            "readOnly": true,
+                                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "master-ipv4-address-priority": {
+                                            "description": "Set master clock IPv4 source address priority",
+                                            "readOnly": true,
+                                            "minimum": 0,
+                                            "maximum": 15,
+                                            "type": "number",
+                                            "mandatory": false
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "keyFields": [
+                                      "master-clock-source-ipv4-address"
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "master-ipv6-addresses": {
+                              "description": "Top level container for master-IPv6-addresses parameters",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "master-ipv6-address": {
+                                  "description": "Master-IPv6-address parameters list",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "master-clock-source-ipv6-address": {
+                                        "description": "Set master clock IPv6 source address",
+                                        "readOnly": false,
+                                        "path": "../config/master-clock-source-ipv6-address",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "config": {
+                                        "description": "Configuration data",
+                                        "readOnly": false,
+                                        "type": "object",
+                                        "properties": {
+                                          "master-clock-source-ipv6-address": {
+                                            "description": "Set master clock IPv6 source address",
+                                            "readOnly": false,
+                                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "master-ipv6-address-priority": {
+                                            "description": "Set master clock IPv6 source address priority",
+                                            "readOnly": false,
+                                            "minimum": 0,
+                                            "maximum": 15,
+                                            "type": "number",
+                                            "mandatory": false
+                                          }
+                                        }
+                                      },
+                                      "state": {
+                                        "description": "Operational state data",
+                                        "readOnly": true,
+                                        "type": "object",
+                                        "properties": {
+                                          "master-clock-source-ipv6-address": {
+                                            "description": "Set master clock IPv6 source address",
+                                            "readOnly": true,
+                                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "master-ipv6-address-priority": {
+                                            "description": "Set master clock IPv6 source address priority",
+                                            "readOnly": true,
+                                            "minimum": 0,
+                                            "maximum": 15,
+                                            "type": "number",
+                                            "mandatory": false
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "keyFields": [
+                                      "master-clock-source-ipv6-address"
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "statistics": {
+                              "description": "Set of PTP statistics parameters",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "packets-transmitted": {
+                                      "description": "PTP port packets transmitted",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "packets-received": {
+                                      "description": "PTP port packets received",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "packets-discarded": {
+                                      "description": "PTP port packets discarded",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "foreign-data-sets": {
+                              "description": "PTP foreign dataset list",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "foreign-data-set": {
+                                  "description": "PTP foreign dataset list",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "foreign-master-id": {
+                                        "description": "PTP foreign dataset master id",
+                                        "readOnly": true,
+                                        "path": "../state/foreign-master-id",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "state": {
+                                        "description": "Operational data",
+                                        "readOnly": true,
+                                        "type": "object",
+                                        "properties": {
+                                          "foreign-master-id": {
+                                            "description": "Foreign dataset master id",
+                                            "readOnly": true,
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 255,
+                                            "mandatory": false
+                                          },
+                                          "current": {
+                                            "description": "Indicates whether this is the current foreign master dataset",
+                                            "readOnly": true,
+                                            "type": "boolean",
+                                            "mandatory": false
+                                          },
+                                          "ipv4-address": {
+                                            "description": "Foreign dataset IPv4 address",
+                                            "readOnly": true,
+                                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "ipv6-address": {
+                                            "description": "Foreign dataset IPv6 address",
+                                            "readOnly": true,
+                                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "l2-address": {
+                                            "description": "Foreign dataset L2 address",
+                                            "readOnly": true,
+                                            "pattern": "[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "clock-identity": {
+                                            "description": "Identity of the clock",
+                                            "readOnly": true,
+                                            "minLength": 1,
+                                            "maxLength": 1965,
+                                            "pattern": "[^?' =,>|]+",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "port-id": {
+                                            "description": "Port id",
+                                            "readOnly": true,
+                                            "minLength": 1,
+                                            "maxLength": 1965,
+                                            "pattern": "[^?' =,>|]+",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "clock-class": {
+                                            "description": "clock-class denotes the traceability of the time or frequency distributed by the clock",
+                                            "readOnly": true,
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 255,
+                                            "mandatory": false
+                                          },
+                                          "clock-accuracy": {
+                                            "description": "clock-accuracy indicates the expected accuracy of the clock",
+                                            "readOnly": true,
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 255,
+                                            "mandatory": false
+                                          },
+                                          "offset-scaled-log-variance": {
+                                            "description": "offset-scaled-log-variance provides an estimate of the variations of the clock from a linear timescale when it is not synchronized to another clock using the protocol",
+                                            "readOnly": true,
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 65535,
+                                            "mandatory": false
+                                          },
+                                          "priority-1": {
+                                            "description": "priority-1 attribute of the local clock",
+                                            "readOnly": true,
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 255,
+                                            "mandatory": false
+                                          },
+                                          "priority-2": {
+                                            "description": "priority-2 attribute of the local clock",
+                                            "readOnly": true,
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 255,
+                                            "mandatory": false
+                                          },
+                                          "steps-removed": {
+                                            "description": "Maximum number of communication paths between the local clock and the grandmaster clock",
+                                            "readOnly": true,
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 65535,
+                                            "mandatory": false
+                                          },
+                                          "pdv-scaled-allan-variance": {
+                                            "description": "PDV scaled allan variance",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "keyFields": [
+                                      "foreign-master-id"
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "peer-data-sets": {
+                              "description": "PTP peer dataset list",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "peer-data-set": {
+                                  "description": "PTP peer dataset list",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "peer-id": {
+                                        "description": "PTP peer id",
+                                        "readOnly": true,
+                                        "path": "../state/peer-id",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "state": {
+                                        "description": "Operational data",
+                                        "readOnly": true,
+                                        "type": "object",
+                                        "properties": {
+                                          "peer-id": {
+                                            "description": "PTP peer id",
+                                            "readOnly": true,
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 255,
+                                            "mandatory": false
+                                          },
+                                          "ipv4-address": {
+                                            "description": "Peer dataset IPv4 address",
+                                            "readOnly": true,
+                                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "ipv6-address": {
+                                            "description": "Peer dataset IPv6 address",
+                                            "readOnly": true,
+                                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "l2-address": {
+                                            "description": "Peer dataset L2 address",
+                                            "readOnly": true,
+                                            "pattern": "[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "clock-identity": {
+                                            "description": "Identity of the clock",
+                                            "readOnly": true,
+                                            "minLength": 1,
+                                            "maxLength": 1965,
+                                            "pattern": "[^?' =,>|]+",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "received-announce": {
+                                            "description": "Received announce packets",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "received-sync": {
+                                            "description": "Received sync packets",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "received-followup": {
+                                            "description": "Received follow-up packets",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "received-reject": {
+                                            "description": "Received reject packets",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "received-delay-request": {
+                                            "description": "Received delay request packets",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "received-delay-response": {
+                                            "description": "Received delay response packets",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "received-management": {
+                                            "description": "Received management packets",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "received-signaling": {
+                                            "description": "Received signaling packets",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "transmitted-announce": {
+                                            "description": "Transmitted announce packets",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "transmitted-sync": {
+                                            "description": "Transmitted sync packets",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "transmitted-followup": {
+                                            "description": "Transmitted follow-up packets",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "transmitted-delay-request": {
+                                            "description": "Transmitted delay request packets",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "transmitted-delay-response": {
+                                            "description": "Transmitted delay response packets",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "transmitted-management": {
+                                            "description": "Transmitted management packets",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "transmitted-signaling": {
+                                            "description": "Transmitted signaling packets",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "keyFields": [
+                                      "peer-id"
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "master-data-sets": {
+                              "description": "PTP master dataset list",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "master-data-set": {
+                                  "description": "PTP master dataset list",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "master-id": {
+                                        "description": "PTP master id",
+                                        "readOnly": true,
+                                        "path": "../state/master-id",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "state": {
+                                        "description": "Operational data",
+                                        "readOnly": true,
+                                        "type": "object",
+                                        "properties": {
+                                          "master-id": {
+                                            "description": "PTP master id",
+                                            "readOnly": true,
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 255,
+                                            "mandatory": false
+                                          },
+                                          "ipv4-address": {
+                                            "description": "Master dataset IPv4 address",
+                                            "readOnly": true,
+                                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "ipv6-address": {
+                                            "description": "Master dataset IPv6 address",
+                                            "readOnly": true,
+                                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                            "type": "string",
+                                            "mandatory": false
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "keyFields": [
+                                      "master-id"
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "slave-data-sets": {
+                              "description": "PTP slave dataset list",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "slave-data-set": {
+                                  "description": "PTP slave dataset list",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "slave-id": {
+                                        "description": "PTP slave id",
+                                        "readOnly": true,
+                                        "path": "../state/slave-id",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "state": {
+                                        "description": "Operational data",
+                                        "readOnly": true,
+                                        "type": "object",
+                                        "properties": {
+                                          "slave-id": {
+                                            "description": "PTP slave id",
+                                            "readOnly": true,
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 255,
+                                            "mandatory": false
+                                          },
+                                          "ipv4-address": {
+                                            "description": "Slave dataset IPv4 address",
+                                            "readOnly": true,
+                                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "ipv6-address": {
+                                            "description": "Slave dataset IPv6 address",
+                                            "readOnly": true,
+                                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "clock-identity": {
+                                            "description": "Identity of the clock",
+                                            "readOnly": true,
+                                            "minLength": 1,
+                                            "maxLength": 1965,
+                                            "pattern": "[^?' =,>|]+",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "delay-mechanism": {
+                                            "description": "The propagation delay measuring option used by the port in computing the mean path delay",
+                                            "readOnly": true,
+                                            "enum": [
+                                              "E2E",
+                                              "P2P",
+                                              "disabled"
+                                            ],
+                                            "mandatory": false
+                                          },
+                                          "log-announce-interval": {
+                                            "description": "The base-two logarithm of the mean announce interval (mean time interval between successive Announce messages)",
+                                            "readOnly": true,
+                                            "type": "number",
+                                            "minimum": -128,
+                                            "maximum": 127,
+                                            "mandatory": false
+                                          },
+                                          "log-sync-interval": {
+                                            "description": "The base-two logarithm of the mean sync interval for multicast messages",
+                                            "readOnly": true,
+                                            "type": "number",
+                                            "minimum": -128,
+                                            "maximum": 127,
+                                            "mandatory": false
+                                          },
+                                          "log-delay-request-interval": {
+                                            "description": "The base-two logarithm of the delay request interval",
+                                            "readOnly": true,
+                                            "type": "number",
+                                            "minimum": -128,
+                                            "maximum": 127,
+                                            "mandatory": false
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "keyFields": [
+                                      "slave-id"
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "drop-counters": {
+                              "description": "Set of PTP port drop counters",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "domain-mismatch": {
+                                      "description": "PTP domain mismatch",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "memory-alloc-failure": {
+                                      "description": "PTP memory alloc failure",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "pkt-len-too-short": {
+                                      "description": "PTP pkt len too short",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "pkt-rcvd-on-bad-port-state": {
+                                      "description": "PTP pkt rcvd on bad port state",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "pkt-profile-mismatch": {
+                                      "description": "PTP profile mismatch",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "clock-port-mismatch": {
+                                      "description": "PTP clock port mismatch",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "ptp-packet-parsing-failure": {
+                                      "description": "PTP pkt parsing failure",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "delreq-from-unknown-slave": {
+                                      "description": "PTP unicast delreq from unknown slave",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "announce-on-master-only-port": {
+                                      "description": "Announce on master only port",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "invalid-steps-removed-field": {
+                                      "description": "Invalid steps removed field",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "unknown-unicast-master": {
+                                      "description": "PTP Unknown unicast master",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "announce-on-gps-ptp-port": {
+                                      "description": "PTP Announce on gps ptp port",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "sync-rcvd-invalid": {
+                                      "description": "Sync rcvd invalid",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "sync-rcvd-without-master": {
+                                      "description": "Sync rcvd without master",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "port-number"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "time-of-day": {
+                    "description": "PTP time of day parameters",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "io-type": {
+                            "description": "Type of tod input/output. Default: output",
+                            "readOnly": false,
+                            "enum": [
+                              "input",
+                              "output"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "io-type": {
+                            "description": "Type of tod input/output. Default: output",
+                            "readOnly": true,
+                            "enum": [
+                              "input",
+                              "output"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "ptp-servo": {
+                    "description": "PTP servo state parameters",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "config-state": {
+                            "description": "PTP servo config",
+                            "readOnly": true,
+                            "enum": [
+                              "Phase-Correction",
+                              "Freq-Phase-Correction",
+                              "Unknown"
+                            ],
+                            "mandatory": false
+                          },
+                          "servo-config": {
+                            "description": "PTP servo config freq/phase correction",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "previous-state": {
+                            "description": "Previous PTP servo state",
+                            "readOnly": true,
+                            "enum": [
+                              "Acquiring-lock",
+                              "Warmup",
+                              "Fast-loop",
+                              "Normal-loop",
+                              "Bridge",
+                              "Holdover",
+                              "Initial",
+                              "Unqualified",
+                              "Freq-Locked",
+                              "Time-Locked",
+                              "Holdover-in-spec",
+                              "Holdover-out-spec",
+                              "Free-run"
+                            ],
+                            "mandatory": false
+                          },
+                          "current-state": {
+                            "description": "Current PTP servo state",
+                            "readOnly": true,
+                            "enum": [
+                              "Acquiring-lock",
+                              "Warmup",
+                              "Fast-loop",
+                              "Normal-loop",
+                              "Bridge",
+                              "Holdover",
+                              "Initial",
+                              "Unqualified",
+                              "Freq-Locked",
+                              "Time-Locked",
+                              "Holdover-in-spec",
+                              "Holdover-out-spec",
+                              "Free-run"
+                            ],
+                            "mandatory": false
+                          },
+                          "previous-servo-state": {
+                            "description": "Previous PTP servo state",
+                            "readOnly": true,
+                            "enum": [
+                              "Acquiring-lock",
+                              "Freq-Locked",
+                              "Time-Locked",
+                              "Holdover",
+                              "Input-Reference-Failed",
+                              "No-Input-Reference-Selected",
+                              "Unknown",
+                              "Manual-Freerun-Mode",
+                              "Manual-Holdover",
+                              "Manual-Holdover-set-on-active-APR-Server",
+                              "Holdover-in-spec",
+                              "Holdover-out-spec"
+                            ],
+                            "mandatory": false
+                          },
+                          "current-servo-state": {
+                            "description": "Current PTP servo state",
+                            "readOnly": true,
+                            "enum": [
+                              "Acquiring-lock",
+                              "Freq-Locked",
+                              "Time-Locked",
+                              "Holdover",
+                              "Input-Reference-Failed",
+                              "No-Input-Reference-Selected",
+                              "Unknown",
+                              "Manual-Freerun-Mode",
+                              "Manual-Holdover",
+                              "Manual-Holdover-set-on-active-APR-Server",
+                              "Holdover-in-spec",
+                              "Holdover-out-spec"
+                            ],
+                            "mandatory": false
+                          },
+                          "duration": {
+                            "description": "PTP servo state Duration",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "((([0-1]?[0-9])|(2[0-3])):[0-5][0-9]:[0-5][0-9])|([0-9]+d(([0-1][0-9])|(2[0-3]))h[0-5][0-9]m)",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "apts-mode": {
+                            "description": "PTP servo APTS mode",
+                            "readOnly": true,
+                            "enum": [
+                              "GPS",
+                              "PTP",
+                              "Not-Applicable"
+                            ],
+                            "mandatory": false
+                          },
+                          "freq-correction": {
+                            "description": "PTP servo freq correction",
+                            "readOnly": true,
+                            "fraction-digits": "3",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "phase-correction": {
+                            "description": "PTP servo phase correction",
+                            "readOnly": true,
+                            "fraction-digits": "3",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "mean-path-delay": {
+                            "description": "Peer Mean path delay",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "apts-gps-to-ptp-offset": {
+                            "description": "Offset from gps to ptp",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "offset-from-master": {
+                            "description": "PTP offset from master",
+                            "readOnly": true,
+                            "fraction-digits": "3",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "sync-packet-rate": {
+                            "description": "Sync Packet Rate",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "delay-packet-rate": {
+                            "description": "Delay Packet Rate",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "current-data-set": {
+                    "description": "PTP current data set state parameters",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "steps-removed": {
+                            "description": "The number of communication paths traversed between the local clock and the grandmaster clock",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 255,
+                            "mandatory": false
+                          },
+                          "offset-from-master": {
+                            "description": "The current value of the time difference between a master and a slave clock as computed by the slave",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "offset-from-master-in-nsec": {
+                            "description": "The current value of the time difference between a master and a slave clock as computed by the slave",
+                            "readOnly": true,
+                            "fraction-digits": "3",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "mean-path-delay": {
+                            "description": "The current value of the mean propagation time between a master and a slave clock as computed by the slave",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "parent-data-set": {
+                    "description": "PTP parent data set parameters",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "parent-stats-enabled": {
+                            "description": "Parent stats",
+                            "readOnly": true,
+                            "type": "boolean",
+                            "mandatory": false
+                          },
+                          "parent-offset-scaled-log-variance": {
+                            "description": "Parent Offset Scaled Log Variance",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "mandatory": false
+                          },
+                          "parent-phase-change-rate": {
+                            "description": "Parent Phase Change Rate",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "grandmaster-identity": {
+                            "description": "The clockIdentity attribute of the grandmaster clock",
+                            "readOnly": true,
+                            "minLength": 18,
+                            "maxLength": 26,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "grandmaster-priority-1": {
+                            "description": "The priority1 attribute of the grandmaster clock",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 255,
+                            "mandatory": false
+                          },
+                          "grandmaster-priority-2": {
+                            "description": "The priority2 attribute of the grandmaster clock",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 255,
+                            "mandatory": false
+                          },
+                          "port-identity": {
+                            "description": "PTP port identity parameters",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "clock-identity": {
+                                "description": "Identity of the clock",
+                                "readOnly": true,
+                                "minLength": 1,
+                                "maxLength": 1965,
+                                "pattern": "[^?' =,>|]+",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "port-number": {
+                                "description": "Port number",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 65535,
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "grandmaster-clock-quality": {
+                            "description": "Grandmaster clock quality parameters",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "clock-class": {
+                                "description": "The clockClass denotes the traceability of the time or frequency distributed by the clock",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 255,
+                                "mandatory": false
+                              },
+                              "clock-accuracy": {
+                                "description": "The clockAccuracy indicates the expected accuracy of the clock",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 255,
+                                "mandatory": false
+                              },
+                              "offset-scaled-log-variance": {
+                                "description": "The offsetScaledLogVariance provides an estimate of the variations of the clock from a linear timescale when it is not synchronized to another clock using the protocol",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 65535,
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "port-identity": {
+                        "description": "PTP port identity parameters",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "state": {
+                            "description": "Operational state data",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "clock-identity": {
+                                "description": "Identity of the clock",
+                                "readOnly": true,
+                                "minLength": 1,
+                                "maxLength": 1965,
+                                "pattern": "[^?' =,>|]+",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "port-number": {
+                                "description": "Port number",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 65535,
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "grandmaster-clock-quality": {
+                        "description": "Grandmaster clock quality parameters",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "state": {
+                            "description": "Operational state data",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "clock-class": {
+                                "description": "The clockClass denotes the traceability of the time or frequency distributed by the clock",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 255,
+                                "mandatory": false
+                              },
+                              "clock-accuracy": {
+                                "description": "The clockAccuracy indicates the expected accuracy of the clock",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 255,
+                                "mandatory": false
+                              },
+                              "offset-scaled-log-variance": {
+                                "description": "The offsetScaledLogVariance provides an estimate of the variations of the clock from a linear timescale when it is not synchronized to another clock using the protocol",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 65535,
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "time-properties": {
+                    "description": "Time properties parameters",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "current-utc-offset-valid": {
+                            "description": "When set, the current UTC offset is valid",
+                            "readOnly": true,
+                            "type": "boolean",
+                            "mandatory": false
+                          },
+                          "current-utc-offset": {
+                            "description": "The offset between TAI and UTC when the epoch of the PTP system is the PTP epoch, i.e., when ptp-timescale is TRUE; otherwise, the value has no meaning",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": -32768,
+                            "maximum": 32767,
+                            "mandatory": false
+                          },
+                          "leap59": {
+                            "description": "When set, the last minute of the current UTC day contains 59 seconds",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "leap61": {
+                            "description": "When set, the last minute of the current UTC day contains 61 seconds",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "time-traceable": {
+                            "description": "When set, the timescale and the currentUtcOffset are traceable to a primary reference",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "frequency-traceable": {
+                            "description": "When set, the frequency determining the timescale is traceable to a primary reference",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "ptp-timescale": {
+                            "description": "When set, the clock timescale of the grandmaster clock is PTP; otherwise, the timescale is ARB (arbitrary)",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "time-source": {
+                            "description": "The source of time used by the grandmaster clock",
+                            "readOnly": true,
+                            "enum": [
+                              "Atomic-clock",
+                              "Global-positioning-system",
+                              "Terrestrial-radio",
+                              "PTP-based-source",
+                              "Network-Time-Protocol-source",
+                              "Handset",
+                              "Other-timesource",
+                              "Internal-Oscillator"
+                            ],
+                            "mandatory": false
+                          },
+                          "ptp-time-of-day": {
+                            "description": "PTP time of day expressed as Coordinated Universal Time (UTC)",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "statistics": {
+                    "description": "PTP statistics parameters",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "packets-transmitted": {
+                            "description": "PTP packets transmitted",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "packets-received": {
+                            "description": "PTP packets received",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "packets-discarded": {
+                            "description": "PTP packets discarded",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "ipv4-packets-received": {
+                            "description": "PTP IPv4 packets received",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "ipv6-packets-received": {
+                            "description": "PTP IPv6 packets received",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "l2-packets-received": {
+                            "description": "PTP L2 packets received",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "rx-queue-overflows": {
+                            "description": "PTP RX queue overflows",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "servo-history-data": {
+                    "description": "PTP servo history data list",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "servo-history-data-entry": {
+                        "description": "PTP servo history data list",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "entry-id": {
+                              "description": "PTP servo history entry index",
+                              "readOnly": true,
+                              "path": "../state/entry-id",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "state": {
+                              "description": "Operational data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "entry-id": {
+                                  "description": "PTP servo history entry index",
+                                  "readOnly": true,
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 255,
+                                  "mandatory": false
+                                },
+                                "timestamp": {
+                                  "description": "PTP servo history data timestamp",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "phase-correction": {
+                                  "description": "PTP servo phase correction",
+                                  "readOnly": true,
+                                  "fraction-digits": "3",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "frequency-correction": {
+                                  "description": "PTP servo frequency correction",
+                                  "readOnly": true,
+                                  "fraction-digits": "3",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "entry-id"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "utc-offset-dates": {
+                    "description": "PTP UTC leap - date and time configuration",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "utc-offset-date": {
+                        "description": "PTP UTC leap - date configuration",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "utc-date": {
+                              "description": "UTC date when applying leap seconds",
+                              "readOnly": false,
+                              "path": "../config/utc-date",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "utc-date": {
+                                  "description": "UTC leap - date input",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[0-9]{4}\\-[0-9]{2}\\-[0-9]{2}",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "offset-seconds": {
+                                  "description": "UTC leap - offset in seconds input",
+                                  "readOnly": false,
+                                  "minimum": 0,
+                                  "maximum": 99,
+                                  "type": "number",
+                                  "mandatory": true
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "utc-date": {
+                                  "description": "UTC leap - date input",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[0-9]{4}\\-[0-9]{2}\\-[0-9]{2}",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "offset-seconds": {
+                                  "description": "UTC leap - offset in seconds input",
+                                  "readOnly": true,
+                                  "minimum": 0,
+                                  "maximum": 99,
+                                  "type": "number",
+                                  "mandatory": true
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "utc-date"
+                          ]
+                        }
+                      },
+                      "baseline": {
+                        "description": "Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration data",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "baseline-seconds": {
+                                "description": "UTC leap seconds baseline",
+                                "readOnly": false,
+                                "minimum": 0,
+                                "maximum": 99,
+                                "type": "number",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational state data",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "baseline-seconds": {
+                                "description": "UTC leap seconds baseline",
+                                "readOnly": true,
+                                "minimum": 0,
+                                "maximum": 99,
+                                "type": "number",
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "instance-type"
+                ]
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "Debugging functions",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this attribute to debug the ptp process.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this attribute to debug the ptp process.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "This attribute indicates the terminal ptp debug operational state.",
+                  "readOnly": true,
+                  "enum": [
+                    "off",
+                    "on"
+                  ],
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "container for interface level configuration for PTP",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "PTP interface related operations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "interface-name": {
+                    "description": "Use this attribute to perform platform's interface PTP related configurations",
+                    "readOnly": false,
+                    "path": "../config/interface-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "configuration container for interface list",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "interface-name": {
+                        "description": "This attribute describes the textual name of the interface",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "hw-timestamp": {
+                        "description": "Use this attribute to set the Hardware timestamp",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational data for interface",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "interface-name": {
+                        "description": "This attribute describes the textual name of the interface",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "hw-timestamp": {
+                        "description": "Use this attribute to set the Hardware timestamp",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "interface-name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

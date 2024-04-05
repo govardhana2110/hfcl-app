@@ -1,0 +1,798 @@
+{
+  "title": "ipi-xstp",
+  "description": "IPI MSTP",
+  "type": "object",
+  "properties": {
+    "ipi-xstp:xstp": {
+      "description": "Top level container for All Spanning Tree Protocols",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "interfaces": {
+          "description": "Enclosing container for the list of interface references",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "List of interfaces",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The textual name of the interface",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for STP on each interface",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The textual name of the interface",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "hello-time": {
+                        "description": "Use this attribute to set the hello-time, the time in seconds after which (if this bridge is the root bridge) all the default bridges in a bridged LAN exchange Bridge Protocol Data Units (BPDUs). A very low value of this parameter leads to excessive traffic on the network, while a higher value delays the detection of topology change. This value is used by all instances.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 10,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "port-configuration": {
+                        "description": "Use this attribute to set a port as an edge-port and to enable rapid transitions.",
+                        "readOnly": false,
+                        "enum": [
+                          "edgeport",
+                          "portfast"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-automatic-edge-detection": {
+                        "description": "Use this attribute to enable automatic edge detection.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "bpdu-guard": {
+                        "description": "Use this attribute to set the portfast BPDU (Bridge Protocol Data Unit) guard or filter for the bridge.When the BPDU guard feature is set for a bridge, all portfast-enabled ports of the bridge that have the BPDU guard set to default shut down the port on receiving a BPDU. In this case, the BPDU is not processed. You can configure the errdisable-timeout feature to enable the port after the specified time interval.",
+                        "readOnly": false,
+                        "enum": [
+                          "enable",
+                          "disable",
+                          "default"
+                        ],
+                        "mandatory": false
+                      },
+                      "bpdu-filter": {
+                        "description": "Use this attribute to set the portfast BPDU (Bridge Protocol Data Unit) guard or filter for the bridge.All ports that have their BPDU filter set to default take the same value of BPDU filter as that of the bridge. The Spanning Tree Protocol sends BPDUs from all ports. Enabling the BPDU Filter feature ensures that PortFast-enabled ports do not transmit or receive any BPDUs",
+                        "readOnly": false,
+                        "enum": [
+                          "enable",
+                          "disable",
+                          "default"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-root-guard": {
+                        "description": "Use this attribute to enable the root guard feature for the port. This feature disables reception of superior BPDUs.The root guard feature makes sure that the port on which it is enabled is a designated port. If the root guard enabled port receives a superior BPDU, it goes to a Listening state (for STP) or discarding state (for RSTP and MSTP).",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "link-type": {
+                        "description": "Use this attribute to enable or disable point-to-point or shared link types. RSTP has a backward-compatible STP , spanning-tree link-type shared. An alternative is the spanning-tree force-version 0",
+                        "readOnly": false,
+                        "enum": [
+                          "shared",
+                          "point-to-point",
+                          "auto"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-restricted-domain-role": {
+                        "description": "Use this attribute to set the restricted-domain-role value of the port to TRUE.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "enable-restricted-role": {
+                        "description": "Use this attribute to set the restricted-role value of the port to TRUE",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "enable-restricted-tcn": {
+                        "description": "Use this attribute to set the restricted TCN value of the port to TRUE",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational data for STP on each interface",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The textual name of the interface",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "hello-time": {
+                        "description": "Use this attribute to set the hello-time, the time in seconds after which (if this bridge is the root bridge) all the default bridges in a bridged LAN exchange Bridge Protocol Data Units (BPDUs). A very low value of this parameter leads to excessive traffic on the network, while a higher value delays the detection of topology change. This value is used by all instances.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 10,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "port-configuration": {
+                        "description": "Use this attribute to set a port as an edge-port and to enable rapid transitions.",
+                        "readOnly": true,
+                        "enum": [
+                          "edgeport",
+                          "portfast"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-automatic-edge-detection": {
+                        "description": "Use this attribute to enable automatic edge detection.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "bpdu-guard": {
+                        "description": "Use this attribute to set the portfast BPDU (Bridge Protocol Data Unit) guard or filter for the bridge.When the BPDU guard feature is set for a bridge, all portfast-enabled ports of the bridge that have the BPDU guard set to default shut down the port on receiving a BPDU. In this case, the BPDU is not processed. You can configure the errdisable-timeout feature to enable the port after the specified time interval.",
+                        "readOnly": true,
+                        "enum": [
+                          "enable",
+                          "disable",
+                          "default"
+                        ],
+                        "mandatory": false
+                      },
+                      "bpdu-filter": {
+                        "description": "Use this attribute to set the portfast BPDU (Bridge Protocol Data Unit) guard or filter for the bridge.All ports that have their BPDU filter set to default take the same value of BPDU filter as that of the bridge. The Spanning Tree Protocol sends BPDUs from all ports. Enabling the BPDU Filter feature ensures that PortFast-enabled ports do not transmit or receive any BPDUs",
+                        "readOnly": true,
+                        "enum": [
+                          "enable",
+                          "disable",
+                          "default"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-root-guard": {
+                        "description": "Use this attribute to enable the root guard feature for the port. This feature disables reception of superior BPDUs.The root guard feature makes sure that the port on which it is enabled is a designated port. If the root guard enabled port receives a superior BPDU, it goes to a Listening state (for STP) or discarding state (for RSTP and MSTP).",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "link-type": {
+                        "description": "Use this attribute to enable or disable point-to-point or shared link types. RSTP has a backward-compatible STP , spanning-tree link-type shared. An alternative is the spanning-tree force-version 0",
+                        "readOnly": true,
+                        "enum": [
+                          "shared",
+                          "point-to-point",
+                          "auto"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-restricted-domain-role": {
+                        "description": "Use this attribute to set the restricted-domain-role value of the port to TRUE.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "enable-restricted-role": {
+                        "description": "Use this attribute to set the restricted-role value of the port to TRUE",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "enable-restricted-tcn": {
+                        "description": "Use this attribute to set the restricted TCN value of the port to TRUE",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "mstp": {
+                    "description": "Top level container for Multiple Spanning Tree Protocols",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "mst-instances": {
+                        "description": "Configuration and operation data for MSTP instances",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "mst-instance": {
+                            "description": "List of the mstp instances",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "instance-id": {
+                                  "description": "Use this attribute to add an MST instance to a bridge",
+                                  "readOnly": false,
+                                  "path": "../config/instance-id",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration data for MSTP instance on each interface",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "instance-id": {
+                                      "description": "Use this attribute to add an MST instance to a bridge",
+                                      "readOnly": false,
+                                      "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-bridge:bridge/stp/mstp/mst-instances/mst-instance/instance-id",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "enable-instance-restricted-role": {
+                                      "description": "Use this attribute to set the restricted role value for the instance to TRUE",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    },
+                                    "enable-instance-restricted-tcn": {
+                                      "description": "Use this attribute to set the restricted TCN value for the instance to TRUE",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational state data for MSTP instance on each interface",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "instance-id": {
+                                      "description": "Use this attribute to add an MST instance to a bridge",
+                                      "readOnly": true,
+                                      "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-bridge:bridge/stp/mstp/mst-instances/mst-instance/instance-id",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "enable-instance-restricted-role": {
+                                      "description": "Use this attribute to set the restricted role value for the instance to TRUE",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    },
+                                    "enable-instance-restricted-tcn": {
+                                      "description": "Use this attribute to set the restricted TCN value for the instance to TRUE",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "instance-id"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "rapid-pvst": {
+                    "description": "Top level container for Rapid per VLAN Spanning Tree Protocols",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vlans": {
+                        "description": "Configuration and operation data RPVST Vlans",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "vlan": {
+                            "description": "List of the RPVST Vlans",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "vlan-id": {
+                                  "description": "Vlan ID",
+                                  "readOnly": false,
+                                  "path": "../config/vlan-id",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration data for RPVST on each interface",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "enable-restricted-role": {
+                                      "description": "Use this attribute to set the restricted role value for the instance to TRUE",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    },
+                                    "enable-restricted-tcn": {
+                                      "description": "Use this attribute to set the restricted TCN value for the instance to TRUE",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    },
+                                    "vlan-id": {
+                                      "description": "Vlan ID",
+                                      "readOnly": false,
+                                      "minimum": 2,
+                                      "maximum": 4094,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational state data for RPVST on each interface",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "enable-restricted-role": {
+                                      "description": "Use this attribute to set the restricted role value for the instance to TRUE",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    },
+                                    "enable-restricted-tcn": {
+                                      "description": "Use this attribute to set the restricted TCN value for the instance to TRUE",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    },
+                                    "vlan-id": {
+                                      "description": "Vlan ID",
+                                      "readOnly": true,
+                                      "minimum": 2,
+                                      "maximum": 4094,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "vlan-id"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "customer-spanning-tree": {
+                    "description": "Customer Spanning Tree commands",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for Customer Spanning Tree Protocols",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "bridge-priority": {
+                            "description": "Use this attribute to set the bridge priority for the common instance. Using a lower priority indicates a greater likelihood of the bridge becoming root. The priority values can be set only in increments of 4096.",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 61440,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "max-age": {
+                            "description": "Use this attribute to set the maximum age for a bridge. This value is used by all instances. Maximum age is the maximum time in seconds for which (if a bridge is the root bridge) a message is considered valid. This prevents the frames from looping indefinitely. The value of maximum age should be greater than twice the value of hello time plus 1, but less than twice the value of forward delay minus 1. The allowable range for max-age is 6-40 seconds. Configure this value sufficiently high, so that a frame generated by root can be propagated to the leaf nodes without exceeding the maximum age.",
+                            "readOnly": false,
+                            "minimum": 6,
+                            "maximum": 40,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "hello-time": {
+                            "description": "Use this attribute to set the hello-time, the time in seconds after which (if this bridge is the root bridge) all the bridges.in a bridged LAN exchange Bridge Protocol Data Units (BPDUs). A very low value of this parameter leads to excessive traffic on the network, while a higher value delays the detection of topology change.This value is used by all instances. Configure the bridge instance name before using this attribute. The allowable range of values is 1-10 seconds. However, make sure that the value of hello time is always greater than the value of hold time (2 seconds by default)",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 10,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "forward-delay": {
+                            "description": "Use this attribute to set the time (in seconds) after which (if this bridge is the root bridge) each port changes states to learning and forwarding. This value is used by all instances",
+                            "readOnly": false,
+                            "minimum": 4,
+                            "maximum": 30,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "transmit-hold-count": {
+                            "description": "Use this attribute to set the maximum number of transmissions of BPDUs by the transmit state machine",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 10,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational data for Customer Spanning Tree Protocols",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "bridge-priority": {
+                            "description": "Use this attribute to set the bridge priority for the common instance. Using a lower priority indicates a greater likelihood of the bridge becoming root. The priority values can be set only in increments of 4096.",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 61440,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "max-age": {
+                            "description": "Use this attribute to set the maximum age for a bridge. This value is used by all instances. Maximum age is the maximum time in seconds for which (if a bridge is the root bridge) a message is considered valid. This prevents the frames from looping indefinitely. The value of maximum age should be greater than twice the value of hello time plus 1, but less than twice the value of forward delay minus 1. The allowable range for max-age is 6-40 seconds. Configure this value sufficiently high, so that a frame generated by root can be propagated to the leaf nodes without exceeding the maximum age.",
+                            "readOnly": true,
+                            "minimum": 6,
+                            "maximum": 40,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "hello-time": {
+                            "description": "Use this attribute to set the hello-time, the time in seconds after which (if this bridge is the root bridge) all the bridges.in a bridged LAN exchange Bridge Protocol Data Units (BPDUs). A very low value of this parameter leads to excessive traffic on the network, while a higher value delays the detection of topology change.This value is used by all instances. Configure the bridge instance name before using this attribute. The allowable range of values is 1-10 seconds. However, make sure that the value of hello time is always greater than the value of hold time (2 seconds by default)",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 10,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "forward-delay": {
+                            "description": "Use this attribute to set the time (in seconds) after which (if this bridge is the root bridge) each port changes states to learning and forwarding. This value is used by all instances",
+                            "readOnly": true,
+                            "minimum": 4,
+                            "maximum": 30,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "transmit-hold-count": {
+                            "description": "Use this attribute to set the maximum number of transmissions of BPDUs by the transmit state machine",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 10,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "customer-edge": {
+                        "description": "Configuration data for Customer Edge Spanning Tree Protocols",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration data for Customer Edge Spanning Tree Protocols",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "port-priority": {
+                                "description": "Use this attribute to set the port instance priority.",
+                                "readOnly": false,
+                                "minimum": 0,
+                                "maximum": 240,
+                                "type": "number",
+                                "mandatory": false
+                              },
+                              "path-cost": {
+                                "description": "Use this attribute to set the bridge path cost.",
+                                "readOnly": false,
+                                "minimum": 1,
+                                "maximum": 200000000,
+                                "type": "number",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational data for Customer Edge Spanning Tree Protocols",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "port-priority": {
+                                "description": "Use this attribute to set the port instance priority.",
+                                "readOnly": true,
+                                "minimum": 0,
+                                "maximum": 240,
+                                "type": "number",
+                                "mandatory": false
+                              },
+                              "path-cost": {
+                                "description": "Use this attribute to set the bridge path cost.",
+                                "readOnly": true,
+                                "minimum": 1,
+                                "maximum": 200000000,
+                                "type": "number",
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "provider-edge": {
+                        "description": "Configuration data for Provider Edge Spanning Tree Protocols",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "vlans": {
+                            "description": "Configuration and operation data Provider Edge Vlans",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "vlan": {
+                                "description": "List of the Provider Edge Vlans",
+                                "readOnly": false,
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "svlan-id": {
+                                      "description": "Svlan ID",
+                                      "readOnly": false,
+                                      "path": "../config/svlan-id",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "config": {
+                                      "description": "Configuration data for Provider Edge Spanning Tree Protocols",
+                                      "readOnly": false,
+                                      "type": "object",
+                                      "properties": {
+                                        "svlan-id": {
+                                          "description": "SVLAN ID Of Provider Edge Port",
+                                          "readOnly": false,
+                                          "minimum": 2,
+                                          "maximum": 4094,
+                                          "type": "number",
+                                          "mandatory": false
+                                        },
+                                        "port-priority": {
+                                          "description": "Use this attribute to set the port instance priority.",
+                                          "readOnly": false,
+                                          "minimum": 0,
+                                          "maximum": 240,
+                                          "type": "number",
+                                          "mandatory": false
+                                        },
+                                        "path-cost": {
+                                          "description": "Use this attribute to set the bridge path cost.",
+                                          "readOnly": false,
+                                          "minimum": 1,
+                                          "maximum": 200000000,
+                                          "type": "number",
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "state": {
+                                      "description": "Operational state data for Provider Edge Spanning Tree Protocols",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "svlan-id": {
+                                          "description": "SVLAN ID Of Provider Edge Port",
+                                          "readOnly": true,
+                                          "minimum": 2,
+                                          "maximum": 4094,
+                                          "type": "number",
+                                          "mandatory": false
+                                        },
+                                        "port-priority": {
+                                          "description": "Use this attribute to set the port instance priority.",
+                                          "readOnly": true,
+                                          "minimum": 0,
+                                          "maximum": 240,
+                                          "type": "number",
+                                          "mandatory": false
+                                        },
+                                        "path-cost": {
+                                          "description": "Use this attribute to set the bridge path cost.",
+                                          "readOnly": true,
+                                          "minimum": 1,
+                                          "maximum": 200000000,
+                                          "type": "number",
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "keyFields": [
+                                    "svlan-id"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "mstp": {
+          "description": "Top level container for Multiple Spanning Tree Protocols",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "debug": {
+              "description": "MSTP debugging configuration and operation data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "MSTP debugging configuration data",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "options": {
+                      "description": "Debug configuration flag",
+                      "readOnly": false,
+                      "type": "string",
+                      "bits": {
+                        "mstp-protocol": "1",
+                        "mstp-protocol-detail": "2",
+                        "mstp-timer": "3",
+                        "mstp-timer-detail": "4",
+                        "mstp-packet-tx": "5",
+                        "mstp-packet-rx": "6",
+                        "mstp-cli": "7",
+                        "mstp-bpdu": "8",
+                        "mstp-mcec": "9"
+                      },
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "MSTP debugging operation data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "options": {
+                      "description": "Debug configuration flag",
+                      "readOnly": true,
+                      "type": "string",
+                      "bits": {
+                        "mstp-protocol": "1",
+                        "mstp-protocol-detail": "2",
+                        "mstp-timer": "3",
+                        "mstp-timer-detail": "4",
+                        "mstp-packet-tx": "5",
+                        "mstp-packet-rx": "6",
+                        "mstp-cli": "7",
+                        "mstp-bpdu": "8",
+                        "mstp-mcec": "9"
+                      },
+                      "mandatory": false
+                    },
+                    "terminal-debug-status": {
+                      "description": "Terminal debug configuration flag",
+                      "readOnly": true,
+                      "type": "string",
+                      "bits": {
+                        "mstp-protocol": "1",
+                        "mstp-protocol-detail": "2",
+                        "mstp-timer": "3",
+                        "mstp-timer-detail": "4",
+                        "mstp-packet-tx": "5",
+                        "mstp-packet-rx": "6",
+                        "mstp-cli": "7",
+                        "mstp-bpdu": "8",
+                        "mstp-mcec": "9"
+                      },
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

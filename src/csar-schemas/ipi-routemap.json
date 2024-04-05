@@ -1,0 +1,1950 @@
+{
+  "title": "ipi-routemap",
+  "description": "Layer-3 pbr configurations",
+  "type": "object",
+  "properties": {
+    "ipi-routemap:routemaps": {
+      "description": "Route-map information",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "routemap": {
+          "description": "PBR Config related operations",
+          "readOnly": false,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "routemap-name": {
+                "description": "Use this attribute to enter the route-map mode and to permit or deny match/set operations.This attribute controls and modifies routing information to allow redistribution of routes. It has a list of match and set attributes associated with it. The match attributes specify the conditions under which redistribution is allowed, and the set attributes specify the particular redistribution actions to be performed if the criteria enforced by match commands are met. Route maps are used for detailed control over route distribution between routing processes.Route maps also allow policy routing, and might route packets to a different route than the obvious shortest path",
+                "readOnly": false,
+                "path": "../config/routemap-name",
+                "type": "string",
+                "mandatory": false
+              },
+              "sequence-id": {
+                "description": "Sequence to insert into or delete from an existing route-map.",
+                "readOnly": false,
+                "path": "../config/sequence-id",
+                "type": "string",
+                "mandatory": false
+              },
+              "config": {
+                "description": "PBR Config related operations",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "routemap-name": {
+                    "description": "Use this attribute to enter the route-map mode and to permit or deny match/set operations.This attribute controls and modifies routing information to allow redistribution of routes. It has a list of match and set attributes associated with it. The match attributes specify the conditions under which redistribution is allowed, and the set attributes specify the particular redistribution actions to be performed if the criteria enforced by match commands are met. Route maps are used for detailed control over route distribution between routing processes.Route maps also allow policy routing, and might route packets to a different route than the obvious shortest path",
+                    "readOnly": false,
+                    "minLength": 1,
+                    "maxLength": 63,
+                    "pattern": "[a-zA-Z0-9][^?' =,>|]*",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "action": {
+                    "description": "Use this attribute to enter the route-map mode and to permit or deny match/set operations.If deny is specified, and the match criteria are met, the route is not redistributed, and any other route maps with the same map tag are not examined.If permit is specified, and the match criteria are met, the route is redistributed as specified by the set actions. If the match criteria are not met, the next route map with the same tag is tested.",
+                    "readOnly": false,
+                    "enum": [
+                      "permit",
+                      "deny"
+                    ],
+                    "mandatory": true
+                  },
+                  "sequence-id": {
+                    "description": "Use this attribute to enter the route-map mode and to permit or deny match/set operations.",
+                    "readOnly": false,
+                    "minimum": 1,
+                    "maximum": 65535,
+                    "type": "number",
+                    "mandatory": false
+                  }
+                }
+              },
+              "state": {
+                "description": "Operational state data",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "routemap-name": {
+                    "description": "Use this attribute to enter the route-map mode and to permit or deny match/set operations.This attribute controls and modifies routing information to allow redistribution of routes. It has a list of match and set attributes associated with it. The match attributes specify the conditions under which redistribution is allowed, and the set attributes specify the particular redistribution actions to be performed if the criteria enforced by match commands are met. Route maps are used for detailed control over route distribution between routing processes.Route maps also allow policy routing, and might route packets to a different route than the obvious shortest path",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 63,
+                    "pattern": "[a-zA-Z0-9][^?' =,>|]*",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "action": {
+                    "description": "Use this attribute to enter the route-map mode and to permit or deny match/set operations.If deny is specified, and the match criteria are met, the route is not redistributed, and any other route maps with the same map tag are not examined.If permit is specified, and the match criteria are met, the route is redistributed as specified by the set actions. If the match criteria are not met, the next route map with the same tag is tested.",
+                    "readOnly": true,
+                    "enum": [
+                      "permit",
+                      "deny"
+                    ],
+                    "mandatory": true
+                  },
+                  "sequence-id": {
+                    "description": "Use this attribute to enter the route-map mode and to permit or deny match/set operations.",
+                    "readOnly": true,
+                    "minimum": 1,
+                    "maximum": 65535,
+                    "type": "number",
+                    "mandatory": false
+                  }
+                }
+              },
+              "continue-on-match": {
+                "description": "Information of Continue on a different entry",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "config": {
+                    "description": "contiue entry config data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "continue-to-next-sequence": {
+                        "description": "The continue clause provides the capability to execute additional entries in a route map after an entry is executed with a successful match and set clauses Example the continue command allows multiple entries to be evaluated within a single route-map.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "next-sequence-number": {
+                        "description": "Continue commands can be assigned optional sequence numbers that indicate the order in which clauses are to be evaluated.",
+                        "readOnly": false,
+                        "minimum": 2,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "continue Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "continue-to-next-sequence": {
+                        "description": "The continue clause provides the capability to execute additional entries in a route map after an entry is executed with a successful match and set clauses Example the continue command allows multiple entries to be evaluated within a single route-map.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "next-sequence-number": {
+                        "description": "Continue commands can be assigned optional sequence numbers that indicate the order in which clauses are to be evaluated.",
+                        "readOnly": true,
+                        "minimum": 2,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                }
+              },
+              "match-condition": {
+                "description": "Match values from routing entry",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "config": {
+                    "description": "match entry config data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "interface-name": {
+                        "description": "Use this attribute to define the interface match criterion. This command specifies the next-hop interface name of a route to be matched",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "metric": {
+                        "description": "Use this attribute to match a metric of a route. The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 4294967295,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "vlan-id": {
+                        "description": "use this attribute to set match entry traffic based on a VLAN",
+                        "readOnly": false,
+                        "pattern": "[^?'=>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mac-access-list-name": {
+                        "description": "use this attribute to set the match entry for mac-access list",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 63,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tag": {
+                        "description": "Use this command to set a tag value. The parameter is the route tag that is labeled by another routing protocol (BGP or other IGP when redistributing), because AS-external-LSA has a route-tag field in its LSAs. In addition, when using route-map, OcNOS can tag the LSAs with the appropriate tag value. Sometimes the tag matches with using route-map and sometimes, the value may be used by another application.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 4294967295,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "route-type": {
+                        "description": "Use this attribute to match an external route type. AS-external LSA is either Type-1 or Type-2. External type-1 matches only Type 1 external routes and external type-2 matches only Type 2 external routes.",
+                        "readOnly": false,
+                        "enum": [
+                          "type-1",
+                          "type-2"
+                        ],
+                        "mandatory": false
+                      },
+                      "as-path-name": {
+                        "description": "Use this command to match an autonomous system path access list. This command specifies the autonomous system path to be matched. If there is a match for the specified AS path, and permit is specified, the route is redistributed or controlled, as specified by the set action. If the match criteria are met, and deny is specified, the route is not redistributed or controlled. If the match criteria are not met then the route is neither accepted nor forwarded,irrespective of permit or deny specifications.The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes, depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables.",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "route-origin": {
+                        "description": "Use this attribute to match origin code.The origin attribute defines the origin of the path information. The egp parameter is indicated as an e in the routing table, and it indicates that the origin of the information is learned via EGP (Exterior Gateway Protocol). The igp parameter is indicated as an i in the routing table, and it indicates the origin of the path information is interior to the originating AS. The incomplete parameter is indicated as a ? in the routing table, and indicates that the origin of the path information is unknown or learned through other means. If a static route is redistributed into BGP, the origin of the route is incomplete.This command specifies the origin to be matched. If there is a match for the specified origin, and permit is specified when you created the route-map, the route is redistributed or controlled as specified by the set action. If the match criteria are met, and deny is specified, the route is not redistributed or controlled. If the match criteria are not met, the route is neither accepted nor forwarded, irrespective of permit or deny specifications. The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables",
+                        "readOnly": false,
+                        "enum": [
+                          "egp",
+                          "igp",
+                          "incomplete"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Match Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "interface-name": {
+                        "description": "Use this attribute to define the interface match criterion. This command specifies the next-hop interface name of a route to be matched",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "metric": {
+                        "description": "Use this attribute to match a metric of a route. The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 4294967295,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "vlan-id": {
+                        "description": "use this attribute to set match entry traffic based on a VLAN",
+                        "readOnly": true,
+                        "pattern": "[^?'=>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mac-access-list-name": {
+                        "description": "use this attribute to set the match entry for mac-access list",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 63,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tag": {
+                        "description": "Use this command to set a tag value. The parameter is the route tag that is labeled by another routing protocol (BGP or other IGP when redistributing), because AS-external-LSA has a route-tag field in its LSAs. In addition, when using route-map, OcNOS can tag the LSAs with the appropriate tag value. Sometimes the tag matches with using route-map and sometimes, the value may be used by another application.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 4294967295,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "route-type": {
+                        "description": "Use this attribute to match an external route type. AS-external LSA is either Type-1 or Type-2. External type-1 matches only Type 1 external routes and external type-2 matches only Type 2 external routes.",
+                        "readOnly": true,
+                        "enum": [
+                          "type-1",
+                          "type-2"
+                        ],
+                        "mandatory": false
+                      },
+                      "as-path-name": {
+                        "description": "Use this command to match an autonomous system path access list. This command specifies the autonomous system path to be matched. If there is a match for the specified AS path, and permit is specified, the route is redistributed or controlled, as specified by the set action. If the match criteria are met, and deny is specified, the route is not redistributed or controlled. If the match criteria are not met then the route is neither accepted nor forwarded,irrespective of permit or deny specifications.The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes, depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "route-origin": {
+                        "description": "Use this attribute to match origin code.The origin attribute defines the origin of the path information. The egp parameter is indicated as an e in the routing table, and it indicates that the origin of the information is learned via EGP (Exterior Gateway Protocol). The igp parameter is indicated as an i in the routing table, and it indicates the origin of the path information is interior to the originating AS. The incomplete parameter is indicated as a ? in the routing table, and indicates that the origin of the path information is unknown or learned through other means. If a static route is redistributed into BGP, the origin of the route is incomplete.This command specifies the origin to be matched. If there is a match for the specified origin, and permit is specified when you created the route-map, the route is redistributed or controlled as specified by the set action. If the match criteria are met, and deny is specified, the route is not redistributed or controlled. If the match criteria are not met, the route is neither accepted nor forwarded, irrespective of permit or deny specifications. The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables",
+                        "readOnly": true,
+                        "enum": [
+                          "egp",
+                          "igp",
+                          "incomplete"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "route-filter": {
+                    "description": "Match community length list",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "packet-length-constraints": {
+                        "description": "Match community length list",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "packet-min-length": {
+                              "description": "use this attribute to set match community minimum length",
+                              "readOnly": false,
+                              "path": "../config/packet-min-length",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "packet-max-length": {
+                              "description": "use this attribute to set match community maximum length",
+                              "readOnly": false,
+                              "path": "../config/packet-max-length",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Match community length list",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "packet-min-length": {
+                                  "description": "use this attribute to set match community minimum length",
+                                  "readOnly": false,
+                                  "minimum": 0,
+                                  "maximum": 65535,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "packet-max-length": {
+                                  "description": "use this attribute to set match community maximum length",
+                                  "readOnly": false,
+                                  "minimum": 0,
+                                  "maximum": 65535,
+                                  "type": "number",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Match Community length Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "packet-min-length": {
+                                  "description": "use this attribute to set match community minimum length",
+                                  "readOnly": true,
+                                  "minimum": 0,
+                                  "maximum": 65535,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "packet-max-length": {
+                                  "description": "use this attribute to set match community maximum length",
+                                  "readOnly": true,
+                                  "minimum": 0,
+                                  "maximum": 65535,
+                                  "type": "number",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "packet-min-length",
+                            "packet-max-length"
+                          ]
+                        },
+                        "maxItems": 1
+                      }
+                    }
+                  },
+                  "communities": {
+                    "description": "Match community info",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "community": {
+                        "description": "Match community list",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "community-identifier": {
+                              "description": "Use this attribute to specify the community to be matched.Communities are used to group and filter routes. They are designed to provide the ability to apply policies to large numbers of routes by using match and set commands.Community lists are used to identify and filter routes by their common attributes. This command allows the matching based on community lists.The values set by the match community command overrides the global values. The route that does not match at least one match clause is ignored.",
+                              "readOnly": false,
+                              "path": "../config/community-identifier",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Match community list",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "community-identifier": {
+                                  "description": "Use this attribute to specify the community to be matched.Communities are used to group and filter routes. They are designed to provide the ability to apply policies to large numbers of routes by using match and set commands.Community lists are used to identify and filter routes by their common attributes. This command allows the matching based on community lists.The values set by the match community command overrides the global values. The route that does not match at least one match clause is ignored.",
+                                  "readOnly": false,
+                                  "oneOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "minimum": "1",
+                                      "maximum": "99 ",
+                                      "type": "number"
+                                    },
+                                    {
+                                      "minimum": " 100",
+                                      "maximum": "500",
+                                      "type": "number"
+                                    }
+                                  ],
+                                  "mandatory": false
+                                },
+                                "match-type": {
+                                  "description": "Do exact matching of communities",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "no-exact-match",
+                                    "exact-match"
+                                  ],
+                                  "mandatory": true
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Match Community Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "community-identifier": {
+                                  "description": "Use this attribute to specify the community to be matched.Communities are used to group and filter routes. They are designed to provide the ability to apply policies to large numbers of routes by using match and set commands.Community lists are used to identify and filter routes by their common attributes. This command allows the matching based on community lists.The values set by the match community command overrides the global values. The route that does not match at least one match clause is ignored.",
+                                  "readOnly": true,
+                                  "oneOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "minimum": "1",
+                                      "maximum": "99 ",
+                                      "type": "number"
+                                    },
+                                    {
+                                      "minimum": " 100",
+                                      "maximum": "500",
+                                      "type": "number"
+                                    }
+                                  ],
+                                  "mandatory": false
+                                },
+                                "match-type": {
+                                  "description": "Do exact matching of communities",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "no-exact-match",
+                                    "exact-match"
+                                  ],
+                                  "mandatory": true
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "community-identifier"
+                          ]
+                        },
+                        "maxItems": 1
+                      }
+                    }
+                  },
+                  "extended-communities": {
+                    "description": "Match extended community list",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "extended-community": {
+                        "description": "Match extended community list",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "extended-community-identifier": {
+                              "description": "Use this attribute to match BGP external community list.Communities are used to group and filter routes. They are designed to provide the ability to apply policies to large numbers of routes by using match and set commands. Community lists are used to identify and filter routes by their common attributes. This command allows the matching based on community lists. The values set by this command overrides the global values. The route that does not match at least one match clause is ignored",
+                              "readOnly": false,
+                              "path": "../config/extended-community-identifier",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Match extended community list",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "extended-community-identifier": {
+                                  "description": "Use this attribute to match BGP external community list.Communities are used to group and filter routes. They are designed to provide the ability to apply policies to large numbers of routes by using match and set commands. Community lists are used to identify and filter routes by their common attributes. This command allows the matching based on community lists. The values set by this command overrides the global values. The route that does not match at least one match clause is ignored",
+                                  "readOnly": false,
+                                  "oneOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "minimum": "1",
+                                      "maximum": "99 ",
+                                      "type": "number"
+                                    },
+                                    {
+                                      "minimum": " 100",
+                                      "maximum": "500",
+                                      "type": "number"
+                                    }
+                                  ],
+                                  "mandatory": false
+                                },
+                                "match-type": {
+                                  "description": "Do exact matching of communities",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "no-exact-match",
+                                    "exact-match"
+                                  ],
+                                  "mandatory": true
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Match extended Community Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "extended-community-identifier": {
+                                  "description": "Use this attribute to match BGP external community list.Communities are used to group and filter routes. They are designed to provide the ability to apply policies to large numbers of routes by using match and set commands. Community lists are used to identify and filter routes by their common attributes. This command allows the matching based on community lists. The values set by this command overrides the global values. The route that does not match at least one match clause is ignored",
+                                  "readOnly": true,
+                                  "oneOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "minimum": "1",
+                                      "maximum": "99 ",
+                                      "type": "number"
+                                    },
+                                    {
+                                      "minimum": " 100",
+                                      "maximum": "500",
+                                      "type": "number"
+                                    }
+                                  ],
+                                  "mandatory": false
+                                },
+                                "match-type": {
+                                  "description": "Do exact matching of communities",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "no-exact-match",
+                                    "exact-match"
+                                  ],
+                                  "mandatory": true
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "extended-community-identifier"
+                          ]
+                        },
+                        "maxItems": 1
+                      }
+                    }
+                  },
+                  "ipv4": {
+                    "description": "Match ipv4 entry",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "match entry config data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "ip-access-list-name": {
+                            "description": "Use this attribute to specify the match address of route. If there is a match for the specified IP address, and permit is specified, the route is redistributed or controlled, as specified by the set action. If the match criteria are met, and deny is specified then the route is not redistributed or controlled. If the match criteria are not met, the route is neither accepted nor forwarded, irrespective of permit or deny specifications.The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes, depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "ip-prefix-list-name": {
+                            "description": "Use this attribute to match entries of a prefix-list. The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "peer-access-list-name": {
+                            "description": "Use this attribute to specify the match peer IPv4 address of a route.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "next-hop-prefix-list-name": {
+                            "description": "Use this attribute to specify the next-hop IP address match criterion using the prefix-list. This command matches the next-hop IP address of a route.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "next-hop-access-list-name": {
+                            "description": "Use this attribute to specify a next-hop address to be matched in a route-map. The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Match Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "ip-access-list-name": {
+                            "description": "Use this attribute to specify the match address of route. If there is a match for the specified IP address, and permit is specified, the route is redistributed or controlled, as specified by the set action. If the match criteria are met, and deny is specified then the route is not redistributed or controlled. If the match criteria are not met, the route is neither accepted nor forwarded, irrespective of permit or deny specifications.The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes, depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "ip-prefix-list-name": {
+                            "description": "Use this attribute to match entries of a prefix-list. The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "peer-access-list-name": {
+                            "description": "Use this attribute to specify the match peer IPv4 address of a route.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "next-hop-prefix-list-name": {
+                            "description": "Use this attribute to specify the next-hop IP address match criterion using the prefix-list. This command matches the next-hop IP address of a route.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "next-hop-access-list-name": {
+                            "description": "Use this attribute to specify a next-hop address to be matched in a route-map. The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "ipv6": {
+                    "description": "Match ipv6 entry",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "match entry config data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "ipv6-address-access-list-name": {
+                            "description": "Use this attribute to specify the match address of route. The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "ipv6-prefix-list-name": {
+                            "description": "Use this attribute to match entries of a prefix-list. The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes, depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "peer-access-list-name": {
+                            "description": "Use this attribute to specify the match peer IPv6 address of a route.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "next-hop-prefix-list-name": {
+                            "description": "Use this attribute to match entries of a prefix-list. The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "next-hop-match-string": {
+                            "description": "Use this attribute to specify the next-hop address to be matched. The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables.",
+                            "readOnly": false,
+                            "oneOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Match Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "ipv6-address-access-list-name": {
+                            "description": "Use this attribute to specify the match address of route. The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "ipv6-prefix-list-name": {
+                            "description": "Use this attribute to match entries of a prefix-list. The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes, depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "peer-access-list-name": {
+                            "description": "Use this attribute to specify the match peer IPv6 address of a route.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "next-hop-prefix-list-name": {
+                            "description": "Use this attribute to match entries of a prefix-list. The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "next-hop-match-string": {
+                            "description": "Use this attribute to specify the next-hop address to be matched. The route specified by the policies might not be the same as specified by the routing protocols. Setting policies enable packets to take different routes depending on their length or content. Packet forwarding based on configured policies overrides packet forwarding specified in routing tables.",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "large-match-community": {
+                    "description": "set large community",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Set large community entry config data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "large-community-number-match": {
+                            "description": "Use this attributes to set the communities attribute. and group destinations in a certain community, as well as apply routing decisions according to those communities.",
+                            "readOnly": false,
+                            "pattern": "[^?'=,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Set Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "large-community-number-match": {
+                            "description": "Use this attributes to set the communities attribute. and group destinations in a certain community, as well as apply routing decisions according to those communities.",
+                            "readOnly": true,
+                            "pattern": "[^?'=,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "set-action": {
+                "description": "Set values for routing entry",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "config": {
+                    "description": "Set entry config data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "forward-interface-type": {
+                        "description": "Use this attributes to discard routes based on policy/rules configured for a route map.Route maps can be applied to BGP neighbors. When this command is given for a route map and that route map is applied to a BGP neighbor, the discard route entries are added by BGP for the prefix permitted by the route map.",
+                        "readOnly": false,
+                        "enum": [
+                          "null0",
+                          "tunnel-te"
+                        ],
+                        "mandatory": false
+                      },
+                      "metric-value": {
+                        "description": "Use this command to set a metric value for a route and influence external neighbors about the preferred path into an Autonomous System (AS). The preferred path is the one with a lower metric value. A router compares metrics for paths from neighbors in the same ASs. To compare metrics from neighbors coming from different ASs, use the bgp always-compare-med command.To use this command, you must first have a match clause. Match and set commands set the conditions for redistributing routes from one routing protocol to another. The match command specifies the match criteria under which redistribution is allowed for the current route-map. The set command specifies the set redistribution actions to be performed, if the match criteria are met.If the packets do not match any of the defined criteria, they are routed through the normal routing process.",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 11,
+                        "pattern": "[+-][0-9]+|[0-9]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "route-tag": {
+                        "description": "Use this attribute to set a tag value. The parameter is the route tag that is labeled by another routing protocol (BGP or other IGP when redistributing), because AS-external-LSA has a route-tag field in its LSAs. In addition, when using route-map, OcNOS can tag the LSAs with the appropriate tag value. Sometimes the tag matches with using route-map, and sometimes, the value may be used by another application.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 4294967295,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "weight": {
+                        "description": "Use this attribute to set weights for the routing table. The weight value is used to assist in best path selection. It is assigned locally to a router. When there are several routes with a common destination, the routes with a higher weight value are preferred. To use this command, you must first have a match clause. Match and set commands set the conditions for redistributing routes from one routing protocol to another. The match command specifies the match criteria under which redistribution is allowed for the current route-map. The set command specifies the set redistribution actions to be performed, if the match criteria are met.",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "local-preference": {
+                        "description": "Use this attribute to set the BGP local preference path attribute",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "route-origin-type": {
+                        "description": "Use this command to set the BGP origin code. The origin attribute defines the origin of the path information. To use this command, you must first have a match clause. Match and set commands set the conditions for redistributing routes from one routing protocol to another. The match command specifies the match criteria under which redistribution is allowed for the current route-map. The set command specifies the set redistribution actions to be performed, if the match criteria are met.If the packets do not match any of the defined criteria, they are routed through the normal routing process.",
+                        "readOnly": false,
+                        "enum": [
+                          "egp",
+                          "igp",
+                          "incomplete"
+                        ],
+                        "mandatory": false
+                      },
+                      "metric-type": {
+                        "description": "Use this command to set the metric type for the destination routing protocol. Select a type to be either Type-1 or Type2 in the AS-external-LSA when the route-map matches the condition.",
+                        "readOnly": false,
+                        "enum": [
+                          "type-1",
+                          "type-2",
+                          "internal",
+                          "external"
+                        ],
+                        "mandatory": false
+                      },
+                      "aigp-metric": {
+                        "description": "Use this command to set the AIGP metric for BGP protocol routes.",
+                        "readOnly": false,
+                        "oneOf": [
+                          {
+                            "enum": [
+                              "igp-metric"
+                            ]
+                          },
+                          {
+                            "minimum": 1,
+                            "maximum": 4294967295,
+                            "type": "number"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "level-type": {
+                        "description": "Use this attribute to set the IS-IS level to export a route.",
+                        "readOnly": false,
+                        "enum": [
+                          "level-1",
+                          "level-2",
+                          "level-1-2"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-as-path-tag": {
+                        "description": "Use this command to modify an autonomous system path for a route. By specifying the length of the AS-Path, the router influences the best path selection by a neighbor",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "atomic-aggregate": {
+                        "description": "Use this attribute to set an atomic aggregate attribute.To use this command, you must first have a match clause. Match and set commands set the conditions for redistributing routes from one routing protocol to another. The match command specifies the match criteria under which redistribution is allowed for the current route-map. The set command specifies the set redistribution actions to be performed, if the match criteria are met.If the packets do not match any of the defined criteria, they are routed through the normal routing process.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "delete-community-value": {
+                        "description": "Use this attribute to delete the matched communities from the community attribute of an inbound or outbound update when applying route-map.",
+                        "readOnly": false,
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "minimum": "1",
+                            "maximum": "99 ",
+                            "type": "number"
+                          },
+                          {
+                            "minimum": " 100",
+                            "maximum": "500",
+                            "type": "number"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "bgp-originator-id": {
+                        "description": "Use this command to set the originator ID attribute. To use this command, you must first have a match clause. Match and set commands set the conditions for redistributing routes from one routing protocol to another. The match command specifies the match criteria under which redistribution is allowed for the current route-map. The set command specifies the set redistribution actions to be performed, if the match criteria are met.If the packets do not match any of the defined criteria, they are routed through the normal routing process",
+                        "readOnly": false,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "as-path-prepend": {
+                        "description": "Use this attributes to modify an autonomous system path for a route. By specifying the length of the AS-Path, the router influences the best path selection by a neighbor.Use this command to prepend an AS path string to routes increasing the AS path length.To use this command, you must first give the match and set commands configure the conditions for redistributing routes from one routing protocol to another: 1. The match command specifies the match criteria under which redistribution is allowed for the current route-map. 2.The set command specifies the set redistribution actions to be performed if the match criteria are met.If the packets do not match any of the defined criteria, they are routed through the normal routing process.",
+                        "readOnly": false,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ext-community-site-of-origin": {
+                        "description": "Use this attribute to set an extended community attribute as Site-of-origin extended community.",
+                        "readOnly": false,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ext-community-color": {
+                        "description": "Use this attribute to set an extended community attribute color value",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 4294967295,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Set Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "forward-interface-type": {
+                        "description": "Use this attributes to discard routes based on policy/rules configured for a route map.Route maps can be applied to BGP neighbors. When this command is given for a route map and that route map is applied to a BGP neighbor, the discard route entries are added by BGP for the prefix permitted by the route map.",
+                        "readOnly": true,
+                        "enum": [
+                          "null0",
+                          "tunnel-te"
+                        ],
+                        "mandatory": false
+                      },
+                      "metric-value": {
+                        "description": "Use this command to set a metric value for a route and influence external neighbors about the preferred path into an Autonomous System (AS). The preferred path is the one with a lower metric value. A router compares metrics for paths from neighbors in the same ASs. To compare metrics from neighbors coming from different ASs, use the bgp always-compare-med command.To use this command, you must first have a match clause. Match and set commands set the conditions for redistributing routes from one routing protocol to another. The match command specifies the match criteria under which redistribution is allowed for the current route-map. The set command specifies the set redistribution actions to be performed, if the match criteria are met.If the packets do not match any of the defined criteria, they are routed through the normal routing process.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 11,
+                        "pattern": "[+-][0-9]+|[0-9]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "route-tag": {
+                        "description": "Use this attribute to set a tag value. The parameter is the route tag that is labeled by another routing protocol (BGP or other IGP when redistributing), because AS-external-LSA has a route-tag field in its LSAs. In addition, when using route-map, OcNOS can tag the LSAs with the appropriate tag value. Sometimes the tag matches with using route-map, and sometimes, the value may be used by another application.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 4294967295,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "weight": {
+                        "description": "Use this attribute to set weights for the routing table. The weight value is used to assist in best path selection. It is assigned locally to a router. When there are several routes with a common destination, the routes with a higher weight value are preferred. To use this command, you must first have a match clause. Match and set commands set the conditions for redistributing routes from one routing protocol to another. The match command specifies the match criteria under which redistribution is allowed for the current route-map. The set command specifies the set redistribution actions to be performed, if the match criteria are met.",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "local-preference": {
+                        "description": "Use this attribute to set the BGP local preference path attribute",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "route-origin-type": {
+                        "description": "Use this command to set the BGP origin code. The origin attribute defines the origin of the path information. To use this command, you must first have a match clause. Match and set commands set the conditions for redistributing routes from one routing protocol to another. The match command specifies the match criteria under which redistribution is allowed for the current route-map. The set command specifies the set redistribution actions to be performed, if the match criteria are met.If the packets do not match any of the defined criteria, they are routed through the normal routing process.",
+                        "readOnly": true,
+                        "enum": [
+                          "egp",
+                          "igp",
+                          "incomplete"
+                        ],
+                        "mandatory": false
+                      },
+                      "metric-type": {
+                        "description": "Use this command to set the metric type for the destination routing protocol. Select a type to be either Type-1 or Type2 in the AS-external-LSA when the route-map matches the condition.",
+                        "readOnly": true,
+                        "enum": [
+                          "type-1",
+                          "type-2",
+                          "internal",
+                          "external"
+                        ],
+                        "mandatory": false
+                      },
+                      "aigp-metric": {
+                        "description": "Use this command to set the AIGP metric for BGP protocol routes.",
+                        "readOnly": true,
+                        "oneOf": [
+                          {
+                            "enum": [
+                              "igp-metric"
+                            ]
+                          },
+                          {
+                            "minimum": 1,
+                            "maximum": 4294967295,
+                            "type": "number"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "level-type": {
+                        "description": "Use this attribute to set the IS-IS level to export a route.",
+                        "readOnly": true,
+                        "enum": [
+                          "level-1",
+                          "level-2",
+                          "level-1-2"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-as-path-tag": {
+                        "description": "Use this command to modify an autonomous system path for a route. By specifying the length of the AS-Path, the router influences the best path selection by a neighbor",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "atomic-aggregate": {
+                        "description": "Use this attribute to set an atomic aggregate attribute.To use this command, you must first have a match clause. Match and set commands set the conditions for redistributing routes from one routing protocol to another. The match command specifies the match criteria under which redistribution is allowed for the current route-map. The set command specifies the set redistribution actions to be performed, if the match criteria are met.If the packets do not match any of the defined criteria, they are routed through the normal routing process.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "delete-community-value": {
+                        "description": "Use this attribute to delete the matched communities from the community attribute of an inbound or outbound update when applying route-map.",
+                        "readOnly": true,
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "minimum": "1",
+                            "maximum": "99 ",
+                            "type": "number"
+                          },
+                          {
+                            "minimum": " 100",
+                            "maximum": "500",
+                            "type": "number"
+                          }
+                        ],
+                        "mandatory": false
+                      },
+                      "bgp-originator-id": {
+                        "description": "Use this command to set the originator ID attribute. To use this command, you must first have a match clause. Match and set commands set the conditions for redistributing routes from one routing protocol to another. The match command specifies the match criteria under which redistribution is allowed for the current route-map. The set command specifies the set redistribution actions to be performed, if the match criteria are met.If the packets do not match any of the defined criteria, they are routed through the normal routing process",
+                        "readOnly": true,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "as-path-prepend": {
+                        "description": "Use this attributes to modify an autonomous system path for a route. By specifying the length of the AS-Path, the router influences the best path selection by a neighbor.Use this command to prepend an AS path string to routes increasing the AS path length.To use this command, you must first give the match and set commands configure the conditions for redistributing routes from one routing protocol to another: 1. The match command specifies the match criteria under which redistribution is allowed for the current route-map. 2.The set command specifies the set redistribution actions to be performed if the match criteria are met.If the packets do not match any of the defined criteria, they are routed through the normal routing process.",
+                        "readOnly": true,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ext-community-site-of-origin": {
+                        "description": "Use this attribute to set an extended community attribute as Site-of-origin extended community.",
+                        "readOnly": true,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ext-community-color": {
+                        "description": "Use this attribute to set an extended community attribute color value",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 4294967295,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "ipv4": {
+                    "description": "Set ipv4 entry",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Set ipv4 entry config data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "ip-nexthop-address": {
+                            "description": "Use this attribute to set the specified next-hop value.",
+                            "readOnly": false,
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "use-peer-address": {
+                            "description": "Use this attribute to set the next hop value as BGP peer-address",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "default-nexthop-address": {
+                            "description": "Use this attribute to set the default next hop value",
+                            "readOnly": false,
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "vpnv4-nexthop-address": {
+                            "description": "Use this command to set a VPNv4 next-hop address. To use this command, you must first have a match clause. Match and set commands set the conditions for redistributing routes from one routing protocol to another. The match command specifies the match criteria under which redistribution is allowed for the current route-map. The set command specifies the set redistribution actions to be performed, if the match criteria are met. If the packets do not match any of the defined criteria, they are routed through the normal routing process.",
+                            "readOnly": false,
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Set ipv4 Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "ip-nexthop-address": {
+                            "description": "Use this attribute to set the specified next-hop value.",
+                            "readOnly": true,
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "use-peer-address": {
+                            "description": "Use this attribute to set the next hop value as BGP peer-address",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "default-nexthop-address": {
+                            "description": "Use this attribute to set the default next hop value",
+                            "readOnly": true,
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "vpnv4-nexthop-address": {
+                            "description": "Use this command to set a VPNv4 next-hop address. To use this command, you must first have a match clause. Match and set commands set the conditions for redistributing routes from one routing protocol to another. The match command specifies the match criteria under which redistribution is allowed for the current route-map. The set command specifies the set redistribution actions to be performed, if the match criteria are met. If the packets do not match any of the defined criteria, they are routed through the normal routing process.",
+                            "readOnly": true,
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "ipv6": {
+                    "description": "Set ipv6 entry",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Set ipv6 entry config data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "ipv6-nexthop-address": {
+                            "description": "Use this attribute to set a next hop-address.",
+                            "readOnly": false,
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "default-ipv6-nexthop-address": {
+                            "description": "Use this attribute to set the default ipv6 next hop-address",
+                            "readOnly": false,
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "local-ipv6-nexthop-address": {
+                            "description": "Use this attribute to set Local IPv6 address as next hop-address",
+                            "readOnly": false,
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Set ipv6 Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "ipv6-nexthop-address": {
+                            "description": "Use this attribute to set a next hop-address.",
+                            "readOnly": true,
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "default-ipv6-nexthop-address": {
+                            "description": "Use this attribute to set the default ipv6 next hop-address",
+                            "readOnly": true,
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "local-ipv6-nexthop-address": {
+                            "description": "Use this attribute to set Local IPv6 address as next hop-address",
+                            "readOnly": true,
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "bgp-aggregator-attributes": {
+                    "description": "Top level container for aggregator info",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "bgp-aggregator-attribute": {
+                        "description": "aggregator info",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "as-number": {
+                              "description": "Use this attribute to set the AS number for the route map and router ID. An Autonomous System (AS) is a collection of networks under a common administration sharing a common routing strategy. It is subdivided by areas, and is assigned a unique 16-bit number. Use the set aggregator command to assign an AS number for the aggregator.To use the set aggregator command, you must first have a match clause. Match and set commands set the conditions for redistributing routes from one routing protocol to another. The match command specifies the match criteria under which redistribution is allowed for the current route-map. The set command specifies the set redistribution actions to be performed, if the match criteria are met.If the packets do not match any of the defined criteria, they are routed through the normal routing process.",
+                              "readOnly": false,
+                              "path": "../config/as-number",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "aggregator-ip-address": {
+                              "description": "IP address of aggregator.",
+                              "readOnly": false,
+                              "path": "../config/aggregator-ip-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "aggregator list",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "as-number": {
+                                  "description": "Use this attribute to set the AS number for the route map and router ID. An Autonomous System (AS) is a collection of networks under a common administration sharing a common routing strategy. It is subdivided by areas, and is assigned a unique 16-bit number. Use the set aggregator command to assign an AS number for the aggregator.To use the set aggregator command, you must first have a match clause. Match and set commands set the conditions for redistributing routes from one routing protocol to another. The match command specifies the match criteria under which redistribution is allowed for the current route-map. The set command specifies the set redistribution actions to be performed, if the match criteria are met.If the packets do not match any of the defined criteria, they are routed through the normal routing process.",
+                                  "readOnly": false,
+                                  "minimum": 1,
+                                  "maximum": 4294967295,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "aggregator-ip-address": {
+                                  "description": "IP address of aggregator.",
+                                  "readOnly": false,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "aggregator Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "as-number": {
+                                  "description": "Use this attribute to set the AS number for the route map and router ID. An Autonomous System (AS) is a collection of networks under a common administration sharing a common routing strategy. It is subdivided by areas, and is assigned a unique 16-bit number. Use the set aggregator command to assign an AS number for the aggregator.To use the set aggregator command, you must first have a match clause. Match and set commands set the conditions for redistributing routes from one routing protocol to another. The match command specifies the match criteria under which redistribution is allowed for the current route-map. The set command specifies the set redistribution actions to be performed, if the match criteria are met.If the packets do not match any of the defined criteria, they are routed through the normal routing process.",
+                                  "readOnly": true,
+                                  "minimum": 1,
+                                  "maximum": 4294967295,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "aggregator-ip-address": {
+                                  "description": "IP address of aggregator.",
+                                  "readOnly": true,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "as-number",
+                            "aggregator-ip-address"
+                          ]
+                        },
+                        "maxItems": 1
+                      }
+                    }
+                  },
+                  "extended-community": {
+                    "description": "Use this container to set an extended community attribute.To use this    command you must first have a match clause. The match and set commands    define the conditions for redistributing routes from one routing    protocol to another: The match command defines the match criteria    under which redistribution is allowed for the current route-map. The    set command defines the set redistribution actions to be performed, if    the match criteria are met.If the packets do not match any of the    defined criteria, they are routed through the normal routing process.",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "route-targets": {
+                        "description": "Top level container for route target info",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "route-target": {
+                            "description": "extened route target info",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "ext-community-rt": {
+                                  "description": "use this attribute to set an Route target extended community",
+                                  "readOnly": false,
+                                  "path": "../config/ext-community-rt",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "route target list",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "ext-community-rt": {
+                                      "description": "use this attribute to set an Route target extended community",
+                                      "readOnly": false,
+                                      "pattern": "[^?'=,>|]*",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "additive-type": {
+                                      "description": "use this attribute to add to the exsisting community.",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "no-additive",
+                                        "additive"
+                                      ],
+                                      "mandatory": true
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "route target Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "ext-community-rt": {
+                                      "description": "use this attribute to set an Route target extended community",
+                                      "readOnly": true,
+                                      "pattern": "[^?'=,>|]*",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "additive-type": {
+                                      "description": "use this attribute to add to the exsisting community.",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "no-additive",
+                                        "additive"
+                                      ],
+                                      "mandatory": true
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "ext-community-rt"
+                              ]
+                            },
+                            "maxItems": 1
+                          }
+                        }
+                      },
+                      "costs": {
+                        "description": "Top level container for cost info",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "cost": {
+                            "description": "extened community cost info",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "comparison-type": {
+                                  "description": "use this attribute to set Extended cost community.",
+                                  "readOnly": false,
+                                  "path": "../config/comparison-type",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "community-id": {
+                                  "description": "use this attribute to set Extended community-id",
+                                  "readOnly": false,
+                                  "path": "../config/community-id",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "cost-value": {
+                                  "description": "use this attribute to set Extended community cost value",
+                                  "readOnly": false,
+                                  "path": "../config/cost-value",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "cost list",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "comparison-type": {
+                                      "description": "use this attribute to set Extended cost community.",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "no-comparision",
+                                        "igp",
+                                        "pre-bestpath"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "community-id": {
+                                      "description": "use this attribute to set Extended community-id",
+                                      "readOnly": false,
+                                      "minimum": 0,
+                                      "maximum": 255,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "cost-value": {
+                                      "description": "use this attribute to set Extended community cost value",
+                                      "readOnly": false,
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "cost Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "comparison-type": {
+                                      "description": "use this attribute to set Extended cost community.",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "no-comparision",
+                                        "igp",
+                                        "pre-bestpath"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "community-id": {
+                                      "description": "use this attribute to set Extended community-id",
+                                      "readOnly": true,
+                                      "minimum": 0,
+                                      "maximum": 255,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "cost-value": {
+                                      "description": "use this attribute to set Extended community cost value",
+                                      "readOnly": true,
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "comparison-type",
+                                "community-id",
+                                "cost-value"
+                              ]
+                            },
+                            "maxItems": 1
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "dampening": {
+                    "description": "Enable route-flap dampening",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Set dampening entry config data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "enable-dampening": {
+                            "description": "Use this attribute to enable route dampening and set various parameters. Route dampening minimizes the instability caused by route flapping. A penalty is added for every flap in a flapping route. As soon as the total penalty reaches the suppress limit the advertisement of the route is suppressed. This penalty is decayed according to the configured half time value. Once the penalty is lower than the reuse limit, the route advertisement is unsuppressed. The dampening information is purged from the router once the penalty becomes less than half of the reuse limit.Reachability half-life time for the penalty in minutes. The time for the penalty to decrease to one-half of its current value.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": true
+                          },
+                          "reachability-half-life-time": {
+                            "description": "Reachability half-life time for the penalty in minutes. The time for the penalty to decrease to one-half of its current value.",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 45,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "reuse-time-limit": {
+                            "description": "Value to start reusing a route. When the penalty for a suppressed route decays below the reuse value, the routes become unsuppressed.",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 20000,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "suppress-time-limit": {
+                            "description": "Value to start suppressing a route. When the penalty for a route exceeds the suppress value, the route is suppressed",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 20000,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "max-suppress-time-limit": {
+                            "description": "Maximum duration to suppress a stable route in minutes.",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "unreachability-half-life-time": {
+                            "description": "Un-reachability half-life time for the penalty in minutes.",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 45,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Set Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "enable-dampening": {
+                            "description": "Use this attribute to enable route dampening and set various parameters. Route dampening minimizes the instability caused by route flapping. A penalty is added for every flap in a flapping route. As soon as the total penalty reaches the suppress limit the advertisement of the route is suppressed. This penalty is decayed according to the configured half time value. Once the penalty is lower than the reuse limit, the route advertisement is unsuppressed. The dampening information is purged from the router once the penalty becomes less than half of the reuse limit.Reachability half-life time for the penalty in minutes. The time for the penalty to decrease to one-half of its current value.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": true
+                          },
+                          "reachability-half-life-time": {
+                            "description": "Reachability half-life time for the penalty in minutes. The time for the penalty to decrease to one-half of its current value.",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 45,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "reuse-time-limit": {
+                            "description": "Value to start reusing a route. When the penalty for a suppressed route decays below the reuse value, the routes become unsuppressed.",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 20000,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "suppress-time-limit": {
+                            "description": "Value to start suppressing a route. When the penalty for a route exceeds the suppress value, the route is suppressed",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 20000,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "max-suppress-time-limit": {
+                            "description": "Maximum duration to suppress a stable route in minutes.",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "unreachability-half-life-time": {
+                            "description": "Un-reachability half-life time for the penalty in minutes.",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 45,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "communities": {
+                    "description": "Set BGP community value",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Set BGP community data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "enable-internet": {
+                            "description": "Use this attribute to set the communities attribute and group destinations in a certain community, as well as apply routing decisions according to those communities.If the packets do not match any of the defined criteria, they are routed through the normal routing process.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "enable-local-as": {
+                            "description": "Specifies the local-as community (well-known community). Routes with community are advertised to only peers that are part of the local autonomous system or to only peers within a subautonomous system of a confederation. These routes are not advertised to external peers or to other subautonomous systems within a confederation.You can configure one or more keywords.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "enable-no-advertise": {
+                            "description": "Specifies the no-advertise community (well-known community). Routes with this community are not advertised to any peer (internal or external).",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "enable-no-export": {
+                            "description": "Specifies the no-export community (well-known community). Routes with this community are advertised to only peers in the same autonomous system or to only other subautonomous systems within a confederation. These routes are not advertised to external peers.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "no-community-attribute": {
+                            "description": "Specifies the no community attribute.We cannot configure any other keyword if you configure the none keyword.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "additive-set": {
+                            "description": "Adds to existing community.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "community-number": {
+                            "description": "Use this attributes to set the communities attribute. and group destinations in a certain community, as well as apply routing decisions according to those communities.",
+                            "readOnly": false,
+                            "pattern": "[^?'=,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "community-with-as-number": {
+                            "description": "Autonomous system (AS) number and network number entered in the 4-byte new community format. This value is configured with two 2-byte numbers separated by a colon. A number from 1 to 65535 can be entered as each 2-byte number. A single community can be entered or multiple communities can be entered, each separated by a space.",
+                            "readOnly": false,
+                            "pattern": "[^?'=,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Set Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "enable-internet": {
+                            "description": "Use this attribute to set the communities attribute and group destinations in a certain community, as well as apply routing decisions according to those communities.If the packets do not match any of the defined criteria, they are routed through the normal routing process.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "enable-local-as": {
+                            "description": "Specifies the local-as community (well-known community). Routes with community are advertised to only peers that are part of the local autonomous system or to only peers within a subautonomous system of a confederation. These routes are not advertised to external peers or to other subautonomous systems within a confederation.You can configure one or more keywords.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "enable-no-advertise": {
+                            "description": "Specifies the no-advertise community (well-known community). Routes with this community are not advertised to any peer (internal or external).",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "enable-no-export": {
+                            "description": "Specifies the no-export community (well-known community). Routes with this community are advertised to only peers in the same autonomous system or to only other subautonomous systems within a confederation. These routes are not advertised to external peers.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "no-community-attribute": {
+                            "description": "Specifies the no community attribute.We cannot configure any other keyword if you configure the none keyword.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "additive-set": {
+                            "description": "Adds to existing community.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "community-number": {
+                            "description": "Use this attributes to set the communities attribute. and group destinations in a certain community, as well as apply routing decisions according to those communities.",
+                            "readOnly": true,
+                            "pattern": "[^?'=,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "community-with-as-number": {
+                            "description": "Autonomous system (AS) number and network number entered in the 4-byte new community format. This value is configured with two 2-byte numbers separated by a colon. A number from 1 to 65535 can be entered as each 2-byte number. A single community can be entered or multiple communities can be entered, each separated by a space.",
+                            "readOnly": true,
+                            "pattern": "[^?'=,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "large-community": {
+                    "description": "set large community",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Set large community entry config data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "large-community-number-set": {
+                            "description": "Use this attributes to set the communities attribute. and group destinations in a certain community, as well as apply routing decisions according to those communities.",
+                            "readOnly": false,
+                            "pattern": "[^?'=,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Set Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "large-community-number-set": {
+                            "description": "Use this attributes to set the communities attribute. and group destinations in a certain community, as well as apply routing decisions according to those communities.",
+                            "readOnly": true,
+                            "pattern": "[^?'=,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "routemap-name",
+              "sequence-id"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

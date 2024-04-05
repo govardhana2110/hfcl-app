@@ -1,0 +1,6 @@
+{
+  "title": "ipi-qos-if",
+  "description": "Quality of Service (QoS) interface information",
+  "type": "object",
+  "properties": {}
+}

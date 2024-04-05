@@ -1,0 +1,142 @@
+{
+  "title": "ipi-host",
+  "description": "Top level HOST configuration module",
+  "type": "object",
+  "properties": {
+    "ipi-host:system-host": {
+      "description": "Top level container for system host related configuration common for    all modules",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "config": {
+          "description": "This container defines host configuration.",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "banner-motd": {
+              "description": "Use this attribute to set the login banner for the OcNOS device.",
+              "readOnly": false,
+              "oneOf": [
+                {
+                  "pattern": "[^?'=,>|]*",
+                  "type": "string"
+                },
+                {
+                  "enum": [
+                    "default"
+                  ]
+                }
+              ],
+              "mandatory": false
+            },
+            "service-passwd-encryption": {
+              "description": "Use this attribute to enable password encryption.",
+              "readOnly": false,
+              "type": "boolean",
+              "mandatory": false
+            },
+            "service-term-length": {
+              "description": "Use this attribute to set system wide terminal length.",
+              "readOnly": false,
+              "minimum": 0,
+              "maximum": 512,
+              "type": "number",
+              "mandatory": false
+            },
+            "system-enable-passwd": {
+              "description": "Use this attribute to set enable password for the system.",
+              "readOnly": false,
+              "pattern": "[^?'=,>|]*",
+              "type": "string",
+              "mandatory": false
+            },
+            "passwd-encrypted": {
+              "description": "Use this attribute to provide encrypted password.",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "disable-service-advanced-vty": {
+              "description": "Use this attribute to enable advanced mode vty interface.",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            }
+          }
+        },
+        "state": {
+          "description": "This container defines host Operational states.",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "banner-motd": {
+              "description": "Use this attribute to set the login banner for the OcNOS device.",
+              "readOnly": true,
+              "oneOf": [
+                {
+                  "pattern": "[^?'=,>|]*",
+                  "type": "string"
+                },
+                {
+                  "enum": [
+                    "default"
+                  ]
+                }
+              ],
+              "mandatory": false
+            },
+            "service-passwd-encryption": {
+              "description": "Use this attribute to enable password encryption.",
+              "readOnly": true,
+              "type": "boolean",
+              "mandatory": false
+            },
+            "service-term-length": {
+              "description": "Use this attribute to set system wide terminal length.",
+              "readOnly": true,
+              "minimum": 0,
+              "maximum": 512,
+              "type": "number",
+              "mandatory": false
+            },
+            "system-enable-passwd": {
+              "description": "Use this attribute to set enable password for the system.",
+              "readOnly": true,
+              "pattern": "[^?'=,>|]*",
+              "type": "string",
+              "mandatory": false
+            },
+            "passwd-encrypted": {
+              "description": "Use this attribute to provide encrypted password.",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "disable-service-advanced-vty": {
+              "description": "Use this attribute to enable advanced mode vty interface.",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

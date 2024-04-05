@@ -1,0 +1,150 @@
+{
+  "title": "ipi-unicast-rpf",
+  "description": "Data model for IPI Unicast Reverse Path Forwarding",
+  "type": "object",
+  "properties": {
+    "ipi-unicast-rpf:unicast-rpf": {
+      "description": "Main container for Unicast Reverse Path Forwarding (uRPF)",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "global": {
+          "description": "uRPF global configuration and state data",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for uRPF global configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable-route-lookup": {
+                  "description": "Use this attribute to enable uRPF globally on the system",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "enable-default-route-check": {
+                  "description": "Use this attribute to enable default route to match when checking source IP address",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational data for uRPF global configuration",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable-route-lookup": {
+                  "description": "Use this attribute to enable uRPF globally on the system",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "enable-default-route-check": {
+                  "description": "Use this attribute to enable default route to match when checking source IP address",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Support uRPF functionality at inteface level",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "List of uRPF enabled interfaces",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "This attriute maps to physical/L3 LAG interface/L3 Sub-interface on which uRPF is enabled",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for uRPF",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "This attriute maps to physical/L3 LAG interface/L3 Sub-interface on which uRPF is enabled",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "source-reachability-mode": {
+                        "description": "Use this attribute to enable uRPF for an interface with specified reachability mode",
+                        "readOnly": false,
+                        "enum": [
+                          "any",
+                          "rx",
+                          "any-allow-default"
+                        ],
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational data for uRPF",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "This attriute maps to physical/L3 LAG interface/L3 Sub-interface on which uRPF is enabled",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "source-reachability-mode": {
+                        "description": "Use this attribute to enable uRPF for an interface with specified reachability mode",
+                        "readOnly": true,
+                        "enum": [
+                          "any",
+                          "rx",
+                          "any-allow-default"
+                        ],
+                        "mandatory": true
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

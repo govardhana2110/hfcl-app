@@ -1,0 +1,133 @@
+{
+  "title": "ipi-service-map",
+  "description": "Data model for Service Mapping",
+  "type": "object",
+  "properties": {
+    "ipi-service-map:service-map": {
+      "description": "Top level container for MPLS, including configuration and state data",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "tunnel-policies": {
+          "description": "tunnel policy configuration and state data",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "tunnel-policy": {
+              "description": "List of tunnel policies",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Name for the tunnel policy",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "configuration for tunnel-policy",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Name for the tunnel policy",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "selection-mode": {
+                        "description": "Use this attribute to configure selection mode as dedicated or best-effort for tunnel policy",
+                        "readOnly": false,
+                        "enum": [
+                          "dedicated",
+                          "best-effort"
+                        ],
+                        "mandatory": false
+                      },
+                      "tunnel-type": {
+                        "description": "Use this attribute to configure selection mode as sr or srv6 or rsvp for tunnel policy",
+                        "readOnly": false,
+                        "enum": [
+                          "rsvp",
+                          "sr-mpls",
+                          "srv6"
+                        ],
+                        "mandatory": false
+                      },
+                      "color-code": {
+                        "description": "Use this attribute to configure color for tunnel policy",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "minimum": 1,
+                          "maximum": 4294967295,
+                          "type": "number",
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "state data for tunnel policy",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Name for the tunnel policy",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "selection-mode": {
+                        "description": "Use this attribute to configure selection mode as dedicated or best-effort for tunnel policy",
+                        "readOnly": true,
+                        "enum": [
+                          "dedicated",
+                          "best-effort"
+                        ],
+                        "mandatory": false
+                      },
+                      "tunnel-type": {
+                        "description": "Use this attribute to configure selection mode as sr or srv6 or rsvp for tunnel policy",
+                        "readOnly": true,
+                        "enum": [
+                          "rsvp",
+                          "sr-mpls",
+                          "srv6"
+                        ],
+                        "mandatory": false
+                      },
+                      "color-code": {
+                        "description": "Use this attribute to configure color for tunnel policy",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "minimum": 1,
+                          "maximum": 4294967295,
+                          "type": "number",
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

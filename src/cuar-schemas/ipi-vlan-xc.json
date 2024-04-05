@@ -1,0 +1,651 @@
+{
+  "title": "ipi-vlan-xc",
+  "description": "Datamodel for IPI VLAN XC Managed Object",
+  "type": "object",
+  "properties": {
+    "ipi-vlan-xc:cross-connects": {
+      "description": "cross-connect top level container",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "cross-connect": {
+          "description": "List of configured cross connects",
+          "readOnly": false,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "xconnect-name": {
+                "description": "This attribute uniquely identifies a cross connect on the device",
+                "readOnly": false,
+                "path": "../config/xconnect-name",
+                "type": "string",
+                "mandatory": false
+              },
+              "config": {
+                "description": "Cross-connect Configuration data for ethernet interfaces",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "xconnect-name": {
+                    "description": "This attribute uniquely identifies a cross connect on the device",
+                    "readOnly": false,
+                    "minLength": 1,
+                    "maxLength": 30,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "disable": {
+                    "description": "Disable this cross connect",
+                    "readOnly": false,
+                    "type": "array",
+                    "items": {
+                      "type": "null"
+                    },
+                    "maxItems": 1,
+                    "mandatory": false
+                  },
+                  "backup-endpoint-1": {
+                    "description": "Configure backup endpoint-1",
+                    "readOnly": false,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "backup-endpoint-2": {
+                    "description": "Configure backup endpoint-2",
+                    "readOnly": false,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "revertive": {
+                    "description": "Enable revertive operation for this XC",
+                    "readOnly": false,
+                    "type": "array",
+                    "items": {
+                      "type": "null"
+                    },
+                    "maxItems": 1,
+                    "mandatory": false
+                  },
+                  "link-fault-pass-through-enable": {
+                    "description": "Configure link fault pass through",
+                    "readOnly": false,
+                    "type": "array",
+                    "items": {
+                      "type": "null"
+                    },
+                    "maxItems": 1,
+                    "mandatory": false
+                  }
+                }
+              },
+              "state": {
+                "description": "Cross-connect State variables for Ethernet interfaces",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "xconnect-name": {
+                    "description": "This attribute uniquely identifies a cross connect on the device",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 30,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "disable": {
+                    "description": "Disable this cross connect",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "null"
+                    },
+                    "maxItems": 1,
+                    "mandatory": false
+                  },
+                  "backup-endpoint-1": {
+                    "description": "Configure backup endpoint-1",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "backup-endpoint-2": {
+                    "description": "Configure backup endpoint-2",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "revertive": {
+                    "description": "Enable revertive operation for this XC",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "null"
+                    },
+                    "maxItems": 1,
+                    "mandatory": false
+                  },
+                  "link-fault-pass-through-enable": {
+                    "description": "Configure link fault pass through",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "null"
+                    },
+                    "maxItems": 1,
+                    "mandatory": false
+                  },
+                  "admin-status": {
+                    "description": "Admin status of cross connect",
+                    "readOnly": true,
+                    "enum": [
+                      "down",
+                      "up"
+                    ],
+                    "mandatory": false
+                  },
+                  "oper-status": {
+                    "description": "Oper status of cross connect",
+                    "readOnly": true,
+                    "enum": [
+                      "down",
+                      "up"
+                    ],
+                    "mandatory": false
+                  },
+                  "ep1-rx-pkts": {
+                    "description": "The number of packets received on Endpoint-1",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "ep1-rx-bytes": {
+                    "description": "The number of bytes received on Endpoint-1",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "ep1-tx-pkts": {
+                    "description": "The number of packets transmitted from Endpoint-1",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "ep1-tx-bytes": {
+                    "description": "The number of bytes transmitted from Endpoint-1",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "ep2-rx-pkts": {
+                    "description": "The number of packets received on Endpoint-2",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "ep2-rx-bytes": {
+                    "description": "The number of bytes received on Endpoint-2",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "ep2-tx-pkts": {
+                    "description": "The number of packets transmitted from Endpoint-2",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "ep2-tx-bytes": {
+                    "description": "The number of bytes transmitted from Endpoint-2",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "bkp-ep1-rx-pkts": {
+                    "description": "The number of packets received on Backup Endpoint-1",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "bkp-ep1-rx-bytes": {
+                    "description": "The number of bytes received on Backup Endpoint-1",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "bkp-ep1-tx-pkts": {
+                    "description": "The number of packets transmitted from Backup Endpoint-1",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "bkp-ep1-tx-bytes": {
+                    "description": "The number of bytes transmitted from Backup Endpoint-1",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "bkp-ep2-rx-pkts": {
+                    "description": "The number of packets received on Backup Endpoint-2",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "bkp-ep2-rx-bytes": {
+                    "description": "The number of bytes received on Backup Endpoint-2",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "bkp-ep2-tx-pkts": {
+                    "description": "The number of packets transmitted from Backup Endpoint-2",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "bkp-ep2-tx-bytes": {
+                    "description": "The number of bytes transmitted from Backup Endpoint-2",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  }
+                }
+              },
+              "cross-connect-port": {
+                "description": "Port cross-connect",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "config": {
+                    "description": "Cross-connect Configuration data for port cross-connect",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "port-endpoint-1": {
+                        "description": "Configure port endpoint-1",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "port-endpoint-2": {
+                        "description": "Configure port endpoint-2",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Cross-connect State variables for port cross-connect",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "port-endpoint-1": {
+                        "description": "Configure port endpoint-1",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "port-endpoint-2": {
+                        "description": "Configure port endpoint-2",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "ep1-rx-pkts": {
+                        "description": "The number of packets received on Endpoint-1",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ep1-rx-bytes": {
+                        "description": "The number of bytes received on Endpoint-1",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ep1-tx-pkts": {
+                        "description": "The number of packets transmitted from Endpoint-1",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ep1-tx-bytes": {
+                        "description": "The number of bytes transmitted from Endpoint-1",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ep2-rx-pkts": {
+                        "description": "The number of packets received on Endpoint-2",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ep2-rx-bytes": {
+                        "description": "The number of bytes received on Endpoint-2",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ep2-tx-pkts": {
+                        "description": "The number of packets transmitted from Endpoint-2",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ep2-tx-bytes": {
+                        "description": "The number of bytes transmitted from Endpoint-2",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "bkp-ep1-rx-pkts": {
+                        "description": "The number of packets received on Backup Endpoint-1",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "bkp-ep1-rx-bytes": {
+                        "description": "The number of bytes received on Backup Endpoint-1",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "bkp-ep1-tx-pkts": {
+                        "description": "The number of packets transmitted from Backup Endpoint-1",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "bkp-ep1-tx-bytes": {
+                        "description": "The number of bytes transmitted from Backup Endpoint-1",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "bkp-ep2-rx-pkts": {
+                        "description": "The number of packets received on Backup Endpoint-2",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "bkp-ep2-rx-bytes": {
+                        "description": "The number of bytes received on Backup Endpoint-2",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "bkp-ep2-tx-pkts": {
+                        "description": "The number of packets transmitted from Backup Endpoint-2",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "bkp-ep2-tx-bytes": {
+                        "description": "The number of bytes transmitted from Backup Endpoint-2",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                }
+              },
+              "cross-connect-vlan": {
+                "description": "Cross-connect Mode change",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "config": {
+                    "description": "Cross-connect Configuration data for vlan cross-connect",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vlan-endpoint-1": {
+                        "description": "Configure vlan endpoint-1",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "vlan-endpoint-2": {
+                        "description": "Configure vlan endpoint-2",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Cross-connect State variables for vlan cross-connect",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "vlan-endpoint-1": {
+                        "description": "Configure vlan endpoint-1",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "vlan-endpoint-2": {
+                        "description": "Configure vlan endpoint-2",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "vlan-xc-entries": {
+                    "description": "Top level container for VLAN XC Entry",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vlan-xc-entry": {
+                        "description": "vlan xc entry list",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "outer-vlan-range": {
+                              "description": "Use this attribute to set the outer vlan id for XC.",
+                              "readOnly": false,
+                              "path": "../config/outer-vlan-range",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "inner-vlan-range": {
+                              "description": "Use this attribute to set the inner vlan id for XC.",
+                              "readOnly": false,
+                              "path": "../config/inner-vlan-range",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configurational data for XC entry",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "outer-vlan-range": {
+                                  "description": "Use this attribute to set the outer vlan id for XC.",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "inner-vlan-range": {
+                                  "description": "Use this attribute to set the inner vlan id for XC.",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data for XC entry",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "outer-vlan-range": {
+                                  "description": "Use this attribute to set the outer vlan id for XC.",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "inner-vlan-range": {
+                                  "description": "Use this attribute to set the inner vlan id for XC.",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ep1-rx-pkts": {
+                                  "description": "The number of packets received on Endpoint-1",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ep1-rx-bytes": {
+                                  "description": "The number of bytes received on Endpoint-1",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ep1-tx-pkts": {
+                                  "description": "The number of packets transmitted from Endpoint-1",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ep1-tx-bytes": {
+                                  "description": "The number of bytes transmitted from Endpoint-1",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ep2-rx-pkts": {
+                                  "description": "The number of packets received on Endpoint-2",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ep2-rx-bytes": {
+                                  "description": "The number of bytes received on Endpoint-2",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ep2-tx-pkts": {
+                                  "description": "The number of packets transmitted from Endpoint-2",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "ep2-tx-bytes": {
+                                  "description": "The number of bytes transmitted from Endpoint-2",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "bkp-ep1-rx-pkts": {
+                                  "description": "The number of packets received on Backup Endpoint-1",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "bkp-ep1-rx-bytes": {
+                                  "description": "The number of bytes received on Backup Endpoint-1",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "bkp-ep1-tx-pkts": {
+                                  "description": "The number of packets transmitted from Backup Endpoint-1",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "bkp-ep1-tx-bytes": {
+                                  "description": "The number of bytes transmitted from Backup Endpoint-1",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "bkp-ep2-rx-pkts": {
+                                  "description": "The number of packets received on Backup Endpoint-2",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "bkp-ep2-rx-bytes": {
+                                  "description": "The number of bytes received on Backup Endpoint-2",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "bkp-ep2-tx-pkts": {
+                                  "description": "The number of packets transmitted from Backup Endpoint-2",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "bkp-ep2-tx-bytes": {
+                                  "description": "The number of bytes transmitted from Backup Endpoint-2",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "outer-vlan-range",
+                            "inner-vlan-range"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "xconnect-name"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

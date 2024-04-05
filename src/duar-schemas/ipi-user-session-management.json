@@ -1,0 +1,412 @@
+{
+  "title": "ipi-user-session-management",
+  "description": "This module provides user session management configuration",
+  "type": "object",
+  "properties": {
+    "ipi-user-session-management:user-session": {
+      "description": "Container for all user-sessions configuration",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "line-console": {
+          "description": "Top container for line-console configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "console": {
+              "description": "console list",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "console-id": {
+                    "description": "Attribute used to set line console identifcation.",
+                    "readOnly": false,
+                    "path": "../config/console-id",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for console line",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "privilege-level": {
+                        "description": "Attribute used to set line privilege level.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 16,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "command-history-max-limit": {
+                        "description": "Attribute used to set line maximum limit to history commands.",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 2147483647,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "console-id": {
+                        "description": "Attribute used to set line console identifcation.",
+                        "readOnly": false,
+                        "enum": [
+                          "0"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for console line",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "privilege-level": {
+                        "description": "Attribute used to set line privilege level.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 16,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "command-history-max-limit": {
+                        "description": "Attribute used to set line maximum limit to history commands.",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 2147483647,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "console-id": {
+                        "description": "Attribute used to set line console identifcation.",
+                        "readOnly": true,
+                        "enum": [
+                          "0"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "timeout": {
+                    "description": "Container that holds information about line timeout",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for line timeout",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "minutes": {
+                            "description": "Attribute used to set line timeout in minutes. The default is 10 minutes.",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 35791,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "seconds": {
+                            "description": "Attribute used to set line timeout in seconds. The default is 0.",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 2147483,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for line timeout",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "minutes": {
+                            "description": "Attribute used to set line timeout in minutes. The default is 10 minutes.",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 35791,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "seconds": {
+                            "description": "Attribute used to set line timeout in seconds. The default is 0.",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 2147483,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "console-id"
+                ]
+              },
+              "maxItems": 1
+            }
+          }
+        },
+        "line-vty": {
+          "description": "Top container for line-vty configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "vty": {
+              "description": "vty list",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vty-id": {
+                    "description": "Attribute used to set line vty identifcation.",
+                    "readOnly": false,
+                    "path": "../config/vty-id",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for vty line",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "privilege-level": {
+                        "description": "Attribute used to set line privilege level.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 16,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "command-history-max-limit": {
+                        "description": "Attribute used to set line maximum limit to history commands.",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 2147483647,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "vty-id": {
+                        "description": "Attribute used to set line vty identification.",
+                        "readOnly": false,
+                        "pattern": "[^?'=>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for vty line",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "privilege-level": {
+                        "description": "Attribute used to set line privilege level.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 16,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "command-history-max-limit": {
+                        "description": "Attribute used to set line maximum limit to history commands.",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 2147483647,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "vty-id": {
+                        "description": "Attribute used to set line vty identification.",
+                        "readOnly": true,
+                        "pattern": "[^?'=>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "timeout": {
+                    "description": "Container that holds information about line timeout",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for line timeout",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "minutes": {
+                            "description": "Attribute used to set line timeout in minutes. The default is 10 minutes.",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 35791,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "seconds": {
+                            "description": "Attribute used to set line timeout in seconds. The default is 0.",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 2147483,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for line timeout",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "minutes": {
+                            "description": "Attribute used to set line timeout in minutes. The default is 10 minutes.",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 35791,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "seconds": {
+                            "description": "Attribute used to set line timeout in seconds. The default is 0.",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 2147483,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "vty-id"
+                ]
+              }
+            }
+          }
+        },
+        "sessions": {
+          "description": "Top level container that holds all user-session runtime attributes",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "session": {
+              "description": "List of all runtime user sessions, including line vty, line console      and netconf sessions.",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "The user session id.",
+                    "readOnly": true,
+                    "path": "../state/id",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "state": {
+                    "description": "Operational state data for user session",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "description": "The user session id.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "line": {
+                        "description": "The line information which user is logged. For users connected via console, it holds the line console identifier. For users connected via vty, it holds the line vty identifier. For users connected via Netconf, there is no line, it holds NA value.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "user-name": {
+                        "description": "The user name that is logged in the specific session.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "client-type": {
+                        "description": "The user type, Netconf or CLI.",
+                        "readOnly": true,
+                        "enum": [
+                          "CLI",
+                          "NETCONF"
+                        ],
+                        "mandatory": false
+                      },
+                      "idle-time": {
+                        "description": "The user session idle time.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "process-identifier": {
+                        "description": "The user session process id.",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "type": {
+                        "description": "The user session type: Local or remote.",
+                        "readOnly": true,
+                        "enum": [
+                          "Local",
+                          "Remote"
+                        ],
+                        "mandatory": false
+                      },
+                      "user-role": {
+                        "description": "The user role type.",
+                        "readOnly": true,
+                        "enum": [
+                          "network-admin",
+                          "network-engineer",
+                          "network-operator",
+                          "network-user",
+                          "linux-admin",
+                          "rbac-customized-role",
+                          "unknown-role"
+                        ],
+                        "mandatory": false
+                      },
+                      "remote-ip": {
+                        "description": "Remote IP address for netconf clients",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "id"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

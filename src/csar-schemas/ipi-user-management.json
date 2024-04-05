@@ -1,0 +1,322 @@
+{
+  "title": "ipi-user-management",
+  "description": "Data model for User-Management Module",
+  "type": "object",
+  "properties": {
+    "ipi-user-management:user-management": {
+      "description": "User Management configurations",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "debug": {
+          "description": "User Management Debugging configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "config container for debug configurations",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this attribute to enable user management debugging information.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "state container for debug configurations",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this attribute to enable user management debugging information.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Use this attribute to display user management terminal debugging state.",
+                  "readOnly": true,
+                  "enum": [
+                    "off",
+                    "on"
+                  ],
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "global": {
+          "description": "User Management global configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "User Management global configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "disable-default-user": {
+                  "description": "Use this attribute to prevent default user from being enabled at start up",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Global User Management Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "disable-default-user": {
+                  "description": "Use this attribute to prevent default user from being enabled at start up",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "users": {
+          "description": "Container for user configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "user": {
+              "description": "Configuration for users",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "description": "Login name of the user",
+                    "readOnly": false,
+                    "path": "../config/username",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Config container for user configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "title": "plain-text",
+                        "properties": {
+                          "password": {
+                            "description": "Use this attribute to add a user or to change a user password.",
+                            "readOnly": false,
+                            "minLength": 8,
+                            "maxLength": 32,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      {
+                        "title": "hashed",
+                        "properties": {
+                          "password-hashed": {
+                            "description": "Use this attribute to specify user password in encrypted form. This option is provided for reconfiguring a user password using an earlier encrypted password that was available in running configuration display or get-config payload. Users are advised not to use this option for entering passwords generated in any other method",
+                            "readOnly": false,
+                            "minLength": 26,
+                            "maxLength": 106,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    ],
+                    "properties": {
+                      "username": {
+                        "description": "Use this attribute to set the login name of the user",
+                        "readOnly": false,
+                        "minLength": 2,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "role": {
+                        "description": "Use this attribute to set the user role. Operations that an user is allowed to perform are determined based on the role",
+                        "readOnly": false,
+                        "enum": [
+                          "network-admin",
+                          "network-engineer",
+                          "network-operator",
+                          "network-user"
+                        ],
+                        "mandatory": false
+                      },
+                      "rbac-role": {
+                        "description": "Use this attribute to set the user role. Operations that an user is allowed to perform are determined based on the role",
+                        "readOnly": false,
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "State container for user configurations",
+                    "readOnly": true,
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "title": "plain-text",
+                        "properties": {
+                          "password": {
+                            "description": "Use this attribute to add a user or to change a user password.",
+                            "readOnly": false,
+                            "minLength": 8,
+                            "maxLength": 32,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      {
+                        "title": "hashed",
+                        "properties": {
+                          "password-hashed": {
+                            "description": "Use this attribute to specify user password in encrypted form. This option is provided for reconfiguring a user password using an earlier encrypted password that was available in running configuration display or get-config payload. Users are advised not to use this option for entering passwords generated in any other method",
+                            "readOnly": false,
+                            "minLength": 26,
+                            "maxLength": 106,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    ],
+                    "properties": {
+                      "username": {
+                        "description": "Use this attribute to set the login name of the user",
+                        "readOnly": true,
+                        "minLength": 2,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "role": {
+                        "description": "Use this attribute to set the user role. Operations that an user is allowed to perform are determined based on the role",
+                        "readOnly": true,
+                        "enum": [
+                          "network-admin",
+                          "network-engineer",
+                          "network-operator",
+                          "network-user"
+                        ],
+                        "mandatory": false
+                      },
+                      "rbac-role": {
+                        "description": "Use this attribute to set the user role. Operations that an user is allowed to perform are determined based on the role",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "ipi-ssh:ssh-keys": {
+                    "description": "ssh-keys configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "config container for ssh keys configurations",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "public-key": {
+                            "description": "Use this attribute to set the ssh public-key",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "state container for ssh keys configurations",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "public-key": {
+                            "description": "Use this attribute to set the ssh public-key",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          },
+                          "rsa-key": {
+                            "description": "User specific Rivest, Shamir, and Adelman (RSA) public-key cryptography SSH server key",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "dsa-key": {
+                            "description": "User specific Digital System Algorithm (DSA) SSH key",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "fingerprint-rsa": {
+                            "description": "MD5 over the binary data within the Base64-encoded RSA public key",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "fingerprint-dsa": {
+                            "description": "MD5 over the binary data within the Base64-encoded DSA public key",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "username"
+                ]
+              },
+              "maxItems": 1000
+            }
+          }
+        }
+      }
+    }
+  }
+}

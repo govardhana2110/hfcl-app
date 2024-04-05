@@ -1,0 +1,234 @@
+{
+  "title": "ipi-if-ip",
+  "description": "Datamodel for IP interface module",
+  "type": "object",
+  "properties": {
+    "ipi-if-ip:ip-global": {
+      "description": "Global configuration container for the router",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "vrf": {
+          "description": "List of Virtual Routing and Forwarding instances on the router",
+          "readOnly": false,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "vrf-name": {
+                "description": "VPN routing/forwarding Instance name",
+                "readOnly": false,
+                "path": "../config/vrf-name",
+                "type": "string",
+                "mandatory": false
+              },
+              "config": {
+                "description": "Configuration parameters relating to a VRF instance",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "vrf-name": {
+                    "description": "VPN routing/forwarding Instance name",
+                    "readOnly": false,
+                    "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "disable-ip-vrf-forwarding": {
+                    "description": "Turn on IP forwarding for the VRF instance",
+                    "readOnly": false,
+                    "type": "array",
+                    "items": {
+                      "type": "null"
+                    },
+                    "maxItems": 1,
+                    "mandatory": false
+                  },
+                  "disable-ipv6-vrf-forwarding": {
+                    "description": "Turn on IPv6 forwarding for the VRF instance",
+                    "readOnly": false,
+                    "type": "array",
+                    "items": {
+                      "type": "null"
+                    },
+                    "maxItems": 1,
+                    "mandatory": false
+                  },
+                  "enable-icmp-broadcast": {
+                    "description": "This attribute is used to control ICMP echo broadcast reply for VRF instance. It ignores ICMP echo broacast when set to true",
+                    "readOnly": false,
+                    "type": "array",
+                    "items": {
+                      "type": "null"
+                    },
+                    "maxItems": 1,
+                    "mandatory": false
+                  }
+                }
+              },
+              "state": {
+                "description": "Configuration parameters relating to a VRF instance",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "vrf-name": {
+                    "description": "VPN routing/forwarding Instance name",
+                    "readOnly": true,
+                    "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "disable-ip-vrf-forwarding": {
+                    "description": "Turn on IP forwarding for the VRF instance",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "null"
+                    },
+                    "maxItems": 1,
+                    "mandatory": false
+                  },
+                  "disable-ipv6-vrf-forwarding": {
+                    "description": "Turn on IPv6 forwarding for the VRF instance",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "null"
+                    },
+                    "maxItems": 1,
+                    "mandatory": false
+                  },
+                  "enable-icmp-broadcast": {
+                    "description": "This attribute is used to control ICMP echo broadcast reply for VRF instance. It ignores ICMP echo broacast when set to true",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "null"
+                    },
+                    "maxItems": 1,
+                    "mandatory": false
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "vrf-name"
+            ]
+          }
+        },
+        "config": {
+          "description": "Global configuration parameters for the router",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "router-id": {
+              "description": "Router id of the router - an unsigned 32-bit integer expressed in dotted quad notation",
+              "readOnly": false,
+              "minLength": 1,
+              "maxLength": 1965,
+              "pattern": "[^?' =,>|]+",
+              "type": "string",
+              "mandatory": false
+            },
+            "enable-auto-router-id-selection": {
+              "description": "Turn on Automatic Selection of Router ID",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "disable-ip-forwarding": {
+              "description": "Enable IP forwarding for the router",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "disable-ipv6-forwarding": {
+              "description": "Enable IPv6 forwarding for the router",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "default-vrf-enable-icmp-broadcast": {
+              "description": "This attribute is used to control ICMP echo broadcast reply. It ignores ICMP echo broacast when set to true",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            }
+          }
+        },
+        "state": {
+          "description": "Global operational parameters for the router",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "router-id": {
+              "description": "Router id of the router - an unsigned 32-bit integer expressed in dotted quad notation",
+              "readOnly": true,
+              "minLength": 1,
+              "maxLength": 1965,
+              "pattern": "[^?' =,>|]+",
+              "type": "string",
+              "mandatory": false
+            },
+            "enable-auto-router-id-selection": {
+              "description": "Turn on Automatic Selection of Router ID",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "disable-ip-forwarding": {
+              "description": "Enable IP forwarding for the router",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "disable-ipv6-forwarding": {
+              "description": "Enable IPv6 forwarding for the router",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "default-vrf-enable-icmp-broadcast": {
+              "description": "This attribute is used to control ICMP echo broadcast reply. It ignores ICMP echo broacast when set to true",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

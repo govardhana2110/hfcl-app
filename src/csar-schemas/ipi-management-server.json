@@ -1,0 +1,645 @@
+{
+  "title": "ipi-management-server",
+  "description": "Data model for management server related configurations",
+  "type": "object",
+  "properties": {
+    "ipi-management-server:netconf-server": {
+      "description": "Top level container for NETCONF server configurations",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "callhome": {
+          "description": "Callhome related data",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for callhome attributes",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "feature-enabled": {
+                  "description": "Enable callhome feature on the NETCONF server",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                },
+                "management-port": {
+                  "description": "Interface to be used to connect the callhome server",
+                  "readOnly": false,
+                  "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for callhome callhome related attributes",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "feature-enabled": {
+                  "description": "Enable callhome feature on the NETCONF server",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                },
+                "management-port": {
+                  "description": "Interface to be used to connect the callhome server",
+                  "readOnly": true,
+                  "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            },
+            "netconf-clients": {
+              "description": "NETCONF client data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "netconf-client": {
+                  "description": "Object list for configuring callhome servers",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "An arbitrary name for the NETCONF listen endpoint",
+                        "readOnly": false,
+                        "path": "../config/name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data for NETCONF client",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "An arbitrary name for the NETCONF listen endpoint",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 64,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "address": {
+                            "description": "The host address of the callhome server (IPv4/IPv6 address or Hostname or DNS name)",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 63,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": true
+                          },
+                          "port": {
+                            "description": "Callhome server listening port number",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for NETCONF client",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "An arbitrary name for the NETCONF listen endpoint",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 64,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "address": {
+                            "description": "The host address of the callhome server (IPv4/IPv6 address or Hostname or DNS name)",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 63,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": true
+                          },
+                          "port": {
+                            "description": "Callhome server listening port number",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "name"
+                    ]
+                  },
+                  "maxItems": 5
+                }
+              }
+            },
+            "reconnect": {
+              "description": "NETCONF server reconnect",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configuration data for reconnect",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "enable": {
+                      "description": "specifies whether server will reconnect after client closes the session",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": true
+                    },
+                    "retry-max-attempts": {
+                      "description": "Specifies the number of retry attempts the server should attempt to the callhome server before giving up. Set 0 to retry infinitely.",
+                      "readOnly": false,
+                      "minimum": 0,
+                      "maximum": 255,
+                      "type": "number",
+                      "mandatory": false
+                    },
+                    "retry-interval": {
+                      "description": "Specifies the number of seconds to wait after a connect attempt to the callhome server has failed",
+                      "readOnly": false,
+                      "minimum": 1,
+                      "maximum": 86400,
+                      "type": "number",
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operation state data for reconnect",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "enable": {
+                      "description": "specifies whether server will reconnect after client closes the session",
+                      "readOnly": true,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": true
+                    },
+                    "retry-max-attempts": {
+                      "description": "Specifies the number of retry attempts the server should attempt to the callhome server before giving up. Set 0 to retry infinitely.",
+                      "readOnly": true,
+                      "minimum": 0,
+                      "maximum": 255,
+                      "type": "number",
+                      "mandatory": false
+                    },
+                    "retry-interval": {
+                      "description": "Specifies the number of seconds to wait after a connect attempt to the callhome server has failed",
+                      "readOnly": true,
+                      "minimum": 1,
+                      "maximum": 86400,
+                      "type": "number",
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "netconf-translation": {
+          "description": "NETCONF translation",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for NETCONF translation",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "translation-mode": {
+                  "description": "Enable/disable NETCONF translation",
+                  "readOnly": false,
+                  "enum": [
+                    "openconfig"
+                  ],
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for NETCONF translation",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "translation-mode": {
+                  "description": "Enable/disable NETCONF translation",
+                  "readOnly": true,
+                  "enum": [
+                    "openconfig"
+                  ],
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "NETCONF server debug",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for debug",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Enable debugging info for callhome",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for debug",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Enable debugging info for callhome",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "vrfs": {
+          "description": "NETCONF server VRF configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "vrf": {
+              "description": "NETCONF server VRF instance configurations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vrf-name": {
+                    "description": "Use this attribute to specify the VRF for which NETCONF feature is enabled",
+                    "readOnly": false,
+                    "path": "../config/vrf-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "config container for NETCONF server VRF instance configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF Name associated with this instance",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "state container for NETCONF server VRF instance configurations",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF Name associated with this instance",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "netconf-ssh-config": {
+                    "description": "NETCONF SSH server data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for NETCONF SSH SERVER",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "feature-netconf-ssh": {
+                            "description": "Use this attribute to enable or disable NETCONF SSH feature.",
+                            "readOnly": false,
+                            "type": "boolean",
+                            "mandatory": true
+                          },
+                          "ssh-port": {
+                            "description": "Use this attribute to set the ssh-port number on which the NETCONF server listens for connections. The default port on which the netconf-ssh server listens is 830.",
+                            "readOnly": false,
+                            "minimum": 1024,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for NETCONF SSH Server",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "feature-netconf-ssh": {
+                            "description": "Use this attribute to enable or disable NETCONF SSH feature.",
+                            "readOnly": true,
+                            "type": "boolean",
+                            "mandatory": true
+                          },
+                          "ssh-port": {
+                            "description": "Use this attribute to set the ssh-port number on which the NETCONF server listens for connections. The default port on which the netconf-ssh server listens is 830.",
+                            "readOnly": true,
+                            "minimum": 1024,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "netconf-tls-config": {
+                    "description": "NETCONF TLS server data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for NETCONF TLS SERVER",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "feature-netconf-tls": {
+                            "description": "Use this attribute to enable or disable NETCONF TLS feature.",
+                            "readOnly": false,
+                            "type": "boolean",
+                            "mandatory": true
+                          },
+                          "tls-port": {
+                            "description": "Use this attribute to set the tls-port number on which the NETCONF server listens for connections. The default port on which the netconf-tls server listens is 6513.",
+                            "readOnly": false,
+                            "minimum": 1024,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for NETCONF TLS Server",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "feature-netconf-tls": {
+                            "description": "Use this attribute to enable or disable NETCONF TLS feature.",
+                            "readOnly": true,
+                            "type": "boolean",
+                            "mandatory": true
+                          },
+                          "tls-port": {
+                            "description": "Use this attribute to set the tls-port number on which the NETCONF server listens for connections. The default port on which the netconf-tls server listens is 6513.",
+                            "readOnly": true,
+                            "minimum": 1024,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "vrf-name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "ipi-management-server:management-server": {
+      "description": "Top level container for management server configuration",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "module-notifications": {
+          "description": "Container for notification configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "module-notification": {
+              "description": "Object list for configuring module notification",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "module-name": {
+                    "description": "Module name of process for which notification configuration need to be done",
+                    "readOnly": false,
+                    "path": "../config/module-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "module-name": {
+                        "description": "Module name of process for which notification configuration need to be done",
+                        "readOnly": false,
+                        "enum": [
+                          "auth",
+                          "bgp",
+                          "cmm",
+                          "dvmrp",
+                          "hostp",
+                          "hsl",
+                          "isis",
+                          "ldp",
+                          "lag",
+                          "l2mrib",
+                          "mstp",
+                          "mrib",
+                          "nsm",
+                          "onm",
+                          "oam",
+                          "ospf",
+                          "ospf6",
+                          "ptp",
+                          "rip",
+                          "rmon",
+                          "pim",
+                          "rib",
+                          "vrrp",
+                          "sflow",
+                          "trill",
+                          "rsvp",
+                          "pserv",
+                          "cml",
+                          "ndd",
+                          "ripng",
+                          "vlog",
+                          "all",
+                          "synce",
+                          "pon",
+                          "pcep",
+                          "udld"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable": {
+                        "description": "Enable Disable notification for the module",
+                        "readOnly": false,
+                        "enum": [
+                          "disable",
+                          "enable"
+                        ],
+                        "mandatory": true
+                      },
+                      "severity": {
+                        "description": "If notification enabled, all the notifications having severity higher than or equal to this severity allowed.If notification disabled, all the notifications having severity lower than or equal to this severity not allowed",
+                        "readOnly": false,
+                        "enum": [
+                          "all",
+                          "info",
+                          "warning",
+                          "minor",
+                          "major",
+                          "critical"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "module-name": {
+                        "description": "Module name of process for which notification configuration need to be done",
+                        "readOnly": true,
+                        "enum": [
+                          "auth",
+                          "bgp",
+                          "cmm",
+                          "dvmrp",
+                          "hostp",
+                          "hsl",
+                          "isis",
+                          "ldp",
+                          "lag",
+                          "l2mrib",
+                          "mstp",
+                          "mrib",
+                          "nsm",
+                          "onm",
+                          "oam",
+                          "ospf",
+                          "ospf6",
+                          "ptp",
+                          "rip",
+                          "rmon",
+                          "pim",
+                          "rib",
+                          "vrrp",
+                          "sflow",
+                          "trill",
+                          "rsvp",
+                          "pserv",
+                          "cml",
+                          "ndd",
+                          "ripng",
+                          "vlog",
+                          "all",
+                          "synce",
+                          "pon",
+                          "pcep",
+                          "udld"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable": {
+                        "description": "Enable Disable notification for the module",
+                        "readOnly": true,
+                        "enum": [
+                          "disable",
+                          "enable"
+                        ],
+                        "mandatory": true
+                      },
+                      "severity": {
+                        "description": "If notification enabled, all the notifications having severity higher than or equal to this severity allowed.If notification disabled, all the notifications having severity lower than or equal to this severity not allowed",
+                        "readOnly": true,
+                        "enum": [
+                          "all",
+                          "info",
+                          "warning",
+                          "minor",
+                          "major",
+                          "critical"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "module-name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

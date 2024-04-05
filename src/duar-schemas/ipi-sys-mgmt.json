@@ -1,0 +1,6 @@
+{
+  "title": "ipi-sys-mgmt",
+  "description": "sys-mgmt allows user to shutdown or reboot the device",
+  "type": "object",
+  "properties": {}
+}

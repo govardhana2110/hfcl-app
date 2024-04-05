@@ -1,0 +1,328 @@
+{
+  "title": "ipi-tfo",
+  "description": "Datamodel for TFO Configuration",
+  "type": "object",
+  "properties": {
+    "ipi-tfo:trigger-failover": {
+      "description": "Top level container for Trigger Failover, including configuration and    state data",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "config": {
+          "description": "This container defines Trigger Failover configuration.",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "admin-status": {
+              "description": "Use this attribute to enable or disable trigger failover (TFO).TFO can be enabled only if the bridge mode is STP or RSTP.",
+              "readOnly": false,
+              "enum": [
+                "disable",
+                "enable"
+              ],
+              "mandatory": false
+            }
+          }
+        },
+        "state": {
+          "description": "This container defines hardware-profile Operational states.",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "admin-status": {
+              "description": "Use this attribute to enable or disable trigger failover (TFO).TFO can be enabled only if the bridge mode is STP or RSTP.",
+              "readOnly": true,
+              "enum": [
+                "disable",
+                "enable"
+              ],
+              "mandatory": false
+            }
+          }
+        },
+        "interfaces": {
+          "description": "This container defines Trigger Failover Interfaces configuration and    state information.",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "Objectlist will be list of strict interface. which will point MPG      links and CPG links",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Use this attribute to map links in a FOG.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "This container defines Trigger Failover Interface configuration.",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Use this attribute to map links in a FOG.",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "link-type": {
+                        "description": "Use this attribute to make a port an uplink or downlink.",
+                        "readOnly": false,
+                        "enum": [
+                          "uplink",
+                          "downlink"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "This container defines Trigger Failover Interface Operational states.",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Use this attribute to map links in a FOG.",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "link-type": {
+                        "description": "Use this attribute to make a port an uplink or downlink.",
+                        "readOnly": true,
+                        "enum": [
+                          "uplink",
+                          "downlink"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "tfo-groups": {
+                    "description": "This container defines Trigger Failover Interfaces configuration and    state information.",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "tfo-group": {
+                        "description": "Objectlist will be list of strict interface. which will point MPG      links and CPG links",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "group-id": {
+                              "description": "Use this attribute to Create or delete a failover group (FOG) on interface.",
+                              "readOnly": false,
+                              "path": "../config/group-id",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "This container defines Trigger Failover Interface configuration.",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "group-id": {
+                                  "description": "Use this attribute to Create or delete a failover group (FOG) on interface.",
+                                  "readOnly": false,
+                                  "minimum": 1,
+                                  "maximum": 64,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "group-type": {
+                                  "description": "Use this attribute to map upstream/downstream links in a FOG as a Monitor Port Group (MPG) or Control Port Group (CPG).",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "mpg",
+                                    "cpg"
+                                  ],
+                                  "mandatory": true
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "This container defines Trigger Failover Interface Operational states.",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "group-id": {
+                                  "description": "Use this attribute to Create or delete a failover group (FOG) on interface.",
+                                  "readOnly": true,
+                                  "minimum": 1,
+                                  "maximum": 64,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "group-type": {
+                                  "description": "Use this attribute to map upstream/downstream links in a FOG as a Monitor Port Group (MPG) or Control Port Group (CPG).",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "mpg",
+                                    "cpg"
+                                  ],
+                                  "mandatory": true
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "group-id"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "failover-groups": {
+          "description": "This container defines Trigger Failover Groups configuration and state    information.",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "failover-group": {
+              "description": "Objectlist will be list of Trigger Failover Groups.",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "group-id": {
+                    "description": "Use this attribute to Create or delete a failover group (FOG).",
+                    "readOnly": false,
+                    "path": "../config/group-id",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "This container defines Trigger Failover Group configuration.",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "group-id": {
+                        "description": "Use this attribute to Create or delete a failover group (FOG).",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 64,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "admin-status": {
+                        "description": "FOG admin status",
+                        "readOnly": false,
+                        "enum": [
+                          "disable",
+                          "enable"
+                        ],
+                        "mandatory": true
+                      },
+                      "failover-trigger-count": {
+                        "description": "Use this attribute to set the number of links to trigger failover for a Monitor Port Groups (MPG).",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 63,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "This container defines Trigger Failover Group Operational states.",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "group-id": {
+                        "description": "Use this attribute to Create or delete a failover group (FOG).",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 64,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "admin-status": {
+                        "description": "FOG admin status",
+                        "readOnly": true,
+                        "enum": [
+                          "disable",
+                          "enable"
+                        ],
+                        "mandatory": true
+                      },
+                      "failover-trigger-count": {
+                        "description": "Use this attribute to set the number of links to trigger failover for a Monitor Port Groups (MPG).",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 63,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "cpg-disable-status": {
+                        "description": "To track CPG status",
+                        "readOnly": true,
+                        "type": "boolean",
+                        "mandatory": false
+                      },
+                      "mpg-disable-status": {
+                        "description": "To track MPG status",
+                        "readOnly": true,
+                        "type": "boolean",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "counters": {
+                    "description": "This container defines Trigger Failover Group Operational Counters.",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "mpg-link-failure-count": {
+                        "description": "MPG Failure detection count",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mpg-link-recover-count": {
+                        "description": "MPG link recover count",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "cpg-auto-disable-count": {
+                        "description": "CPG Auto Disable Count",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "cpg-auto-enable-count": {
+                        "description": "CPG auto enable count",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "group-id"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

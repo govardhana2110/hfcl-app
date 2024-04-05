@@ -1,0 +1,495 @@
+{
+  "title": "ipi-igmp-snooping",
+  "description": "Datamodel for IGMP Snooping object",
+  "type": "object",
+  "properties": {
+    "ipi-igmp-snooping:igmp-snooping": {
+      "description": "Top level container for IGMP Snooping config and operational state    data",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "global": {
+          "description": "IGMP Snooping global configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "IGMP Snooping global configuration attributes",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "disable-igmp-snooping": {
+                  "description": "Use this attribute to disable IGMP Snooping. When this attribute is given in the Configure mode, IGMP snooping is enabled at switch level on all the vlans in switch. When this attribute is given at the VLAN interface level, IGMP Snooping is enabled for that VLAN.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "disable-report-suppression": {
+                  "description": "Use this attribute to disable report suppression for IGMP version 1, 2 and 3 reports. By default report suppression is enabled.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "unknown-multicast-action": {
+                  "description": "Use this attribute to set the action to be taken on receiving l2 unknown multicast packets.",
+                  "readOnly": false,
+                  "enum": [
+                    "flood",
+                    "discard"
+                  ],
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "IGMP Snooping global state information",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "disable-igmp-snooping": {
+                  "description": "Use this attribute to disable IGMP Snooping. When this attribute is given in the Configure mode, IGMP snooping is enabled at switch level on all the vlans in switch. When this attribute is given at the VLAN interface level, IGMP Snooping is enabled for that VLAN.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "disable-report-suppression": {
+                  "description": "Use this attribute to disable report suppression for IGMP version 1, 2 and 3 reports. By default report suppression is enabled.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "unknown-multicast-action": {
+                  "description": "Use this attribute to set the action to be taken on receiving l2 unknown multicast packets.",
+                  "readOnly": true,
+                  "enum": [
+                    "flood",
+                    "discard"
+                  ],
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "IGMP Snooping debug configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "IGMP Snooping config container for debug configurations",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Enable IGMP snooping debug",
+                  "readOnly": false,
+                  "type": "string",
+                  "bits": {
+                    "decode": "0",
+                    "encode": "1",
+                    "events": "2",
+                    "fsm": "3",
+                    "tib": "4"
+                  },
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "IGMP Snooping debug state information",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Enable IGMP snooping debug",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "decode": "0",
+                    "encode": "1",
+                    "events": "2",
+                    "fsm": "3",
+                    "tib": "4"
+                  },
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Terminal debug status",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "decode": "0",
+                    "encode": "1",
+                    "events": "2",
+                    "fsm": "3",
+                    "tib": "4"
+                  },
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "IGMP Snooping interface related Configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "IGMP Snooping interface list",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Reference to the base interface name",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "IGMP Snooping interface related Configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Interface name",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "igmp-snooping": {
+                        "description": "Use this attribute to enable or disable IGMP Snooping.When this command is given at the VLAN interface level, IGMP Snooping is enabled for that VLAN.",
+                        "readOnly": false,
+                        "enum": [
+                          "disable",
+                          "enable"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-fast-leave": {
+                        "description": "Use this attribute to enable IGMP Snooping fast-leave processing. Fast-leave processing is analogous to immediateleave processing the IGMP group-membership is removed, as soon as an IGMP leave group message is received without sending out a group-specific query",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "report-suppression": {
+                        "description": "Use this attribute to enable or disable report suppression for IGMP version 1, 2 and 3 reports. By default report suppression is enabled.",
+                        "readOnly": false,
+                        "enum": [
+                          "disable",
+                          "enable"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-querier": {
+                        "description": "Use this attribute to enable IGMP snooping querier functionality on a VLAN when IGMP is not enabled on the particular VLAN. When enabled, the IGMP Snooping querier sends out periodic IGMP queries for all interfaces on that VLAN.The IGMP Snooping querier uses the 0.0.0.0 source IP address, because it only masquerades as a proxy IGMP querier for faster network convergence. It does not start, or automatically cease, the IGMP Querier operation if it detects query message(s) from a multicast router. It restarts as the IGMP Snooping querier if no queries are seen within the other querier interval.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "mrouter-interface-name": {
+                        "description": "Use this attribute to statically configure the specified VLAN constituent interface as a multicast router interface for IGMP Snooping in that VLAN.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational data for Igmp Snooping interface",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Interface name",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "igmp-snooping": {
+                        "description": "Use this attribute to enable or disable IGMP Snooping.When this command is given at the VLAN interface level, IGMP Snooping is enabled for that VLAN.",
+                        "readOnly": true,
+                        "enum": [
+                          "disable",
+                          "enable"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-fast-leave": {
+                        "description": "Use this attribute to enable IGMP Snooping fast-leave processing. Fast-leave processing is analogous to immediateleave processing the IGMP group-membership is removed, as soon as an IGMP leave group message is received without sending out a group-specific query",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "report-suppression": {
+                        "description": "Use this attribute to enable or disable report suppression for IGMP version 1, 2 and 3 reports. By default report suppression is enabled.",
+                        "readOnly": true,
+                        "enum": [
+                          "disable",
+                          "enable"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-querier": {
+                        "description": "Use this attribute to enable IGMP snooping querier functionality on a VLAN when IGMP is not enabled on the particular VLAN. When enabled, the IGMP Snooping querier sends out periodic IGMP queries for all interfaces on that VLAN.The IGMP Snooping querier uses the 0.0.0.0 source IP address, because it only masquerades as a proxy IGMP querier for faster network convergence. It does not start, or automatically cease, the IGMP Querier operation if it detects query message(s) from a multicast router. It restarts as the IGMP Snooping querier if no queries are seen within the other querier interval.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "mrouter-interface-name": {
+                        "description": "Use this attribute to statically configure the specified VLAN constituent interface as a multicast router interface for IGMP Snooping in that VLAN.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  },
+                  "static-groups": {
+                    "description": "IGMP Snooping static group configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "ssm-groups": {
+                        "description": "IGMP Snooping SSM (Source Specific Multicast) Groups",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "ssm-group": {
+                            "description": "IGMP Snooping SSM group entry",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "group-address": {
+                                  "description": "Use this attribute to set the static group-address to be joined",
+                                  "readOnly": false,
+                                  "path": "../config/group-address",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "source-address": {
+                                  "description": "Use this attribute to set the Source Address to be joined",
+                                  "readOnly": false,
+                                  "path": "../config/source-address",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "interface-name": {
+                                  "description": "Use this attribute to statically configure group membership entries on an interface. To statically add only a group membership, do not specify any parameters. This attribute applies to IGMP operation on a specific interface to statically add group and/or source records; on a VLAN interface to statically add group and/or source records.",
+                                  "readOnly": false,
+                                  "path": "../config/interface-name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "IGMP Snooping global configuration attributes",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "group-address": {
+                                      "description": "Use this attribute to set the static group-address to be joined",
+                                      "readOnly": false,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "interface-name": {
+                                      "description": "Use this attribute to statically configure group membership entries on an interface. To statically add only a group membership, do not specify any parameters. This attribute applies to IGMP operation on a specific interface to statically add group and/or source records; on a VLAN interface to statically add group and/or source records.",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "source-address": {
+                                      "description": "Use this attribute to set the Source Address to be joined",
+                                      "readOnly": false,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "IGMP Snooping global state information",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "group-address": {
+                                      "description": "Use this attribute to set the static group-address to be joined",
+                                      "readOnly": true,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "interface-name": {
+                                      "description": "Use this attribute to statically configure group membership entries on an interface. To statically add only a group membership, do not specify any parameters. This attribute applies to IGMP operation on a specific interface to statically add group and/or source records; on a VLAN interface to statically add group and/or source records.",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "source-address": {
+                                      "description": "Use this attribute to set the Source Address to be joined",
+                                      "readOnly": true,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "group-address",
+                                "source-address",
+                                "interface-name"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "asm-groups": {
+                        "description": "IGMP Snooping ASM (Any Source Multicast) Groups",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "asm-group": {
+                            "description": "IGMP Snooping SSM group entry",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "group-address": {
+                                  "description": "Use this attribute to set the static group-address to be joined",
+                                  "readOnly": false,
+                                  "path": "../config/group-address",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "interface-name": {
+                                  "description": "Use this attribute to statically configure group membership entries on an interface. To statically add only a group membership, do not specify any parameters. This attribute applies to IGMP operation on a specific interface to statically add group and/or source records; on a VLAN interface to statically add group and/or source records.",
+                                  "readOnly": false,
+                                  "path": "../config/interface-name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "IGMP Snooping global configuration attributes",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "group-address": {
+                                      "description": "Use this attribute to set the static group-address to be joined",
+                                      "readOnly": false,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "interface-name": {
+                                      "description": "Use this attribute to statically configure group membership entries on an interface. To statically add only a group membership, do not specify any parameters. This attribute applies to IGMP operation on a specific interface to statically add group and/or source records; on a VLAN interface to statically add group and/or source records.",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "IGMP Snooping global state information",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "group-address": {
+                                      "description": "Use this attribute to set the static group-address to be joined",
+                                      "readOnly": true,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "interface-name": {
+                                      "description": "Use this attribute to statically configure group membership entries on an interface. To statically add only a group membership, do not specify any parameters. This attribute applies to IGMP operation on a specific interface to statically add group and/or source records; on a VLAN interface to statically add group and/or source records.",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "group-address",
+                                "interface-name"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

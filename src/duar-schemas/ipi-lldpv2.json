@@ -1,0 +1,2131 @@
+{
+  "title": "ipi-lldpv2",
+  "description": "Link Layer Discovery Protocol (LLDP)",
+  "type": "object",
+  "properties": {
+    "ipi-lldpv2:lldp": {
+      "description": "LLDP global level information",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "global": {
+          "description": "LLDP global level information",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for LLDP global level",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Enable or disable the LLDP protocol at node level",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "notification-interval": {
+                  "description": "This object controls the interval between transmission of LLDP notifications during normal transmission periods",
+                  "readOnly": false,
+                  "minimum": 5,
+                  "maximum": 3600,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operation state data for LLDP global level",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Enable or disable the LLDP protocol at node level",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "notification-interval": {
+                  "description": "This object controls the interval between transmission of LLDP notifications during normal transmission periods",
+                  "readOnly": true,
+                  "minimum": 5,
+                  "maximum": 3600,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "system-capabilities-enabled": {
+                  "description": "Enabled system capabilities",
+                  "readOnly": true,
+                  "pattern": "[^?'=,>|]*",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "host-name-information": {
+                  "description": "Hostname information for LLDP",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "counters": {
+                  "description": "Enclosing container for lldp global level counter",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "remote-inserts": {
+                      "description": "Counter for number of times complete set of information advertised by a particular MSAP has been inserted into tables",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "remote-deletes": {
+                      "description": "Counter for numer of times the complete set of information advertised by a particular MSAP has been deleted from tables.",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "remote-drops": {
+                      "description": "Counter for number of times complete set of information advertised by a particular MSAP could not be entered into tables",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "remote-ageouts": {
+                      "description": "Counter for number of times the complete set of information advertised by a particular MSAP could not be entered into tables",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "global-tlv-control": {
+              "description": "Enclosing container configuration and state data for global TLV",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "global-basic-management": {
+                  "description": "Enclosing container for configuration and state data for LLDP agent    basic management",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "config": {
+                      "description": "Configuration data for LLDP agent basic management on each interface",
+                      "readOnly": false,
+                      "type": "object",
+                      "properties": {
+                        "port-description": {
+                          "description": "This attribute specifies to include basic management port description information in LLDP TLV",
+                          "readOnly": false,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "system-description": {
+                          "description": "This attribute specifies to include basic management system description information in LLDP TLV",
+                          "readOnly": false,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "system-name": {
+                          "description": "This attribute specifies to include basic management system name information in LLDP TLV",
+                          "readOnly": false,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "system-capabilities": {
+                          "description": "This attribute specifies to include basic management system capabilities information in LLDP TLV",
+                          "readOnly": false,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "management-address": {
+                          "description": "This attribute specifies to include basic management management-address information in LLDP TLV",
+                          "readOnly": false,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        }
+                      }
+                    },
+                    "state": {
+                      "description": "Operational state data",
+                      "readOnly": true,
+                      "type": "object",
+                      "properties": {
+                        "port-description": {
+                          "description": "This attribute specifies to include basic management port description information in LLDP TLV",
+                          "readOnly": true,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "system-description": {
+                          "description": "This attribute specifies to include basic management system description information in LLDP TLV",
+                          "readOnly": true,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "system-name": {
+                          "description": "This attribute specifies to include basic management system name information in LLDP TLV",
+                          "readOnly": true,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "system-capabilities": {
+                          "description": "This attribute specifies to include basic management system capabilities information in LLDP TLV",
+                          "readOnly": true,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "management-address": {
+                          "description": "This attribute specifies to include basic management management-address information in LLDP TLV",
+                          "readOnly": true,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  }
+                },
+                "global-ieee-8021-org-specific": {
+                  "description": "Enclosing container for LLDP ieee 8021 configuration",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "config": {
+                      "description": "LLDP ieee8021 specific configuration data on each interface",
+                      "readOnly": false,
+                      "type": "object",
+                      "properties": {
+                        "port-vlan-id": {
+                          "description": "This attribute specifies to include ieee-8021-org-specific port vlan-id information in LLDP TLV",
+                          "readOnly": false,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "port-protocol-vlan-id": {
+                          "description": "This attribute specifies to include ieee-8021-org-specific port protocol vlan-id information in LLDP TLV",
+                          "readOnly": false,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "vlan-name": {
+                          "description": "This attribute specifies to include ieee-8021-org-specific vlan name information in LLDP TLV",
+                          "readOnly": false,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "protocol-identifier": {
+                          "description": "This attribute specifies to include ieee-8021-org-specific protocol identifier information in LLDP TLV",
+                          "readOnly": false,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "vid-digest": {
+                          "description": "This attribute specifies to include ieee-8021-org-specific vid usage digest information in LLDP TLV",
+                          "readOnly": false,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "management-vlan-id": {
+                          "description": "This attribute specifies to include ieee-8021-org-specific management vlan-id information in LLDP TLV",
+                          "readOnly": false,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "link-aggregation": {
+                          "description": "This attribute specifies to include ieee-8021-org-specific link aggregation information in LLDP TLV",
+                          "readOnly": false,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "dcb-exchange": {
+                          "description": "This attribute specifies to include ieee-8021-org-specific data center bridging information in LLDP TLV",
+                          "readOnly": false,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        }
+                      }
+                    },
+                    "state": {
+                      "description": "Operational state data",
+                      "readOnly": true,
+                      "type": "object",
+                      "properties": {
+                        "port-vlan-id": {
+                          "description": "This attribute specifies to include ieee-8021-org-specific port vlan-id information in LLDP TLV",
+                          "readOnly": true,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "port-protocol-vlan-id": {
+                          "description": "This attribute specifies to include ieee-8021-org-specific port protocol vlan-id information in LLDP TLV",
+                          "readOnly": true,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "vlan-name": {
+                          "description": "This attribute specifies to include ieee-8021-org-specific vlan name information in LLDP TLV",
+                          "readOnly": true,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "protocol-identifier": {
+                          "description": "This attribute specifies to include ieee-8021-org-specific protocol identifier information in LLDP TLV",
+                          "readOnly": true,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "vid-digest": {
+                          "description": "This attribute specifies to include ieee-8021-org-specific vid usage digest information in LLDP TLV",
+                          "readOnly": true,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "management-vlan-id": {
+                          "description": "This attribute specifies to include ieee-8021-org-specific management vlan-id information in LLDP TLV",
+                          "readOnly": true,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "link-aggregation": {
+                          "description": "This attribute specifies to include ieee-8021-org-specific link aggregation information in LLDP TLV",
+                          "readOnly": true,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "dcb-exchange": {
+                          "description": "This attribute specifies to include ieee-8021-org-specific data center bridging information in LLDP TLV",
+                          "readOnly": true,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  }
+                },
+                "global-ieee-8023-org-specific": {
+                  "description": "Enclosing container for LLDP ieee 8023 specification",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "config": {
+                      "description": "LLDP ieee 8023 specific configuration data",
+                      "readOnly": false,
+                      "type": "object",
+                      "properties": {
+                        "mac-phy": {
+                          "description": "This attribute specifies to include ieee-8023-org-specific MAC or PHY information in LLDP TLV",
+                          "readOnly": false,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "max-mtu-size": {
+                          "description": "This attribute specifies to include ieee-8023-org-specific maximum mtu size information in LLDP TLV",
+                          "readOnly": false,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "power-via-mdi": {
+                          "description": "This attribute specifies to include ieee-8023-org-specific power via mdi information in LLDP TLV",
+                          "readOnly": false,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        }
+                      }
+                    },
+                    "state": {
+                      "description": "LLDP ieee 8023 specific operational state data",
+                      "readOnly": true,
+                      "type": "object",
+                      "properties": {
+                        "mac-phy": {
+                          "description": "This attribute specifies to include ieee-8023-org-specific MAC or PHY information in LLDP TLV",
+                          "readOnly": true,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "max-mtu-size": {
+                          "description": "This attribute specifies to include ieee-8023-org-specific maximum mtu size information in LLDP TLV",
+                          "readOnly": true,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        },
+                        "power-via-mdi": {
+                          "description": "This attribute specifies to include ieee-8023-org-specific power via mdi information in LLDP TLV",
+                          "readOnly": true,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "management-if": {
+              "description": "Enclosing container for management identifier",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "LLDP management identifier configuration data",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "locally-assigned-chassis-id": {
+                      "description": "This attribute used to identify the chassis component associated with the local system",
+                      "readOnly": false,
+                      "minLength": 1,
+                      "maxLength": 1965,
+                      "pattern": "[^?' =,>|]+",
+                      "type": "string",
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "LLPD management identifier opertaional state data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "locally-assigned-chassis-id": {
+                      "description": "This attribute used to identify the chassis component associated with the local system",
+                      "readOnly": true,
+                      "minLength": 1,
+                      "maxLength": 1965,
+                      "pattern": "[^?' =,>|]+",
+                      "type": "string",
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "Container for lldp debugging functions",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for lldp debug",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "This attribute returns the terminal debug options which are enabled",
+                  "readOnly": false,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "rx": "1",
+                    "tx": "2",
+                    "message": "3",
+                    "ha": "4"
+                  },
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for lldp debug",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "This attribute returns the terminal debug options which are enabled",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "rx": "1",
+                    "tx": "2",
+                    "message": "3",
+                    "ha": "4"
+                  },
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Use this attribute to turn on or turn off lldp debugging at various levels.",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "rx": "1",
+                    "tx": "2",
+                    "message": "3",
+                    "ha": "4"
+                  },
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Top level container for LLDP-V2 on each interface",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "List of interfaces on which LLDP is enabled / available",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The textual name of the interface. The value of this object should be the name of the interface as assigned by the local device and should be suitable for use in commands entered at the device's `console'. This might be a text name, such as `le0' or a simple port number, such as `1', depending on the interface naming syntax of the device. If several entries in the ifTable together represent a single interface as named by the device, then each will have the same value of name. Note that for an agent which responds to SNMP queries concerning an interface on some other (proxied) device, then the value of name for such an interface is the proxied device's local name for it. If there is no local name, or this object is otherwise not applicable, then this object contains a zero-length string.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for LLDP-V2 on each interface",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The interface name to configure the OSPF parameters.",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "disable-lldp-agent": {
+                        "description": "Use this attribute to disable LLDP on interface when it is enabled globally",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "agent-circuit-id": {
+                        "description": "DHCP agent circuit ID association on interface",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "med-device-type": {
+                        "description": "LLDP-MED type of interface. Class-0 is not defined, Class-1 is for generic endpoints and is applicable to all endpoints that require the base LLDP discovery services. Class-2 is for media endpoints and it includes endpoints that have IP media capabilities. Class-3 is for communication endpoints i.e., devices acting as end user communication applicances. Calss-4 is for Network Connectivity Device. Class 5-255 are Reserved",
+                        "readOnly": false,
+                        "enum": [
+                          "ep-class1",
+                          "ep-class2",
+                          "ep-class3",
+                          "net-connect"
+                        ],
+                        "mandatory": false
+                      },
+                      "local-name": {
+                        "description": "Interface sub type with local name",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The interface name to configure the OSPF parameters.",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "disable-lldp-agent": {
+                        "description": "Use this attribute to disable LLDP on interface when it is enabled globally",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "agent-circuit-id": {
+                        "description": "DHCP agent circuit ID association on interface",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "med-device-type": {
+                        "description": "LLDP-MED type of interface. Class-0 is not defined, Class-1 is for generic endpoints and is applicable to all endpoints that require the base LLDP discovery services. Class-2 is for media endpoints and it includes endpoints that have IP media capabilities. Class-3 is for communication endpoints i.e., devices acting as end user communication applicances. Calss-4 is for Network Connectivity Device. Class 5-255 are Reserved",
+                        "readOnly": true,
+                        "enum": [
+                          "ep-class1",
+                          "ep-class2",
+                          "ep-class3",
+                          "net-connect"
+                        ],
+                        "mandatory": false
+                      },
+                      "local-name": {
+                        "description": "Interface sub type with local name",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "neighbors": {
+                    "description": "LLDP neighbors operational data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "agent": {
+                        "description": "List of interface Agents",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "agent-type": {
+                              "description": "LLDP agent type",
+                              "readOnly": true,
+                              "enum": [
+                                "non-tpmr-bridge",
+                                "customer-bridge",
+                                "default"
+                              ],
+                              "mandatory": false
+                            },
+                            "neighbor": {
+                              "description": "List of LLDP neighbors",
+                              "readOnly": true,
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "mac-address": {
+                                    "description": "Neighbor mac-address",
+                                    "readOnly": true,
+                                    "path": "../state/mac-address",
+                                    "type": "string",
+                                    "mandatory": false
+                                  },
+                                  "state": {
+                                    "description": "Neighbors operational state data",
+                                    "readOnly": true,
+                                    "type": "object",
+                                    "properties": {
+                                      "mac-address": {
+                                        "description": "Remote system MAC address",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "system-name": {
+                                        "description": "Remote system name",
+                                        "readOnly": true,
+                                        "minLength": 1,
+                                        "maxLength": 1965,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "chassis-component": {
+                                        "description": "Remote chassis component",
+                                        "readOnly": true,
+                                        "minLength": 1,
+                                        "maxLength": 1965,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "chassis-id-type": {
+                                        "description": "Remote chassis type",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 255,
+                                        "mandatory": false
+                                      },
+                                      "port-component": {
+                                        "description": "Remote port component",
+                                        "readOnly": true,
+                                        "minLength": 1,
+                                        "maxLength": 1965,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "port-id": {
+                                        "description": "Remote port id",
+                                        "readOnly": true,
+                                        "minLength": 1,
+                                        "maxLength": 1965,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "port-description": {
+                                        "description": "Remote port description",
+                                        "readOnly": true,
+                                        "minLength": 1,
+                                        "maxLength": 1965,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "port-sub-type": {
+                                        "description": "Remote port sub type",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 65535,
+                                        "mandatory": false
+                                      },
+                                      "interface-alias": {
+                                        "description": "Remote interface alias name",
+                                        "readOnly": true,
+                                        "minLength": 1,
+                                        "maxLength": 1965,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "interface-agent-circuit-id": {
+                                        "description": "Remote interface agent circuit identifier",
+                                        "readOnly": true,
+                                        "minLength": 1,
+                                        "maxLength": 1965,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "ttl": {
+                                        "description": "Remote time to live value",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 65535,
+                                        "mandatory": false
+                                      },
+                                      "interface-number": {
+                                        "description": "Remote interface number",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 4294967295,
+                                        "mandatory": false
+                                      },
+                                      "interface-number-sub-type": {
+                                        "description": "Remote interface number sub type",
+                                        "readOnly": true,
+                                        "minLength": 1,
+                                        "maxLength": 1965,
+                                        "pattern": "[^?' =,>|]+",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "port-vlan-id": {
+                                        "description": "Remote interface vlan identifier",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 65535,
+                                        "mandatory": false
+                                      },
+                                      "pp-vlanid": {
+                                        "description": "Remote interface protocol port vlan identifier",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 65535,
+                                        "mandatory": false
+                                      },
+                                      "protocol": {
+                                        "description": "Advertised remote protocols",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "bits": {
+                                          "Spanning-Tree-Protocol": "0",
+                                          "Rapid-Spanning-Tree-Protocol": "1",
+                                          "Multiple-Spanning-Tree-Protocol": "2",
+                                          "GARP-Multicast-Registration-Protocol": "3",
+                                          "MRP-Multicast-Registration-Protocol": "4",
+                                          "GARP-VLAN-Registration-Protocol": "5",
+                                          "MRP-VLAN-Registration-Protocol": "6",
+                                          "Link-Aggregation": "7",
+                                          "Port-Authentication": "8",
+                                          "Ethernet-OAM": "9",
+                                          "Unknown": "10"
+                                        },
+                                        "mandatory": false
+                                      },
+                                      "vid-usage-digest": {
+                                        "description": "Remote VID Usage Digest value",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 4294967295,
+                                        "mandatory": false
+                                      },
+                                      "management-vlan": {
+                                        "description": "Remote Management Vlan identifier",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 65535,
+                                        "mandatory": false
+                                      },
+                                      "auto-negotiation-support": {
+                                        "description": "Remote interface auto negotiation support availability, 0-Not-supported, 1-Supported, 3-Supported and Enabled",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 255,
+                                        "mandatory": false
+                                      },
+                                      "auto-negotiation-capability": {
+                                        "description": "Remote interface auto negotiation capability",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 65535,
+                                        "mandatory": false
+                                      },
+                                      "operational-mau-type": {
+                                        "description": "Remote Operational MAU Type",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 65535,
+                                        "mandatory": false
+                                      },
+                                      "link-aggregate-capability": {
+                                        "description": "Remote interface aggregation capability support",
+                                        "readOnly": true,
+                                        "pattern": "[^?'=,>|]*",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "link-aggregate-id": {
+                                        "description": "Remote link Aggregation ID",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 4294967295,
+                                        "mandatory": false
+                                      },
+                                      "max-frame-size": {
+                                        "description": "Remote maximum Frame Size",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 65535,
+                                        "mandatory": false
+                                      },
+                                      "system-description": {
+                                        "description": "Remote system description",
+                                        "readOnly": true,
+                                        "minLength": 1,
+                                        "maxLength": 1965,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "system-capabilities": {
+                                        "description": "Remote supported system capabilities",
+                                        "readOnly": true,
+                                        "pattern": "[^?'=,>|]*",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "system-capabilities-enabled": {
+                                        "description": "Remote system enabled capabilities",
+                                        "readOnly": true,
+                                        "pattern": "[^?'=,>|]*",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "mdi-power-support": {
+                                        "description": "Remote mdi power over ethernet support information",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 255,
+                                        "mandatory": false
+                                      },
+                                      "poe-power-class": {
+                                        "description": "Remote mdi power over ethernet class",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 255,
+                                        "mandatory": false
+                                      },
+                                      "pse-power-pair": {
+                                        "description": "Remote power sourcing equipment",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 255,
+                                        "mandatory": false
+                                      },
+                                      "type-source-priority": {
+                                        "description": "Remote Bit map value of type/source/priority",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 255,
+                                        "mandatory": false
+                                      },
+                                      "pd-requested-power": {
+                                        "description": "Remote powered device requested power value",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 65535,
+                                        "mandatory": false
+                                      },
+                                      "pse-allocated-power": {
+                                        "description": "Remote power sourcing equipment allocated power value",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 65535,
+                                        "mandatory": false
+                                      },
+                                      "vlan-list": {
+                                        "description": "Object list for vlan-list operational state",
+                                        "readOnly": true,
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "vlan-id": {
+                                              "description": "The integer value used to identify the port's VLAN identifier associated with the remote system. If the remote system either does not know the PVID or does not support port-based VLAN operation, the value of this attribute could be 0.",
+                                              "readOnly": true,
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "maximum": 65535,
+                                              "mandatory": false
+                                            },
+                                            "vlan-name": {
+                                              "description": "The string used to identify the port's configured vlan name with remote system",
+                                              "readOnly": true,
+                                              "minLength": 1,
+                                              "maxLength": 1965,
+                                              "pattern": "[^?' =,>|]+",
+                                              "type": "string",
+                                              "mandatory": false
+                                            }
+                                          },
+                                          "keyFields": [
+                                            "vlan-id"
+                                          ]
+                                        }
+                                      },
+                                      "management-list": {
+                                        "description": "Object list for neighbor management information",
+                                        "readOnly": true,
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "address": {
+                                              "description": "The value of Remote management ip/mac/unknown address",
+                                              "readOnly": true,
+                                              "minLength": 1,
+                                              "maxLength": 1965,
+                                              "pattern": "[^?' =,>|]+",
+                                              "type": "string",
+                                              "mandatory": false
+                                            },
+                                            "address-sub-type": {
+                                              "description": "Remote management address type",
+                                              "readOnly": true,
+                                              "pattern": "[^?'=,>|]*",
+                                              "type": "string",
+                                              "mandatory": false
+                                            },
+                                            "interface-number-sub-type": {
+                                              "description": "Remote interface number sub type",
+                                              "readOnly": true,
+                                              "minLength": 1,
+                                              "maxLength": 1965,
+                                              "pattern": "[^?' =,>|]+",
+                                              "type": "string",
+                                              "mandatory": false
+                                            },
+                                            "interface-number": {
+                                              "description": "Remote interface number",
+                                              "readOnly": true,
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "maximum": 4294967295,
+                                              "mandatory": false
+                                            },
+                                            "oid": {
+                                              "description": "Remote OID number",
+                                              "readOnly": true,
+                                              "minLength": 1,
+                                              "maxLength": 1965,
+                                              "pattern": "[^?' =,>|]+",
+                                              "type": "string",
+                                              "mandatory": false
+                                            }
+                                          },
+                                          "keyFields": [
+                                            "address"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "keyFields": [
+                                  "mac-address"
+                                ]
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "agent-type"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "agents": {
+                    "description": "Top level container for lldp agents",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "agent": {
+                        "description": "Configuration and state information",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "agent-type": {
+                              "description": "LLDP agent type on this interface",
+                              "readOnly": false,
+                              "path": "../config/agent-type",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data for LLDP agent on each interface",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "agent-type": {
+                                  "description": "LLDP agent type on this interface",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "non-tpmr-bridge",
+                                    "customer-bridge",
+                                    "default"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "enable-tx-rx": {
+                                  "description": "Enables interface with LLDP protocol and specifies to send and(or) receive packets on interface",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "rxonly",
+                                    "txonly",
+                                    "txrx"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "dcbx-enable": {
+                                  "description": "Use this attribute to enable/disable DCBX on the given interface",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "agent-type": {
+                                  "description": "LLDP agent type on this interface",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "non-tpmr-bridge",
+                                    "customer-bridge",
+                                    "default"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "enable-tx-rx": {
+                                  "description": "Enables interface with LLDP protocol and specifies to send and(or) receive packets on interface",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "rxonly",
+                                    "txonly",
+                                    "txrx"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "dcbx-enable": {
+                                  "description": "Use this attribute to enable/disable DCBX on the given interface",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "transmit": {
+                              "description": "Enclosing container for configuration and state data LLDP packet    transmission",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "config": {
+                                  "description": "Configuration data for LLDP agent on each interface",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "reinit-delay": {
+                                      "description": "The minimum time interval an LLDP port waits before re-initializing an LLDP transmission",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 10,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "message-tx-interval": {
+                                      "description": "The delay between successive LLDP frame transmissions during normal transmission periods",
+                                      "readOnly": false,
+                                      "minimum": 5,
+                                      "maximum": 3600,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "message-tx-hold-multiplier": {
+                                      "description": "Multiplier of message-tx-interval to determine the Time To Live (TTL) that is carried in LLDP frames transmitted by the LLDP agent",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 100,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "message-fast-tx": {
+                                      "description": "The interval at which LLDP frames are transmitted on behalf of LLDP agent during fast transmission periods",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 3600,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "tx-credit-max": {
+                                      "description": "The maximum number of consecutive LLDPDUs that can be transmitted at any time",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 10,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "tx-fast-init": {
+                                      "description": "The number of LLDPDUs to send during the fast transmission periods",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 8,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "reinit-delay": {
+                                      "description": "The minimum time interval an LLDP port waits before re-initializing an LLDP transmission",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 10,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "message-tx-interval": {
+                                      "description": "The delay between successive LLDP frame transmissions during normal transmission periods",
+                                      "readOnly": true,
+                                      "minimum": 5,
+                                      "maximum": 3600,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "message-tx-hold-multiplier": {
+                                      "description": "Multiplier of message-tx-interval to determine the Time To Live (TTL) that is carried in LLDP frames transmitted by the LLDP agent",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 100,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "message-fast-tx": {
+                                      "description": "The interval at which LLDP frames are transmitted on behalf of LLDP agent during fast transmission periods",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 3600,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "tx-credit-max": {
+                                      "description": "The maximum number of consecutive LLDPDUs that can be transmitted at any time",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 10,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "tx-fast-init": {
+                                      "description": "The number of LLDPDUs to send during the fast transmission periods",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 8,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "tx-ttl": {
+                                      "description": "The time to live value used in message transmission based on message-tx-interval and message-tx-hold-multiplier values",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 65535,
+                                      "mandatory": false
+                                    },
+                                    "counters": {
+                                      "description": "Enclosing container for LLDP transmit counters",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "frames-out": {
+                                          "description": "The number of LLDP frames transmitted by this LLDP agent on the indicated port to the destination",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "receive": {
+                              "description": "Enclosing container for configuration and state data for LLDP packet    reception",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "config": {
+                                  "description": "Configuration data for LLDP agent on each interface",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "neighbor-limit": {
+                                      "description": "This attribute configures limit for remote table entries to take action to discard or delete entries",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "neighbor-timer": {
+                                      "description": "This attribute configures timer to discard received message when remote table is full",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "port-mac": {
+                                      "description": "This attribute uses given port MAC to take action when the remote table is full",
+                                      "readOnly": false,
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "port-timer": {
+                                      "description": "This attribute configures timer to discard or delete existing info for received message port MAC when the remote table is full",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "neighbor-limit": {
+                                      "description": "This attribute configures limit for remote table entries to take action to discard or delete entries",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "neighbor-timer": {
+                                      "description": "This attribute configures timer to discard received message when remote table is full",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "port-mac": {
+                                      "description": "This attribute uses given port MAC to take action when the remote table is full",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "port-timer": {
+                                      "description": "This attribute configures timer to discard or delete existing info for received message port MAC when the remote table is full",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "frames-aged-out": {
+                                      "description": "The number of LLDP frames aged out on interface",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "frames-discarded": {
+                                      "description": "The number of LLDP frames discarded on interface. This counter can provide an indication that LLDP header formatting problems may exist with the local LLDP agent in the sending system or that LLDPDU validation problems may exist with the local LLDP agent in the receiving system",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "frames-invalid": {
+                                      "description": "The number of invalid LLDP frames received by this LLDP agent on interface",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "frames-valid": {
+                                      "description": "The number of valid LLDP frames received by this LLDP agent on interface",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "tlvs-discarded": {
+                                      "description": "The number of LLDP TLVs discarded for any reason by this LLDP agent on interace",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "tlvs-unrecognized": {
+                                      "description": "The number of LLDP TLVs received on the given port that are not recognized by this LLDP agent on interface. An unrecognized TLV is referred to as the TLV whose type value is in the range of reserved TLV types (000 1001 - 111 1110) in Table 9.1 of IEEE Std 802.1AB-2004. An unrecognized TLV may be a basic management TLV from a later LLDP version",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "agent-tlv": {
+                              "description": "Enclosing container for configuration and state data LLDP Agent TLV",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "config": {
+                                  "description": "Configuration data for LLDP agent TLV on each interface",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "port-address": {
+                                      "description": "This attribute specifies sub type of the Management Address TLV. Can be configured as mac-addresss or ip-address",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "mac-address",
+                                        "ip-address"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "chassis-id": {
+                                      "description": "This attribute specifies chassis ID subtype for the LLDP agent on a port. Can be configured as if-alias or ip-address or mac-address or if-name or locally-assgined name",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "if-alias",
+                                        "ip-address",
+                                        "mac-address",
+                                        "if-name",
+                                        "locally-assigned"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "port-id": {
+                                      "description": "This attribute specifies sub type of the port id TLV. Can be configured as if-alias or mac-address or ip-address or if-name or agent-circuit-id or locally assigned name",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "if-alias",
+                                        "mac-address",
+                                        "ip-address",
+                                        "if-name",
+                                        "agt-circuit-id",
+                                        "locally-assigned"
+                                      ],
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "port-address": {
+                                      "description": "This attribute specifies sub type of the Management Address TLV. Can be configured as mac-addresss or ip-address",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "mac-address",
+                                        "ip-address"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "chassis-id": {
+                                      "description": "This attribute specifies chassis ID subtype for the LLDP agent on a port. Can be configured as if-alias or ip-address or mac-address or if-name or locally-assgined name",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "if-alias",
+                                        "ip-address",
+                                        "mac-address",
+                                        "if-name",
+                                        "locally-assigned"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "port-id": {
+                                      "description": "This attribute specifies sub type of the port id TLV. Can be configured as if-alias or mac-address or ip-address or if-name or agent-circuit-id or locally assigned name",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "if-alias",
+                                        "mac-address",
+                                        "ip-address",
+                                        "if-name",
+                                        "agt-circuit-id",
+                                        "locally-assigned"
+                                      ],
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "tlv-control": {
+                              "description": "Enclosing container configuration and state data for TLV",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "basic-management": {
+                                  "description": "Enclosing container for configuration and state data for LLDP agent    basic management",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "config": {
+                                      "description": "Configuration data for LLDP agent basic management on each interface",
+                                      "readOnly": false,
+                                      "type": "object",
+                                      "properties": {
+                                        "port-description": {
+                                          "description": "This attribute specifies to include basic management port description information in LLDP TLV",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "system-description": {
+                                          "description": "This attribute specifies to include basic management system description information in LLDP TLV",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "system-name": {
+                                          "description": "This attribute specifies to include basic management system name information in LLDP TLV",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "system-capabilities": {
+                                          "description": "This attribute specifies to include basic management system capabilities information in LLDP TLV",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "management-address": {
+                                          "description": "This attribute specifies to include basic management management-address information in LLDP TLV",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "state": {
+                                      "description": "Operational state data",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "port-description": {
+                                          "description": "This attribute specifies to include basic management port description information in LLDP TLV",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "system-description": {
+                                          "description": "This attribute specifies to include basic management system description information in LLDP TLV",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "system-name": {
+                                          "description": "This attribute specifies to include basic management system name information in LLDP TLV",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "system-capabilities": {
+                                          "description": "This attribute specifies to include basic management system capabilities information in LLDP TLV",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "management-address": {
+                                          "description": "This attribute specifies to include basic management management-address information in LLDP TLV",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "ieee-8021-org-specific": {
+                                  "description": "Enclosing container for LLDP ieee 8021 configuration",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "config": {
+                                      "description": "LLDP ieee8021 specific configuration data on each interface",
+                                      "readOnly": false,
+                                      "type": "object",
+                                      "properties": {
+                                        "port-vlan-id": {
+                                          "description": "This attribute specifies to include ieee-8021-org-specific port vlan-id information in LLDP TLV",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "port-protocol-vlan-id": {
+                                          "description": "This attribute specifies to include ieee-8021-org-specific port protocol vlan-id information in LLDP TLV",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "vlan-name": {
+                                          "description": "This attribute specifies to include ieee-8021-org-specific vlan name information in LLDP TLV",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "protocol-identifier": {
+                                          "description": "This attribute specifies to include ieee-8021-org-specific protocol identifier information in LLDP TLV",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "vid-digest": {
+                                          "description": "This attribute specifies to include ieee-8021-org-specific vid usage digest information in LLDP TLV",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "management-vlan-id": {
+                                          "description": "This attribute specifies to include ieee-8021-org-specific management vlan-id information in LLDP TLV",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "link-aggregation": {
+                                          "description": "This attribute specifies to include ieee-8021-org-specific link aggregation information in LLDP TLV",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "dcb-exchange": {
+                                          "description": "This attribute specifies to include ieee-8021-org-specific data center bridging information in LLDP TLV",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "state": {
+                                      "description": "Operational state data",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "port-vlan-id": {
+                                          "description": "This attribute specifies to include ieee-8021-org-specific port vlan-id information in LLDP TLV",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "port-protocol-vlan-id": {
+                                          "description": "This attribute specifies to include ieee-8021-org-specific port protocol vlan-id information in LLDP TLV",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "vlan-name": {
+                                          "description": "This attribute specifies to include ieee-8021-org-specific vlan name information in LLDP TLV",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "protocol-identifier": {
+                                          "description": "This attribute specifies to include ieee-8021-org-specific protocol identifier information in LLDP TLV",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "vid-digest": {
+                                          "description": "This attribute specifies to include ieee-8021-org-specific vid usage digest information in LLDP TLV",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "management-vlan-id": {
+                                          "description": "This attribute specifies to include ieee-8021-org-specific management vlan-id information in LLDP TLV",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "link-aggregation": {
+                                          "description": "This attribute specifies to include ieee-8021-org-specific link aggregation information in LLDP TLV",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "dcb-exchange": {
+                                          "description": "This attribute specifies to include ieee-8021-org-specific data center bridging information in LLDP TLV",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "ieee-8023-org-specific": {
+                                  "description": "Enclosing container for LLDP ieee 8023 specification",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "config": {
+                                      "description": "LLDP ieee 8023 specific configuration data",
+                                      "readOnly": false,
+                                      "type": "object",
+                                      "properties": {
+                                        "mac-phy": {
+                                          "description": "This attribute specifies to include ieee-8023-org-specific MAC or PHY information in LLDP TLV",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "max-mtu-size": {
+                                          "description": "This attribute specifies to include ieee-8023-org-specific maximum mtu size information in LLDP TLV",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "power-via-mdi": {
+                                          "description": "This attribute specifies to include ieee-8023-org-specific power via mdi information in LLDP TLV",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "state": {
+                                      "description": "LLDP ieee 8023 specific operational state data",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "mac-phy": {
+                                          "description": "This attribute specifies to include ieee-8023-org-specific MAC or PHY information in LLDP TLV",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "max-mtu-size": {
+                                          "description": "This attribute specifies to include ieee-8023-org-specific maximum mtu size information in LLDP TLV",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "power-via-mdi": {
+                                          "description": "This attribute specifies to include ieee-8023-org-specific power via mdi information in LLDP TLV",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "tlv-media-capabilities": {
+                                  "description": "Enclosing container for configuration and state data for    LLDP tlv media capabilities",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "config": {
+                                      "description": "Configuration data for tlv media capability on agent type",
+                                      "readOnly": false,
+                                      "type": "object",
+                                      "properties": {
+                                        "network-policy": {
+                                          "description": "Network policy information configured on the port for connected media endpoint. Following network policy will be supported VLAN ID, Priority Tagging, VLAN DSCP",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "location": {
+                                          "description": "Media Tlv type Location information configured for the port",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "inventory": {
+                                          "description": "Includes the TLV for information like hardware revision, software revision etc based on the current hardware platform and the software version",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "media-capabilities": {
+                                          "description": "Includes various media-capabilities of the box for the neighbor",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "extended-power-via-mdi": {
+                                          "description": "For PoE-capable devices, this TLV includes Power Type Field, Power Source Field, Priority field etc",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "state": {
+                                      "description": "Operational state data for LLDP agent media capabilities on each    interface",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "network-policy": {
+                                          "description": "Network policy information configured on the port for connected media endpoint. Following network policy will be supported VLAN ID, Priority Tagging, VLAN DSCP",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "location": {
+                                          "description": "Media Tlv type Location information configured for the port",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "inventory": {
+                                          "description": "Includes the TLV for information like hardware revision, software revision etc based on the current hardware platform and the software version",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "media-capabilities": {
+                                          "description": "Includes various media-capabilities of the box for the neighbor",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "extended-power-via-mdi": {
+                                          "description": "For PoE-capable devices, this TLV includes Power Type Field, Power Source Field, Priority field etc",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "not-set",
+                                            "select",
+                                            "unselect"
+                                          ],
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "agent-type"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

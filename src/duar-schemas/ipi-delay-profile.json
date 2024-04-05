@@ -1,0 +1,387 @@
+{
+  "title": "ipi-delay-profile",
+  "description": "Datamodel for configuring the delay measurement profile",
+  "type": "object",
+  "properties": {
+    "ipi-delay-profile:delay-profiles": {
+      "description": "Top level container for the DELAY profile configuration and    operational data",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "delay-profile": {
+          "description": "This defines a YANG data model forcreating a Delay interfaces profile",
+          "readOnly": false,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "profile-type": {
+                "description": "The profile type for delay",
+                "readOnly": false,
+                "path": "../config/profile-type",
+                "type": "string",
+                "mandatory": false
+              },
+              "config": {
+                "description": "configuration data for the DELAY profile",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "profile-type": {
+                    "description": "The profile type for delay",
+                    "readOnly": false,
+                    "enum": [
+                      "interfaces"
+                    ],
+                    "mandatory": false
+                  }
+                }
+              },
+              "state": {
+                "description": "Operational state data of the DELAY profile",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "profile-type": {
+                    "description": "The profile type for delay",
+                    "readOnly": true,
+                    "enum": [
+                      "interfaces"
+                    ],
+                    "mandatory": false
+                  }
+                }
+              },
+              "profile-parameters": {
+                "description": "Definition of delay profile parameters",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "burst-interval": {
+                        "description": "Configure the burst-interval",
+                        "readOnly": false,
+                        "minimum": 1000,
+                        "maximum": 15000,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "burst-count": {
+                        "description": "Configure the burst-count",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 5,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "interval": {
+                        "description": "Configure the computation interval",
+                        "readOnly": false,
+                        "minimum": 30,
+                        "maximum": 3600,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "mode": {
+                        "description": "Set the measurement mode",
+                        "readOnly": false,
+                        "enum": [
+                          "one-way",
+                          "two-way"
+                        ],
+                        "mandatory": false
+                      },
+                      "sender-port": {
+                        "description": "Configure the computation interval",
+                        "readOnly": false,
+                        "minimum": 1025,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "burst-interval": {
+                        "description": "Configure the burst-interval",
+                        "readOnly": true,
+                        "minimum": 1000,
+                        "maximum": 15000,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "burst-count": {
+                        "description": "Configure the burst-count",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 5,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "interval": {
+                        "description": "Configure the computation interval",
+                        "readOnly": true,
+                        "minimum": 30,
+                        "maximum": 3600,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "mode": {
+                        "description": "Set the measurement mode",
+                        "readOnly": true,
+                        "enum": [
+                          "one-way",
+                          "two-way"
+                        ],
+                        "mandatory": false
+                      },
+                      "sender-port": {
+                        "description": "Configure the computation interval",
+                        "readOnly": true,
+                        "minimum": 1025,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                }
+              },
+              "periodic-advertisement": {
+                "description": "Definition of delay profile parameters",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "disable": {
+                        "description": "Disable the periodic advertisement",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "threshold": {
+                        "description": "Configure the periodic advertisement threshold",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 100,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "minimum-change": {
+                        "description": "Configure the advertisement minimum-change in microseconds (default=1000)",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 10000,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "disable": {
+                        "description": "Disable the periodic advertisement",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "threshold": {
+                        "description": "Configure the periodic advertisement threshold",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 100,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "minimum-change": {
+                        "description": "Configure the advertisement minimum-change in microseconds (default=1000)",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 10000,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                }
+              },
+              "accelerated-advertisement": {
+                "description": "Definition of delay profile parameters",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "enable": {
+                        "description": "Enable the accelerated advertisement",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": true
+                      },
+                      "threshold": {
+                        "description": "Configure the accelerated advertisement threshold",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 100,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "minimum-change": {
+                        "description": "Configure the advertisement minimum-change in microseconds (default=1000)",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 10000,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "enable": {
+                        "description": "Enable the accelerated advertisement",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": true
+                      },
+                      "threshold": {
+                        "description": "Configure the accelerated advertisement threshold",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 100,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "minimum-change": {
+                        "description": "Configure the advertisement minimum-change in microseconds (default=1000)",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 10000,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "profile-type"
+            ]
+          },
+          "maxItems": 1
+        },
+        "delay-profile-clients": {
+          "description": "TWAMP client delay profile Configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Delay profile configuration data for TWAMP client",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "delay-profile-enable": {
+                  "description": "Enables TWAMP Client delay profile",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                },
+                "burst-interval": {
+                  "description": "Configure the burst-interval",
+                  "readOnly": false,
+                  "minimum": 1000,
+                  "maximum": 15000,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "burst-count": {
+                  "description": "Configure the burst-count",
+                  "readOnly": false,
+                  "minimum": 1,
+                  "maximum": 5,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for TWAMP Client delay profile status data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "delay-profile-enable": {
+                  "description": "Enables TWAMP Client delay profile",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                },
+                "burst-interval": {
+                  "description": "Configure the burst-interval",
+                  "readOnly": true,
+                  "minimum": 1000,
+                  "maximum": 15000,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "burst-count": {
+                  "description": "Configure the burst-count",
+                  "readOnly": true,
+                  "minimum": 1,
+                  "maximum": 5,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

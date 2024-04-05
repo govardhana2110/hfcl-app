@@ -1,0 +1,139 @@
+{
+  "title": "ipi-pbr",
+  "description": "This module provides Policy Based Routing configurations",
+  "type": "object",
+  "properties": {
+    "ipi-pbr:pbr": {
+      "description": "Container for all Policy Based Routing configuration",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "config": {
+          "description": "Configuration data for pbr feature enable",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "description": "Use this attribute to enable pbr support",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            }
+          }
+        },
+        "state": {
+          "description": "Operational state data for pbr feature enable",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "description": "Use this attribute to enable pbr support",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Containers that holds all interfaces configuration for pbr",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "Interface list to hold pbr configuration",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Attribute to specify interface name",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for pbr interface",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Attribute to specify interface name",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "route-map-name": {
+                        "description": "Use this attribute to set ip policy for route-map.",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "route-map-v6-name": {
+                        "description": "Use this attribute to set ipv6 policy for route-map.",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for pbr interface",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Attribute to specify interface name",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "route-map-name": {
+                        "description": "Use this attribute to set ip policy for route-map.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "route-map-v6-name": {
+                        "description": "Use this attribute to set ipv6 policy for route-map.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

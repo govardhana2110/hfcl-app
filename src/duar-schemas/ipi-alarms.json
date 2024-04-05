@@ -1,0 +1,102 @@
+{
+  "title": "ipi-alarms",
+  "description": "Datamodel for operational state data related to alarms that the device    is reporting",
+  "type": "object",
+  "properties": {
+    "ipi-alarms:alarms": {
+      "description": "Top-level container for operational state data related to alarms that    the device is reporting",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "alarm": {
+          "description": "List of alarms, keyed by a unique id",
+          "readOnly": true,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "References the unique alarm id",
+                "readOnly": true,
+                "path": "../state/id",
+                "type": "string",
+                "mandatory": false
+              },
+              "state": {
+                "description": "Operational state data for a device alarm",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "Unique ID for the alarm",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "resource": {
+                    "description": "The item that is under alarm within the device",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "text": {
+                    "description": "The string used to inform operators about the alarm",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "time-created": {
+                    "description": "The time at which the alarm was raised by the system. This value is expressed relative to the Unix Epoch",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "alarm-reported-timestamp": {
+                    "description": "The date-time at which the alarm was raised by the system",
+                    "readOnly": true,
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "alarm-severity": {
+                    "description": "The severity level indicating the criticality and impact of the alarm",
+                    "readOnly": true,
+                    "enum": [
+                      "CRITICAL",
+                      "MAJOR",
+                      "MINOR",
+                      "WARNING",
+                      "UNKNOWN"
+                    ],
+                    "mandatory": false
+                  },
+                  "type-id": {
+                    "description": "The abbreviated name of the alarm",
+                    "readOnly": true,
+                    "enum": [
+                      "AIS",
+                      "EQPT",
+                      "LOS",
+                      "OTS",
+                      "OPWR",
+                      "UNKNOWN"
+                    ],
+                    "mandatory": false
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "id"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

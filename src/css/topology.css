@@ -1,0 +1,113 @@
+.topologyConfigTab{
+  position: fixed;
+    top: 17%;
+    left: 12%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    height: -webkit-fill-available;
+    z-index: 2000;
+}
+.bgpLeftPanel{
+  flex: 1;
+  background-color: #d5d4e575;
+  position: fixed;
+  height: 62%;
+  
+}
+.bgpRightPanel{
+  flex:5;
+  margin-left: 24%;
+}
+.bgpLeftPanelHeader{
+  background: #004f68;
+  border-radius: 2px;
+  padding: 10px;
+  text-align: center;
+  margin: 5px;
+  width: 200px;
+  color: white;
+}
+.bgpLeftPanelHeader:hover{
+  cursor: pointer;
+  box-shadow: rgba(194, 100, 100, 0.1) 0px 1px 3px inset;
+  color: white;
+  padding-right: 2px;
+  background: #028bb4;
+}
+.bgpConfigParameterLabel{
+  font-size: medium;
+  width: 150px;
+  color: darkslategrey;
+  font-weight: 500;
+}
+.configureTopology{
+  display: flex;
+    background-color: red;
+    width: fit-content;
+    padding: 6px;
+    text-align: center;
+    margin-left: 91%;
+    bottom: 2%;
+    border-radius: 2px;
+    border-right-width: 2px;
+    right: 2%;
+    color: white;
+}
+.addAddressButton{
+  border: 0;
+  background: #bccfc9;
+  border-radius: 4px;
+}
+.addressFamilyDropdown{
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid rgb(204, 204, 204);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px inset;
+  background-color: rgb(249, 249, 249);
+  color: rgb(85, 85, 85);
+  font-weight: 100;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  height: 34px;
+  border: 0;
+}
+.BgpConfigRightTopHeader{
+  font-weight: 600;
+}
+.tableInput{
+  border: 0;
+  border-bottom: 2px solid grey;
+}
+.refreshTopology{
+  position: fixed;
+  right: 3%;
+  top: 3%;
+  border: 0;
+  color: white;
+  background: #32BEA6;
+  padding: 7px;
+  border-radius: 2px;
+}
+.refreshTopology:hover{
+  cursor: pointer;
+  background-color: #279280;
+}
+/* CSS for the hover message tooltip */
+.custom-node-label {
+  /* background-color: #ffffff; */
+  border: 1px solid #cccccc;
+  padding: 4px;
+  font-size: 12px;
+}
+
+/* Define a class for your router icon (if needed) */
+.router-icon {
+  /* Add styles for your router icon */
+}

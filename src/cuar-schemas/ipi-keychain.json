@@ -1,0 +1,417 @@
+{
+  "title": "ipi-keychain",
+  "description": "Datamodel for Key-Chain configurations for routing protocol    authentication",
+  "type": "object",
+  "properties": {
+    "ipi-keychain:key-chains": {
+      "description": "All configured key-chains on the device",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "key-chain": {
+          "description": "List of key-chains",
+          "readOnly": false,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "key-chain name",
+                "readOnly": false,
+                "path": "../config/name",
+                "type": "string",
+                "mandatory": false
+              },
+              "config": {
+                "description": "Configuration parameters for Key-chain",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Use this attribute to configure a key chain with a key chain name",
+                    "readOnly": false,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                }
+              },
+              "state": {
+                "description": "Operational state parameters for Key-chain",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Use this attribute to configure a key chain with a key chain name",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                }
+              },
+              "keys": {
+                "description": "Configuration parameters for the specified keys",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "key-list": {
+                    "description": "Single key in key chain",
+                    "readOnly": false,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "key-id": {
+                          "description": "Use this attribute to manageCOMMA add or delete authentication keys in a key-chain",
+                          "readOnly": false,
+                          "path": "../config/key-id",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "config": {
+                          "description": "Configuration parameters for a specific key-id",
+                          "readOnly": false,
+                          "type": "object",
+                          "oneOf": [
+                            {
+                              "title": "key-string",
+                              "properties": {
+                                "key-string": {
+                                  "description": "Use this attribute to define a password to be used by a key",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 80,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            {
+                              "title": "hexadecimal",
+                              "properties": {
+                                "encrypted": {
+                                  "description": "Use this attribute to pass the key string in hexadecimal string format",
+                                  "readOnly": false,
+                                  "pattern": "0x([0-9a-fA-F]{2})+",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          ],
+                          "properties": {
+                            "key-id": {
+                              "description": "Use this attribute to manageCOMMA add or delete authentication keys in a key-chain",
+                              "readOnly": false,
+                              "minimum": 0,
+                              "maximum": 2147483647,
+                              "type": "number",
+                              "mandatory": false
+                            }
+                          }
+                        },
+                        "state": {
+                          "description": "Operational state parameters for the specified key",
+                          "readOnly": true,
+                          "type": "object",
+                          "oneOf": [
+                            {
+                              "title": "key-string",
+                              "properties": {
+                                "key-string": {
+                                  "description": "Use this attribute to define a password to be used by a key",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 80,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            {
+                              "title": "hexadecimal",
+                              "properties": {
+                                "encrypted": {
+                                  "description": "Use this attribute to pass the key string in hexadecimal string format",
+                                  "readOnly": false,
+                                  "pattern": "0x([0-9a-fA-F]{2})+",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          ],
+                          "properties": {
+                            "key-id": {
+                              "description": "Use this attribute to manageCOMMA add or delete authentication keys in a key-chain",
+                              "readOnly": true,
+                              "minimum": 0,
+                              "maximum": 2147483647,
+                              "type": "number",
+                              "mandatory": false
+                            }
+                          }
+                        },
+                        "accept-lifetime": {
+                          "description": "Lifetime specification for accept-lifetime",
+                          "readOnly": false,
+                          "type": "object",
+                          "properties": {
+                            "config": {
+                              "description": "Configure the accept-lifetime",
+                              "readOnly": false,
+                              "type": "object",
+                              "oneOf": [
+                                {
+                                  "title": "end-time",
+                                  "properties": {
+                                    "end-date-time-for-accept": {
+                                      "description": "Configure the end date-time of the key for accept-lifetime",
+                                      "readOnly": false,
+                                      "pattern": "([0-9]|[01][0-9]|2[0123]):([0-9]|[012345][0-9]):([0-9]|[012345][0-9]) ([A-Z]([a-z]){2,8}) (([12][0-9])|(3[01])|([0][1-9])) ((199[3-9])|(20[012][0-9])|(203[0-5]))",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                {
+                                  "title": "infinite",
+                                  "properties": {
+                                    "infinite-for-accept": {
+                                      "description": "Configure the end date-time of the key for accept-lifetime to be infinite",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                {
+                                  "title": "duration",
+                                  "properties": {
+                                    "duration-for-accept": {
+                                      "description": "Configure the duration of the key for accept-lifetime",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 2147483646,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              ],
+                              "properties": {
+                                "start-date-time-for-accept": {
+                                  "description": "Configure the start date-time of the key for accept-lifetime",
+                                  "readOnly": false,
+                                  "pattern": "([0-9]|[01][0-9]|2[0123]):([0-9]|[012345][0-9]):([0-9]|[012345][0-9]) ([A-Z]([a-z]){2,8}) (([12][0-9])|(3[01])|([0][1-9])) ((199[3-9])|(20[012][0-9])|(203[0-5]))",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state parameters for accept-lifetime",
+                              "readOnly": true,
+                              "type": "object",
+                              "oneOf": [
+                                {
+                                  "title": "end-time",
+                                  "properties": {
+                                    "end-date-time-for-accept": {
+                                      "description": "Configure the end date-time of the key for accept-lifetime",
+                                      "readOnly": false,
+                                      "pattern": "([0-9]|[01][0-9]|2[0123]):([0-9]|[012345][0-9]):([0-9]|[012345][0-9]) ([A-Z]([a-z]){2,8}) (([12][0-9])|(3[01])|([0][1-9])) ((199[3-9])|(20[012][0-9])|(203[0-5]))",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                {
+                                  "title": "infinite",
+                                  "properties": {
+                                    "infinite-for-accept": {
+                                      "description": "Configure the end date-time of the key for accept-lifetime to be infinite",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                {
+                                  "title": "duration",
+                                  "properties": {
+                                    "duration-for-accept": {
+                                      "description": "Configure the duration of the key for accept-lifetime",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 2147483646,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              ],
+                              "properties": {
+                                "start-date-time-for-accept": {
+                                  "description": "Configure the start date-time of the key for accept-lifetime",
+                                  "readOnly": true,
+                                  "pattern": "([0-9]|[01][0-9]|2[0123]):([0-9]|[012345][0-9]):([0-9]|[012345][0-9]) ([A-Z]([a-z]){2,8}) (([12][0-9])|(3[01])|([0][1-9])) ((199[3-9])|(20[012][0-9])|(203[0-5]))",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "send-lifetime": {
+                          "description": "Lifetime specification for send-lifetime",
+                          "readOnly": false,
+                          "type": "object",
+                          "properties": {
+                            "config": {
+                              "description": "Configure the send-lifetime",
+                              "readOnly": false,
+                              "type": "object",
+                              "oneOf": [
+                                {
+                                  "title": "end-time",
+                                  "properties": {
+                                    "end-date-time-for-send": {
+                                      "description": "Configure the end date-time of the key for send-lifetime",
+                                      "readOnly": false,
+                                      "pattern": "([0-9]|[01][0-9]|2[0123]):([0-9]|[012345][0-9]):([0-9]|[012345][0-9]) ([A-Z]([a-z]){2,8}) (([12][0-9])|(3[01])|([0][1-9])) ((199[3-9])|(20[012][0-9])|(203[0-5]))",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                {
+                                  "title": "infinite",
+                                  "properties": {
+                                    "infinite-for-send": {
+                                      "description": "Configure the end date-time of the key for send-lifetime to be infinite",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                {
+                                  "title": "duration",
+                                  "properties": {
+                                    "duration-for-send": {
+                                      "description": "Configure the duration of the key for send-lifetime",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 2147483646,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              ],
+                              "properties": {
+                                "start-date-time-for-send": {
+                                  "description": "Configure the start date-time of the key for send-lifetime",
+                                  "readOnly": false,
+                                  "pattern": "([0-9]|[01][0-9]|2[0123]):([0-9]|[012345][0-9]):([0-9]|[012345][0-9]) ([A-Z]([a-z]){2,8}) (([12][0-9])|(3[01])|([0][1-9])) ((199[3-9])|(20[012][0-9])|(203[0-5]))",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state parameters for send-lifetime",
+                              "readOnly": true,
+                              "type": "object",
+                              "oneOf": [
+                                {
+                                  "title": "end-time",
+                                  "properties": {
+                                    "end-date-time-for-send": {
+                                      "description": "Configure the end date-time of the key for send-lifetime",
+                                      "readOnly": false,
+                                      "pattern": "([0-9]|[01][0-9]|2[0123]):([0-9]|[012345][0-9]):([0-9]|[012345][0-9]) ([A-Z]([a-z]){2,8}) (([12][0-9])|(3[01])|([0][1-9])) ((199[3-9])|(20[012][0-9])|(203[0-5]))",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                {
+                                  "title": "infinite",
+                                  "properties": {
+                                    "infinite-for-send": {
+                                      "description": "Configure the end date-time of the key for send-lifetime to be infinite",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                {
+                                  "title": "duration",
+                                  "properties": {
+                                    "duration-for-send": {
+                                      "description": "Configure the duration of the key for send-lifetime",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 2147483646,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              ],
+                              "properties": {
+                                "start-date-time-for-send": {
+                                  "description": "Configure the start date-time of the key for send-lifetime",
+                                  "readOnly": true,
+                                  "pattern": "([0-9]|[01][0-9]|2[0123]):([0-9]|[012345][0-9]):([0-9]|[012345][0-9]) ([A-Z]([a-z]){2,8}) (([12][0-9])|(3[01])|([0][1-9])) ((199[3-9])|(20[012][0-9])|(203[0-5]))",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "keyFields": [
+                        "key-id"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "name"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

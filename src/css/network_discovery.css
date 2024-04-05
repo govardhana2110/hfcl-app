@@ -1,0 +1,40 @@
+.title {
+  color: #344767;
+  font-weight: 600;
+  margin-bottom: 12px;
+  margin-top: 15px;
+}
+
+.fields {
+  background-color: white;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+}
+
+@media only screen and (max-width: 768px) {
+  .fields {
+      width: 47%;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .fields {
+      width: 34%;
+  }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+  .fields {
+      width: 30%;
+  }
+}
+
+
+
+
+@media only screen and (min-width: 2560px) {
+  .fields {
+      width: 19%;
+  }
+}

@@ -1,0 +1,315 @@
+{
+  "title": "ipi-seamless-bfd",
+  "description": "Datamodel for Seamless BFD",
+  "type": "object",
+  "properties": {
+    "ipi-seamless-bfd:seamless-bfd": {
+      "description": "Top container for sbfd related configuration",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "state": {
+          "description": "Operational container for S-BFD Reflector Dicriminator",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "remote-discriminator": {
+              "description": null,
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "minLength": 1,
+                "maxLength": 1965,
+                "pattern": "[^?' =,>|]+",
+                "type": "string",
+                "mandatory": false
+              }
+            }
+          }
+        },
+        "sr-policies": {
+          "description": "SR S-BFD policy configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "sr-policy": {
+              "description": "SR S-BFD policy configurations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "lsp-type": {
+                    "description": "This attribute is used to configure lsp type of the SR S-BFD session",
+                    "readOnly": false,
+                    "path": "../config/lsp-type",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "sr-policy-name": {
+                    "description": "This attribute is used to configure policy-name of the SR S-BFD session",
+                    "readOnly": false,
+                    "path": "../config/sr-policy-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration container for SR S-BFD",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "lsp-type": {
+                        "description": "This attribute is used to configure lsp type of the SR SBFD session",
+                        "readOnly": false,
+                        "enum": [
+                          "sr"
+                        ],
+                        "mandatory": false
+                      },
+                      "sr-policy-name": {
+                        "description": "This attribute is used to configure policy name of the SR S-BFD session",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational container for SR S-BFD",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "lsp-type": {
+                        "description": "This attribute is used to configure lsp type of the SR SBFD session",
+                        "readOnly": true,
+                        "enum": [
+                          "sr"
+                        ],
+                        "mandatory": false
+                      },
+                      "sr-policy-name": {
+                        "description": "This attribute is used to configure policy name of the SR S-BFD session",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 32,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "session-attributes": {
+                    "description": "S-BFD session attributes",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration container for SBFD session attributes",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "admin-down": {
+                            "description": "This attribute is used to shutdown selected S-BFD session",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational container for SBFD session attributes",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "admin-down": {
+                            "description": "This attribute is used to shutdown selected S-BFD session",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "intervals": {
+                        "description": "Intervals values for the S-BFD sessions",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "interval": {
+                            "description": "Intervals values for the S-BFD sessions",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "minimum-tx": {
+                                  "description": "This attribute holds minimum transmission interval value",
+                                  "readOnly": false,
+                                  "path": "../config/minimum-tx",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "detection-multiplier": {
+                                  "description": "This attribute is multiplied with minimum tx value to get detection time",
+                                  "readOnly": false,
+                                  "path": "../config/detection-multiplier",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration container for S-BFD intervals",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "minimum-tx": {
+                                      "description": "This attribute holds minimum transmission interval value",
+                                      "readOnly": false,
+                                      "minimum": 3,
+                                      "maximum": 4294967,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "detection-multiplier": {
+                                      "description": "This attribute is multiplied with minimum tx value to get detection time",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 255,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational container for S-BFD intervals",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "minimum-tx": {
+                                      "description": "This attribute holds minimum transmission interval value",
+                                      "readOnly": true,
+                                      "minimum": 3,
+                                      "maximum": 4294967,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "detection-multiplier": {
+                                      "description": "This attribute is multiplied with minimum tx value to get detection time",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 255,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "minimum-tx",
+                                "detection-multiplier"
+                              ]
+                            },
+                            "maxItems": 1
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "lsp-type",
+                  "sr-policy-name"
+                ]
+              }
+            }
+          }
+        },
+        "local-discriminators": {
+          "description": "local discriminators values for the S-BFD session",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "local-discriminator": {
+              "description": "local discriminator values for the S-BFD session",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "discriminator": {
+                    "description": "This attribute is used to configure local discriminator value for reflector",
+                    "readOnly": false,
+                    "path": "../config/discriminator",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration container for S-BFD discriminator",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "discriminator": {
+                        "description": "This attribute is used to configure local discriminator value for reflector",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "required-min-rx-interval": {
+                        "description": "This attribute is used to configure required minimum rx interval value for reflector",
+                        "readOnly": false,
+                        "minimum": 3,
+                        "maximum": 999,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational container for S-BFD discriminator",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "discriminator": {
+                        "description": "This attribute is used to configure local discriminator value for reflector",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "required-min-rx-interval": {
+                        "description": "This attribute is used to configure required minimum rx interval value for reflector",
+                        "readOnly": true,
+                        "minimum": 3,
+                        "maximum": 999,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "discriminator"
+                ]
+              },
+              "maxItems": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

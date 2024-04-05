@@ -1,0 +1,286 @@
+{
+  "title": "ipi-mld-snooping",
+  "description": "Datamodel for MLD Snooping object",
+  "type": "object",
+  "properties": {
+    "ipi-mld-snooping:mld-snooping": {
+      "description": "MLD Snooping Top Container",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "global": {
+          "description": "MLD Snooping Global Configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "MLD Snooping config container for global configurations",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "disable-mld-snooping": {
+                  "description": "Use this attribute to enable MLD Snooping. When this command is given in the Configure mode, MLD Snooping is enabled at the switch level. When this attribute is given at the VLAN interface level, 5MLD Snooping is enabled for that VLAN.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "disable-report-suppression": {
+                  "description": "Use this attribute to enable report suppression for MLD version 1.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "MLD Snooping state container for global configurations",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "disable-mld-snooping": {
+                  "description": "Use this attribute to enable MLD Snooping. When this command is given in the Configure mode, MLD Snooping is enabled at the switch level. When this attribute is given at the VLAN interface level, 5MLD Snooping is enabled for that VLAN.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "disable-report-suppression": {
+                  "description": "Use this attribute to enable report suppression for MLD version 1.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "MLD Snooping Debug Configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "MLD Snooping config container for debug configurations",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Use this attribute to enable mld snooping debugging configurations",
+                  "readOnly": false,
+                  "type": "string",
+                  "bits": {
+                    "decode": "0",
+                    "encode": "1",
+                    "events": "2",
+                    "fsm": "3",
+                    "tib": "4"
+                  },
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "MLD Snooping state container for debug configurations",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Use this attribute to enable mld snooping debugging configurations",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "decode": "0",
+                    "encode": "1",
+                    "events": "2",
+                    "fsm": "3",
+                    "tib": "4"
+                  },
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Use this attribute to display mld snooping terminal debugging information.",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "decode": "0",
+                    "encode": "1",
+                    "events": "2",
+                    "fsm": "3",
+                    "tib": "4"
+                  },
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "MLD Snooping Interface Configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "MLD Snooping Interface instance configurations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "This attribute defines the interface where MLD Snooping is configured",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "MLD Snooping config container for interface configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "This attribute defines the interface where MLD Snooping is configured",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mld-snooping": {
+                        "description": "Use this attribute to enable MLD Snooping. When this attribute is given at the VLAN interface level, MLD Snooping is enabled for that VLAN.",
+                        "readOnly": false,
+                        "enum": [
+                          "disable",
+                          "enable"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-fast-leave": {
+                        "description": "Use this attribute to enable MLD Snooping fast-leave processing. Fast-leave processing is analogous to immediateleave processing the MLD group-membership is removed, as soon as an MLD leave group message is received without sending out a group-specific query.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "report-suppression": {
+                        "description": "Use this attribute to enable or disable report suppression for MLD version 1, and 2 reports. By default report suppression is enabled.",
+                        "readOnly": false,
+                        "enum": [
+                          "disable",
+                          "enable"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-querier": {
+                        "description": "Use this attribute to enable MLD querier operation on a subnet (VLAN) when no multicast routing protocol is configured in the subnet VLAN. When enabled, the MLD Snooping querier sends out periodic MLD queries for all interfaces on that VLAN. The MLD Snooping querier uses the 0.0.0.0 source IP address, because it masquerades as a proxy MLD querier for faster network convergence. It does not start or automatically cease the MLD querier operation if it detects a query message from a multicast router. It restarts as MLD snooping querier if no queries are seen within another querier interval",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "mrouter-interface-name": {
+                        "description": "Use this attribute to statically configure the specified VLAN constituent interface as a multicast router interface for MLD Snooping in that VLAN",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "MLD Snooping state container for interface configurations",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "This attribute defines the interface where MLD Snooping is configured",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mld-snooping": {
+                        "description": "Use this attribute to enable MLD Snooping. When this attribute is given at the VLAN interface level, MLD Snooping is enabled for that VLAN.",
+                        "readOnly": true,
+                        "enum": [
+                          "disable",
+                          "enable"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-fast-leave": {
+                        "description": "Use this attribute to enable MLD Snooping fast-leave processing. Fast-leave processing is analogous to immediateleave processing the MLD group-membership is removed, as soon as an MLD leave group message is received without sending out a group-specific query.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "report-suppression": {
+                        "description": "Use this attribute to enable or disable report suppression for MLD version 1, and 2 reports. By default report suppression is enabled.",
+                        "readOnly": true,
+                        "enum": [
+                          "disable",
+                          "enable"
+                        ],
+                        "mandatory": false
+                      },
+                      "enable-querier": {
+                        "description": "Use this attribute to enable MLD querier operation on a subnet (VLAN) when no multicast routing protocol is configured in the subnet VLAN. When enabled, the MLD Snooping querier sends out periodic MLD queries for all interfaces on that VLAN. The MLD Snooping querier uses the 0.0.0.0 source IP address, because it masquerades as a proxy MLD querier for faster network convergence. It does not start or automatically cease the MLD querier operation if it detects a query message from a multicast router. It restarts as MLD snooping querier if no queries are seen within another querier interval",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "mrouter-interface-name": {
+                        "description": "Use this attribute to statically configure the specified VLAN constituent interface as a multicast router interface for MLD Snooping in that VLAN",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

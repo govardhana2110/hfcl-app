@@ -1,0 +1,6 @@
+{
+  "title": "ipi-if-aggregate",
+  "description": "Interface level configurations for LAG",
+  "type": "object",
+  "properties": {}
+}

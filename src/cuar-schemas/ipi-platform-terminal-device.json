@@ -1,0 +1,2657 @@
+{
+  "title": "ipi-platform-terminal-device",
+  "description": "Coherent Optics Terminal Device",
+  "type": "object",
+  "properties": {
+    "ipi-platform-terminal-device:terminal-device": {
+      "description": "Container for the terminal devices",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "coherent-modules": {
+          "description": "Container for coherent modules",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "coherent-module": {
+              "description": "A list to store all info about coherent-modules",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "slot-index": {
+                    "description": "Index to select a optical module slot.",
+                    "readOnly": false,
+                    "path": "../config/slot-index",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for coherent module",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "slot-index": {
+                        "description": "Index to select a optical module slot.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 255,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "service-enable": {
+                        "description": "Use this attribute to enable or disable service for controller optical module",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Use this attribute to describe a coherent optical slot.",
+                        "readOnly": false,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "network-interface-loopback-type": {
+                        "description": "Use this attribute to set all the network interfaces loopback type.",
+                        "readOnly": false,
+                        "enum": [
+                          "none",
+                          "shallow",
+                          "deep"
+                        ],
+                        "mandatory": false
+                      },
+                      "host-interface-loopback-type": {
+                        "description": "Use this attribute to set all the host interfaces loopback type.",
+                        "readOnly": false,
+                        "enum": [
+                          "none",
+                          "shallow",
+                          "deep"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for coherent module",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "counters": {
+                        "description": "Terminal device module event counters",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "events": {
+                            "description": "Operational state data for module event counters",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "checksum-fault": {
+                                "description": "Specifies checksum fault event count value.",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "hardware-fault": {
+                                "description": "Specifies hardware fault event count value.",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "host-lane-out-of-alignment": {
+                                "description": "Specifies host lane out of alignment event count value.",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "hardware-interlock": {
+                                "description": "Specifies hardware interlock event count value.",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "initialization-fault": {
+                                "description": "Specifies initialization fault event count value.",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "over-temperature-fault": {
+                                "description": "Specifies over temperature fault event count value.",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "power-supply-fault": {
+                                "description": "Specifies power supply fault event count value.",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "rx-loss-of-signal": {
+                                "description": "Specifies rx loss of signal event count value.",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "rx-network-loss-of-lock": {
+                                "description": "Specifies rx network loss of lock event count value.",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "tx-host-loss-of-lock": {
+                                "description": "Specifies tx host loss of lock event count value.",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "tx-los-functionality": {
+                                "description": "Specifies tx loss of signal functionality event count value.",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "slot-index": {
+                        "description": "Index to select a optical module slot.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 255,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "service-enable": {
+                        "description": "Use this attribute to enable or disable service for controller optical module",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Use this attribute to describe a coherent optical slot.",
+                        "readOnly": true,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "network-interface-loopback-type": {
+                        "description": "Use this attribute to set all the network interfaces loopback type.",
+                        "readOnly": true,
+                        "enum": [
+                          "none",
+                          "shallow",
+                          "deep"
+                        ],
+                        "mandatory": false
+                      },
+                      "host-interface-loopback-type": {
+                        "description": "Use this attribute to set all the host interfaces loopback type.",
+                        "readOnly": true,
+                        "enum": [
+                          "none",
+                          "shallow",
+                          "deep"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "module-info": {
+                    "description": "Terminal device module info container",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data for module info",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "host-interface-count": {
+                            "description": "Specifies the number of ethernet non-optical ports supported for the optical interface.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "network-interface-count": {
+                            "description": "Number of optical channel interfaces.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "coherent-module-type": {
+                            "description": "Specifies the coherent optical module Type, currently supported module types are ACO and DCO.",
+                            "readOnly": true,
+                            "enum": [
+                              "UNKNOWN",
+                              "DCO",
+                              "ACO",
+                              "NON_COHERENT"
+                            ],
+                            "mandatory": false
+                          },
+                          "presence": {
+                            "description": "Specifies whether coherent optical module is Present in the slot.",
+                            "readOnly": true,
+                            "enum": [
+                              "present",
+                              "not-present",
+                              "unknown"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "module-alarms": {
+                    "description": "Terminal device module alarms container",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data for module alarms",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "general-status": {
+                            "description": "Specifies the current module general status, if any fault/status is present.",
+                            "readOnly": true,
+                            "type": "string",
+                            "bits": {
+                              "hw-interlock": "0",
+                              "tx-loss-of-signal-functionality": "1",
+                              "rx-loss-of-signal": "2",
+                              "rx-network-loss-of-lock": "3",
+                              "tx-host-loss-of-lock": "4",
+                              "hostlane-out-of-alignment": "5"
+                            },
+                            "mandatory": false
+                          },
+                          "module-fault-status": {
+                            "description": "Specifies the current module fault status, if any fault/status is present.",
+                            "readOnly": true,
+                            "type": "string",
+                            "bits": {
+                              "over-temperature-fault": "0",
+                              "hardware-fault": "1",
+                              "initialization-fault": "2",
+                              "power-supply-fault": "3",
+                              "checksum-fault": "4"
+                            },
+                            "mandatory": false
+                          },
+                          "temperature": {
+                            "description": "Specifies current module temperature alarm/warning status, according to the threshold value.",
+                            "readOnly": true,
+                            "enum": [
+                              "temperature-low-alarm",
+                              "temperature-low-waring",
+                              "temperature-high-warning",
+                              "temperature-high-alarm"
+                            ],
+                            "mandatory": false
+                          },
+                          "voltage": {
+                            "description": "Specifies current module voltage alarm/warning status, according to the threshold value.",
+                            "readOnly": true,
+                            "enum": [
+                              "power-low-alarm",
+                              "power-low-waring",
+                              "power-high-warning",
+                              "power-high-alarm"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "monitor-thresholds": {
+                    "description": "Terminal device module status container",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "temperature": {
+                        "description": "Terminal device module monitor temperature thresholds container",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "state": {
+                            "description": "Operational state data for module monitor temperature thresholds",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "counters": {
+                                "description": "Module event temperature related counters",
+                                "readOnly": true,
+                                "type": "object",
+                                "properties": {
+                                  "events": {
+                                    "description": "Operational state data for module event temperature related counters",
+                                    "readOnly": true,
+                                    "type": "object",
+                                    "properties": {
+                                      "high-alarm": {
+                                        "description": "Specifies temperature high alarm event count value.",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 4294967295,
+                                        "mandatory": false
+                                      },
+                                      "high-warning": {
+                                        "description": "Specifies temperature high warning event count value.",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 4294967295,
+                                        "mandatory": false
+                                      },
+                                      "low-alarm": {
+                                        "description": "Specifies temperature low alarm event count value.",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 4294967295,
+                                        "mandatory": false
+                                      },
+                                      "low-warning": {
+                                        "description": "Specifies temperature low warning event count value.",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 4294967295,
+                                        "mandatory": false
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "high-alarm": {
+                                "description": "Specifies current module temperature high alarm threshold value.",
+                                "readOnly": true,
+                                "fraction-digits": "2",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "high-warning": {
+                                "description": "Specifies current module temperature high warning threshold value.",
+                                "readOnly": true,
+                                "fraction-digits": "2",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "low-alarm": {
+                                "description": "Specifies current module temperature low alarm threshold value.",
+                                "readOnly": true,
+                                "fraction-digits": "2",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "low-warning": {
+                                "description": "Specifies current module temperature low warning threshold value.",
+                                "readOnly": true,
+                                "fraction-digits": "2",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "voltage": {
+                        "description": "Terminal device module monitor voltage thresholds container",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "state": {
+                            "description": "Operational state data for module monitor voltage thresholds",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "counters": {
+                                "description": "Module event voltage related counters",
+                                "readOnly": true,
+                                "type": "object",
+                                "properties": {
+                                  "events": {
+                                    "description": "Operational state data for module event voltage related counters",
+                                    "readOnly": true,
+                                    "type": "object",
+                                    "properties": {
+                                      "high-alarm": {
+                                        "description": "Specifies power high alarm event count value.",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 4294967295,
+                                        "mandatory": false
+                                      },
+                                      "high-warning": {
+                                        "description": "Specifies power high warning event count value.",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 4294967295,
+                                        "mandatory": false
+                                      },
+                                      "low-alarm": {
+                                        "description": "Specifies power low alarm event count value.",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 4294967295,
+                                        "mandatory": false
+                                      },
+                                      "low-warning": {
+                                        "description": "Specifies power low warning event count value.",
+                                        "readOnly": true,
+                                        "type": "number",
+                                        "minimum": 0,
+                                        "maximum": 4294967295,
+                                        "mandatory": false
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "high-alarm": {
+                                "description": "Specifies current module voltage high alarm threshold value.",
+                                "readOnly": true,
+                                "fraction-digits": "3",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "high-warning": {
+                                "description": "Specifies current module voltage high warning threshold value.",
+                                "readOnly": true,
+                                "fraction-digits": "3",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "low-alarm": {
+                                "description": "Specifies current module voltage low alarm threshold value.",
+                                "readOnly": true,
+                                "fraction-digits": "3",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "low-warning": {
+                                "description": "Specifies current module voltage low warning threshold value.",
+                                "readOnly": true,
+                                "fraction-digits": "3",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "transceiver": {
+                    "description": "Terminal device transceiver container",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data for transceiver",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "firmware-version": {
+                            "description": "Specifies the CFP Vendor Firmware Version.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "vendor-name": {
+                            "description": "Specifies the CFP Vendor Name.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "part-no": {
+                            "description": "Specifies the CFP Vendor Part Number.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "serial-no": {
+                            "description": "Specifies the CFP Vendor Serial Number.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "vendor-oui": {
+                            "description": "Specifies the CFP Vendor OUI.",
+                            "readOnly": true,
+                            "pattern": "[^?'=,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "temperature": {
+                            "description": "Specifies the CFP Module Temperature.",
+                            "readOnly": true,
+                            "fraction-digits": "2",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "power": {
+                            "description": "Specifies the CFP Module Power Supply.",
+                            "readOnly": true,
+                            "fraction-digits": "3",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "present": {
+                            "description": "Indicates Transceiver presence status.",
+                            "readOnly": true,
+                            "enum": [
+                              "present",
+                              "not-present",
+                              "unknown",
+                              "not-applicable"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "optical-port": {
+                    "description": "optical port configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for optical-port",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "shutdown": {
+                            "description": "Indicates if coherent optical module is shutdown or not.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for optical-port",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "shutdown": {
+                            "description": "Indicates if coherent optical module is shutdown or not.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "oper-status": {
+                            "description": "Operational status of the coherent optical module.",
+                            "readOnly": true,
+                            "enum": [
+                              "initialize",
+                              "ready"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "network-interfaces": {
+                    "description": "network-interface configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "interface": {
+                        "description": "A list to store all network-interfaces",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "net-index": {
+                              "description": "Index of network interface in a coherent optical module.",
+                              "readOnly": false,
+                              "path": "../config/net-index",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "network-interface configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "net-index": {
+                                  "description": "Index of network interface in a coherent optical module.",
+                                  "readOnly": false,
+                                  "minimum": 0,
+                                  "maximum": 15,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "differential-encoding": {
+                                  "description": "Enable differential encoding on a optical network interface.",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "fec-mode": {
+                                  "description": "FEC mode for network interface. Default is 15per-denali.",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "15per-everest",
+                                    "15per-denali",
+                                    "otu4-g709",
+                                    "otu4-7per-staircase",
+                                    "25per-hc-sd2"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "frequency": {
+                                  "description": "Specifies the output laser frequency for the optical network interface in terms of Hz, MHz, GHz or THz.",
+                                  "readOnly": false,
+                                  "pattern": "[0-9]{1,15}(\\.[0-9]{1,12})?([MmGgTt])?[Hh][Zz]",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "loopback-type": {
+                                  "description": "Specifies the loopback type of the optical network interface. Default is none.",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "none",
+                                    "shallow",
+                                    "deep"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "losi-enabled": {
+                                  "description": "Enable loss of signal alarm on a network interface.",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "modulation-format": {
+                                  "description": "Specifies the modulation format of the optical signal. Default is dp-16-qam.",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "bpsk",
+                                    "dp-bpsk",
+                                    "qpsk",
+                                    "dp-qpsk",
+                                    "8-qam",
+                                    "dp-8-qam",
+                                    "16-qam",
+                                    "dp-16-qam",
+                                    "32-qam",
+                                    "dp-32-qam",
+                                    "64-qam",
+                                    "dp-64-qam",
+                                    "dp-qpsk-200g"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "operational-mode": {
+                                  "description": "Specifies the operational mode. The specified operational mode must exist in the list of supported operational modes supplied by the device",
+                                  "readOnly": false,
+                                  "minimum": 1,
+                                  "maximum": 9,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "prbs-type": {
+                                  "description": "Simulate random data for transmission across the network interface if set. Default is none.",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "none",
+                                    "prbs7",
+                                    "prbs9",
+                                    "prbs11",
+                                    "prbs15",
+                                    "prbs20",
+                                    "prbs23",
+                                    "prbs31"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "pulse-shaping-rx": {
+                                  "description": "Enable or disable rx pulse shaping of the signal.",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "pulse-shaping-tx": {
+                                  "description": "Use this attribute to to enable or disable pulse shaping",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "soft-tx-disable": {
+                                  "description": "Disable transmission of data on a network interface.",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "target-output-power": {
+                                  "description": "Specifies the output power of the optical network interface.",
+                                  "readOnly": false,
+                                  "fraction-digits": "2",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "link-down": {
+                                  "description": "Configure the link to go down when it exceeds threshold values.",
+                                  "readOnly": false,
+                                  "type": "string",
+                                  "bits": {
+                                    "pre-fec-ber": "0",
+                                    "q-margin": "1",
+                                    "snr": "2",
+                                    "chromatic-dispersion": "3",
+                                    "rx-power": "4"
+                                  },
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "network-interface state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "counters": {
+                                  "description": "Container for network-interface error counters",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "current-uncorrected-blocks": {
+                                      "description": "Specifies the Current Uncorrected Block-Count Value.",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "fec-uncorrected-blocks": {
+                                      "description": "Specifies the Uncorrected Fec Block Count value.",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "otn-sm-bip8-error": {
+                                      "description": "Specifies the OTN Section Monitoring BIP-8 Count Value.",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "net-index": {
+                                  "description": "Index of network interface in a coherent optical module.",
+                                  "readOnly": true,
+                                  "minimum": 0,
+                                  "maximum": 15,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "differential-encoding": {
+                                  "description": "Enable differential encoding on a optical network interface.",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "fec-mode": {
+                                  "description": "FEC mode for network interface. Default is 15per-denali.",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "15per-everest",
+                                    "15per-denali",
+                                    "otu4-g709",
+                                    "otu4-7per-staircase",
+                                    "25per-hc-sd2"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "frequency": {
+                                  "description": "Specifies the output laser frequency for the optical network interface in terms of Hz, MHz, GHz or THz.",
+                                  "readOnly": true,
+                                  "pattern": "[0-9]{1,15}(\\.[0-9]{1,12})?([MmGgTt])?[Hh][Zz]",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "loopback-type": {
+                                  "description": "Specifies the loopback type of the optical network interface. Default is none.",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "none",
+                                    "shallow",
+                                    "deep"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "losi-enabled": {
+                                  "description": "Enable loss of signal alarm on a network interface.",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "modulation-format": {
+                                  "description": "Specifies the modulation format of the optical signal. Default is dp-16-qam.",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "bpsk",
+                                    "dp-bpsk",
+                                    "qpsk",
+                                    "dp-qpsk",
+                                    "8-qam",
+                                    "dp-8-qam",
+                                    "16-qam",
+                                    "dp-16-qam",
+                                    "32-qam",
+                                    "dp-32-qam",
+                                    "64-qam",
+                                    "dp-64-qam",
+                                    "dp-qpsk-200g"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "operational-mode": {
+                                  "description": "Specifies the operational mode. The specified operational mode must exist in the list of supported operational modes supplied by the device",
+                                  "readOnly": true,
+                                  "minimum": 1,
+                                  "maximum": 9,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "prbs-type": {
+                                  "description": "Simulate random data for transmission across the network interface if set. Default is none.",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "none",
+                                    "prbs7",
+                                    "prbs9",
+                                    "prbs11",
+                                    "prbs15",
+                                    "prbs20",
+                                    "prbs23",
+                                    "prbs31"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "pulse-shaping-rx": {
+                                  "description": "Enable or disable rx pulse shaping of the signal.",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "pulse-shaping-tx": {
+                                  "description": "Use this attribute to to enable or disable pulse shaping",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "soft-tx-disable": {
+                                  "description": "Disable transmission of data on a network interface.",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "target-output-power": {
+                                  "description": "Specifies the output power of the optical network interface.",
+                                  "readOnly": true,
+                                  "fraction-digits": "2",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "link-down": {
+                                  "description": "Configure the link to go down when it exceeds threshold values.",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "bits": {
+                                    "pre-fec-ber": "0",
+                                    "q-margin": "1",
+                                    "snr": "2",
+                                    "chromatic-dispersion": "3",
+                                    "rx-power": "4"
+                                  },
+                                  "mandatory": false
+                                },
+                                "line-port": {
+                                  "description": "Reference to the line-side physical port that carries this optical channel.",
+                                  "readOnly": true,
+                                  "path": "/ipi-platform:components/ipi-platform:component/ipi-platform:name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "provisioned-channel-power": {
+                                  "description": "Specifies the current Provisioned Channel Power.",
+                                  "readOnly": true,
+                                  "fraction-digits": "2",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "differential-group-delay": {
+                                  "description": "Specifies the current Differential Group Delay in pico second.",
+                                  "readOnly": true,
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 4294967295,
+                                  "mandatory": false
+                                },
+                                "dsp-oper-status": {
+                                  "description": "Specifies the operational status of the Digital Signal Processor of the network interface in a coherent optical module.",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "no-module",
+                                    "waiting-configuration",
+                                    "booting-first-half",
+                                    "waiting-aco-module",
+                                    "booting-aco-module",
+                                    "waiting-rx-signal",
+                                    "booting-second-half",
+                                    "ready",
+                                    "misc-config"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "osnr": {
+                                  "description": "Specifies the optical signal noise ratio.",
+                                  "readOnly": true,
+                                  "fraction-digits": "2",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "current-q-margin": {
+                                  "description": "Specifies Network RX Q margin.",
+                                  "readOnly": true,
+                                  "fraction-digits": "2",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "current-tx-laser-frequency": {
+                                  "description": "Specifies the current Tx-Laser Frequency.",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "prbs-in-sync": {
+                                  "description": "Specifies the PRBS in SYNC.",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "oper-status": {
+                                  "description": "Specifies the operational status of the network interface in a coherent optical module.",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "unknown",
+                                    "reset",
+                                    "initialize",
+                                    "low-power",
+                                    "high-power-up",
+                                    "tx-off",
+                                    "tx-turn-on",
+                                    "ready",
+                                    "tx-turn-off",
+                                    "high-power-down",
+                                    "fault"
+                                  ],
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "chromatic-dispersion": {
+                              "description": "Container for network-interface chromatic dispersion",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "instant": {
+                                      "description": "Specifies the current Chromatic Dispersion in pico second/nano meter.",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": -2147483648,
+                                      "maximum": 2147483647,
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "input-power": {
+                              "description": "Container for network-interface input power",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "instant": {
+                                      "description": "Specifies the current Input Power.",
+                                      "readOnly": true,
+                                      "fraction-digits": "2",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "output-power": {
+                              "description": "Container for network-interface output power",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "instant": {
+                                      "description": "Specifies the current Output Power.",
+                                      "readOnly": true,
+                                      "fraction-digits": "2",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "post-voa-power": {
+                              "description": "Container for network-interface POST VOA power",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "instant": {
+                                      "description": "Specifies the current POST VOA Power.",
+                                      "readOnly": true,
+                                      "fraction-digits": "2",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "instant-provisioned-channel": {
+                                      "description": "Specifies the current Post VOA Provisioned Channel Power.",
+                                      "readOnly": true,
+                                      "fraction-digits": "2",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "laser-grid": {
+                              "description": "Container for network-interface laser grid",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "slot-width": {
+                                      "description": "Specifies the Grid Spacing.",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "6.25-ghz",
+                                        "12.5-ghz",
+                                        "25-ghz",
+                                        "33-ghz",
+                                        "50-ghz",
+                                        "100-ghz"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "laser-grid": {
+                                      "description": "Specifies the supported Laser Grid.",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "bits": {
+                                        "grid-6.25-ghz": "0",
+                                        "grid-12.5-ghz": "1",
+                                        "grid-25-ghz": "2",
+                                        "grid-33-ghz": "3",
+                                        "grid-50-ghz": "4",
+                                        "grid-100-ghz": "5"
+                                      },
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "laser-info": {
+                              "description": "Container for network-interface laser info",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "laser-age": {
+                                      "description": "Specifies the Tx Laser Age in Percentage.",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 65535,
+                                      "mandatory": false
+                                    },
+                                    "min-laser-freq": {
+                                      "description": "Specifies the Min Laser Frequency.",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "max-laser-freq": {
+                                      "description": "Specifies Max Laser Frequency.",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "ber": {
+                              "description": "Container for network-interface BER",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "current-ber-period": {
+                                      "description": "Specifies the current Bit Error Rate Period in milliseconds.",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "current-post-fec-ber": {
+                                      "description": "Specifies current POST FEC Bit Error Rate per 1e-18 BER Period.",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "current-prbs-ber": {
+                                      "description": "Specifies Current PRBS Bit Error Rate value divided by 1e-18.",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "current-pre-fec-ber": {
+                                      "description": "Specifies the current PRE FEC Bit Error Rate per 1e-18 BER Period.",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "monitor-thresholds": {
+                              "description": "Container for network-interface monitor thresholds",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "config": {
+                                  "description": "Configuration data for network-interface monitor thresholds",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "rx-chromatic-dispersion": {
+                                      "description": "Set rx chromatic-dispersion threshold.",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "rx-q-margin": {
+                                      "description": "Set rx q-margin threshold.",
+                                      "readOnly": false,
+                                      "fraction-digits": "2",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "rx-snr": {
+                                      "description": "Set rx snr threshold.",
+                                      "readOnly": false,
+                                      "fraction-digits": "2",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "counters": {
+                                      "description": "Container for network-interface counters",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "events": {
+                                          "description": "Container for network-interface event counters",
+                                          "readOnly": true,
+                                          "type": "object",
+                                          "properties": {
+                                            "chromatic-dispersion-threshold": {
+                                              "description": "Specifies chromatic dispersion threshold event count value.",
+                                              "readOnly": true,
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "maximum": 4294967295,
+                                              "mandatory": false
+                                            },
+                                            "osnr-threshold": {
+                                              "description": "Specifies osnr threshold event count value.",
+                                              "readOnly": true,
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "maximum": 4294967295,
+                                              "mandatory": false
+                                            },
+                                            "q-margin-threshold": {
+                                              "description": "Specifies Q margin threshold event count value.",
+                                              "readOnly": true,
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "maximum": 4294967295,
+                                              "mandatory": false
+                                            },
+                                            "rx-los": {
+                                              "description": "Specifies rx los event count value.",
+                                              "readOnly": true,
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "maximum": 4294967295,
+                                              "mandatory": false
+                                            }
+                                          }
+                                        },
+                                        "rx-power-threshold-events": {
+                                          "description": "Container for network-interface rx power threshold count",
+                                          "readOnly": true,
+                                          "type": "object",
+                                          "properties": {
+                                            "high-alarm": {
+                                              "description": "Specifies input power high alarm threshold event count value.",
+                                              "readOnly": true,
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "maximum": 4294967295,
+                                              "mandatory": false
+                                            },
+                                            "high-warning": {
+                                              "description": "Specifies input power high warning threshold event count value.",
+                                              "readOnly": true,
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "maximum": 4294967295,
+                                              "mandatory": false
+                                            },
+                                            "low-warning": {
+                                              "description": "Specifies input power low warning threshold event count value.",
+                                              "readOnly": true,
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "maximum": 4294967295,
+                                              "mandatory": false
+                                            },
+                                            "low-alarm": {
+                                              "description": "Specifies input power low alarm threshold event count value.",
+                                              "readOnly": true,
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "maximum": 4294967295,
+                                              "mandatory": false
+                                            }
+                                          }
+                                        },
+                                        "pre-fec-ber-threshold-events": {
+                                          "description": "Container for network-interface PRE FEC BER threshold count",
+                                          "readOnly": true,
+                                          "type": "object",
+                                          "properties": {
+                                            "signal-degrade": {
+                                              "description": "Specifies pre fec ber signal degrade threshold event count value.",
+                                              "readOnly": true,
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "maximum": 4294967295,
+                                              "mandatory": false
+                                            },
+                                            "signal-fail": {
+                                              "description": "Specifies pre fec ber signal fail threshold event count value.",
+                                              "readOnly": true,
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "maximum": 4294967295,
+                                              "mandatory": false
+                                            }
+                                          }
+                                        },
+                                        "tx-power-threshold-events": {
+                                          "description": "Container for network-interface tx power threshold count",
+                                          "readOnly": true,
+                                          "type": "object",
+                                          "properties": {
+                                            "high-alarm": {
+                                              "description": "Specifies output power high alarm threshold event count value.",
+                                              "readOnly": true,
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "maximum": 4294967295,
+                                              "mandatory": false
+                                            },
+                                            "high-warning": {
+                                              "description": "Specifies output power high warning threshold event count value.",
+                                              "readOnly": true,
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "maximum": 4294967295,
+                                              "mandatory": false
+                                            },
+                                            "low-warning": {
+                                              "description": "Specifies output power low warning threshold event count value.",
+                                              "readOnly": true,
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "maximum": 4294967295,
+                                              "mandatory": false
+                                            },
+                                            "low-alarm": {
+                                              "description": "Specifies output power low alarm threshold event count value.",
+                                              "readOnly": true,
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "maximum": 4294967295,
+                                              "mandatory": false
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "rx-chromatic-dispersion": {
+                                      "description": "Set rx chromatic-dispersion threshold.",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "rx-q-margin": {
+                                      "description": "Set rx q-margin threshold.",
+                                      "readOnly": true,
+                                      "fraction-digits": "2",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "rx-snr": {
+                                      "description": "Set rx snr threshold.",
+                                      "readOnly": true,
+                                      "fraction-digits": "2",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "pre-fec-ber-thresholds": {
+                                  "description": "network-interface PRE FEC BER thresholds",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "pre-fec-ber-threshold": {
+                                      "description": "network-interface PRE FEC BER thresholds",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "signal-failure": {
+                                            "description": "Set pre fec ber threshold value for signal failure.",
+                                            "readOnly": false,
+                                            "path": "../config/signal-failure",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "signal-degrade": {
+                                            "description": "Set pre fec ber threshold value for signal degrade.",
+                                            "readOnly": false,
+                                            "path": "../config/signal-degrade",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "clear": {
+                                            "description": "Set pre fec ber threshold value for clear.",
+                                            "readOnly": false,
+                                            "path": "../config/clear",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "config": {
+                                            "description": "Configuration data",
+                                            "readOnly": false,
+                                            "type": "object",
+                                            "properties": {
+                                              "signal-failure": {
+                                                "description": "Set pre fec ber threshold value for signal failure.",
+                                                "readOnly": false,
+                                                "pattern": "[0-9]\\.?[0-9]?[0-9]?e-[0-9][0-9]?",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "signal-degrade": {
+                                                "description": "Set pre fec ber threshold value for signal degrade.",
+                                                "readOnly": false,
+                                                "pattern": "[0-9]\\.?[0-9]?[0-9]?e-[0-9][0-9]?",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "clear": {
+                                                "description": "Set pre fec ber threshold value for clear.",
+                                                "readOnly": false,
+                                                "pattern": "[0-9]\\.?[0-9]?[0-9]?e-[0-9][0-9]?",
+                                                "type": "string",
+                                                "mandatory": false
+                                              }
+                                            }
+                                          },
+                                          "state": {
+                                            "description": "Operational state data",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "signal-failure": {
+                                                "description": "Set pre fec ber threshold value for signal failure.",
+                                                "readOnly": true,
+                                                "pattern": "[0-9]\\.?[0-9]?[0-9]?e-[0-9][0-9]?",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "signal-degrade": {
+                                                "description": "Set pre fec ber threshold value for signal degrade.",
+                                                "readOnly": true,
+                                                "pattern": "[0-9]\\.?[0-9]?[0-9]?e-[0-9][0-9]?",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "clear": {
+                                                "description": "Set pre fec ber threshold value for clear.",
+                                                "readOnly": true,
+                                                "pattern": "[0-9]\\.?[0-9]?[0-9]?e-[0-9][0-9]?",
+                                                "type": "string",
+                                                "mandatory": false
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "keyFields": [
+                                          "signal-failure",
+                                          "signal-degrade",
+                                          "clear"
+                                        ]
+                                      },
+                                      "maxItems": 1
+                                    }
+                                  }
+                                },
+                                "rx-power-thresholds": {
+                                  "description": "network-interface input power thresholds",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "rx-power-threshold": {
+                                      "description": "network-interface input power thresholds",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "high-alarm": {
+                                            "description": "Set input power threshold value for high alarm.",
+                                            "readOnly": false,
+                                            "path": "../config/high-alarm",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "high-warning": {
+                                            "description": "Set input power threshold value for high warning.",
+                                            "readOnly": false,
+                                            "path": "../config/high-warning",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "low-warning": {
+                                            "description": "Set input power threshold value for low warning.",
+                                            "readOnly": false,
+                                            "path": "../config/low-warning",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "low-alarm": {
+                                            "description": "Set input power threshold value for low alarm.",
+                                            "readOnly": false,
+                                            "path": "../config/low-alarm",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "config": {
+                                            "description": "Configuration data",
+                                            "readOnly": false,
+                                            "type": "object",
+                                            "properties": {
+                                              "high-alarm": {
+                                                "description": "Set input power threshold value for high alarm.",
+                                                "readOnly": false,
+                                                "fraction-digits": "2",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "high-warning": {
+                                                "description": "Set input power threshold value for high warning.",
+                                                "readOnly": false,
+                                                "fraction-digits": "2",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "low-warning": {
+                                                "description": "Set input power threshold value for low warning.",
+                                                "readOnly": false,
+                                                "fraction-digits": "2",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "low-alarm": {
+                                                "description": "Set input power threshold value for low alarm.",
+                                                "readOnly": false,
+                                                "fraction-digits": "2",
+                                                "type": "string",
+                                                "mandatory": false
+                                              }
+                                            }
+                                          },
+                                          "state": {
+                                            "description": "Operational state data",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "high-alarm": {
+                                                "description": "Set input power threshold value for high alarm.",
+                                                "readOnly": true,
+                                                "fraction-digits": "2",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "high-warning": {
+                                                "description": "Set input power threshold value for high warning.",
+                                                "readOnly": true,
+                                                "fraction-digits": "2",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "low-warning": {
+                                                "description": "Set input power threshold value for low warning.",
+                                                "readOnly": true,
+                                                "fraction-digits": "2",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "low-alarm": {
+                                                "description": "Set input power threshold value for low alarm.",
+                                                "readOnly": true,
+                                                "fraction-digits": "2",
+                                                "type": "string",
+                                                "mandatory": false
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "keyFields": [
+                                          "high-alarm",
+                                          "high-warning",
+                                          "low-warning",
+                                          "low-alarm"
+                                        ]
+                                      },
+                                      "maxItems": 1
+                                    }
+                                  }
+                                },
+                                "tx-power-threshold": {
+                                  "description": "Container for network-interface output power threshold",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "state": {
+                                      "description": "Operational state data",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "high-alarm": {
+                                          "description": "Specifies current network interface tx output power high alarm threshold.",
+                                          "readOnly": true,
+                                          "fraction-digits": "2",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "high-warning": {
+                                          "description": "Specifies current network interface tx output power high warning threshold.",
+                                          "readOnly": true,
+                                          "fraction-digits": "2",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "low-alarm": {
+                                          "description": "Specifies current network interface tx output power low warning threshold.",
+                                          "readOnly": true,
+                                          "fraction-digits": "2",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "low-warning": {
+                                          "description": "Specifies current network interface tx output power low alarm threshold.",
+                                          "readOnly": true,
+                                          "fraction-digits": "2",
+                                          "type": "string",
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "permissible-rx-power-threshold": {
+                                  "description": "Container for network-interface permissible input power threshold",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "state": {
+                                      "description": "Operational state data",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "high-alarm-max": {
+                                          "description": "Specifies current network interface rx input power maximum permissible high alarm threshold.",
+                                          "readOnly": true,
+                                          "fraction-digits": "2",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "high-alarm-min": {
+                                          "description": "Specifies current network interface rx input power minimum permissible high alarm threshold.",
+                                          "readOnly": true,
+                                          "fraction-digits": "2",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "high-warning-max": {
+                                          "description": "Specifies current network interface rx input power maximum permissible high warning threshold.",
+                                          "readOnly": true,
+                                          "fraction-digits": "2",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "high-warning-min": {
+                                          "description": "Specifies current network interface rx input power minimum permissible high warning threshold.",
+                                          "readOnly": true,
+                                          "fraction-digits": "2",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "low-alarm-max": {
+                                          "description": "Specifies current network interface rx input power maximum permissible low alarm threshold.",
+                                          "readOnly": true,
+                                          "fraction-digits": "2",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "low-alarm-min": {
+                                          "description": "Specifies current network interface rx input power minimum permissible low alarm threshold.",
+                                          "readOnly": true,
+                                          "fraction-digits": "2",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "low-warning-max": {
+                                          "description": "Specifies current network interface rx input power maximum permissible low warning threshold.",
+                                          "readOnly": true,
+                                          "fraction-digits": "2",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "low-warning-min": {
+                                          "description": "Specifies current network interface rx input power minimum permissible low warning threshold.",
+                                          "readOnly": true,
+                                          "fraction-digits": "2",
+                                          "type": "string",
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "channel-alarms": {
+                              "description": "Container for network-interface status",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "chromatic-dispersion": {
+                                      "description": "Specifies current netif chromatic dispersion alarm status.",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    },
+                                    "input-power": {
+                                      "description": "Specifies current netif rx input power alarm/warning status.",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "input-power-low-alarm",
+                                        "input-power-low-warning",
+                                        "input-power-high-warning",
+                                        "input-power-high-alarm"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "output-power": {
+                                      "description": "Specifies current netif tx output power alarm/warning status.",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "output-power-low-alarm",
+                                        "output-power-low-warning",
+                                        "output-power-high-warning",
+                                        "output-power-high-alarm"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "q-margin": {
+                                      "description": "Specifies current netif q-margin alarm status.",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    },
+                                    "pre-fec-ber-signal": {
+                                      "description": "Specifies the signal degrade/fail alarm based on Pre-FEC BER.",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "pre-fec-ber-signal-degrade",
+                                        "pre-fec-ber-signal-failure"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "rx-los": {
+                                      "description": "Specifies current netif rx loss of signal status.",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    },
+                                    "rx-odu": {
+                                      "description": "Specifies current netif rx optical data unit frame status.",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "bits": {
+                                        "backward-defect-indication": "0",
+                                        "alarm-indication-signal": "1",
+                                        "open-connection-indication": "2",
+                                        "locked-defect": "3"
+                                      },
+                                      "mandatory": false
+                                    },
+                                    "rx-opu": {
+                                      "description": "Specifies current netif rx optical payload unit frame status.",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "bits": {
+                                        "payload-Mismatch": "0",
+                                        "client-signal-fail": "1"
+                                      },
+                                      "mandatory": false
+                                    },
+                                    "rx-otu": {
+                                      "description": "Specifies current netif rx optical transport unit frame status.",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "bits": {
+                                        "loss-of-frame": "0",
+                                        "loss-of-multiframe": "1",
+                                        "backward-defect-detection": "2",
+                                        "alarm-indication-signal": "3"
+                                      },
+                                      "mandatory": false
+                                    },
+                                    "rx-training-sequence": {
+                                      "description": "Specifies current netif rx training sequence status.",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "bits": {
+                                        "loss-of-lock": "0"
+                                      },
+                                      "mandatory": false
+                                    },
+                                    "osnr": {
+                                      "description": "Specifies current netif snr alarm status.",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "net-index"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "host-interfaces": {
+                    "description": "host-interfaces configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "interface": {
+                        "description": "A list to store all host-interfaces",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "host-index": {
+                              "description": "Index of host interface in a coherent optical module.",
+                              "readOnly": false,
+                              "path": "../config/host-index",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "host-interface configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "host-index": {
+                                  "description": "Index of host interface in a coherent optical module.",
+                                  "readOnly": false,
+                                  "minimum": 0,
+                                  "maximum": 15,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "fec-type": {
+                                  "description": "Fec type for host-interface. The default value is none.",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "none",
+                                    "rs",
+                                    "fc"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "loopback-type": {
+                                  "description": "Loopback type for host-interface. The default value is none.",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "none",
+                                    "shallow",
+                                    "deep"
+                                  ],
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "host-interface state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "counters": {
+                                  "description": "host-interface counters",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "errors": {
+                                      "description": "host-interface error counters",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "fec-uncorrected-blocks": {
+                                          "description": "Specifies the Host Interface Uncorrected Fec Block count value.",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "events": {
+                                      "description": "Event counters for host-interface",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "deskew-lock-fault": {
+                                          "description": "Specifies deskew lock fault event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "loss-of-align": {
+                                          "description": "Specifies loss of alignment event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "out-of-align": {
+                                          "description": "Specifies out of alignment event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "egress-pcs-events": {
+                                      "description": "Egress PCS host-interface event counters",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "bip-error": {
+                                          "description": "Specifies egress PCS BIP error event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "deskew-error": {
+                                          "description": "Specifies egress PCS deskew error event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "error-blocks-detected": {
+                                          "description": "Specifies egress PCS error blocks detected event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "high-ber": {
+                                          "description": "Specifies egress PCS high BER event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "illegal-alignment-marker": {
+                                          "description": "Specifies egress PCS illegal alignment event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "local-fault": {
+                                          "description": "Specifies egress PCS local fault event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "loss-of-alignment": {
+                                          "description": "Specifies egress PCS loss of alignment event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "loss-of-alignment-marker-lock": {
+                                          "description": "Specifies egress PCS loss of alignment marker lock event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "loss-of-block-lock": {
+                                          "description": "Specifies egress PCS loss of block lock event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "loss-of-frame": {
+                                          "description": "Specifies egress PCS loss of frame event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "loss-of-signal": {
+                                          "description": "Specifies egress PCS loss of signal event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "opu-client-signal-fail": {
+                                          "description": "Specifies egress PCS OPU client signal fail event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "remote-fault": {
+                                          "description": "Specifies egress PCS remote fault event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "ingress-aps-events": {
+                                      "description": "Ingress APS host-interface event counters",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "msg-received": {
+                                          "description": "Specifies ingress APS message received event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "ingress-pcs-events": {
+                                      "description": "Ingress PCS host-interface event counters",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "bip-error": {
+                                          "description": "Specifies ingress PCS BIP error event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "deskew-error": {
+                                          "description": "Specifies ingress PCS deskew error event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "error-blocks-detected": {
+                                          "description": "Specifies ingress PCS error blocks detected event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "high-ber": {
+                                          "description": "Specifies ingress PCS high BER event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "illegal-alignment-marker": {
+                                          "description": "Specifies ingress PCS illegal alignment marker event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "local-fault": {
+                                          "description": "Specifies ingress PCS local fault event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "loss-of-alignment": {
+                                          "description": "Specifies ingress PCS loss of alignment event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "loss-of-alignment-marker-lock": {
+                                          "description": "Specifies ingress PCS loss of alignment marker lock event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "loss-of-block-lock": {
+                                          "description": "Specifies ingress PCS loss of block lock event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "loss-of-frame": {
+                                          "description": "Specifies ingress PCS loss of frame event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "loss-of-signal": {
+                                          "description": "Specifies ingress PCS loss of signal event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "opu-client-signal-fail": {
+                                          "description": "Specifies ingress PCS OPU client signal fail event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "remote-fault": {
+                                          "description": "Specifies ingress PCS remote fault event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "tx-loss-of-lock-events": {
+                                      "description": "TX loss-of-lock host-interface event counters",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "lane0": {
+                                          "description": "Specifies tx host loss of lock lane 0 event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "lane1": {
+                                          "description": "Specifies tx host loss of lock lane 1 event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "lane2": {
+                                          "description": "Specifies tx host loss of lock lane 2 event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "lane3": {
+                                          "description": "Specifies tx host loss of lock lane 3 event count value.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "host-index": {
+                                  "description": "Index of host interface in a coherent optical module.",
+                                  "readOnly": true,
+                                  "minimum": 0,
+                                  "maximum": 15,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "fec-type": {
+                                  "description": "Fec type for host-interface. The default value is none.",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "none",
+                                    "rs",
+                                    "fc"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "loopback-type": {
+                                  "description": "Loopback type for host-interface. The default value is none.",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "none",
+                                    "shallow",
+                                    "deep"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "current-pre-fec-ber": {
+                                  "description": "Specifies the Host Interface current PRE FEC Bit Error Rate per 1e-18 BER Period.",
+                                  "readOnly": true,
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "host-interface-alarms": {
+                              "description": "Host-interface status data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "state": {
+                                  "description": "Host-interface status data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "egress-pcs": {
+                                      "description": "Specifies current Host interface Egress PhysicalCodingSublayer Status.",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "bits": {
+                                        "loss-of-signal": "0",
+                                        "loss-of-frame": "1",
+                                        "illegal-alignment-marker": "2",
+                                        "remote-fault": "3",
+                                        "local-fault": "4",
+                                        "high-BER": "5",
+                                        "BIP-error": "6",
+                                        "deskew-error": "7",
+                                        "loss-of-block-lock": "8",
+                                        "loss-of-alignment-marker-lock": "9",
+                                        "loss-of-alignment": "10",
+                                        "OPU-client-signal-fail": "11",
+                                        "error-blocks-detected": "12"
+                                      },
+                                      "mandatory": false
+                                    },
+                                    "interface-fault": {
+                                      "description": "Specifies current Host interface Fault Status.",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "bits": {
+                                        "tx-host-lol-l0": "0",
+                                        "tx-host-lol-l1": "1",
+                                        "tx-host-lol-l2": "2",
+                                        "tx-host-lol-l3": "3",
+                                        "ingress-aps-msg-rcvd": "4",
+                                        "deskew-lock-fault": "5",
+                                        "out-of-align": "6",
+                                        "loss-of-align": "7"
+                                      },
+                                      "mandatory": false
+                                    },
+                                    "ingress-pcs": {
+                                      "description": "Specifies current Host interface Ingress PhysicalCodingSublayer Status.",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "bits": {
+                                        "loss-of-signal": "0",
+                                        "loss-of-frame": "1",
+                                        "illegal-alignment-marker": "2",
+                                        "remote-fault": "3",
+                                        "local-fault": "4",
+                                        "high-BER": "5",
+                                        "BIP-error": "6",
+                                        "deskew-error": "7",
+                                        "loss-of-block-lock": "8",
+                                        "loss-of-alignment-marker-lock": "9",
+                                        "loss-of-alignment": "10",
+                                        "OPU-client-signal-fail": "11",
+                                        "error-blocks-detected": "12"
+                                      },
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "assignments": {
+                              "description": "Store the network-interface and ethernet interface assigned to the    host-interface",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "network-interface-index": {
+                                      "description": "Specifies the mapped net-index.",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 255,
+                                      "mandatory": false
+                                    },
+                                    "ethernet-interface": {
+                                      "description": "Specifies the mapped ethernet interface name",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "host-index"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "slot-index"
+                ]
+              }
+            }
+          }
+        },
+        "operational-modes": {
+          "description": "Container for a list of operational modes pre-defined by vendor",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "mode": {
+              "description": "List of operational modes supported by the platform. The operational      mode provides a platform-defined summary      of information such as symbol rate, modulation, pulse shaping, etc.",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "mode-id": {
+                    "description": "Vendor-defined operational mode id.",
+                    "readOnly": true,
+                    "path": "../state/mode-id",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "state": {
+                    "description": "Operational state data for terminal devices",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "mode-id": {
+                        "description": "Vendor-defined operational mode id.",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "mandatory": false
+                      },
+                      "description": {
+                        "description": "Vendor-supplied textual description of the characteristics of this operational mode to enable operators to select the appropriate mode for the application.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "vendor-id": {
+                        "description": "Specifies the coherent optical module vendor name",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "mode-id"
+                ]
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "Container for TAI debug",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Container for TAI debug configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Set TAI debug for Module/Netif/Hostif in config mode.",
+                  "readOnly": false,
+                  "type": "string",
+                  "bits": {
+                    "module": "0",
+                    "netif": "1",
+                    "hostif": "2"
+                  },
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Set TAI debug for Module/Netif/Hostif in config mode.",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "module": "0",
+                    "netif": "1",
+                    "hostif": "2"
+                  },
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Terminal debug TAI debug level",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "module": "0",
+                    "netif": "1",
+                    "hostif": "2"
+                  },
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

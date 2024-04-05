@@ -1,0 +1,182 @@
+{
+  "title": "ipi-ospf-interface-tracking",
+  "description": "This module provides OSPF interface tracking configuration",
+  "type": "object",
+  "properties": {
+    "ipi-ospf-interface-tracking:ospf-interfaces-events-tracking": {
+      "description": "Container for all OSPF interfaces events tracking configuration",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "ospf-interface-events-tracking": {
+          "description": "List to hold all OSPF interfaces events tracking configuration",
+          "readOnly": false,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "event-name": {
+                "description": "Attribute used to specify the event-name for OSPF interface tracking.",
+                "readOnly": false,
+                "path": "../config/event-name",
+                "type": "string",
+                "mandatory": false
+              },
+              "config": {
+                "description": "Configuration data for OSPF events tracking",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "event-name": {
+                    "description": "Attribute used to specify the event-name for OSPF interface tracking.",
+                    "readOnly": false,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "event-match-criteria": {
+                    "description": "Attribute used to specify the match criteria for OSPF interface tracking event.",
+                    "readOnly": false,
+                    "enum": [
+                      "all",
+                      "any"
+                    ],
+                    "mandatory": true
+                  },
+                  "event-neighbor-ip-address": {
+                    "description": "Attribute used to specify the event neighbor IP address for OSPF interface tracking event.",
+                    "readOnly": false,
+                    "type": "array",
+                    "items": {
+                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                      "type": "string",
+                      "mandatory": false
+                    }
+                  }
+                }
+              },
+              "state": {
+                "description": "Operational state data for OSPF events tracking",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "event-name": {
+                    "description": "Attribute used to specify the event-name for OSPF interface tracking.",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "event-match-criteria": {
+                    "description": "Attribute used to specify the match criteria for OSPF interface tracking event.",
+                    "readOnly": true,
+                    "enum": [
+                      "all",
+                      "any"
+                    ],
+                    "mandatory": true
+                  },
+                  "event-neighbor-ip-address": {
+                    "description": "Attribute used to specify the event neighbor IP address for OSPF interface tracking event.",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                      "type": "string",
+                      "mandatory": false
+                    }
+                  }
+                }
+              },
+              "actions": {
+                "description": "Container that holds interface actions for OSPF events tracking",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "interfaces": {
+                    "description": "Container that holds interfaces configuration for OSPF events tracking",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "interface": {
+                        "description": "Interface list that holds interfaces actions for OSPF events tracking",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "description": "Attribute used to specify the interface name for OSPF interface tracking event action.",
+                              "readOnly": false,
+                              "path": "../config/name",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data for interface action",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "description": "Attribute used to specify the interface name for OSPF interface tracking event action.",
+                                  "readOnly": false,
+                                  "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "cost": {
+                                  "description": "Attribute used to specify the interface cost for OSPF interface tracking event action.",
+                                  "readOnly": false,
+                                  "minimum": 1,
+                                  "maximum": 65535,
+                                  "type": "number",
+                                  "mandatory": true
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data for interface action",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "description": "Attribute used to specify the interface name for OSPF interface tracking event action.",
+                                  "readOnly": true,
+                                  "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "cost": {
+                                  "description": "Attribute used to specify the interface cost for OSPF interface tracking event action.",
+                                  "readOnly": true,
+                                  "minimum": 1,
+                                  "maximum": 65535,
+                                  "type": "number",
+                                  "mandatory": true
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "name"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "event-name"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

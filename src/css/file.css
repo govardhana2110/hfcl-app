@@ -1,0 +1,155 @@
+@media only screen and (max-width: 768px) 
+{
+    #mainFile
+    {
+        margin-left: 7.5%;
+        width: 97%;
+        height:80vh;
+        overflow:auto;
+
+    }
+    .searchFilterbox
+    {
+    display:flex;
+    padding:10px;
+    font-size:13px;
+    }
+    .filterbox{
+        width: 40%;
+        height: 30px;
+        /* background-color: white; */
+        font-size: smaller;
+        margin-right: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 0.5px solid rgb(224, 243, 250);
+        border-radius: 5px;
+      }
+      .sftpBox
+      {
+        display:flex;
+        margin-left:'5%';
+        
+      }
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+
+    #mainFile
+    {
+        margin-left: 0.5%;
+        width: 97%;
+        height:80vh;
+        overflow:auto;
+
+    }
+    .searchFilterbox
+    {
+    display:flex;
+    padding:10px;
+    font-size:14px;
+    }
+    .filterbox{
+        width: 31%;
+        height: 30px;
+        /* background-color: white; */
+        font-size: smaller;
+        margin-right: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 0.5px solid rgb(224, 243, 250);
+        border-radius: 5px;
+      }
+      .sftpBox
+      {
+        display:flex;
+        margin-left:27%;
+        
+      }
+}
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+
+
+    #mainFile
+    {
+        margin-left: 1.5%;
+        width: 97%;
+        height:80vh;
+        overflow:auto;
+
+    }
+    .searchFilterbox
+    {
+    display:flex;
+    padding:10px;
+    }
+    .filterbox{
+        width: fit-content;
+        height: 30px;
+        /* background-color: white; */
+        font-size: smaller;
+        margin-right: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 0.5px solid rgb(224, 243, 250);
+        border-radius: 5px;
+      }
+      .sftpBox
+      {
+        display:flex;
+        margin-left:34%;
+        
+      }
+}
+@media screen and (min-width: 1441px) and (max-width: 2560px) {
+
+
+    #mainFile
+    {
+        margin-left: 1.5%;
+        width: 97%;
+        height:80vh;
+        overflow:auto;
+
+    }
+    .searchFilterbox
+    {
+    display:flex;
+    padding:10px;
+    }
+    .filterbox{
+        width: fit-content;
+        height: 30px;
+        /* background-color: white; */
+        font-size: smaller;
+        margin-right: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 0.5px solid rgb(224, 243, 250);
+        border-radius: 5px;
+      }
+      .sftpBox
+      {
+        display:flex;
+        margin-left:34%;
+        
+      }
+}

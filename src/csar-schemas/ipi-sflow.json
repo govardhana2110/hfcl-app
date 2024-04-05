@@ -1,0 +1,584 @@
+{
+  "title": "ipi-sflow",
+  "description": "sFlow module provides user with the possibility to configure sFlow    parameters",
+  "type": "object",
+  "properties": {
+    "ipi-sflow:sampling": {
+      "description": "Container for all data related to samplings",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "sflow": {
+          "description": "Container that stores all info about sflow",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "sFlow configuration parameters",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "description": "Use this attribute to enable or disable Sampled Flow (sFlow) feature globally.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                },
+                "source-address": {
+                  "description": "The IP address associated with this agent. In the case of a multi-homed agent, this should be the loopback address of the agent. The sFlowAgent address must provide SNMP connectivity to the agent. The address should be an invariant that does not change as interfaces are reconfigured, enabled, disabled,added or removed. A manager should be able to use the sFlowAgentAddress as a unique key that will identify this agent over extended periods of time so that a history can be maintained.",
+                  "readOnly": false,
+                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "cpu-rate-limit": {
+                  "description": "CPU rate in packets per second",
+                  "readOnly": false,
+                  "minimum": 2000,
+                  "maximum": 100000,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "sFlow state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "description": "Use this attribute to enable or disable Sampled Flow (sFlow) feature globally.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                },
+                "source-address": {
+                  "description": "The IP address associated with this agent. In the case of a multi-homed agent, this should be the loopback address of the agent. The sFlowAgent address must provide SNMP connectivity to the agent. The address should be an invariant that does not change as interfaces are reconfigured, enabled, disabled,added or removed. A manager should be able to use the sFlowAgentAddress as a unique key that will identify this agent over extended periods of time so that a history can be maintained.",
+                  "readOnly": true,
+                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "cpu-rate-limit": {
+                  "description": "CPU rate in packets per second",
+                  "readOnly": true,
+                  "minimum": 2000,
+                  "maximum": 100000,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "sflow-version": {
+                  "description": "Uniquely identifies the version and implementation of this MIB.The MIB Version willchange with each revision of the SFLOW MIB.Management entities must check the MIB Version and not attempt to manage agents with MIB Versions greater than that for which they were designed.",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "datagram-version": {
+                  "description": "The version of sFlow datagrams that should be sent.When set to a value not support by the agent, the agent should adjust the value to the highest supported value less than the requested value, or return an SNMP bad value error if no such value exists.",
+                  "readOnly": true,
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 255,
+                  "mandatory": false
+                }
+              }
+            },
+            "collectors": {
+              "description": "sFlow collectors parameters",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "collector": {
+                  "description": "sFlow collectors parameters",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "description": "The IP address of the sFlow collector.If set to 0.0.0.0 no sFlow datagrams will be sent.",
+                        "readOnly": false,
+                        "path": "../config/address",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "port": {
+                        "description": "The destination port for sFlow datagrams.Default port number is 6343.",
+                        "readOnly": false,
+                        "path": "../config/port",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "sFlow collectors configuration parameters",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "address": {
+                            "description": "The IP address of the sFlow collector.If set to 0.0.0.0 no sFlow datagrams will be sent.",
+                            "readOnly": false,
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "port": {
+                            "description": "The destination port for sFlow datagrams.Default port number is 6343.",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "receiver-timeout": {
+                            "description": "The time (in seconds) remaining before the sampler is released and stops sampling. When set, the owner establishes control for the specified period. When read, the remaining time in the interval is returned.A management entity wanting to maintain control of the sampler is responsible for setting a new value before the old one expires.When the interval expires, the agent is responsible for restoring all other entities in this row to their default values. It must also free all other resources associated with this sFlowRcvrTable entry.",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 2147483647,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "max-datagram-size": {
+                            "description": "The maximum number of data bytes that can be sent in a single sample datagram. The manager should set this value to avoid fragmentation of the sFlow datagrams.",
+                            "readOnly": false,
+                            "minimum": 200,
+                            "maximum": 9000,
+                            "type": "number",
+                            "mandatory": true
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "sFlow collectors state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "address": {
+                            "description": "The IP address of the sFlow collector.If set to 0.0.0.0 no sFlow datagrams will be sent.",
+                            "readOnly": true,
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "port": {
+                            "description": "The destination port for sFlow datagrams.Default port number is 6343.",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "receiver-timeout": {
+                            "description": "The time (in seconds) remaining before the sampler is released and stops sampling. When set, the owner establishes control for the specified period. When read, the remaining time in the interval is returned.A management entity wanting to maintain control of the sampler is responsible for setting a new value before the old one expires.When the interval expires, the agent is responsible for restoring all other entities in this row to their default values. It must also free all other resources associated with this sFlowRcvrTable entry.",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 2147483647,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "max-datagram-size": {
+                            "description": "The maximum number of data bytes that can be sent in a single sample datagram. The manager should set this value to avoid fragmentation of the sFlow datagrams.",
+                            "readOnly": true,
+                            "minimum": 200,
+                            "maximum": 9000,
+                            "type": "number",
+                            "mandatory": true
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "address",
+                      "port"
+                    ]
+                  },
+                  "maxItems": 1
+                }
+              }
+            },
+            "logging": {
+              "description": "Container of sflow logging info",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "sFlow logging configuration parameters",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "max-entries": {
+                      "description": "Specifies the maximum number of log entries that are cached, default is 1000 entries",
+                      "readOnly": false,
+                      "minimum": 1000,
+                      "maximum": 10000,
+                      "type": "number",
+                      "mandatory": false
+                    },
+                    "rate-limit": {
+                      "description": "Configures rate limits in packets per second, Default is 200 packets/sec",
+                      "readOnly": false,
+                      "minimum": 0,
+                      "maximum": 1000,
+                      "type": "number",
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "sFlow logging state data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "max-entries": {
+                      "description": "Specifies the maximum number of log entries that are cached, default is 1000 entries",
+                      "readOnly": true,
+                      "minimum": 1000,
+                      "maximum": 10000,
+                      "type": "number",
+                      "mandatory": false
+                    },
+                    "rate-limit": {
+                      "description": "Configures rate limits in packets per second, Default is 200 packets/sec",
+                      "readOnly": true,
+                      "minimum": 0,
+                      "maximum": 1000,
+                      "type": "number",
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "debug": {
+              "description": "Container for sFlow debug",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Container for sFlow debug configuration",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "options": {
+                      "description": "Set sFlow debug in config mode",
+                      "readOnly": false,
+                      "type": "string",
+                      "bits": {
+                        "agent": "0",
+                        "sampling": "1",
+                        "polling": "2"
+                      },
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational state data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "options": {
+                      "description": "Set sFlow debug in config mode",
+                      "readOnly": true,
+                      "type": "string",
+                      "bits": {
+                        "agent": "0",
+                        "sampling": "1",
+                        "polling": "2"
+                      },
+                      "mandatory": false
+                    },
+                    "terminal-debug-status": {
+                      "description": "Terminal debug sFlow debug level",
+                      "readOnly": true,
+                      "type": "string",
+                      "bits": {
+                        "agent": "0",
+                        "sampling": "1",
+                        "polling": "2"
+                      },
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "ipi-sflow-interface:interfaces": {
+              "description": "Configuration data for interface sFlow",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "interface": {
+                  "description": "Configuration data list for interface sFlow",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Interface name for which sFlow is being configured",
+                        "readOnly": false,
+                        "path": "../config/name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data for interface sFlow",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "Interface name for which sFlow is being configured",
+                            "readOnly": false,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "enabled": {
+                            "description": "To enable or disable sampling on an interface after giving the sflow sampling-rate command on the same interface",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "polling-interval": {
+                            "description": "The maximum number of seconds between successive samples of the counters associated with this data source. A sampling interval of 0 disables counter sampling.The agent is permitted to have minimum and maximum allowable values for the counter polling interval. A minimum interval lets the agent designer set an upper bound on the overhead associated with polling, anda maximum interval may be the result of implementation restrictions (such as counter size).In addition notall values between the maximum and minimum may be realizable as the sampling interval (again because of implementation considerations).When the sampling rate is set the agent is free to adjust the value so that it lies between the maximum and minimum values and has the closest achievable value.When read, the agent must return the actual sampling interval it will be using (after the adjustments previously described).The sampling algorithm must converge so that over time the number of packets sampledapproaches 1/Nth of the total number of packets in the monitored flows.",
+                            "readOnly": false,
+                            "minimum": 5,
+                            "maximum": 60,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for interface sFlow",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "Interface name for which sFlow is being configured",
+                            "readOnly": true,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "enabled": {
+                            "description": "To enable or disable sampling on an interface after giving the sflow sampling-rate command on the same interface",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "polling-interval": {
+                            "description": "The maximum number of seconds between successive samples of the counters associated with this data source. A sampling interval of 0 disables counter sampling.The agent is permitted to have minimum and maximum allowable values for the counter polling interval. A minimum interval lets the agent designer set an upper bound on the overhead associated with polling, anda maximum interval may be the result of implementation restrictions (such as counter size).In addition notall values between the maximum and minimum may be realizable as the sampling interval (again because of implementation considerations).When the sampling rate is set the agent is free to adjust the value so that it lies between the maximum and minimum values and has the closest achievable value.When read, the agent must return the actual sampling interval it will be using (after the adjustments previously described).The sampling algorithm must converge so that over time the number of packets sampledapproaches 1/Nth of the total number of packets in the monitored flows.",
+                            "readOnly": true,
+                            "minimum": 5,
+                            "maximum": 60,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "polling-count": {
+                            "description": "Retrieved from SFLOWPoller",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "hw-sampling-rate-limit": {
+                            "description": "hw configured sampling rate",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "sampled-packet-count": {
+                            "description": "packet sampled count in the hw",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "countdown-count": {
+                            "description": "packet count down information",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "ingress": {
+                        "description": "sFlow ingress configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration data for interface sFlow ingress",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "sampling-rate": {
+                                "description": "The statistical sampling rate for packet sampling from this source. Set to N to sample 1/Nth of the packets in the monitored flows.An agent should choose its own algorithm to introduce variance into the sampling so that exactly every Nth packet is not counted. A sampling rateof 1 counts all packets. A sampling rate of 0 disables sampling.The agent is permitted to have minimum and maximum allowable values for the sampling rate. A minimum rate lets the agent designer set an upper bound on the overhead associated with sampling, and a maximum rate may be the result of hardware restrictions (such as counter size). In addition not all values between the maximum and minimum may be realizable as the sampling rate (again because of implementation considerations).When the sampling rate is set the agent is free to adjust the value so that it lies between the maximum and minimum values and has the closest achievable value.When read, the agent must return the actual sampling rate it will be using (after the adjustments previously described). The sampling algorithm must converge so that over time the number of packets sampled approaches 1/Nth of the total number of packets in the monitored flows.",
+                                "readOnly": false,
+                                "minimum": 1024,
+                                "maximum": 16777215,
+                                "type": "number",
+                                "mandatory": true
+                              },
+                              "sample-size": {
+                                "description": "The maximum number of bytes that should be copied from a sampled packet. The agent may have an internal maximum and minimum permissible sizes. If an attempt is made to set this value outside the permissible range then the agent should adjust the value to the closest permissible value.",
+                                "readOnly": false,
+                                "minimum": 16,
+                                "maximum": 256,
+                                "type": "number",
+                                "mandatory": true
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational state data for interface sFlow ingress",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "sampling-rate": {
+                                "description": "The statistical sampling rate for packet sampling from this source. Set to N to sample 1/Nth of the packets in the monitored flows.An agent should choose its own algorithm to introduce variance into the sampling so that exactly every Nth packet is not counted. A sampling rateof 1 counts all packets. A sampling rate of 0 disables sampling.The agent is permitted to have minimum and maximum allowable values for the sampling rate. A minimum rate lets the agent designer set an upper bound on the overhead associated with sampling, and a maximum rate may be the result of hardware restrictions (such as counter size). In addition not all values between the maximum and minimum may be realizable as the sampling rate (again because of implementation considerations).When the sampling rate is set the agent is free to adjust the value so that it lies between the maximum and minimum values and has the closest achievable value.When read, the agent must return the actual sampling rate it will be using (after the adjustments previously described). The sampling algorithm must converge so that over time the number of packets sampled approaches 1/Nth of the total number of packets in the monitored flows.",
+                                "readOnly": true,
+                                "minimum": 1024,
+                                "maximum": 16777215,
+                                "type": "number",
+                                "mandatory": true
+                              },
+                              "sample-size": {
+                                "description": "The maximum number of bytes that should be copied from a sampled packet. The agent may have an internal maximum and minimum permissible sizes. If an attempt is made to set this value outside the permissible range then the agent should adjust the value to the closest permissible value.",
+                                "readOnly": true,
+                                "minimum": 16,
+                                "maximum": 256,
+                                "type": "number",
+                                "mandatory": true
+                              },
+                              "sampling-status": {
+                                "description": "Sampling ingress status",
+                                "readOnly": true,
+                                "enum": [
+                                  "disabled",
+                                  "enabled"
+                                ],
+                                "mandatory": false
+                              },
+                              "sampled-packet-count": {
+                                "description": "Retrieved from SFLOWSampler",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "egress": {
+                        "description": "sFlow egress configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration data for interface sFlow egress",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "sampling-rate": {
+                                "description": "The statistical sampling rate for packet sampling from this source Set to N to sample 1/Nth of the packets in the monitored flows.An agent should choose its own algorithm to introduce variance into the sampling so that exactly every Nth packet is not counted. A sampling rateof 1 counts all packets. A sampling rate of 0 disables sampling.The agent is permitted to have minimum and maximum allowable values for the sampling rate. A minimum rate lets the agent designer set an upper bound on the overhead associated with sampling, and a maximum rate may be the result of hardware restrictions (such as counter size). In addition not all values between the maximum and minimum may be realizable as the sampling rate (again because of implementation considerations).When the sampling rate is set the agent is free to adjust the value so that it lies between the maximum and minimum values and has the closest achievable value.When read, the agent must return the actual sampling rate it will be using (after the adjustments previously described). The sampling algorithm must converge so that over time the number of packets sampled approaches 1/Nth of the total number of packets in the monitored flows.",
+                                "readOnly": false,
+                                "minimum": 1024,
+                                "maximum": 16777215,
+                                "type": "number",
+                                "mandatory": true
+                              },
+                              "sample-size": {
+                                "description": "The maximum number of bytes that should be copied from a sampled packet. The agent may have an internal maximum and minimum permissible sizes. If an attempt is made to set this value outside the permissible range then the agent should adjust the value to the closest permissible value.",
+                                "readOnly": false,
+                                "minimum": 16,
+                                "maximum": 256,
+                                "type": "number",
+                                "mandatory": true
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational state data for for interface sFlow egress",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "sampling-rate": {
+                                "description": "The statistical sampling rate for packet sampling from this source Set to N to sample 1/Nth of the packets in the monitored flows.An agent should choose its own algorithm to introduce variance into the sampling so that exactly every Nth packet is not counted. A sampling rateof 1 counts all packets. A sampling rate of 0 disables sampling.The agent is permitted to have minimum and maximum allowable values for the sampling rate. A minimum rate lets the agent designer set an upper bound on the overhead associated with sampling, and a maximum rate may be the result of hardware restrictions (such as counter size). In addition not all values between the maximum and minimum may be realizable as the sampling rate (again because of implementation considerations).When the sampling rate is set the agent is free to adjust the value so that it lies between the maximum and minimum values and has the closest achievable value.When read, the agent must return the actual sampling rate it will be using (after the adjustments previously described). The sampling algorithm must converge so that over time the number of packets sampled approaches 1/Nth of the total number of packets in the monitored flows.",
+                                "readOnly": true,
+                                "minimum": 1024,
+                                "maximum": 16777215,
+                                "type": "number",
+                                "mandatory": true
+                              },
+                              "sample-size": {
+                                "description": "The maximum number of bytes that should be copied from a sampled packet. The agent may have an internal maximum and minimum permissible sizes. If an attempt is made to set this value outside the permissible range then the agent should adjust the value to the closest permissible value.",
+                                "readOnly": true,
+                                "minimum": 16,
+                                "maximum": 256,
+                                "type": "number",
+                                "mandatory": true
+                              },
+                              "sampling-status": {
+                                "description": "Egress status",
+                                "readOnly": true,
+                                "enum": [
+                                  "disabled",
+                                  "enabled"
+                                ],
+                                "mandatory": false
+                              },
+                              "sampled-packet-count": {
+                                "description": "Retrieved from SFLOWSampler",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

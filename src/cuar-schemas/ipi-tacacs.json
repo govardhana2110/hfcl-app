@@ -1,0 +1,384 @@
+{
+  "title": "ipi-tacacs",
+  "description": "Layer-3 tacacs configurations",
+  "type": "object",
+  "properties": {
+    "ipi-tacacs:tacacs": {
+      "description": "TACACS related operation",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "vrfs": {
+          "description": "This container defines TACACS vrf informations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "vrf": {
+              "description": "Global TACACS Server Configuration",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vrf-name": {
+                    "description": "VRF Name associated with this instance",
+                    "readOnly": false,
+                    "path": "../config/vrf-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "tacacs related operation",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF Name associated with this instance",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "feature-enable": {
+                        "description": "Use this attribute to enable the TACACS+ feature",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": true
+                      },
+                      "timeout": {
+                        "description": "Use this attribute to set the period to wait for a response from the server before the client declares a timeout failure. The default timeout value is 5 seconds.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 60,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "key-type": {
+                        "description": "Authentication key value",
+                        "readOnly": false,
+                        "enum": [
+                          "0",
+                          "7"
+                        ],
+                        "mandatory": false
+                      },
+                      "secret-key-string": {
+                        "description": "Shared key used between the authentication-server and the device",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "This container defines the TACACS Global states.",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF Name associated with this instance",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "feature-enable": {
+                        "description": "Use this attribute to enable the TACACS+ feature",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": true
+                      },
+                      "timeout": {
+                        "description": "Use this attribute to set the period to wait for a response from the server before the client declares a timeout failure. The default timeout value is 5 seconds.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 60,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "key-type": {
+                        "description": "Authentication key value",
+                        "readOnly": true,
+                        "enum": [
+                          "0",
+                          "7"
+                        ],
+                        "mandatory": false
+                      },
+                      "secret-key-string": {
+                        "description": "Shared key used between the authentication-server and the device",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "remote-servers": {
+                    "description": "This container defines tacacs server informations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "server": {
+                        "description": "This objectlist defines the TACACS server list",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "host-address": {
+                              "description": "Use this attribute to set the TACACS+ server host name or IP address",
+                              "readOnly": false,
+                              "path": "../config/host-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "This container defines TACACS server operation",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "host-address": {
+                                  "description": "Use this attribute to set the TACACS+ server host name or IP address.",
+                                  "readOnly": false,
+                                  "oneOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string"
+                                    }
+                                  ],
+                                  "mandatory": false
+                                },
+                                "sequence-number": {
+                                  "description": "Use this attribute to set the sequence-number/priority index for the TACACS+ server",
+                                  "readOnly": false,
+                                  "minimum": 1,
+                                  "maximum": 8,
+                                  "type": "number",
+                                  "mandatory": true
+                                },
+                                "port": {
+                                  "description": "Port number used for TACACS+ Server Connection",
+                                  "readOnly": false,
+                                  "minimum": 1025,
+                                  "maximum": 65535,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "timeout": {
+                                  "description": "To represent the timeout configured by the user",
+                                  "readOnly": false,
+                                  "minimum": 1,
+                                  "maximum": 60,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "key-type": {
+                                  "description": "Authentication key value",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "0",
+                                    "7"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "secret-key-string": {
+                                  "description": "Shared key used between the authentication-server and the device",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "This container defines TACACS Server state intormation.",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "host-address": {
+                                  "description": "Use this attribute to set the TACACS+ server host name or IP address.",
+                                  "readOnly": true,
+                                  "oneOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string"
+                                    }
+                                  ],
+                                  "mandatory": false
+                                },
+                                "sequence-number": {
+                                  "description": "Use this attribute to set the sequence-number/priority index for the TACACS+ server",
+                                  "readOnly": true,
+                                  "minimum": 1,
+                                  "maximum": 8,
+                                  "type": "number",
+                                  "mandatory": true
+                                },
+                                "port": {
+                                  "description": "Port number used for TACACS+ Server Connection",
+                                  "readOnly": true,
+                                  "minimum": 1025,
+                                  "maximum": 65535,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "timeout": {
+                                  "description": "To represent the timeout configured by the user",
+                                  "readOnly": true,
+                                  "minimum": 1,
+                                  "maximum": 60,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "key-type": {
+                                  "description": "Authentication key value",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "0",
+                                    "7"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "secret-key-string": {
+                                  "description": "Shared key used between the authentication-server and the device",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "last-successful-authentication-time": {
+                                  "description": "Timestamp for the last successful authentication to this TACACS+ Server",
+                                  "readOnly": true,
+                                  "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "counters": {
+                                  "description": "TACACS+ Server counters",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "successful-authentications": {
+                                      "description": "Number of successful authentications to the TACACS+ Server",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "authentication-failures": {
+                                      "description": "Number of authentication failures to the TACACS+ Server",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "connection-failures": {
+                                      "description": "Number of connection failures to the TACACS+ Server",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "host-address"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "vrf-name"
+                ]
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "TACACS debug",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "This container defines TACACS Debug Configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "This attribute is to enable/disable TACACS+ debug logging",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "This container defines TACACS Debug state",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "This attribute is to enable/disable TACACS+ debug logging",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Use this attribute to display the current terminal debugging status for TACACS module",
+                  "readOnly": true,
+                  "enum": [
+                    "off",
+                    "on"
+                  ],
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

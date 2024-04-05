@@ -1,0 +1,612 @@
+{
+    "critical": {
+        "@version": {
+            "1": 226344
+        },
+        "day": {
+            "01": 21824,
+            "02": 22444,
+            "03": 22432,
+            "04": 12724,
+            "05": 20060,
+            "06": 14332,
+            "23": 11348,
+            "24": 11364,
+            "29": 11280,
+            "30": 11348
+        },
+        "displaymessage": {
+            "Device PSU2 PMBUS read failure.": 156,
+            "Interface eth0 changed state to down": 76,
+            "Interface eth0 changed state to up": 76,
+            "Interface ge1 changed state to down": 92,
+            "Interface ge1 changed state to up": 112,
+            "Interface ge2 changed state to down": 140,
+            "Interface ge2 changed state to up": 148,
+            "Interface ge2.1500 changed state to down": 68,
+            "Interface ge2.1500 changed state to up": 84,
+            "Psu [2] AC is not OK.": 224860
+        },
+        "message": {
+            "2000 Jan 01 13:39:41.567 : csr-133-sender : CMM : CRITI : [CMM_MONITOR_PSU_POWER_2]: Psu [2] AC is not OK.": 4,
+            "2000 Jan 01 13:39:50.260 : csr-133-sender : CMM : CRITI : [CMM_MONITOR_PSU_POWER_2]: Psu [2] AC is not OK.": 4,
+            "2000 Jan 01 13:40:12.381 : csr-133-sender : CMM : CRITI : [CMM_MONITOR_PSU_POWER_2]: Psu [2] AC is not OK.": 4,
+            "2000 Jan 01 13:40:43.108 : csr-133-sender : CMM : CRITI : [CMM_MONITOR_PSU_POWER_2]: Psu [2] AC is not OK.": 4,
+            "2000 Jan 01 13:41:13.940 : csr-133-sender : CMM : CRITI : [CMM_MONITOR_PSU_POWER_2]: Psu [2] AC is not OK.": 4,
+            "2000 Jan 01 13:41:44.696 : csr-133-sender : CMM : CRITI : [CMM_MONITOR_PSU_POWER_2]: Psu [2] AC is not OK.": 4,
+            "2020 Nov 20 11:15:25.905 : DUAR : CMM : CRITI : [CMM_MONITOR_PSU_POWER_2]: Psu [2] AC is not OK.": 4,
+            "2020 Nov 20 11:15:56.678 : DUAR : CMM : CRITI : [CMM_MONITOR_PSU_POWER_2]: Psu [2] AC is not OK.": 4,
+            "2020 Nov 20 11:16:27.519 : DUAR : CMM : CRITI : [CMM_MONITOR_PSU_POWER_2]: Psu [2] AC is not OK.": 4,
+            "Jan  1 02:01:28 localhost NSM[2509]: 2021 Jan 01 02:01:28.015 : OcNOS : NSM : CRITI : [IFMGR_IF_UP_2]: Interface eth0 changed state to up": 8
+        },
+        "module_name": {
+            "CMM": 225092,
+            "IS-IS": 16,
+            "NSM": 1232,
+            "OSPF": 4
+        },
+        "month": {
+            "Dec": 73856,
+            "Jan": 45856,
+            "Nov": 95720,
+            "Oct": 10912
+        },
+        "process": {
+            "CMM_MONITOR_PSU_POWER_2": 224860,
+            "CMM_READ_ERR_2": 156,
+            "CMM_TRANSCEIVER_1": 76,
+            "IFMGR_IF_DOWN_2": 556,
+            "IFMGR_IF_UP_2": 652,
+            "ISIS_OPR_INTF_2": 16,
+            "LICENSE_2": 24,
+            "OSPF_OPR_SESSION_DOWN_2": 4
+        },
+        "severity": {
+            "ALERT": 76,
+            "CRITI": 226268
+        },
+        "tags": {
+            "beats_input_codec_plain_applied": 226344
+        },
+        "time": {
+            "00:00:38.009": 8,
+            "00:25:47.861": 8,
+            "01:29:55.868": 8,
+            "02:01:28.015": 12,
+            "02:02:13.978": 8,
+            "02:38:51.967": 8,
+            "03:49:24.245": 8,
+            "07:14:36.783": 8,
+            "07:54:44.340": 8,
+            "07:55:30.054": 8
+        },
+        "year": {
+            "2000": 24,
+            "2020": 12,
+            "2021": 45832,
+            "2023": 180476
+        }
+    },
+    "dhcp": {
+        "@version": {
+            "1": 304
+        },
+        "day": {
+            "1": 184,
+            "22": 8,
+            "23": 8,
+            "24": 8,
+            "25": 12,
+            "26": 8,
+            "27": 8,
+            "28": 12,
+            "5": 24,
+            "6": 12
+        },
+        "hostname": {
+            "csr-133": 4,
+            "csr-133-sender": 76,
+            "localhost": 4
+        },
+        "ip": {
+            "172.24.30.133": 304
+        },
+        "message": {
+            "2023 Nov 22 12:29:20 : csr-133 : dhclient :  bound to 172.24.30.133 -- renewal in 40673 seconds.": 4,
+            "2023 Nov 22 15:46:14 : csr-133-sender : dhclient :  bound to 172.24.30.133 -- renewal in 32104 seconds.": 4,
+            "2023 Nov 23 03:44:32 : csr-133-sender : dhclient :  bound to 172.24.30.133 -- renewal in 43191 seconds.": 4,
+            "2023 Nov 23 15:44:23 : csr-133-sender : dhclient :  bound to 172.24.30.133 -- renewal in 34214 seconds.": 4,
+            "2023 Nov 24 01:14:37 : csr-133-sender : dhclient :  bound to 172.24.30.133 -- renewal in 41843 seconds.": 4,
+            "2023 Nov 24 12:52:00 : csr-133-sender : dhclient :  bound to 172.24.30.133 -- renewal in 40405 seconds.": 4,
+            "2023 Nov 25 00:05:25 : csr-133-sender : dhclient :  bound to 172.24.30.133 -- renewal in 34889 seconds.": 4,
+            "2023 Nov 25 09:46:54 : csr-133-sender : dhclient :  bound to 172.24.30.133 -- renewal in 33947 seconds.": 4,
+            "2023 Nov 25 19:12:41 : csr-133-sender : dhclient :  bound to 172.24.30.133 -- renewal in 39080 seconds.": 4,
+            "2023 Nov 26 06:04:01 : csr-133-sender : dhclient :  bound to 172.24.30.133 -- renewal in 42216 seconds.": 4
+        },
+        "month": {
+            "Dec": 12,
+            "Jan": 208,
+            "Nov": 80,
+            "Oct": 4
+        },
+        "process": {
+            "dhclient": 84,
+            "dhclient[1825]": 8,
+            "dhclient[1826]": 20,
+            "dhclient[1828]": 12,
+            "dhclient[1831]": 12,
+            "dhclient[1833]": 12,
+            "sh[1796]": 16,
+            "sh[1799]": 16,
+            "sh[1802]": 12,
+            "sh[1809]": 12
+        },
+        "seconds": {
+            "30689": 8,
+            "31784": 8,
+            "31954": 8,
+            "32073": 8,
+            "34063": 8,
+            "34447": 8,
+            "34707": 8,
+            "35293": 8,
+            "35505": 8,
+            "36420": 8
+        },
+        "tags": {
+            "beats_input_codec_plain_applied": 304
+        },
+        "time": {
+            "00:21:57": 8,
+            "00:27:54": 8,
+            "00:31:51": 8,
+            "00:35:48": 8,
+            "00:39:49": 8,
+            "00:43:44": 8,
+            "00:48:03": 8,
+            "00:52:00": 8,
+            "00:55:59": 8,
+            "00:59:58": 8
+        },
+        "year": {
+            "2023": 84
+        }
+    },
+    "duar": {
+        "@version": {
+            "1": 74828
+        },
+        "day": {
+            "20": 3896,
+            "21": 5784,
+            "23": 4652,
+            "24": 8132,
+            "25": 7796,
+            "26": 7896,
+            "27": 7844,
+            "28": 7836,
+            "29": 9088,
+            "30": 8380
+        },
+        "event_code": {
+            "CE2": 2232,
+            "CE2-133": 64,
+            "DUAR": 172,
+            "OcNOS": 28,
+            "csr-133": 876,
+            "csr-133-sender": 61868,
+            "localhost": 9588
+        },
+        "log_message_7": {
+            "(root) CMD (   cd / && run-parts --report /etc/cron.hourly)": 904,
+            "(root) CMD ( /etc/cron.daily/logrotate)": 10868,
+            "DHCPDISCOVER on ge5 to 255.255.255.255 port 67 interval 10": 428,
+            "DHCPDISCOVER on ge5 to 255.255.255.255 port 67 interval 12": 428,
+            "DHCPDISCOVER on ge5 to 255.255.255.255 port 67 interval 13": 376,
+            "DHCPDISCOVER on ge5 to 255.255.255.255 port 67 interval 7": 552,
+            "DHCPDISCOVER on ge5 to 255.255.255.255 port 67 interval 8": 556,
+            "No DHCPOFFERS received.": 948,
+            "No working leases in persistent database - sleeping.": 948,
+            "usr-local-mnt.mount: Succeeded.": 3564
+        },
+        "message": {
+            "2023 Nov 22 16:15:58 : csr-133-sender : systemd :  Reloaded xinetd service.": 16,
+            "2023 Nov 22 16:15:58 : csr-133-sender : systemd :  Reloading xinetd service.": 16,
+            "2023 Nov 22 16:15:58 : csr-133-sender : xinetd :  Reading included configuration file: /etc/netns/zebosfib0/xinetd.d/ssh [file=/etc/xinetd.conf] [line=15]": 16,
+            "2023 Nov 22 16:15:58 : csr-133-sender : xinetd :  Reading included configuration file: /etc/netns/zebosfib0/xinetd.d/ssh_netconf [file=/etc/netns/zebosfib0/xinetd.d/ssh_netconf] [line=11]": 16,
+            "2023 Nov 22 16:15:58 : csr-133-sender : xinetd :  Reading included configuration file: /etc/netns/zebosfib0/xinetd.d/telnet [file=/etc/netns/zebosfib0/xinetd.d/telnet] [line=11]": 16,
+            "2023 Nov 22 16:15:58 : csr-133-sender : xinetd :  Reading included configuration file: /etc/netns/zebosfib0/xinetd.d/tls_netconf [file=/etc/netns/zebosfib0/xinetd.d/tls_netconf] [line=13]": 16,
+            "2023 Nov 22 16:15:58 : csr-133-sender : xinetd :  Reconfigured: new=0 old=0 dropped=0 (services)": 16,
+            "2023 Nov 22 16:15:58 : csr-133-sender : xinetd :  Starting reconfiguration": 16,
+            "2023 Nov 22 16:15:58 : csr-133-sender : xinetd :  Swapping defaults": 16,
+            "2023 Nov 26 10:54:44 : csr-133-sender : systemd :  usr-local-mnt.mount: Succeeded.": 24
+        },
+        "month": {
+            "Dec": 224,
+            "Jan": 76,
+            "Nov": 64940,
+            "Oct": 9588
+        },
+        "service": {
+            "CMLSH : CLI_HIST : User ocnos@/dev/pts/0 : CLI : commit": 132,
+            "CRON :": 11852,
+            "Callhome :": 124,
+            "NETCONFD :": 47752,
+            "dhclient :": 8056,
+            "dhcrelay :": 400,
+            "netconfd :": 428,
+            "sh :": 132,
+            "systemd :": 4764,
+            "xinetd :": 320
+        },
+        "tags": {
+            "beats_input_codec_plain_applied": 74828
+        },
+        "time": {
+            "00:00:08": 96,
+            "02:30:01": 48,
+            "06:10:01": 48,
+            "06:25:01": 168,
+            "11:30:01": 48,
+            "12:41:33": 212,
+            "16:15:58": 176,
+            "16:16:05": 76,
+            "16:27:53": 176,
+            "16:28:00": 108
+        },
+        "year": {
+            "2000": 4,
+            "2020": 92,
+            "2021": 72,
+            "2023": 74660
+        }
+    },
+    "duar_sshd": {
+        "@version": {
+            "1": 1252
+        },
+        "day": {
+            "22": 392,
+            "23": 136,
+            "24": 296,
+            "25": 24,
+            "27": 44,
+            "29": 156,
+            "30": 204
+        },
+        "event_code": {
+            "CE2": 104,
+            "csr-133": 156,
+            "csr-133-sender": 992
+        },
+        "log_message_4": {
+            " Accepted password for ocnos from 10.100.1.243 port 50631 ssh2": 4,
+            " Accepted password for ocnos from 10.100.1.243 port 50632 ssh2": 4,
+            " Accepted password for ocnos from 10.100.1.243 port 54000 ssh2": 4,
+            " Accepted password for ocnos from 10.100.1.243 port 54003 ssh2": 4,
+            " Accepted password for ocnos from 10.100.1.243 port 54667 ssh2": 4,
+            " Accepted password for ocnos from 10.100.1.243 port 54668 ssh2": 4,
+            " Accepted password for ocnos from 172.24.16.210 port 4334 ssh2": 56,
+            " Did not receive identification string from 172.24.16.210 port 4334": 16,
+            " pam_unix(sshd:session): session closed for user ocnos": 328,
+            " pam_unix(sshd:session): session opened for user ocnos by (uid=0)": 352
+        },
+        "message": {
+            "2023 Nov 22 13:09:45 : csr-133 : sshd :  pam_unix(sshd:session): session opened for user ocnos by (uid=0)": 8,
+            "2023 Nov 22 13:36:24 : csr-133 : sshd :  pam_unix(sshd:session): session closed for user ocnos": 8,
+            "2023 Nov 22 14:38:32 : csr-133 : sshd :  pam_unix(sshd:session): session closed for user ocnos": 8,
+            "2023 Nov 22 16:03:49 : csr-133-sender : sshd :  pam_unix(sshd:session): session closed for user ocnos": 8,
+            "2023 Nov 22 16:20:42 : csr-133-sender : sshd :  pam_unix(sshd:session): session opened for user ocnos by (uid=0)": 8,
+            "2023 Nov 22 16:29:29 : csr-133-sender : sshd :  pam_unix(sshd:session): session opened for user ocnos by (uid=0)": 8,
+            "2023 Nov 22 16:59:47 : csr-133-sender : sshd :  pam_unix(sshd:session): session closed for user ocnos": 8,
+            "2023 Nov 23 00:06:25 : csr-133-sender : sshd :  pam_unix(sshd:session): session closed for user ocnos": 8,
+            "2023 Nov 25 12:09:39 : csr-133-sender : sshd :  pam_unix(sshd:session): session opened for user ocnos by (uid=0)": 8,
+            "2023 Nov 25 12:20:24 : csr-133-sender : sshd :  pam_unix(sshd:session): session closed for user ocnos": 8
+        },
+        "month": {
+            "Nov": 1252
+        },
+        "tags": {
+            "beats_input_codec_plain_applied": 1252
+        },
+        "time": {
+            "12:04:33": 12,
+            "12:09:39": 16,
+            "12:41:20": 12,
+            "13:09:45": 16,
+            "16:20:42": 16,
+            "16:29:29": 16,
+            "16:38:45": 16,
+            "18:03:43": 16,
+            "18:15:05": 16,
+            "19:18:41": 16
+        },
+        "year": {
+            "2023": 1252
+        }
+    },
+    "localhost_kernel": {
+        "@version": {
+            "1": 5920
+        },
+        "day": {
+            "22": 5920
+        },
+        "log_message_1": {
+            "  bridge window [io  0xd000-0xdfff]": 72,
+            "  bridge window [mem 0xdd800000-0xde8fffff 64bit pref]": 72,
+            "  bridge window [mem 0xdfa00000-0xdfafffff]": 48,
+            "BAR 10: failed to assign [mem size 0x00100000 64bit]": 32,
+            "DUMMY": 48,
+            "PME# supported from D0 D3hot D3cold": 168,
+            "Plug and Play ACPI device, IDs PNP0c02 (active)": 40,
+            "[12d8:2912] type 01 class 0x060400": 48,
+            "ahci": 64,
+            "mounted filesystem with ordered data mode. Opts: (null)": 48
+        },
+        "message": {
+            "Nov 22 16:14:11 localhost kernel: [    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009ffff] usable": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000000] BIOS-e820: [mem 0x00000000000a0000-0x00000000000fffff] reserved": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000000] BIOS-e820: [mem 0x0000000000100000-0x000000003e2dffff] usable": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000000] BIOS-e820: [mem 0x000000003e2e0000-0x000000003e2fffff] ACPI NVS": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000000] BIOS-e820: [mem 0x000000003e300000-0x000000007a0aefff] usable": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000000] BIOS-e820: [mem 0x000000007a0af000-0x000000007a0befff] reserved": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000000] BIOS-e820: [mem 0x000000007a0bf000-0x000000007dc9efff] usable": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000000] BIOS-e820: [mem 0x000000007dc9f000-0x000000007dd78fff] reserved": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000000] BIOS-e820: [mem 0x000000007dd79000-0x000000007def4fff] usable": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000000] BIOS-e820: [mem 0x000000007def5000-0x000000007e2f1fff] ACPI NVS": 4
+        },
+        "month": {
+            "Nov": 5920
+        },
+        "service": {
+            "ACPI": 536,
+            "BIOS-e820": 144,
+            "PM": 136,
+            "pci 0000:00:10.0": 128,
+            "pci 0000:05:00.0": 120,
+            "pci 0000:0c:00.0": 128,
+            "pci 0000:0c:00.1": 128,
+            "pci 0000:0d:00.0": 128,
+            "pci 0000:0d:00.1": 128,
+            "pci_bus 0000:00": 184
+        },
+        "tags": {
+            "beats_input_codec_plain_applied": 5920
+        },
+        "time": {
+            "16:14:11": 2916,
+            "16:14:12": 16,
+            "16:14:14": 4,
+            "16:14:42": 8,
+            "16:14:45": 4,
+            "16:14:46": 4,
+            "16:26:06": 2920,
+            "16:26:07": 28,
+            "16:26:09": 4,
+            "16:26:37": 8
+        }
+    },
+    "localhost_kernel_no_service": {
+        "@version": {
+            "1": 128
+        },
+        "day": {
+            "22": 128
+        },
+        "log_message_6": {
+            "0 base 0000000000 mask 7E00000000 write-back": 8,
+            "00000-9FFFF write-back": 8,
+            "1 base 0200000000 mask 7F80000000 write-back": 8,
+            "2 base 007F800000 mask 7FFF800000 uncachable": 8,
+            "3 base 0080000000 mask 7F80000000 uncachable": 8,
+            "4 disabled": 8,
+            "5 disabled": 8,
+            "6 disabled": 8,
+            "7 disabled": 8,
+            "8 disabled": 8
+        },
+        "message": {
+            "Nov 22 16:14:11 localhost kernel: [    0.000029]   00000-9FFFF write-back": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000030]   A0000-BFFFF uncachable": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000031]   C0000-FFFFF write-protect": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000034]   0 base 0000000000 mask 7E00000000 write-back": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000035]   1 base 0200000000 mask 7F80000000 write-back": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000036]   2 base 007F800000 mask 7FFF800000 uncachable": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000038]   3 base 0080000000 mask 7F80000000 uncachable": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000038]   4 disabled": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000039]   5 disabled": 4,
+            "Nov 22 16:14:11 localhost kernel: [    0.000040]   6 disabled": 4
+        },
+        "month": {
+            "Nov": 128
+        },
+        "service": {
+            "No category": 128
+        },
+        "tags": {
+            "beats_input_codec_plain_applied": 128
+        },
+        "time": {
+            "16:14:11": 64,
+            "16:26:06": 64
+        }
+    },
+    "localhost_sshd": {
+        "@version": {
+            "1": 188
+        },
+        "day": {
+            "20": 188
+        },
+        "log_message_3": {
+            " Accepted password for ocnos from 172.24.17.237 port 52499 ssh2": 4,
+            " Accepted password for ocnos from 172.24.17.237 port 52500 ssh2": 4,
+            " Accepted password for ocnos from 172.24.17.237 port 53665 ssh2": 4,
+            " Accepted password for ocnos from 172.24.17.237 port 53666 ssh2": 4,
+            " Accepted password for ocnos from 172.24.17.237 port 53869 ssh2": 4,
+            " Accepted password for ocnos from 172.24.17.237 port 53873 ssh2": 4,
+            " Accepted password for ocnos from 172.24.17.237 port 54012 ssh2": 4,
+            " Failed password for root from 172.24.17.237 port 53934 ssh2": 8,
+            " pam_unix(sshd:session): session closed for user ocnos": 68,
+            " pam_unix(sshd:session): session opened for user ocnos by (uid=0)": 48
+        },
+        "message": {
+            "2023 Oct 20 16:00:18 : localhost : sshd :  pam_unix(sshd:session): session closed for user ocnos": 8,
+            "2023 Oct 20 16:12:55 : localhost : sshd :  pam_unix(sshd:session): session opened for user ocnos by (uid=0)": 8,
+            "2023 Oct 20 16:14:00 : localhost : sshd :  pam_unix(sshd:session): session closed for user ocnos": 8,
+            "2023 Oct 20 16:22:22 : localhost : sshd :  pam_unix(sshd:session): session opened for user ocnos by (uid=0)": 8,
+            "2023 Oct 20 16:23:44 : localhost : sshd :  pam_unix(sshd:session): session closed for user ocnos": 8,
+            "2023 Oct 20 16:23:49 : localhost : sshd :  pam_unix(sshd:session): session opened for user ocnos by (uid=0)": 8,
+            "2023 Oct 20 16:49:40 : localhost : sshd :  pam_unix(sshd:session): session opened for user ocnos by (uid=0)": 8,
+            "2023 Oct 20 17:05:24 : localhost : sshd :  pam_unix(sshd:session): session closed for user ocnos": 8,
+            "2023 Oct 20 17:46:11 : localhost : sshd :  pam_unix(sshd:session): session opened for user ocnos by (uid=0)": 8,
+            "2023 Oct 20 17:46:19 : localhost : sshd :  pam_unix(sshd:session): session closed for user ocnos": 8
+        },
+        "month": {
+            "Oct": 188
+        },
+        "tags": {
+            "beats_input_codec_plain_applied": 188
+        },
+        "time": {
+            "16:00:18": 8,
+            "16:12:55": 16,
+            "16:14:00": 8,
+            "16:22:22": 16,
+            "16:23:44": 8,
+            "16:23:49": 16,
+            "16:49:40": 16,
+            "17:05:24": 8,
+            "17:46:11": 16,
+            "17:46:19": 8
+        },
+        "year": {
+            "2023": 188
+        }
+    },
+    "localhost_systemd": {
+        "@version": {
+            "1": 1668
+        },
+        "day": {
+            "22": 1668
+        },
+        "log_message_2": {
+            "Listening on Virtual machine log manager socket.": 16,
+            "Started Network Time Service.": 24,
+            "Started netconfd service.": 32,
+            "Starting Network Time Service...": 24,
+            "Starting netconfd service...": 32,
+            "Stopped netconfd service.": 24,
+            "mnt-onie\\x2dboot.mount: Succeeded.": 24,
+            "netconfd.service: Control process exited, code=exited, status=1/FAILURE": 24,
+            "netconfd.service: Failed with result 'exit-code'.": 24,
+            "netconfd.service: Service RestartSec=3s expired, scheduling restart.": 24
+        },
+        "message": {
+            "Nov 22 16:14:11 localhost systemd[1]: Condition check resulted in Commit a transient machine-id on disk being skipped.": 4,
+            "Nov 22 16:14:11 localhost systemd[1]: Condition check resulted in I210 Gigabit Network Connection being skipped.": 4,
+            "Nov 22 16:14:11 localhost systemd[1]: Condition check resulted in Mark the need to relabel after reboot being skipped.": 4,
+            "Nov 22 16:14:11 localhost systemd[1]: Condition check resulted in RPC security service for NFS client and server being skipped.": 4,
+            "Nov 22 16:14:11 localhost systemd[1]: Condition check resulted in RPC security service for NFS server being skipped.": 4,
+            "Nov 22 16:14:11 localhost systemd[1]: Listening on Virtual machine log manager socket.": 8,
+            "Nov 22 16:14:42 localhost systemd[1]: mnt-onie\\x2dboot.mount: Succeeded.": 8,
+            "Nov 22 16:26:06 localhost systemd[1]: Listening on Virtual machine log manager socket.": 8,
+            "Nov 22 16:26:06 localhost systemd[1]: pservd.service: Got notification message from PID 1794, but reception only permitted for main PID which is currently not known": 8,
+            "Nov 22 16:26:37 localhost systemd[1]: mnt-onie\\x2dboot.mount: Succeeded.": 8
+        },
+        "month": {
+            "Nov": 1668
+        },
+        "tags": {
+            "beats_input_codec_plain_applied": 1668
+        },
+        "time": {
+            "16:14:11": 320,
+            "16:14:12": 64,
+            "16:14:41": 36,
+            "16:15:01": 28,
+            "16:15:04": 28,
+            "16:15:08": 40,
+            "16:15:32": 28,
+            "16:26:06": 352,
+            "16:26:07": 60,
+            "16:26:36": 36
+        }
+    },
+    "sshd": {
+        "@version": {
+            "1": 83028
+        },
+        "day": {
+            "1": 25244,
+            "2": 13892,
+            "3": 13708,
+            "4": 9260,
+            "5": 11660,
+            "6": 6644,
+            "7": 2620
+        },
+        "log_message": {
+            " (root) CMD (   cd / && run-parts --report /etc/cron.hourly)": 1008,
+            " (root) CMD ( /etc/cron.daily/logrotate)": 12064,
+            " (root) MAIL (mailed 75 bytes of output but got status 0x0001 from MTA": 1028,
+            " DHCPACK of 172.24.30.133 from 172.24.30.1": 96,
+            " DHCPREQUEST for 172.24.30.133 on eth0 to 172.24.30.1 port 67": 84,
+            " Reloaded xinetd service.": 80,
+            " pam_unix(cron:account): account root has password changed in future": 4948,
+            " pam_unix(sshd:session): session closed for user ocnos": 760,
+            " pam_unix(sshd:session): session opened for user ocnos by (uid=0)": 824,
+            " usr-local-mnt.mount: Succeeded.": 3116
+        },
+        "message": {
+            "2021 Jan  1 02:02:44 : localhost : systemd :  Reloaded xinetd service.": 16,
+            "2021 Jan  1 02:02:44 : localhost : systemd :  Reloading xinetd service.": 16,
+            "2021 Jan  1 02:02:44 : localhost : xinetd :  Reading included configuration file: /etc/netns/zebosfib0/xinetd.d/ssh [file=/etc/xinetd.conf] [line=15]": 16,
+            "2021 Jan  1 02:02:44 : localhost : xinetd :  Reading included configuration file: /etc/netns/zebosfib0/xinetd.d/ssh_netconf [file=/etc/netns/zebosfib0/xinetd.d/ssh_netconf] [line=11]": 16,
+            "2021 Jan  1 02:02:44 : localhost : xinetd :  Reading included configuration file: /etc/netns/zebosfib0/xinetd.d/telnet [file=/etc/netns/zebosfib0/xinetd.d/telnet] [line=11]": 16,
+            "2021 Jan  1 02:02:44 : localhost : xinetd :  Reading included configuration file: /etc/netns/zebosfib0/xinetd.d/tls_netconf [file=/etc/netns/zebosfib0/xinetd.d/tls_netconf] [line=13]": 16,
+            "2021 Jan  1 02:02:44 : localhost : xinetd :  Reconfigured: new=0 old=0 dropped=0 (services)": 16,
+            "2023 Dec  1 02:57:25 : CE2 : systemd :  usr-local-mnt.mount: Succeeded.": 24,
+            "2023 Dec  2 12:24:01 : CE2 : systemd :  usr-local-mnt.mount: Succeeded.": 20,
+            "2023 Dec  3 01:20:16 : CE2 : systemd :  usr-local-mnt.mount: Succeeded.": 24
+        },
+        "month": {
+            "Dec": 56656,
+            "Jan": 26372
+        },
+        "service": {
+            "CRON": 19140,
+            "NETCONFD": 52636,
+            "cron": 1064,
+            "dhclient": 624,
+            "netconfd": 184,
+            "ntpd": 256,
+            "sh": 148,
+            "sshd": 2868,
+            "systemd": 4888,
+            "xinetd": 612
+        },
+        "tags": {
+            "beats_input_codec_plain_applied": 83028
+        },
+        "time": {
+            "02:02:44": 176,
+            "02:03:45": 100,
+            "06:25:01": 148,
+            "07:56:00": 176,
+            "08:12:58": 148,
+            "08:13:08": 180,
+            "08:20:01": 88,
+            "08:55:16": 632,
+            "13:40:01": 96,
+            "14:38:12": 176
+        },
+        "year": {
+            "2000": 220,
+            "2021": 26152,
+            "2023": 56656
+        }
+    }
+}

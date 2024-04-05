@@ -1,0 +1,141 @@
+.card_top{
+  width: 222px;
+  height: 320px;
+  background-color: white;
+  border-radius: 20px;
+  margin-left: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.downlink{
+  width: 80px;
+  height: 22px;
+  border-radius: 5px;
+  font-size: medium;
+  display: flex;
+  justify-content: center;
+}
+.state_heading{
+  font-size: small;
+}
+.uplink{
+  width: 80px;
+  height: 22px;
+  border-radius: 5px;
+  font-size: medium;
+  display: flex;
+  justify-content: center;
+}
+.card_top_wide{
+  width: 336px;
+  height: 320px;
+  background-color: white;
+  border-radius: 20px;
+  margin-left: 2px;
+}
+.content_main{
+  margin-left: 20.7%;
+  margin-top: 130px;
+  z-index: 1;
+}
+
+.content_main_first{
+  display: flex;
+}
+
+.content_main_second{
+  width: 1060px;
+  height: 180px;
+  background-color: white;
+  border-radius: 20px;
+  margin-left: 2px;
+  margin-top: 20px;
+  display: flex;
+}
+
+.sub_sec{
+  width: 25%;
+  height: 100%;
+  float: right;
+}
+.config_button_supported:hover{
+  cursor: pointer;
+  /* background-color: #0a459ced; */
+}
+.config_button_not_supported:hover{
+  cursor: pointer;
+  /* background-color: rgb(143, 5, 16); */
+}
+.config_button_not_supported{
+  background-color: #dee8ef;
+  border: none ;
+  padding: 5px;
+  width: 180px;
+  border-radius: 2px;
+  margin-left: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: small;
+  font-family:Helvetica;
+  color:#373d3f
+}
+.config_button_supported{
+   /* background-color: #dee8ef; */
+   border: none ;
+   padding: 5px;
+   margin-left: -6px;
+   margin-top: 5px;
+   border-radius: 3px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 30px;
+   width: 180px;
+   border-radius: 2px;
+   font-size: small;
+   font-family:Helvetica;
+   color:#373d3f
+}
+
+.popupEnabled{
+  background-color: #fefefe;
+  border: 2px solid rgb(165 154 154 / 62%);
+  border-radius: 10px;
+  width: 301px;
+  height: -moz-fit-content;
+  padding: 15px;
+  position: absolute;
+  margin-top: -688px;
+  margin-left: 18px;
+  word-wrap: break-word;
+  height: 232px;
+  overflow: scroll;
+}
+.ver_l{
+  border-right: 1px solid rgb(182, 184, 182);
+  height: 130px;
+  margin-top: 25px
+
+}
+.card_wide{
+  width: 339px;
+  height: 320px;
+  background-color: white;
+  border-radius: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.light {
+	border-bottom: 50px solid #555;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	height: 0;
+	width: 125px;
+  }
+ 
+

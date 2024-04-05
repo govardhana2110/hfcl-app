@@ -1,0 +1,921 @@
+{
+  "title": "ipi-authentication",
+  "description": "Authentication Configurations",
+  "type": "object",
+  "properties": {
+    "ipi-authentication:authentication": {
+      "description": "Grouping for Authentication",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "global": {
+          "description": "Authentication global configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for Authentication global",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "mac-authentication": {
+                  "description": "Use this attribute to enable MAC authentication globally. If MAC authentication is not enabled, other MAC authentication related commands throw an error when issued.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "dot1x-authentication": {
+                  "description": "Use this attribute to enable globally authentication.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for Authentication global",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "mac-authentication": {
+                  "description": "Use this attribute to enable MAC authentication globally. If MAC authentication is not enabled, other MAC authentication related commands throw an error when issued.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "dot1x-authentication": {
+                  "description": "Use this attribute to enable globally authentication.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "dot1x-interfaces": {
+          "description": "802.1X Authentication Interface",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "dot1x-interface": {
+              "description": "List of 802.1X Authentication Interfaces",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The interface name to configure the 802.1X Authentication.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for 802.1X Authentication Interface",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The interface name to configure the 802.1X Authentication.",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "dot1x-control": {
+                        "description": "Use this attribute to enable or disable the 802.1X authentication control on an interface.",
+                        "readOnly": false,
+                        "enum": [
+                          "force-unauthorized",
+                          "force-authorized",
+                          "auto"
+                        ],
+                        "mandatory": true
+                      },
+                      "protocol-version": {
+                        "description": "Use this attribute to set the protocol version of dot1x to 1 or 2. The protocol version must be synchronized with the Xsupplicant being used in that interface.",
+                        "readOnly": false,
+                        "enum": [
+                          "1",
+                          "2"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for 802.1X Authentication Interface",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The interface name to configure the 802.1X Authentication.",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "dot1x-control": {
+                        "description": "Use this attribute to enable or disable the 802.1X authentication control on an interface.",
+                        "readOnly": true,
+                        "enum": [
+                          "force-unauthorized",
+                          "force-authorized",
+                          "auto"
+                        ],
+                        "mandatory": true
+                      },
+                      "protocol-version": {
+                        "description": "Use this attribute to set the protocol version of dot1x to 1 or 2. The protocol version must be synchronized with the Xsupplicant being used in that interface.",
+                        "readOnly": true,
+                        "enum": [
+                          "1",
+                          "2"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "auth-dot1x-interface-operational": {
+                    "description": "802.1X Authentication Interface operational state",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data for 802.1X Authentication Interface",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "dot1x-control-operational": {
+                            "description": "Operational 802.1X authentication control status for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "enum": [
+                              "force-unauthorized",
+                              "force-authorized",
+                              "auto"
+                            ],
+                            "mandatory": false
+                          },
+                          "supplicant-name": {
+                            "description": "Supplicant name for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "supplicant-mac-address": {
+                            "description": "Supplicant MAC address for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "pattern": "[0-9a-fA-F]{4}(.[0-9a-fA-F]{4}){2}",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "port-enabled": {
+                            "description": "Port enabled for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "boolean",
+                            "mandatory": false
+                          },
+                          "authentication-abort": {
+                            "description": "Authentication abort for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "boolean",
+                            "mandatory": false
+                          },
+                          "authentication-fail": {
+                            "description": "Authentication fail for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "boolean",
+                            "mandatory": false
+                          },
+                          "authentication-start": {
+                            "description": "Authentication start for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "boolean",
+                            "mandatory": false
+                          },
+                          "authentication-timeout": {
+                            "description": "Authentication timeout for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "boolean",
+                            "mandatory": false
+                          },
+                          "authentication-success": {
+                            "description": "Authentication success for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "boolean",
+                            "mandatory": false
+                          },
+                          "key-available": {
+                            "description": "Key available for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "boolean",
+                            "mandatory": false
+                          },
+                          "key-tx-enabled": {
+                            "description": "Key transmission enabled for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "boolean",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "authentication-control-dir-operational": {
+                    "description": "802.1X Authentication Interface control dir operational state",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data for 802.1X Authentication Interface control dir",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "admin-controlled-directions": {
+                            "description": "Administrative controlled directions for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "enum": [
+                              "both",
+                              "in"
+                            ],
+                            "mandatory": false
+                          },
+                          "oper-controlled-directions": {
+                            "description": "Operational controlled directions for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "enum": [
+                              "both",
+                              "in"
+                            ],
+                            "mandatory": false
+                          },
+                          "bridge-detected": {
+                            "description": "Bridge detected for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "boolean",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "authentication-key-received-operational": {
+                    "description": "802.1X Authentication Interface key received operational state",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data for 802.1X Authentication Interface key    received",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "rx-key": {
+                            "description": "Received key for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "boolean",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "authenticator-pae": {
+                    "description": "802.1X Authentication Interface authenticator PAE",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for 802.1X Authentication Interface authenticator    PAE",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "quiet-period": {
+                            "description": "Use this attribute to set the quiet-period time interval.When a switch cannot authenticate a client, the switch remains idle for a quiet-period interval of time, then tries again. By administratively changing the quiet-period interval, by entering a lower number than the default, a faster response time can be provided",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "max-reauth-value": {
+                            "description": "Use this attribute to set the maximum reauthentication value, which sets the maximum number of reauthentication attempts after which the port will be unauthorized.",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 10,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "interval-period": {
+                            "description": "Use this attribute to set the interval between successive attempts to request an ID.",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for 802.1X Authentication Interface    authenticator PAE",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "quiet-period": {
+                            "description": "Use this attribute to set the quiet-period time interval.When a switch cannot authenticate a client, the switch remains idle for a quiet-period interval of time, then tries again. By administratively changing the quiet-period interval, by entering a lower number than the default, a faster response time can be provided",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "max-reauth-value": {
+                            "description": "Use this attribute to set the maximum reauthentication value, which sets the maximum number of reauthentication attempts after which the port will be unauthorized.",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 10,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "interval-period": {
+                            "description": "Use this attribute to set the interval between successive attempts to request an ID.",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "auth-authenticator-pae-operational": {
+                    "description": "802.1X Authentication Interface authenticator PAE operational state",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data for 802.1X Authentication Interface    authenticator PAE",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "quiet-period-operational": {
+                            "description": "Operational PAE quiet-period time interval for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "mandatory": false
+                          },
+                          "max-reauth-value-operational": {
+                            "description": "Operational PAE maximum reauthentication value for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 255,
+                            "mandatory": false
+                          },
+                          "interval-period-operational": {
+                            "description": "Operational PAE interval between successive attempts to request an ID for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "mandatory": false
+                          },
+                          "port-status": {
+                            "description": "PAE port status for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "enum": [
+                              "Unknown",
+                              "Authorized",
+                              "Unauthorized"
+                            ],
+                            "mandatory": false
+                          },
+                          "pae-state": {
+                            "description": "PAE state for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "enum": [
+                              "Down",
+                              "Init",
+                              "Connected",
+                              "Connecting",
+                              "Authenticating",
+                              "Authenticated",
+                              "Aborting",
+                              "Held",
+                              "Force-Authorized",
+                              "Force-Unauthorized",
+                              "Restart"
+                            ],
+                            "mandatory": false
+                          },
+                          "port-mode": {
+                            "description": "PAE port mode for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "enum": [
+                              "Invalid",
+                              "Force-Unauthorized",
+                              "Force-Authorized",
+                              "Auto"
+                            ],
+                            "mandatory": false
+                          },
+                          "reauth-count": {
+                            "description": "PAE reauthentication count for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "rx-response-id": {
+                            "description": "PAE received response id for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "reauthentication-timer": {
+                    "description": "802.1X Authentication Interface reauthentication timer",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for 802.1X Authentication Interface    reauthentication timer",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "reauthentication-period": {
+                            "description": "Use this attribute to set the interval between reauthorization attempts.",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 4294967295,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "enable-reauthentication": {
+                            "description": "Use this attribute to enable reauthentication on a port.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "enable-mac-auth-bypass": {
+                            "description": "Use this attribute to enable/disable mac-auth-bypass on a port.",
+                            "readOnly": false,
+                            "enum": [
+                              "enable",
+                              "disable"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for 802.1X Authentication Interface    reauthentication timer",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "reauthentication-period": {
+                            "description": "Use this attribute to set the interval between reauthorization attempts.",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 4294967295,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "enable-reauthentication": {
+                            "description": "Use this attribute to enable reauthentication on a port.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "enable-mac-auth-bypass": {
+                            "description": "Use this attribute to enable/disable mac-auth-bypass on a port.",
+                            "readOnly": true,
+                            "enum": [
+                              "enable",
+                              "disable"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "reauthentication-timer-operational": {
+                    "description": "802.1X Authentication Interface reauthentication timer operational    state",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data for 802.1X Authentication Interface    reauthentication timer",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "reauthentication-period-operational": {
+                            "description": "Operational interval between reauthorization attempts for 802.1X Authentication Interface reauthentication timer.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "enable-reauthentication-operational": {
+                            "description": "Operational reauthentication status on a port for 802.1X Authentication Interface reauthentication timer.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "dot1x-timer": {
+                            "description": "802.1X timer status for 802.1X Authentication Interface reauthentication timer.",
+                            "readOnly": true,
+                            "enum": [
+                              "Expired",
+                              "Running"
+                            ],
+                            "mandatory": false
+                          },
+                          "mac-status": {
+                            "description": "MAC status for 802.1X Authentication Interface reauthentication timer.",
+                            "readOnly": true,
+                            "enum": [
+                              "Unknown",
+                              "Authorized",
+                              "Unauthorized"
+                            ],
+                            "mandatory": false
+                          },
+                          "last-rejected-mac": {
+                            "description": "Last rejected MAC for 802.1X Authentication Interface reauthentication timer.",
+                            "readOnly": true,
+                            "pattern": "[0-9a-fA-F]{4}(.[0-9a-fA-F]{4}){2}",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "authenticator-be": {
+                    "description": "802.1X Authentication Interface authenticator BE",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for 802.1X Authentication Interface authenticator    BE",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "supplicant-timeout": {
+                            "description": "Use this attribute to set the interval for a supplicant to respond.",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "server-timeout": {
+                            "description": "Use this attribute to set the authentication server response timeout.",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for 802.1X Authentication Interface    authenticator BE",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "supplicant-timeout": {
+                            "description": "Use this attribute to set the interval for a supplicant to respond.",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "server-timeout": {
+                            "description": "Use this attribute to set the authentication server response timeout.",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "authenticator-be-operational": {
+                    "description": "802.1X Authentication Interface authenticator BE operational state",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data for 802.1X Authentication Interface    authenticator BE",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "supplicant-timeout-operational": {
+                            "description": "Operational interval for a supplicant to respond for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "mandatory": false
+                          },
+                          "server-timeout-operational": {
+                            "description": "Operational authentication server response timeout for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "mandatory": false
+                          },
+                          "current-id": {
+                            "description": "Current id for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 255,
+                            "mandatory": false
+                          },
+                          "be-state": {
+                            "description": "Backend state for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "enum": [
+                              "Invalid",
+                              "Request",
+                              "Response",
+                              "Success",
+                              "Fail",
+                              "Timeout",
+                              "Idle",
+                              "Initialize"
+                            ],
+                            "mandatory": false
+                          },
+                          "req-count": {
+                            "description": "Backend requisition count for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 255,
+                            "mandatory": false
+                          },
+                          "id-from-server": {
+                            "description": "Backend id from server for 802.1X authentication on an interface.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 255,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "mac-interfaces": {
+          "description": "MAC Authentication Interface",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "mac-interface": {
+              "description": "List of MAC Authentication Interfaces",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The interface name to configure the MAC Authentication.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for MAC Authentication Interface",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The interface name to configure the MAC Authentication.",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mac-control": {
+                        "description": "Use this attribute to enable or disable the MAC authentication control on an interface.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": true
+                      },
+                      "mac-mode": {
+                        "description": "Use this attribute to enable or disable the MAC authentication mode on an interface.",
+                        "readOnly": false,
+                        "enum": [
+                          "filter",
+                          "shutdown"
+                        ],
+                        "mandatory": false
+                      },
+                      "dynamic-vlan-creation": {
+                        "description": "Use this attribute to enable or disable dynamic VLAN creation after successful MAC authentication.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "mac-address-aging": {
+                        "description": "Use this attribute to either enable or disable MAC aging. When enabled, a MAC entry is added to the forwarding database, with aging time equal to the bridge aging time. Otherwise, the MAC entry will not be aged out. If MAC aging is disabled, the MAC entry will not be aged out",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for MAC Authentication Interface",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The interface name to configure the MAC Authentication.",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mac-control": {
+                        "description": "Use this attribute to enable or disable the MAC authentication control on an interface.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": true
+                      },
+                      "mac-mode": {
+                        "description": "Use this attribute to enable or disable the MAC authentication mode on an interface.",
+                        "readOnly": true,
+                        "enum": [
+                          "filter",
+                          "shutdown"
+                        ],
+                        "mandatory": false
+                      },
+                      "dynamic-vlan-creation": {
+                        "description": "Use this attribute to enable or disable dynamic VLAN creation after successful MAC authentication.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "mac-address-aging": {
+                        "description": "Use this attribute to either enable or disable MAC aging. When enabled, a MAC entry is added to the forwarding database, with aging time equal to the bridge aging time. Otherwise, the MAC entry will not be aged out. If MAC aging is disabled, the MAC entry will not be aged out",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "Authentication Debug",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for Authentication Debug",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Use this attribute to turn on or turn off 802.1x debugging at various levels.",
+                  "readOnly": false,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "timer": "1",
+                    "packet": "2",
+                    "nsm": "3"
+                  },
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for Authentication Debug",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Use this attribute to turn on or turn off 802.1x debugging at various levels.",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "timer": "1",
+                    "packet": "2",
+                    "nsm": "3"
+                  },
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Use this attribute to turn on or turn off 802.1x debugging at various levels.",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "timer": "1",
+                    "packet": "2",
+                    "nsm": "3"
+                  },
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

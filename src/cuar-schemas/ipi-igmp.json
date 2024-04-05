@@ -1,0 +1,1621 @@
+{
+  "title": "ipi-igmp",
+  "description": "Data model for IGMP Module",
+  "type": "object",
+  "properties": {
+    "ipi-igmp:igmp": {
+      "description": "IGMP configurations",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "vrfs": {
+          "description": "IGMP vrf configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "vrf": {
+              "description": "IGMP vrf instance configurations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vrf-name": {
+                    "description": "VPN routing/forwarding Instance name",
+                    "readOnly": false,
+                    "path": "../config/vrf-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "config container for IGMP vrf instance configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VPN routing/forwarding Instance name",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "disable-ssm-map": {
+                        "description": "Use this attribute to enable the IGMP operation on an interface. This command enables IGMP operation in standalone mode, and can be used to learn local-membership information prior to enabling a multicast routing protocol on the interface. This command will has no effect on interfaces configured for IGMP proxy.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "disable-tos-check": {
+                        "description": "Use this attribute to disable TOS check for Internetwork Control",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "state container for IGMP vrf instance configurations",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VPN routing/forwarding Instance name",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "disable-ssm-map": {
+                        "description": "Use this attribute to enable the IGMP operation on an interface. This command enables IGMP operation in standalone mode, and can be used to learn local-membership information prior to enabling a multicast routing protocol on the interface. This command will has no effect on interfaces configured for IGMP proxy.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "disable-tos-check": {
+                        "description": "Use this attribute to disable TOS check for Internetwork Control",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "group-membership-control": {
+                    "description": "IGMP Group Membership Control Configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "config container for IGMP group membership control configurations",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "member-limit": {
+                            "description": "Use this attribute to set the maximum number of group membership states, at either the router level or at the interface level. Once the specified number of group memberships is reached, all further local-memberships are ignored. Optionally, an exception access-list can be configured to specify the group-address(es) to be excluded from being subject to the limit. This command applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy. The limit applies, individually, to each of its constituent interfaces.",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 2097152,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "limit-exception-acl": {
+                            "description": "Use this attribute to set the maximum number of group membership states, at either the router level or at the interface level. Once the specified number of group memberships is reached, all further local-memberships are ignored. Optionally, an exception access-list can be configured to specify the group-address(es) to be excluded from being subject to the limit. This command applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy. The limit applies, individually, to each of its constituent interfaces.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "state container for IGMP group membership control configurations",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "member-limit": {
+                            "description": "Use this attribute to set the maximum number of group membership states, at either the router level or at the interface level. Once the specified number of group memberships is reached, all further local-memberships are ignored. Optionally, an exception access-list can be configured to specify the group-address(es) to be excluded from being subject to the limit. This command applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy. The limit applies, individually, to each of its constituent interfaces.",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 2097152,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "limit-exception-acl": {
+                            "description": "Use this attribute to set the maximum number of group membership states, at either the router level or at the interface level. Once the specified number of group memberships is reached, all further local-memberships are ignored. Optionally, an exception access-list can be configured to specify the group-address(es) to be excluded from being subject to the limit. This command applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy. The limit applies, individually, to each of its constituent interfaces.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "current-states-count": {
+                            "description": "Current group membership record states for this IGMP instance.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "ssm": {
+                    "description": "IGMP SSM Configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "static-mappings": {
+                        "description": "IGMP Static-Mappings Container",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "static-mapping": {
+                            "description": "IGMP Static-Mapping Instance configurations",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "group-ranges-acl": {
+                                  "description": "Use this attribute to specify SSM Static Access List",
+                                  "readOnly": false,
+                                  "path": "../config/group-ranges-acl",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "source": {
+                                  "description": "Use this attribute to specify the static mode of defining SSM mapping. SSM mapping statically assigns sources to IGMPv1 and IGMPv2 groups to translate such (star G) groups memberships to (S,G) memberships for use with PIMSSM.This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy.",
+                                  "readOnly": false,
+                                  "path": "../config/source",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "config container for IGMP static-mapping configurations",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "group-ranges-acl": {
+                                      "description": "Use this attribute to specify SSM Static Access List",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "source": {
+                                      "description": "Use this attribute to specify the static mode of defining SSM mapping. SSM mapping statically assigns sources to IGMPv1 and IGMPv2 groups to translate such (star G) groups memberships to (S,G) memberships for use with PIMSSM.This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy.",
+                                      "readOnly": false,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "state container for IGMP static-mapping configurations",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "group-ranges-acl": {
+                                      "description": "Use this attribute to specify SSM Static Access List",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "source": {
+                                      "description": "Use this attribute to specify the static mode of defining SSM mapping. SSM mapping statically assigns sources to IGMPv1 and IGMPv2 groups to translate such (star G) groups memberships to (S,G) memberships for use with PIMSSM.This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy.",
+                                      "readOnly": true,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "group-ranges-acl",
+                                "source"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "debug": {
+                    "description": "IGMP Debug Configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "config container for IGMP debug configurations",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "options": {
+                            "description": "Use this attribute to enable igmp debugging configurations",
+                            "readOnly": false,
+                            "type": "string",
+                            "bits": {
+                              "decode": "0",
+                              "encode": "1",
+                              "events": "2",
+                              "fsm": "3",
+                              "tib": "4"
+                            },
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "state container for IGMP debug configurations",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "options": {
+                            "description": "Use this attribute to enable igmp debugging configurations",
+                            "readOnly": true,
+                            "type": "string",
+                            "bits": {
+                              "decode": "0",
+                              "encode": "1",
+                              "events": "2",
+                              "fsm": "3",
+                              "tib": "4"
+                            },
+                            "mandatory": false
+                          },
+                          "terminal-debug-status": {
+                            "description": "Use this attribute to display igmp terminal debug options enabled",
+                            "readOnly": true,
+                            "type": "string",
+                            "bits": {
+                              "decode": "0",
+                              "encode": "1",
+                              "events": "2",
+                              "fsm": "3",
+                              "tib": "4"
+                            },
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "vrf-name"
+                ]
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Top level container for IGMP interfaces",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "IGMP interface instance configurations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "This attribute defines the interface where IGMP is configured",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "config container for IGMP interface instance configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "This attribute defines the interface where IGMP is configured",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enabled": {
+                        "description": "Use this attribute to enable the IGMP operation on an interface. This attributeenables IGMP operation in standalone mode, and can be used to learn local-membership information prior to enabling a multicast routing protocol on the interface. This attribute will have no effect on interfaces configured for IGMP proxy",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "last-member-query-count": {
+                        "description": "Use this attribute to set the last-member query-count value. This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy.",
+                        "readOnly": false,
+                        "minimum": 2,
+                        "maximum": 7,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "last-member-query-interval": {
+                        "description": "Use this attribute to configure the frequency at which the router sends IGMP group-specific host query messages. This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy.",
+                        "readOnly": false,
+                        "minimum": 1000,
+                        "maximum": 25500,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "querier-timeout": {
+                        "description": "Use this attribute to set the timeout period before the router takes over as the querier for the interface after the previous querier has stopped querying. This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy.",
+                        "readOnly": false,
+                        "minimum": 60,
+                        "maximum": 300,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "query-interval": {
+                        "description": "Use this attribute to set the frequency of sending IGMP host query messages. This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 18000,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "query-max-response-time": {
+                        "description": "Use this attribute to set the maximum response time advertised in IGMP queries. This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 240,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "startup-query-interval": {
+                        "description": "Use this attribute to set a query interval value for IGMP",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 18000,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "startup-query-count": {
+                        "description": "Use this attribute to set a startup query count for IGMP",
+                        "readOnly": false,
+                        "minimum": 2,
+                        "maximum": 10,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "robustness-variable": {
+                        "description": "Use this attribute to set the robustness variable value on an interface. This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy.",
+                        "readOnly": false,
+                        "minimum": 2,
+                        "maximum": 7,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "version": {
+                        "description": "Use this attribute to set the current IGMP protocol version on an interface. This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 3,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "require-router-alert-option": {
+                        "description": "Use this attribute to configure strict Router Advertisement validation for IGMP.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "allow-offlink-host": {
+                        "description": "Use this attribute to configure off-link for IGMP.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "state container for IGMP interface instance configurations",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "counters": {
+                        "description": "container for IGMP interface counters",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "v1-reports-received": {
+                            "description": "Number of IGMPv1 reports received on this interface.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "v2-reports-received": {
+                            "description": "Number of IGMPv2 reports received on this interface.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "v2-leaves-received": {
+                            "description": "Number of IGMPv2 leaves received on this interface.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "v3-reports-received": {
+                            "description": "Number of IGMPv3 reports received on this interface.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "current-group-records": {
+                            "description": "Number of current group membership records on this interface.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "internet-address": {
+                        "description": "Interface IP address used by IGMP to communicate with remote peer",
+                        "readOnly": true,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "oper-status": {
+                        "description": "Operational status of the IGMP interface",
+                        "readOnly": true,
+                        "enum": [
+                          "Active",
+                          "Inactive"
+                        ],
+                        "mandatory": false
+                      },
+                      "host-version": {
+                        "description": "host-version",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 255,
+                        "mandatory": false
+                      },
+                      "is-querier": {
+                        "description": "Indicates whether this interface is a IGMP querier or not.",
+                        "readOnly": true,
+                        "type": "boolean",
+                        "mandatory": false
+                      },
+                      "querying-router": {
+                        "description": "IGMP querying router for this subnet",
+                        "readOnly": true,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "group-membership-interval": {
+                        "description": "Time interval after which the group memberships on this interface will time out.",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "name": {
+                        "description": "This attribute defines the interface where IGMP is configured",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enabled": {
+                        "description": "Use this attribute to enable the IGMP operation on an interface. This attributeenables IGMP operation in standalone mode, and can be used to learn local-membership information prior to enabling a multicast routing protocol on the interface. This attribute will have no effect on interfaces configured for IGMP proxy",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "last-member-query-count": {
+                        "description": "Use this attribute to set the last-member query-count value. This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy.",
+                        "readOnly": true,
+                        "minimum": 2,
+                        "maximum": 7,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "last-member-query-interval": {
+                        "description": "Use this attribute to configure the frequency at which the router sends IGMP group-specific host query messages. This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy.",
+                        "readOnly": true,
+                        "minimum": 1000,
+                        "maximum": 25500,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "querier-timeout": {
+                        "description": "Use this attribute to set the timeout period before the router takes over as the querier for the interface after the previous querier has stopped querying. This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy.",
+                        "readOnly": true,
+                        "minimum": 60,
+                        "maximum": 300,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "query-interval": {
+                        "description": "Use this attribute to set the frequency of sending IGMP host query messages. This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 18000,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "query-max-response-time": {
+                        "description": "Use this attribute to set the maximum response time advertised in IGMP queries. This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 240,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "startup-query-interval": {
+                        "description": "Use this attribute to set a query interval value for IGMP",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 18000,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "startup-query-count": {
+                        "description": "Use this attribute to set a startup query count for IGMP",
+                        "readOnly": true,
+                        "minimum": 2,
+                        "maximum": 10,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "robustness-variable": {
+                        "description": "Use this attribute to set the robustness variable value on an interface. This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy.",
+                        "readOnly": true,
+                        "minimum": 2,
+                        "maximum": 7,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "version": {
+                        "description": "Use this attribute to set the current IGMP protocol version on an interface. This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols and IGMP Proxy.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 3,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "require-router-alert-option": {
+                        "description": "Use this attribute to configure strict Router Advertisement validation for IGMP.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "allow-offlink-host": {
+                        "description": "Use this attribute to configure off-link for IGMP.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "proxy": {
+                    "description": "IGMP inteface proxy configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "config container for IGMP proxy configurations",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "enable-proxy-service": {
+                            "description": "Use this attribute to designate an interface to be the IGMP proxy-service (upstream host-side) interface, thus enabling IGMP host-side protocol operation on this interface. All associated downstream router-side interfaces will have their memberships consolidated on this interface, according to IGMP host-side functionality",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "mroute-proxy-interface": {
+                            "description": "Use this attribute to specify the IGMP Proxy service interface with which to be associated. IGMP router-side protocol operation is enabled only when the specified upstream proxy-service interface is functional.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "unsolicited-report-interval": {
+                            "description": "Use this attribute to set an unsolicited report interval for an interface designated as an IGMP proxy",
+                            "readOnly": false,
+                            "minimum": 1000,
+                            "maximum": 25500,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "state container for IGMP proxy configurations",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "enable-proxy-service": {
+                            "description": "Use this attribute to designate an interface to be the IGMP proxy-service (upstream host-side) interface, thus enabling IGMP host-side protocol operation on this interface. All associated downstream router-side interfaces will have their memberships consolidated on this interface, according to IGMP host-side functionality",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "mroute-proxy-interface": {
+                            "description": "Use this attribute to specify the IGMP Proxy service interface with which to be associated. IGMP router-side protocol operation is enabled only when the specified upstream proxy-service interface is functional.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "unsolicited-report-interval": {
+                            "description": "Use this attribute to set an unsolicited report interval for an interface designated as an IGMP proxy",
+                            "readOnly": true,
+                            "minimum": 1000,
+                            "maximum": 25500,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "oper-status": {
+                            "description": "IGMP proxy operational status",
+                            "readOnly": true,
+                            "enum": [
+                              "up",
+                              "down"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "group-membership-control": {
+                    "description": "IGMP inteface group membership control configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "config container for IGMP group membership control configurations",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "access-group-name": {
+                            "description": "Use this attribute to control the multicast local-membership groups learned on an interface. This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols, IGMP proxy.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[a-zA-Z0-9][^?' =,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "immediate-leave-groups-list": {
+                            "description": "In IGMP version 2, use this attribute to minimize the leave latency of IGMP memberships. This attribute is used when only one receiver host is connected to each interface. This command applies to interfaces configured for IGMP Layer-3 multicast protocols, IGMP Proxy.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[a-zA-Z0-9][^?' =,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "member-limit": {
+                            "description": "Use this attribute to set the maximum number of group membership states, at either the router level or at the interface level. Once the specified number of group memberships is reached, all further local-memberships are ignored. Optionally, an exception access-list can be configured to specify the group-address to be excluded from being subject to the limit.",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 2097152,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "limit-exception-acl": {
+                            "description": "Use this attribute to set the maximum number of group membership states, at either the router level or at the interface level. Once the specified number of group memberships is reached, all further local-memberships are ignored. Optionally, an exception access-list can be configured to specify the group-address to be excluded from being subject to the limit.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[a-zA-Z0-9][^?' =,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "state container for IGMP group membership control configurations",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "access-group-name": {
+                            "description": "Use this attribute to control the multicast local-membership groups learned on an interface. This attribute applies to interfaces configured for IGMP Layer-3 multicast protocols, IGMP proxy.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[a-zA-Z0-9][^?' =,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "immediate-leave-groups-list": {
+                            "description": "In IGMP version 2, use this attribute to minimize the leave latency of IGMP memberships. This attribute is used when only one receiver host is connected to each interface. This command applies to interfaces configured for IGMP Layer-3 multicast protocols, IGMP Proxy.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[a-zA-Z0-9][^?' =,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "member-limit": {
+                            "description": "Use this attribute to set the maximum number of group membership states, at either the router level or at the interface level. Once the specified number of group memberships is reached, all further local-memberships are ignored. Optionally, an exception access-list can be configured to specify the group-address to be excluded from being subject to the limit.",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 2097152,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "limit-exception-acl": {
+                            "description": "Use this attribute to set the maximum number of group membership states, at either the router level or at the interface level. Once the specified number of group memberships is reached, all further local-memberships are ignored. Optionally, an exception access-list can be configured to specify the group-address to be excluded from being subject to the limit.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[a-zA-Z0-9][^?' =,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "asm-static-groups": {
+                    "description": "IGMP inteface asm static groups configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "asm-static-group": {
+                        "description": "IGMP interface asm static group instance configurations",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "group-address": {
+                              "description": "Use this attribute to statically configure group membership entries on an interface. To statically add only a group membership, do not specify any parameters. This attribute applies to IGMP operation on a specific interface to statically add group and/or source records on a VLAN interface to statically add group and/or source records.",
+                              "readOnly": false,
+                              "path": "../config/group-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "config container for IGMP asm static group configurations",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "group-address": {
+                                  "description": "Use this attribute to statically configure group membership entries on an interface. To statically add only a group membership, do not specify any parameters. This attribute applies to IGMP operation on a specific interface to statically add group and/or source records on a VLAN interface to statically add group and/or source records.",
+                                  "readOnly": false,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "state container for IGMP asm static group configurations",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "group-address": {
+                                  "description": "Use this attribute to statically configure group membership entries on an interface. To statically add only a group membership, do not specify any parameters. This attribute applies to IGMP operation on a specific interface to statically add group and/or source records on a VLAN interface to statically add group and/or source records.",
+                                  "readOnly": true,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "group-address"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "ssm-static-groups": {
+                    "description": "IGMP inteface ssm static groups configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "ssm-static-group": {
+                        "description": "IGMP interface ssm static group instance configurations",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "group-address": {
+                              "description": "Use this attribute to statically configure the group to be joined.",
+                              "readOnly": false,
+                              "path": "../config/group-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "source": {
+                              "description": "Use this attribute to statically configure the group to be joined.",
+                              "readOnly": false,
+                              "path": "../config/source",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "config container for IGMP ssm static group configurations",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "group-address": {
+                                  "description": "Use this attribute to statically configure the group to be joined.",
+                                  "readOnly": false,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "source": {
+                                  "description": "Use this attribute to statically configure the multicast source for group to be joined.",
+                                  "readOnly": false,
+                                  "oneOf": [
+                                    {
+                                      "enum": [
+                                        "ssm-map"
+                                      ]
+                                    },
+                                    {
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string"
+                                    }
+                                  ],
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "state container for IGMP ssm static group configurations",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "group-address": {
+                                  "description": "Use this attribute to statically configure the group to be joined.",
+                                  "readOnly": true,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "source": {
+                                  "description": "Use this attribute to statically configure the multicast source for group to be joined.",
+                                  "readOnly": true,
+                                  "oneOf": [
+                                    {
+                                      "enum": [
+                                        "ssm-map"
+                                      ]
+                                    },
+                                    {
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string"
+                                    }
+                                  ],
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "group-address",
+                            "source"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "asm-join-groups": {
+                    "description": "IGMP inteface asm join groups configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "asm-join-group": {
+                        "description": "IGMP interface asm join group instance configurations",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "group-address": {
+                              "description": "Use this attribute to configure a join multicast group.",
+                              "readOnly": false,
+                              "path": "../config/group-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "config container for IGMP asm join group configurations",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "group-address": {
+                                  "description": "Use this attribute to configure a locally joined multicast group.",
+                                  "readOnly": false,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "state container for IGMP asm join group configurations",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "group-address": {
+                                  "description": "Use this attribute to configure a locally joined multicast group.",
+                                  "readOnly": true,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "group-address"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "ssm-join-groups": {
+                    "description": "IGMP inteface ssm join groups configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "ssm-join-group": {
+                        "description": "IGMP interface ssm static join group instance configurations",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "group-address": {
+                              "description": "Use this attribute to configure a join multicast group.",
+                              "readOnly": false,
+                              "path": "../config/group-address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "source": {
+                              "description": "Use this attribute to statically configure the group to be joined.",
+                              "readOnly": false,
+                              "path": "../config/source",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "config container for IGMP ssm join group configurations",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "group-address": {
+                                  "description": "Use this attribute to configure a locally joined multicast group.",
+                                  "readOnly": false,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "source": {
+                                  "description": "Use this attribute to configure the multicast source for a locally joined group.",
+                                  "readOnly": false,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "state container for IGMP ssm join group configurations",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "group-address": {
+                                  "description": "Use this attribute to configure a locally joined multicast group.",
+                                  "readOnly": true,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "source": {
+                                  "description": "Use this attribute to configure the multicast source for a locally joined group.",
+                                  "readOnly": true,
+                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "group-address",
+                            "source"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "group-membership-tree": {
+          "description": "Group Membership Tree Container",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "igmp-instances": {
+              "description": "IGMP Instances",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "igmp-instance": {
+                  "description": "IGMP Instance",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF name",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "interfaces": {
+                        "description": "IGMP Interfaces related operations",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "interface": {
+                            "description": "IGMP Interace Instance",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "if-name": {
+                                  "description": "Interface name",
+                                  "readOnly": true,
+                                  "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "member-groups": {
+                                  "description": "IGMP Member-Groups",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "member-group": {
+                                      "description": "List of member-group instances",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "group-address": {
+                                            "description": "Multicast group address joined",
+                                            "readOnly": true,
+                                            "path": "../state/group-address",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "state": {
+                                            "description": "State container for IGMP member-groups",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "group-address": {
+                                                "description": "Multicast group address joined",
+                                                "readOnly": true,
+                                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "dynamic-remote": {
+                                                "description": "Indicates that this multicast source is learnt dynamically",
+                                                "readOnly": true,
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "null"
+                                                },
+                                                "maxItems": 1,
+                                                "mandatory": false
+                                              },
+                                              "static-group": {
+                                                "description": "Presence of this attribute indicates a statically configured multicast group",
+                                                "readOnly": true,
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "null"
+                                                },
+                                                "maxItems": 1,
+                                                "mandatory": false
+                                              },
+                                              "local": {
+                                                "description": "Presence of this attribute indicates a locally joined group",
+                                                "readOnly": true,
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "null"
+                                                },
+                                                "maxItems": 1,
+                                                "mandatory": false
+                                              },
+                                              "ssm-mapped": {
+                                                "description": "Presence of this attribute indicates a SSM mapped group",
+                                                "readOnly": true,
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "null"
+                                                },
+                                                "maxItems": 1,
+                                                "mandatory": false
+                                              },
+                                              "static-source": {
+                                                "description": "Presence of this attribute indicates a statically configured multicast source",
+                                                "readOnly": true,
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "null"
+                                                },
+                                                "maxItems": 1,
+                                                "mandatory": false
+                                              },
+                                              "up-time": {
+                                                "description": "Indicates the up-time for group membership",
+                                                "readOnly": true,
+                                                "minLength": 1,
+                                                "maxLength": 1965,
+                                                "pattern": "[^?' =,>|]+",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "group-mode": {
+                                                "description": "Indicates the SSM group mode as include or exclude",
+                                                "readOnly": true,
+                                                "enum": [
+                                                  "Invalid",
+                                                  "Include",
+                                                  "Exclude",
+                                                  "Max"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "expiry": {
+                                                "description": "Indicates the expiry time for group membership",
+                                                "readOnly": true,
+                                                "minLength": 1,
+                                                "maxLength": 1965,
+                                                "pattern": "[^?' =,>|]+",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "last-reporter": {
+                                                "description": "Indicates the last reporter for this group",
+                                                "readOnly": true,
+                                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                "type": "string",
+                                                "mandatory": false
+                                              }
+                                            }
+                                          },
+                                          "include-sources": {
+                                            "description": "Include-sources for IGMP member-groups",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "include-source": {
+                                                "description": "List of include sources for the group",
+                                                "readOnly": true,
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "source-address": {
+                                                      "description": "Multicast source address for the group",
+                                                      "readOnly": true,
+                                                      "path": "../state/source-address",
+                                                      "type": "string",
+                                                      "mandatory": false
+                                                    },
+                                                    "state": {
+                                                      "description": "State container for include-source instance",
+                                                      "readOnly": true,
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "source-address": {
+                                                          "description": "Multicast source address for the group",
+                                                          "readOnly": true,
+                                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                          "type": "string",
+                                                          "mandatory": false
+                                                        },
+                                                        "dynamic-remote": {
+                                                          "description": "Indicates that this multicast source is learnt dynamically",
+                                                          "readOnly": true,
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "null"
+                                                          },
+                                                          "maxItems": 1,
+                                                          "mandatory": false
+                                                        },
+                                                        "static-source": {
+                                                          "description": "Indicates that this multicast source is configured statically",
+                                                          "readOnly": true,
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "null"
+                                                          },
+                                                          "maxItems": 1,
+                                                          "mandatory": false
+                                                        },
+                                                        "local": {
+                                                          "description": "Locally configured multicast source",
+                                                          "readOnly": true,
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "null"
+                                                          },
+                                                          "maxItems": 1,
+                                                          "mandatory": false
+                                                        },
+                                                        "ssm-mapped": {
+                                                          "description": "Presence of this attribute indicates a SSM mapped group",
+                                                          "readOnly": true,
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "null"
+                                                          },
+                                                          "maxItems": 1,
+                                                          "mandatory": false
+                                                        },
+                                                        "up-time": {
+                                                          "description": "Indicates the up-time for group membership",
+                                                          "readOnly": true,
+                                                          "minLength": 1,
+                                                          "maxLength": 1965,
+                                                          "pattern": "[^?' =,>|]+",
+                                                          "type": "string",
+                                                          "mandatory": false
+                                                        },
+                                                        "expiry": {
+                                                          "description": "Indicates the expiry time for group membership",
+                                                          "readOnly": true,
+                                                          "minLength": 1,
+                                                          "maxLength": 1965,
+                                                          "pattern": "[^?' =,>|]+",
+                                                          "type": "string",
+                                                          "mandatory": false
+                                                        },
+                                                        "is-forwarded": {
+                                                          "description": "Indicates if traffic from this source-group is forwarded upstream",
+                                                          "readOnly": true,
+                                                          "enum": [
+                                                            "no",
+                                                            "yes"
+                                                          ],
+                                                          "mandatory": false
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "keyFields": [
+                                                    "source-address"
+                                                  ]
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "exclude-sources": {
+                                            "description": "Exclude-sources for IGMP member-groups",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "exclude-source": {
+                                                "description": "List of exclude sources for the group",
+                                                "readOnly": true,
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "source-address": {
+                                                      "description": "Multicast source address for the group",
+                                                      "readOnly": true,
+                                                      "path": "../state/source-address",
+                                                      "type": "string",
+                                                      "mandatory": false
+                                                    },
+                                                    "state": {
+                                                      "description": "State container for exclude-source instance",
+                                                      "readOnly": true,
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "source-address": {
+                                                          "description": "Multicast source address for the group",
+                                                          "readOnly": true,
+                                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                          "type": "string",
+                                                          "mandatory": false
+                                                        },
+                                                        "dynamic-remote": {
+                                                          "description": "Indicates that this multicast source is learnt dynamically",
+                                                          "readOnly": true,
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "null"
+                                                          },
+                                                          "maxItems": 1,
+                                                          "mandatory": false
+                                                        },
+                                                        "static-source": {
+                                                          "description": "Indicates that this multicast source is configured statically",
+                                                          "readOnly": true,
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "null"
+                                                          },
+                                                          "maxItems": 1,
+                                                          "mandatory": false
+                                                        },
+                                                        "local": {
+                                                          "description": "Locally configured multicast source",
+                                                          "readOnly": true,
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "null"
+                                                          },
+                                                          "maxItems": 1,
+                                                          "mandatory": false
+                                                        },
+                                                        "ssm-mapped": {
+                                                          "description": "Presence of this attribute indicates a SSM mapped group",
+                                                          "readOnly": true,
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "null"
+                                                          },
+                                                          "maxItems": 1,
+                                                          "mandatory": false
+                                                        },
+                                                        "up-time": {
+                                                          "description": "Indicates the up-time for group membership",
+                                                          "readOnly": true,
+                                                          "minLength": 1,
+                                                          "maxLength": 1965,
+                                                          "pattern": "[^?' =,>|]+",
+                                                          "type": "string",
+                                                          "mandatory": false
+                                                        },
+                                                        "expiry": {
+                                                          "description": "Indicates the expiry time for group membership",
+                                                          "readOnly": true,
+                                                          "minLength": 1,
+                                                          "maxLength": 1965,
+                                                          "pattern": "[^?' =,>|]+",
+                                                          "type": "string",
+                                                          "mandatory": false
+                                                        },
+                                                        "is-forwarded": {
+                                                          "description": "Indicates if traffic from this source-group is forwarded upstream",
+                                                          "readOnly": true,
+                                                          "enum": [
+                                                            "no",
+                                                            "yes"
+                                                          ],
+                                                          "mandatory": false
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "keyFields": [
+                                                    "source-address"
+                                                  ]
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "keyFields": [
+                                          "group-address"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                },
+                                "proxy-groups": {
+                                  "description": "IGMP proxy-groups",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "proxy-group": {
+                                      "description": "List of IGMP proxy group memberships on the interface",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "group-address": {
+                                            "description": "Multicast group address joined",
+                                            "readOnly": true,
+                                            "path": "../state/group-address",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "state": {
+                                            "description": "State container for proxy-group instance",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "group-address": {
+                                                "description": "Multicast group address joined",
+                                                "readOnly": true,
+                                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "proxy-interface": {
+                                                "description": "Indicates the upstream proxy interface",
+                                                "readOnly": true,
+                                                "minLength": 1,
+                                                "maxLength": 1965,
+                                                "pattern": "[^?' =,>|]+",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "group-mode": {
+                                                "description": "Indicates the SSM group mode as include or exclude",
+                                                "readOnly": true,
+                                                "enum": [
+                                                  "Invalid",
+                                                  "Include",
+                                                  "Exclude",
+                                                  "Max"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "state": {
+                                                "description": "State of the proxy interface",
+                                                "readOnly": true,
+                                                "enum": [
+                                                  "Active",
+                                                  "Inactive"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "membership-state": {
+                                                "description": "Indicates the group-membership state",
+                                                "readOnly": true,
+                                                "enum": [
+                                                  "Idle",
+                                                  "Delay"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "multicast-sources": {
+                                                "description": "List of multicast sources for this group membership.",
+                                                "readOnly": true,
+                                                "type": "array",
+                                                "items": {
+                                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                  "type": "string",
+                                                  "mandatory": false
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "keyFields": [
+                                          "group-address"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "if-name"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "vrf-name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

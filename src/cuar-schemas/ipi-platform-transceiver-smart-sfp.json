@@ -1,0 +1,129 @@
+{
+  "title": "ipi-platform-transceiver-smart-sfp",
+  "description": "Datamodel for smart sfp module",
+  "type": "object",
+  "properties": {
+    "ipi-platform-transceiver-smart-sfp:smart-sfp": {
+      "description": "Main Global container for smart SFP",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "interfaces": {
+          "description": "container for interface level configuration for platform smart SFP",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "Platform smart SFP interface related operations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "interface-name": {
+                    "description": "Use this attribute to perform platform's interface smart SFP related configurations",
+                    "readOnly": false,
+                    "path": "../config/interface-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "configuration container for interface list",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "interface-name": {
+                        "description": "This attribute describes the textual name of the interface",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "xcvr-loopback-remote": {
+                        "description": "Use this attribute to set TX/RX loopback for remote",
+                        "readOnly": false,
+                        "enum": [
+                          "in",
+                          "out"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational data for interface",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "interface-name": {
+                        "description": "This attribute describes the textual name of the interface",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "xcvr-loopback-remote": {
+                        "description": "Use this attribute to set TX/RX loopback for remote",
+                        "readOnly": true,
+                        "enum": [
+                          "in",
+                          "out"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "interface-name"
+                ]
+              }
+            }
+          }
+        },
+        "components": {
+          "description": "container for the components in the system.",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "component": {
+              "description": "List of components, keyed by smart SFP component name.",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "References the smart SFP component name",
+                    "readOnly": true,
+                    "path": "../state/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "state": {
+                    "description": "Operational state data for each smart SFP component",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "References the smart SFP component name",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

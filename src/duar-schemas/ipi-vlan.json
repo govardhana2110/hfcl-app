@@ -1,0 +1,484 @@
+{
+  "title": "ipi-vlan",
+  "description": "VLAN configuration",
+  "type": "object",
+  "properties": {
+    "ipi-vlan:vlan-classifier": {
+      "description": "Top level container for VLAN classifier configuration and state data",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "classifier-rules": {
+          "description": "Enclosing container for list of VLAN classifier rule configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "classifier-rule": {
+              "description": "List for VLAN classifier rule configuration and state data",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "rule-id": {
+                    "description": "Classifier rule id",
+                    "readOnly": false,
+                    "path": "../config/rule-id",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for classifier rule",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "rule-id": {
+                        "description": "Classifier rule ID",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 256,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for classifier rule",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "rule-id": {
+                        "description": "Classifier rule ID",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 256,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "rule-criteria": {
+                    "description": "List for VLAN classifier rule criterias configuration and state data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for classifier rule criteria",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "mac-address": {
+                            "description": "Use this attribute to configure classifier for given MAC address",
+                            "readOnly": false,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "ipv4-address": {
+                            "description": "Use this attribute to configure classifier for given IPv4 address",
+                            "readOnly": false,
+                            "minLength": 0,
+                            "maxLength": 32,
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "ether-type": {
+                            "description": "Use this attribute to configure classifier for protocols based on Ethertype value",
+                            "readOnly": false,
+                            "oneOf": [
+                              {
+                                "minLength": 5,
+                                "maxLength": 6,
+                                "pattern": "0x[0-9a-fA-F]+",
+                                "type": "string"
+                              },
+                              {
+                                "enum": [
+                                  "ip",
+                                  "x25",
+                                  "arp",
+                                  "g8bpqx25",
+                                  "ieeepup",
+                                  "ieeeaddrtrans",
+                                  "dec",
+                                  "decdnadumpload",
+                                  "decdnaremoteconsole",
+                                  "decdnarouting",
+                                  "declat",
+                                  "decdiagnostics",
+                                  "rarp",
+                                  "atalkddp",
+                                  "atalkaarp",
+                                  "ipx",
+                                  "ipv6",
+                                  "atmmulti",
+                                  "pppdiscovery",
+                                  "pppsession",
+                                  "atmtransport"
+                                ]
+                              }
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for classifier rule criteria",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "mac-address": {
+                            "description": "Use this attribute to configure classifier for given MAC address",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "ipv4-address": {
+                            "description": "Use this attribute to configure classifier for given IPv4 address",
+                            "readOnly": true,
+                            "minLength": 0,
+                            "maxLength": 32,
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "ether-type": {
+                            "description": "Use this attribute to configure classifier for protocols based on Ethertype value",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "minLength": 5,
+                                "maxLength": 6,
+                                "pattern": "0x[0-9a-fA-F]+",
+                                "type": "string"
+                              },
+                              {
+                                "enum": [
+                                  "ip",
+                                  "x25",
+                                  "arp",
+                                  "g8bpqx25",
+                                  "ieeepup",
+                                  "ieeeaddrtrans",
+                                  "dec",
+                                  "decdnadumpload",
+                                  "decdnaremoteconsole",
+                                  "decdnarouting",
+                                  "declat",
+                                  "decdiagnostics",
+                                  "rarp",
+                                  "atalkddp",
+                                  "atalkaarp",
+                                  "ipx",
+                                  "ipv6",
+                                  "atmmulti",
+                                  "pppdiscovery",
+                                  "pppsession",
+                                  "atmtransport"
+                                ]
+                              }
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "rule-id"
+                ]
+              }
+            }
+          }
+        },
+        "classifier-groups": {
+          "description": "Enclosing container for list of VLAN classifier group configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "classifier-group": {
+              "description": "List for VLAN classifier group configuration and state data",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "group-id": {
+                    "description": "Classifier group ID",
+                    "readOnly": false,
+                    "path": "../config/group-id",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "rule-id": {
+                    "description": "Classifier rule ID",
+                    "readOnly": false,
+                    "path": "../config/rule-id",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for VLAN classifier group",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "group-id": {
+                        "description": "VLAN classifier group ID",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 16,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "rule-id": {
+                        "description": "VLAN classifier rule ID",
+                        "readOnly": false,
+                        "path": "/vlan-classifier/classifier-rules/classifier-rule/rule-id",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for VLAN classifier group",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "group-id": {
+                        "description": "VLAN classifier group ID",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 16,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "rule-id": {
+                        "description": "VLAN classifier rule ID",
+                        "readOnly": true,
+                        "path": "/vlan-classifier/classifier-rules/classifier-rule/rule-id",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "group-id",
+                  "rule-id"
+                ]
+              }
+            }
+          }
+        },
+        "ports": {
+          "description": "Enclosing container for list of port mapping with VLAN classifier",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "port": {
+              "description": "List for port mapping with VLAN classifier configuration and state      data",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "port-name": {
+                    "description": "Port mapped with VLAN classifier",
+                    "readOnly": false,
+                    "path": "../config/port-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "group-id": {
+                    "description": "VLAN classifier group ID",
+                    "readOnly": false,
+                    "path": "../config/group-id",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for port VLAN classifier",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "port-name": {
+                        "description": "Port mapped with VLAN classifier",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "group-id": {
+                        "description": "VLAN classifier group ID",
+                        "readOnly": false,
+                        "path": "/vlan-classifier/classifier-groups/classifier-group/group-id",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "vlan-id": {
+                        "description": "Use this attribute to map VLAN ID with classifier group",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-bridge:bridge/vlans/vlan/vlan-id",
+                        "type": "string",
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for port VLAN classifier",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "port-name": {
+                        "description": "Port mapped with VLAN classifier",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "group-id": {
+                        "description": "VLAN classifier group ID",
+                        "readOnly": true,
+                        "path": "/vlan-classifier/classifier-groups/classifier-group/group-id",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "vlan-id": {
+                        "description": "Use this attribute to map VLAN ID with classifier group",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-bridge:bridge/vlans/vlan/vlan-id",
+                        "type": "string",
+                        "mandatory": true
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "port-name",
+                  "group-id"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "ipi-vlan:vlan-reservation": {
+      "description": "Top level container for VLAN reservation configuration and state data",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "reserve-vlan": {
+          "description": "List for reserve vlan configuration and state data",
+          "readOnly": false,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "vlan-id": {
+                "description": "Vlan identifier",
+                "readOnly": false,
+                "path": "../config/vlan-id",
+                "type": "string",
+                "mandatory": false
+              },
+              "config": {
+                "description": "Configuration data of reserve vlans",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "vlan-id": {
+                    "description": "Use attribute to reserve vlan",
+                    "readOnly": false,
+                    "pattern": "[^?'=>|]*",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                }
+              },
+              "state": {
+                "description": "Operational state data",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "vlan-id": {
+                    "description": "Use attribute to reserve vlan",
+                    "readOnly": true,
+                    "pattern": "[^?'=>|]*",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "vlan-id"
+            ]
+          }
+        }
+      }
+    },
+    "ipi-vlan:layer2-global": {
+      "description": "Top level container for Layer2 global configuration and state data",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "config": {
+          "description": "Layer-2 global configuration data",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "disable-vlan-classifier-feature": {
+              "description": "Use this command to enable or disable VLAN classifier feature.",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "disable-port-security": {
+              "description": "Use this attribute to disable or enable port-security globally.",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            }
+          }
+        },
+        "state": {
+          "description": "Layer-2 global operational state data",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "disable-vlan-classifier-feature": {
+              "description": "Use this command to enable or disable VLAN classifier feature.",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "disable-port-security": {
+              "description": "Use this attribute to disable or enable port-security globally.",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

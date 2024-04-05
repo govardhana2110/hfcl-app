@@ -1,0 +1,475 @@
+{
+  "title": "ipi-aaa",
+  "description": "Layer-3 aaa configurations",
+  "type": "object",
+  "properties": {
+    "ipi-aaa:aaa": {
+      "description": "AAA Top level container for configuration and operational data",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "vrfs": {
+          "description": "This container defines AAA server vrf informations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "vrf": {
+              "description": "AAA VRF Configuration",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vrf-name": {
+                    "description": "VRF Name associated with this instance",
+                    "readOnly": false,
+                    "path": "../config/vrf-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "AAA VRF related operation",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF Name associated with this instance",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "authentication-method-rule": {
+                        "description": "Use this attribute to set AAA methods for authentication",
+                        "readOnly": false,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "accounting-method-rule": {
+                        "description": "Use this attribute to set AAA methods for accounting",
+                        "readOnly": false,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "authorization-method-rule": {
+                        "description": "Use this attribute to set AAA methods for authorization",
+                        "readOnly": false,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable-fallback": {
+                        "description": "This is to enable fallback to local authentication if remote authentication is configured and all AAA servers are unreachable",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "non-existent": {
+                        "description": "Fallback to local authentication if user non-existent in server",
+                        "readOnly": false,
+                        "type": "boolean",
+                        "mandatory": false
+                      },
+                      "error-enable": {
+                        "description": "This is to enable error message on login failures",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "This container defines AAA VRF states.",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF Name associated with this instance",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "authentication-method-rule": {
+                        "description": "Use this attribute to set AAA methods for authentication",
+                        "readOnly": true,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "accounting-method-rule": {
+                        "description": "Use this attribute to set AAA methods for accounting",
+                        "readOnly": true,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "authorization-method-rule": {
+                        "description": "Use this attribute to set AAA methods for authorization",
+                        "readOnly": true,
+                        "pattern": "[^?'=,>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable-fallback": {
+                        "description": "This is to enable fallback to local authentication if remote authentication is configured and all AAA servers are unreachable",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "non-existent": {
+                        "description": "Fallback to local authentication if user non-existent in server",
+                        "readOnly": true,
+                        "type": "boolean",
+                        "mandatory": false
+                      },
+                      "error-enable": {
+                        "description": "This is to enable error message on login failures",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "server-groups": {
+                    "description": "This container defines AAA server groups informations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "server-group": {
+                        "description": "This objectlist defines AAA server group list",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "group-type": {
+                              "description": "This is to create server group type",
+                              "readOnly": false,
+                              "path": "../config/group-type",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "group-name": {
+                              "description": "This is to create server group name",
+                              "readOnly": false,
+                              "path": "../config/group-name",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "configuration data for each server group",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "group-type": {
+                                  "description": "This is use to specify server type either tacacs+ or radius",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "tacacs+",
+                                    "radius"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "group-name": {
+                                  "description": "This is to create server group name",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 127,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data of each server group",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "group-type": {
+                                  "description": "This is use to specify server type either tacacs+ or radius",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "tacacs+",
+                                    "radius"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "group-name": {
+                                  "description": "This is to create server group name",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 127,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "server-addresses": {
+                              "description": "Container for AAA Server address Entries",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "server-address": {
+                                  "description": "AAA server address entry list",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "host-address": {
+                                        "description": "Use this attribute to add a host address to a server group",
+                                        "readOnly": false,
+                                        "path": "../config/host-address",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "config": {
+                                        "description": "Configurational data for server address entry",
+                                        "readOnly": false,
+                                        "type": "object",
+                                        "properties": {
+                                          "host-address": {
+                                            "description": "Use this attribute to add a host address to a server group",
+                                            "readOnly": false,
+                                            "oneOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                "type": "string"
+                                              },
+                                              {
+                                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                "type": "string"
+                                              }
+                                            ],
+                                            "mandatory": false
+                                          }
+                                        }
+                                      },
+                                      "state": {
+                                        "description": "Operational state data for server address entry",
+                                        "readOnly": true,
+                                        "type": "object",
+                                        "properties": {
+                                          "host-address": {
+                                            "description": "Use this attribute to add a host address to a server group",
+                                            "readOnly": true,
+                                            "oneOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                "type": "string"
+                                              },
+                                              {
+                                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                "type": "string"
+                                              }
+                                            ],
+                                            "mandatory": false
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "keyFields": [
+                                      "host-address"
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "group-type",
+                            "group-name"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "vrf-name"
+                ]
+              }
+            }
+          }
+        },
+        "aaa-authentication-console": {
+          "description": "This container defines console authentication",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration for console login",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "authentication-method-rule": {
+                  "description": "Use this attribute to set AAA methods for authentication",
+                  "readOnly": false,
+                  "pattern": "[^?'=,>|]*",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "enable-fallback": {
+                  "description": "This is to enable fallback to local authentication if remote authentication is configured and all AAA servers are unreachable",
+                  "readOnly": false,
+                  "type": "boolean",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "This containers defines AAA console config states",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "authentication-method-rule": {
+                  "description": "Use this attribute to set AAA methods for authentication",
+                  "readOnly": true,
+                  "pattern": "[^?'=,>|]*",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "enable-fallback": {
+                  "description": "This is to enable fallback to local authentication if remote authentication is configured and all AAA servers are unreachable",
+                  "readOnly": true,
+                  "type": "boolean",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "aaa-user": {
+          "description": "This container defines a global admin data for AAA users",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for AAA users",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "authentication-max-failure-attempts": {
+                  "description": "Use this attribute to set the number of unsuccessful authentication attempts before a user is locked out",
+                  "readOnly": false,
+                  "minimum": 1,
+                  "maximum": 25,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "local-user-unlock-timeout": {
+                  "description": "Use this attribute to set unlock timeout after local user/s locked out",
+                  "readOnly": false,
+                  "minimum": 1,
+                  "maximum": 3600,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for AAA users",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "authentication-max-failure-attempts": {
+                  "description": "Use this attribute to set the number of unsuccessful authentication attempts before a user is locked out",
+                  "readOnly": true,
+                  "minimum": 1,
+                  "maximum": 25,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "local-user-unlock-timeout": {
+                  "description": "Use this attribute to set unlock timeout after local user/s locked out",
+                  "readOnly": true,
+                  "minimum": 1,
+                  "maximum": 3600,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "Debugging functions",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "This defines AAA Debug Configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this attribute to display AAA debugging information.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "This container defines AAA Debug state",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this attribute to display AAA debugging information.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Use this attribute to display AAA terminal debugging information.",
+                  "readOnly": true,
+                  "enum": [
+                    "off",
+                    "on"
+                  ],
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

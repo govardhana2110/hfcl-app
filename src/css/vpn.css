@@ -1,0 +1,149 @@
+@media only screen and (max-width: 768px) {
+  .custom-dropdown button{
+    background-color: white ;
+    color: black;
+    border-color: #d1bdbd; 
+    border-radius: 4px;
+    font-size:13px;
+  }
+  .vpnContent{
+    margin-left: 3%;
+    margin-top: 2%;
+    font-size: 13px;
+
+
+  }
+
+}
+.provision-content{
+    margin: 2%;
+}
+
+  .routerTypes{
+    margin: 1%;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.8);
+    background: white;
+    padding: 1%;
+  }
+  .routerTypes-head{
+    font-weight: 500;
+    font-size: 20px;
+    color: #3e3eb3db;
+    display: flex;
+    justify-content: space-between;
+  }
+  .showHideVpn{
+    margin-right: 1%;
+  }
+  .vpn-router-list{
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+  }
+  .router-item{
+    margin: 0.5%;
+    display: flex;
+  }
+  .router-item-name{
+    min-width: 43%;
+    color: #443b3b;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  .vpn-start-configure-button{
+        -webkit-tap-highlight-color: transparent;
+        background-color: transparent;
+        outline: 0px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        user-select: none;
+        font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        border: 1px solid rgba(255, 76, 81, 0.5);
+        color: rgb(255, 76, 81);
+        font-weight: 500;
+        border-radius: 4px;
+        letter-spacing: 0.3px;
+        padding: 0.40625rem 1.3125rem;
+        height: 40px;
+  }
+  .vpn-start-configure-button:hover{
+    background: rgb(255, 76, 81);
+    color: white;
+  }
+  .interface-box{
+    max-height: 300px;
+    overflow-y: scroll;
+    margin-left: 9px;
+    padding: 3%;
+    font-family: monospace;
+    background: #cacdd31f;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255);
+  }
+  .isis-config-module{
+    width: 20%;
+    color: black;
+    font-weight: 500;
+  }
+  .isis-instance-labels{
+    display: flex;
+    padding: 0.5%;
+  }
+  .isis-config-module-input{
+    border-right-width: medium;
+  }
+  .checkbox-label{
+    margin-left: 4%;
+    margin-top: 1.5%;
+  }
+  .configured-content{
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.8);
+    border-radius: 2px;
+  }
+  .configured-content-body{
+    padding: 2%;
+    height: 380px;
+    overflow: scroll;
+  }
+  .custom-dropdown {
+    /* background-color: #ff0000; */
+    color: #ffffff; 
+  }
+  
+  /* Override Bootstrap button styles for the dropdown button */
+  .custom-dropdown button{
+    background-color: white ;
+    color: black;
+    border-color: #d1bdbd; 
+    border-radius: 4px;
+  }
+  
+  .custom-dropdown.btn-primary:hover {
+    background-color: rgb(66, 92, 175) ;
+    color: black;
+    border-color: #363434; 
+  }
+  .bootstarapModificationButton{
+    border-radius: 3px !important;
+  }
+
+
+  .blur-background {
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.5); 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999; 
+  }
+  .configuring-tab{
+    margin: 1%;
+    box-shadow: 4px 5px 11px 1px #8888884f;
+    padding-top: 1%;
+    padding-left: 1%;
+    border-radius: 6px;
+  }

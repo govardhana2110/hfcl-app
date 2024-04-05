@@ -1,0 +1,930 @@
+{
+  "title": "ipi-evpn-mpls",
+  "description": "Datamodel for EVPN-MPLS protocol",
+  "type": "object",
+  "properties": {
+    "ipi-evpn-mpls:evpn-mpls": {
+      "description": "EVPN-MPLS global level container",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "global": {
+          "description": "Configuration data for EVPN-MPLS global capability configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable-evpn-mpls": {
+                  "description": "Use this attribute to enable EVPN-MPLS module. Without this attribute evpn mpls functionality can not be achieved",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                },
+                "vtep-ipv4": {
+                  "description": "Use this attribute to set source vtep global ip address. This will be treated at evpn mpls tunnel source address",
+                  "readOnly": false,
+                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "mac-ageing-timer": {
+                  "description": "Use this attribute to set the time till a learned mac address will persist after last update",
+                  "readOnly": false,
+                  "minimum": 10,
+                  "maximum": 572,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable-evpn-mpls": {
+                  "description": "Use this attribute to enable EVPN-MPLS module. Without this attribute evpn mpls functionality can not be achieved",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                },
+                "vtep-ipv4": {
+                  "description": "Use this attribute to set source vtep global ip address. This will be treated at evpn mpls tunnel source address",
+                  "readOnly": true,
+                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "mac-ageing-timer": {
+                  "description": "Use this attribute to set the time till a learned mac address will persist after last update",
+                  "readOnly": true,
+                  "minimum": 10,
+                  "maximum": 572,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "route-count": {
+              "description": "System EVPN route count information",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "state": {
+                  "description": "Operational state data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "max_route": {
+                      "description": "Use this attribute to show max EVPN route count",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "active_route": {
+                      "description": "Use this attribute to show active EVPN route count",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "arp-nd-global": {
+          "description": "ARP-ND global data",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "ARP-ND global configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "arp-nd-refresh-time": {
+                  "description": "Use this attribute to configure aging out the arp-cache and nd-cache entries",
+                  "readOnly": false,
+                  "minimum": 3,
+                  "maximum": 190,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "arp-nd-refresh-time": {
+                  "description": "Use this attribute to configure aging out the arp-cache and nd-cache entries",
+                  "readOnly": true,
+                  "minimum": 3,
+                  "maximum": 190,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "mpls-tenants": {
+          "description": "EVPN-MPLS tenant list enclosing container",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "mpls-tenant": {
+              "description": "Tenant configurations for EVPN-MPLS",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "tenant-identifier": {
+                    "description": "Tenant Identifier",
+                    "readOnly": false,
+                    "path": "../config/tenant-identifier",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "Use this attribute to map vrf to carry EVPN routes",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mac-holdtime": {
+                        "description": "Use this attribute to set the time a host mac entry will persist after unconfig",
+                        "readOnly": false,
+                        "minimum": -1,
+                        "maximum": 300,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "tenant-description": {
+                        "description": "Use this attribute to set evpn-mpls tenant identifier name",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tunnel-policy-name": {
+                        "description": "Transport Tunnel Selection Policy",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 127,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "irb-name": {
+                        "description": "Use this attribute to provide default gateway behavior on a VTEP for particular VNID.",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tenant-identifier": {
+                        "description": "Tenant Identifier",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 16777215,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "vpws-identifier": {
+                        "description": "Use this attribute to create vpws tenant",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 16777215,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "control-word": {
+                        "description": "Use this attribute to set control word for EVI",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "Use this attribute to map vrf to carry EVPN routes",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mac-holdtime": {
+                        "description": "Use this attribute to set the time a host mac entry will persist after unconfig",
+                        "readOnly": true,
+                        "minimum": -1,
+                        "maximum": 300,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "tenant-description": {
+                        "description": "Use this attribute to set evpn-mpls tenant identifier name",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tunnel-policy-name": {
+                        "description": "Transport Tunnel Selection Policy",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 127,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "irb-name": {
+                        "description": "Use this attribute to provide default gateway behavior on a VTEP for particular VNID.",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "tenant-identifier": {
+                        "description": "Tenant Identifier",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 16777215,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "vpws-identifier": {
+                        "description": "Use this attribute to create vpws tenant",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 16777215,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "control-word": {
+                        "description": "Use this attribute to set control word for EVI",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "route-count-info": {
+                    "description": "Runtime data for EVPN-MPLS global capability configuration",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "total": {
+                            "description": "Use this attribute to show count of Total Route Entries",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "mac-only": {
+                            "description": "Use this attribute to show count of Mac Only Entries",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "mac-ipv4": {
+                            "description": "Use this attribute to show count of Mac Ipv4 Entries",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "mac-ipv6": {
+                            "description": "Use this attribute to show count of Mac Ipv6 Entries",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "xconnect-mapping-info": {
+                    "description": "This holds data for EVPN-MPLS xconnect mapping summary",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "source-tenant-description": {
+                            "description": "Use this attribute to show name of source tenant",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "destination-vpws-identifier": {
+                            "description": "Use this attribute to show the remote vpws id",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "source-interface": {
+                            "description": "Use this attribute to show source connection of tunnel",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "destination-interface": {
+                            "description": "Use this attribute to show destination connection of tunnel",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "vtep-ip-address": {
+                            "description": "Use this attribute to show tunnel ip address",
+                            "readOnly": true,
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "connection-type": {
+                            "description": "Use this attribute to show the type of network connection",
+                            "readOnly": true,
+                            "enum": [
+                              "NA",
+                              "AC-AC",
+                              "AC-NW"
+                            ],
+                            "mandatory": false
+                          },
+                          "connection-status": {
+                            "description": "Use this attribute to show status of network connection",
+                            "readOnly": true,
+                            "enum": [
+                              "NA",
+                              "NW-SET",
+                              "AC-DN-NW-DN",
+                              "AC-DN-NW-UP",
+                              "AC-UP-NW-DN"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "irb": {
+                    "description": "Integrated Routing and Bridging container",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "irb-advertise-host-route": {
+                            "description": "Use this attribute to set advertise host to route",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "irb-advertise-host-route": {
+                            "description": "Use this attribute to set advertise host to route",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "arp-cache-info": {
+                    "description": "arp-cache information list",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "host-ip": {
+                          "description": "Use this attribute to show Host IP address",
+                          "readOnly": true,
+                          "path": "../state/host-ip",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "state": {
+                          "description": "Operational state data",
+                          "readOnly": true,
+                          "type": "object",
+                          "properties": {
+                            "host-ip": {
+                              "description": "Use this attribute to show Host IP address",
+                              "readOnly": true,
+                              "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "host-mac": {
+                              "description": "Use this attribute to show Host MAC address",
+                              "readOnly": true,
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "host-type": {
+                              "description": "Use this attribute to show Host Type",
+                              "readOnly": true,
+                              "enum": [
+                                "Dynamic",
+                                "Static-Local",
+                                "Remote-Dynamic",
+                                "Remote-Static",
+                                "Static-Remote"
+                              ],
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      },
+                      "keyFields": [
+                        "host-ip"
+                      ]
+                    }
+                  },
+                  "nd-cache-info": {
+                    "description": "nd-cache information list",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "host-ip": {
+                          "description": "Use this attribute to show Host IP address",
+                          "readOnly": true,
+                          "path": "../state/host-ip",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "state": {
+                          "description": "Operational state data",
+                          "readOnly": true,
+                          "type": "object",
+                          "properties": {
+                            "host-ip": {
+                              "description": "Use this attribute to show Host IP address",
+                              "readOnly": true,
+                              "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "host-mac": {
+                              "description": "Use this attribute to show Host Mac Address",
+                              "readOnly": true,
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "host-type": {
+                              "description": "Use this attribute to show Host Type",
+                              "readOnly": true,
+                              "enum": [
+                                "Dynamic",
+                                "Static-Local",
+                                "Remote-Dynamic",
+                                "Remote-Static",
+                                "Static-Remote"
+                              ],
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      },
+                      "keyFields": [
+                        "host-ip"
+                      ]
+                    }
+                  },
+                  "mac-table-info": {
+                    "description": "mac table display information",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "mac-address": {
+                          "description": "Mac Adress of the host",
+                          "readOnly": true,
+                          "path": "../state/mac-address",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "state": {
+                          "description": "Operational state data",
+                          "readOnly": true,
+                          "type": "object",
+                          "properties": {
+                            "mac-address": {
+                              "description": "Mac Adress of the host",
+                              "readOnly": true,
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "interface-name": {
+                              "description": "interface name",
+                              "readOnly": true,
+                              "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "vtep-ip-esi": {
+                              "description": "VTEP global ip address or ESI",
+                              "readOnly": true,
+                              "minLength": 1,
+                              "maxLength": 1965,
+                              "pattern": "[^?' =,>|]+",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "host-type": {
+                              "description": "Host Type",
+                              "readOnly": true,
+                              "enum": [
+                                "Dynamic",
+                                "Static-Local",
+                                "Remote-Dynamic",
+                                "Remote-Static",
+                                "Static-Remote"
+                              ],
+                              "mandatory": false
+                            },
+                            "host-status": {
+                              "description": "Host Status",
+                              "readOnly": true,
+                              "enum": [
+                                "---",
+                                "Max-Move-conflict",
+                                "Discard"
+                              ],
+                              "mandatory": false
+                            },
+                            "access-port-description": {
+                              "description": "Description for the port",
+                              "readOnly": true,
+                              "minLength": 1,
+                              "maxLength": 1965,
+                              "pattern": "[^?' =,>|]+",
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      },
+                      "keyFields": [
+                        "mac-address"
+                      ]
+                    }
+                  },
+                  "access-interface-info": {
+                    "description": "access interface display information",
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "access-interface-name": {
+                          "description": "Use this attribute to fetch the access port information mapped to particular tenant",
+                          "readOnly": true,
+                          "path": "../state/access-interface-name",
+                          "type": "string",
+                          "mandatory": false
+                        },
+                        "state": {
+                          "description": "Operational state data",
+                          "readOnly": true,
+                          "type": "object",
+                          "properties": {
+                            "access-interface-name": {
+                              "description": "Use this attribute to fetch the access port information mapped to particular tenant",
+                              "readOnly": true,
+                              "minLength": 1,
+                              "maxLength": 1965,
+                              "pattern": "[^?' =,>|]+",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "tenant-description": {
+                              "description": "Use this attribute to get evpn-mpls tenant identifier name",
+                              "readOnly": true,
+                              "minLength": 1,
+                              "maxLength": 1965,
+                              "pattern": "[^?' =,>|]+",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "ethernet-segment-id": {
+                              "description": "This Object is used to get the evpn multi-homed Ethernet Segment Identifier value",
+                              "readOnly": true,
+                              "minLength": 1,
+                              "maxLength": 1965,
+                              "pattern": "[^?' =,>|]+",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "port-status": {
+                              "description": "This Object is used to get the DF/Non-DF status value in multihomed environment",
+                              "readOnly": true,
+                              "minLength": 1,
+                              "maxLength": 1965,
+                              "pattern": "[^?' =,>|]+",
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      },
+                      "keyFields": [
+                        "access-interface-name"
+                      ]
+                    }
+                  }
+                },
+                "keyFields": [
+                  "tenant-identifier"
+                ]
+              }
+            }
+          }
+        },
+        "tunnel": {
+          "description": "tunnel related display information",
+          "readOnly": true,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "destination-vtep-ip": {
+                "description": "Use this attribute to get Tunnel destination IP",
+                "readOnly": true,
+                "path": "../state/destination-vtep-ip",
+                "type": "string",
+                "mandatory": false
+              },
+              "destination-evpn-identifier": {
+                "description": "use this attribute to get destination tenant identifier for specific tunnel",
+                "readOnly": true,
+                "path": "../state/destination-evpn-identifier",
+                "type": "string",
+                "mandatory": false
+              },
+              "state": {
+                "description": "Operational state data",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "destination-vtep-ip": {
+                    "description": "Use this attribute to set Tunnel destination IP",
+                    "readOnly": true,
+                    "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "destination-evpn-identifier": {
+                    "description": "use this attribute to get destination tenant identifier for specific tunnel",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "source-vtep-ip": {
+                    "description": "Use this attribute to set Tunnel source IP",
+                    "readOnly": true,
+                    "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "up-down-time": {
+                    "description": "Use this attribute to indicate tunnel up/down time",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "tunnel-status": {
+                    "description": "Use this attribute to see the Status of tunnel",
+                    "readOnly": true,
+                    "enum": [
+                      "Deleted",
+                      "Un-Resolved",
+                      "Resolved",
+                      "Installed"
+                    ],
+                    "mandatory": false
+                  },
+                  "source-vpws-identifier": {
+                    "description": "Use this attribute to see the source tenant identifier",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "destination-vpws-identifier": {
+                    "description": "Use this attribute to see the destination tenant identifier",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "local-multicast-label": {
+                    "description": "Use this attribute to see the local multicast label",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "local-unicast-label": {
+                    "description": "Use this attribute to see the local unicast label",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "remote-multicast-label": {
+                    "description": "Use this attribute to see the remote multicast label",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "remote-unicast-label": {
+                    "description": "Use this attribute to see the remote unicast label",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "is_xconnect": {
+                    "description": "Use this attribute to see xconnect enabled or not",
+                    "readOnly": true,
+                    "type": "boolean",
+                    "mandatory": false
+                  },
+                  "mpls-multipath-grp-name": {
+                    "description": "Use this attribute to see Underlay MPLS-Multipath Group name",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "mpls-multipath-nhlfe-ix": {
+                    "description": "Use this attribute to see Underlay MPLS-Multipath NHLFE ix",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "tunnel-label": {
+                    "description": "Use this attribute to see the tunnel label",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "network-interface": {
+                    "description": "network interface name",
+                    "readOnly": true,
+                    "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "counters": {
+                    "description": "A collection of evpn-mpls network-related statistics",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "out-bum-packets": {
+                        "description": "This indicates total number of BUM packets sent out from tunnel interface",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "out-unicast-packets": {
+                        "description": "This indicates total number of known Unicast packets sent out from tunnel interface",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "in-bum-packets": {
+                        "description": "This indicates total number of BUM packets received on tunnel interface",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "in-unicast-packets": {
+                        "description": "This indicates total number of known Unicast packets received on tunnel interface",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "destination-vtep-ip",
+              "destination-evpn-identifier"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

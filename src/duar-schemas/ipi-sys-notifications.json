@@ -1,0 +1,6 @@
+{
+  "title": "ipi-sys-notifications",
+  "description": "sys-notification has internal notifications for config lock, unlock,    config-change",
+  "type": "object",
+  "properties": {}
+}

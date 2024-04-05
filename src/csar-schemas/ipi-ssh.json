@@ -1,0 +1,340 @@
+{
+  "title": "ipi-ssh",
+  "description": "Data model for SSH Module",
+  "type": "object",
+  "properties": {
+    "ipi-ssh:ssh-server": {
+      "description": "ssh-server configurations",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "debug": {
+          "description": "SSH debug configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Config container for SSH debug configurations",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this attribute to enable ssh debugging configurations",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "State container for SSH debug configurations",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this attribute to enable ssh debugging configurations",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Use this attribute to display ssh terminal debugging information.",
+                  "readOnly": true,
+                  "enum": [
+                    "off",
+                    "on"
+                  ],
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "vrfs": {
+          "description": "ssh vrf configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "vrf": {
+              "description": "ssh vrf instance configurations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vrf-name": {
+                    "description": "VPN routing/forwarding Instance name",
+                    "readOnly": false,
+                    "path": "../config/vrf-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "config container for ssh vrf instance configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF Name associated with this instance",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable": {
+                        "description": "Use this attribute to enable the SSH server.",
+                        "readOnly": false,
+                        "type": "boolean",
+                        "mandatory": true
+                      },
+                      "port": {
+                        "description": "Use this attribute to set the port number on which the SSH server listens for connections. The default port on which the SSH server listens is 22.",
+                        "readOnly": false,
+                        "minimum": 1024,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "session-limit": {
+                        "description": "Use this attribute to set the maximum number of simultaneous sessions allowed. By default, 40 ssh-telnet sessions are allowed",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 40,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "max-login-attempts": {
+                        "description": "Use this attribute to set the number of times that a user can try to log in to a SSH session.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 3,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "state container for ssh vrf instance configurations",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF Name associated with this instance",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable": {
+                        "description": "Use this attribute to enable the SSH server.",
+                        "readOnly": true,
+                        "type": "boolean",
+                        "mandatory": true
+                      },
+                      "port": {
+                        "description": "Use this attribute to set the port number on which the SSH server listens for connections. The default port on which the SSH server listens is 22.",
+                        "readOnly": true,
+                        "minimum": 1024,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "session-limit": {
+                        "description": "Use this attribute to set the maximum number of simultaneous sessions allowed. By default, 40 ssh-telnet sessions are allowed",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 40,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "max-login-attempts": {
+                        "description": "Use this attribute to set the number of times that a user can try to log in to a SSH session.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 3,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "encryption-algorithms": {
+                    "description": "SSH Server Encryption Algorithm Configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "config container for ssh server encryption algorithm configurations",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "aes128-ctr": {
+                            "description": "Use this attribute to set the AES128-CTR Cipher",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "aes192-ctr": {
+                            "description": "Use this attribute to set the AES192-CTR Cipher",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "aes256-ctr": {
+                            "description": "Use this attribute to set the AES256-CTR Cipher",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "aes128-cbc": {
+                            "description": "Use this attribute to set the AES128-CBC Cipher",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "aes192-cbc": {
+                            "description": "Use this attribute to set the AES192-CBC Cipher",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "aes256-cbc": {
+                            "description": "Use this attribute to set the AES256-CBC Cipher",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "triple-des-cbc": {
+                            "description": "Use this attribute to set the 3DES-CBC Cipher",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "state container for ssh server encryption algorithm configurations",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "aes128-ctr": {
+                            "description": "Use this attribute to set the AES128-CTR Cipher",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "aes192-ctr": {
+                            "description": "Use this attribute to set the AES192-CTR Cipher",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "aes256-ctr": {
+                            "description": "Use this attribute to set the AES256-CTR Cipher",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "aes128-cbc": {
+                            "description": "Use this attribute to set the AES128-CBC Cipher",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "aes192-cbc": {
+                            "description": "Use this attribute to set the AES192-CBC Cipher",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "aes256-cbc": {
+                            "description": "Use this attribute to set the AES256-CBC Cipher",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "triple-des-cbc": {
+                            "description": "Use this attribute to set the 3DES-CBC Cipher",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "vrf-name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

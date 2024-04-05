@@ -1,0 +1,616 @@
+{
+  "title": "ipi-l2vpn-vpws",
+  "description": "Datamodel for VPWS pseudowire",
+  "type": "object",
+  "properties": {
+    "ipi-l2vpn-vpws:vpws": {
+      "description": "Top level container for vpws related configurations",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "interfaces": {
+          "description": "Top level container for interface level configuration for VPWS",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "VPWS interface related configuration",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "This attribute describes the interface on which attachment circuit is to be created for pseudowire.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration container for interface list",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "This attribute describes the interface on which attachment circuit is to be created for pseudowire.",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operation container for interface list",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "This attribute describes the interface on which attachment circuit is to be created for pseudowire.",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "pseudowire-modes": {
+                    "description": "Container for VPWS interface modes related configuration",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "pseudowire-mode": {
+                        "description": "VPWS interface mode related configuration",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "service-template": {
+                              "description": "This attribute is used to configure service-template for vc-mode",
+                              "readOnly": false,
+                              "path": "../config/service-template",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "service-template": {
+                                  "description": "This attribute is used to configure service-template for vc-mode",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "mode": {
+                                  "description": "This attribute is used to configure vc-mode revertive or standy on the interface on which attachment circuit is created for pseudowire.",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "standby",
+                                    "revertive"
+                                  ],
+                                  "mandatory": true
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Container for Operational attributes",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "service-template": {
+                                  "description": "This attribute is used to configure service-template for vc-mode",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "mode": {
+                                  "description": "This attribute is used to configure vc-mode revertive or standy on the interface on which attachment circuit is created for pseudowire.",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "standby",
+                                    "revertive"
+                                  ],
+                                  "mandatory": true
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "service-template"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "vpws-access": {
+                    "description": "Container for L2VPN VPWS data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for L2VPN VPWS",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "enable": {
+                            "description": "This attribute is used to enable VPWS service on Subinterface",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": true
+                          },
+                          "enable-revertive-mode": {
+                            "description": "This attribute is used to configure vc-mode revertive on the interface",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for L2VPN VPWS",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "enable": {
+                            "description": "This attribute is used to enable VPWS service on Subinterface",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": true
+                          },
+                          "enable-revertive-mode": {
+                            "description": "This attribute is used to configure vc-mode revertive on the interface",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "bindings": {
+                        "description": "Container for L2VPN VPWS binding",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "binding": {
+                            "description": "VPWS binding related configuration",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "vpws-name": {
+                                  "description": "This attribute uniquely identifies a VPWS service on Subinterface",
+                                  "readOnly": false,
+                                  "path": "../config/vpws-name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration data for L2VPN VPWS binding",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "vpws-name": {
+                                      "description": "This attribute uniquely identifies a VPWS service on Subinterface",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 128,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "pseudowire-link-mode": {
+                                      "description": "This attribute is used to configure link mode as primary/secondary on VPWS service. Default value is 0",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "primary",
+                                        "secondary"
+                                      ],
+                                      "mandatory": true
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational state data for L2VPN VPWS binding",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "vpws-name": {
+                                      "description": "This attribute uniquely identifies a VPWS service on Subinterface",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 128,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "pseudowire-link-mode": {
+                                      "description": "This attribute is used to configure link mode as primary/secondary on VPWS service. Default value is 0",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "primary",
+                                        "secondary"
+                                      ],
+                                      "mandatory": true
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "vpws-name"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "service-template-mappings": {
+                    "description": "Container for VPWS mappings to service-template-mappings on interface",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "service-template-mapping": {
+                        "description": "List for VPWS mapping to service-template-mapping on interface",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "pseudowire-name": {
+                              "description": "Use this attribute to specify pseudowire name",
+                              "readOnly": false,
+                              "path": "../config/pseudowire-name",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "pseudowire-name": {
+                                  "description": "This attribute is used to map pseudowire on customer interface for attachment circuit",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "service-template-name": {
+                                  "description": "This attribute is used to map service-template on customer interface for attachment circuit",
+                                  "readOnly": false,
+                                  "path": "/ipi-mpls:mpls/ipi-mpls:l2vpn/ipi-mpls:customer-service-templates/ipi-mpls:customer-service-template/ipi-mpls:name",
+                                  "type": "string",
+                                  "mandatory": true
+                                },
+                                "pseudowire-link-mode": {
+                                  "description": "This attribute is used to configure link mode as primary/secondary on customer interface for attachment circuit",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "primary",
+                                    "secondary"
+                                  ],
+                                  "mandatory": true
+                                },
+                                "cos-to-queue-profile-name": {
+                                  "description": "This attribute is used to map cos-to-queue profile on customer interface for attahment circuit",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "queue-to-cos-profile-name": {
+                                  "description": "This attribute is used to map queue-to-cos profile on customer interface for attahment circuit",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Container for Operational attributes",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "pseudowire-name": {
+                                  "description": "This attribute is used to map pseudowire on customer interface for attachment circuit",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "service-template-name": {
+                                  "description": "This attribute is used to map service-template on customer interface for attachment circuit",
+                                  "readOnly": true,
+                                  "path": "/ipi-mpls:mpls/ipi-mpls:l2vpn/ipi-mpls:customer-service-templates/ipi-mpls:customer-service-template/ipi-mpls:name",
+                                  "type": "string",
+                                  "mandatory": true
+                                },
+                                "pseudowire-link-mode": {
+                                  "description": "This attribute is used to configure link mode as primary/secondary on customer interface for attachment circuit",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "primary",
+                                    "secondary"
+                                  ],
+                                  "mandatory": true
+                                },
+                                "cos-to-queue-profile-name": {
+                                  "description": "This attribute is used to map cos-to-queue profile on customer interface for attahment circuit",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "queue-to-cos-profile-name": {
+                                  "description": "This attribute is used to map queue-to-cos profile on customer interface for attahment circuit",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "pseudowire-name"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "static-forwarding": {
+          "description": "Top level container for Static VPWS FIB configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "forwarding-information-bases": {
+              "description": "Enclosing container for VPWS static FIB entries",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "forwarding-information-base": {
+                  "description": "VPWS static FIB entries configuration list",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "pseudowire-identifier": {
+                        "description": "Use this attribute to configure pseudowire identifier",
+                        "readOnly": false,
+                        "path": "../config/pseudowire-identifier",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "pseudowire-identifier": {
+                            "description": "This attribute is used to map static pseudowire identifier for creating static VC fib entry",
+                            "readOnly": false,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/vpws-instance/pseudowires/pseudowire/config/pseudowire-identifier",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "incoming-label": {
+                            "description": "This attribute is used to configure in-label for static VC fib entry",
+                            "readOnly": false,
+                            "minimum": 16,
+                            "maximum": 52443,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "outgoing-label": {
+                            "description": "This attribute is used to configure out-label for static VC fib entry",
+                            "readOnly": false,
+                            "minimum": 16,
+                            "maximum": 52443,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "nexthop-address": {
+                            "description": "This attribute is used to configure VC next-hop address for static VC fib entry",
+                            "readOnly": false,
+                            "oneOf": [
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": true
+                          },
+                          "provider-interface-name": {
+                            "description": "This attribute is used to configure provider network interface for static VC fib entry",
+                            "readOnly": false,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": true
+                          },
+                          "access-interface-name": {
+                            "description": "This attribute is used to configure customer network interface for static VC fib entry",
+                            "readOnly": false,
+                            "path": "/vpws/interfaces/interface/name",
+                            "type": "string",
+                            "mandatory": true
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Container for Operational attributes",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "pseudowire-identifier": {
+                            "description": "This attribute is used to map static pseudowire identifier for creating static VC fib entry",
+                            "readOnly": true,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/vpws-instance/pseudowires/pseudowire/config/pseudowire-identifier",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "incoming-label": {
+                            "description": "This attribute is used to configure in-label for static VC fib entry",
+                            "readOnly": true,
+                            "minimum": 16,
+                            "maximum": 52443,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "outgoing-label": {
+                            "description": "This attribute is used to configure out-label for static VC fib entry",
+                            "readOnly": true,
+                            "minimum": 16,
+                            "maximum": 52443,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "nexthop-address": {
+                            "description": "This attribute is used to configure VC next-hop address for static VC fib entry",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": true
+                          },
+                          "provider-interface-name": {
+                            "description": "This attribute is used to configure provider network interface for static VC fib entry",
+                            "readOnly": true,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": true
+                          },
+                          "access-interface-name": {
+                            "description": "This attribute is used to configure customer network interface for static VC fib entry",
+                            "readOnly": true,
+                            "path": "/vpws/interfaces/interface/name",
+                            "type": "string",
+                            "mandatory": true
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "pseudowire-identifier"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "global": {
+          "description": "Top level container for global state data",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "state": {
+              "description": "State container for global state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "counters": {
+                  "description": "Container for VPWS counters data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "total-pseudowires": {
+                      "description": "This attribute provides total number of pseudowires created",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "active-pseudowires": {
+                      "description": "This attribute provides total number of pseudowires active",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "inactive-pseudowires": {
+                      "description": "This attribute provides total number of pseudowires inactive",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "oam-pseudowires": {
+                      "description": "This attribute provides total number of oam pseudowires",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

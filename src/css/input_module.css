@@ -1,0 +1,52 @@
+.input_field_flex {
+  margin-top: 5px;
+}
+
+.label-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 260px;
+}
+
+.label-container .info-button {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.label-description {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 60%; /* Position the description to the right of the info button */
+  transform: translateX(5px); /* Add a slight horizontal offset for spacing */
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  z-index: 1;
+  width: 300px;
+}
+
+.info-button:hover + .label-description {
+  display: inline-block;
+}
+
+
+.alert_message {
+  color: #c92b2b;
+  font-size: small;
+  font-style: italic;
+}
+
+.inputDropdown{
+  font-size: 15px;
+    /* border: 1.5px; */
+    border: 0.5px solid #efe3e3;
+    /* border-bottom: 2px solid #cbcbcb; */
+    border-bottom: 2px solid #0c528df0;
+    outline: 0;
+    height: 30px;
+    border-radius: 3px;
+    width: 179px;
+}

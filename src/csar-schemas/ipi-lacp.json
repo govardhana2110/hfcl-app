@@ -1,0 +1,1136 @@
+{
+  "title": "ipi-lacp",
+  "description": "Datamodel for Layer-2 LACP",
+  "type": "object",
+  "properties": {
+    "ipi-lacp:lacp": {
+      "description": "Top level container for LACP",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "global": {
+          "description": "Global container for LACP",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configurable attributes at the global level",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "system-priority": {
+                  "description": "Use this attribute to the system priority of this switch. This priority is used for determining the system that is responsible for resolving conflicts in the choice of aggregation groups. A lower numerical value has a higher priority.",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 65535,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational data at the global interface level",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "system-priority": {
+                  "description": "Use this attribute to the system priority of this switch. This priority is used for determining the system that is responsible for resolving conflicts in the choice of aggregation groups. A lower numerical value has a higher priority.",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 65535,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "system-id": {
+                  "description": "Mac Address value that defines the system id for the system",
+                  "readOnly": true,
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "Container for lacp debugging functions",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for lacp debug",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "This attribute returns the terminal debug options which are enabled",
+                  "readOnly": false,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "cli": "1",
+                    "timer": "2",
+                    "packet": "3",
+                    "rx": "4",
+                    "tx": "5",
+                    "sync": "6",
+                    "ha": "7"
+                  },
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for lacp debug",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "This attribute returns the terminal debug options which are enabled",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "cli": "1",
+                    "timer": "2",
+                    "packet": "3",
+                    "rx": "4",
+                    "tx": "5",
+                    "sync": "6",
+                    "ha": "7"
+                  },
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Use this attribute to turn on or turn off lacp debugging at various levels.",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "cli": "1",
+                    "timer": "2",
+                    "packet": "3",
+                    "rx": "4",
+                    "tx": "5",
+                    "sync": "6",
+                    "ha": "7"
+                  },
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "aggregators": {
+          "description": "LACP aggregators",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "aggregator": {
+              "description": "List of lacp aggregators",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "agg-name": {
+                    "description": "Aggregator Name",
+                    "readOnly": true,
+                    "path": "../state/agg-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "state": {
+                    "description": "Operational data for LACP aggregators",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "agg-name": {
+                        "description": "Aggregator name",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "interface-index": {
+                        "description": "Aggregator Interface index",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "type": {
+                        "description": "Aggregator Interface Type",
+                        "readOnly": true,
+                        "enum": [
+                          "Layer3",
+                          "Layer2"
+                        ],
+                        "mandatory": false
+                      },
+                      "mac-address": {
+                        "description": "Individual MAC address assigned to the Aggregator",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "rx-link-count": {
+                        "description": "Number of links in the aggregator with MUX state supporting COLLECTING",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "tx-link-count": {
+                        "description": "Number of links in the aggregator with MUX state supporting DISTRIBUTING",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "individual-aggregator": {
+                        "description": "Indicates whether the Aggregator represents an Aggregate (0) or an Individual link (1).",
+                        "readOnly": true,
+                        "enum": [
+                          "aggregator",
+                          "individual"
+                        ],
+                        "mandatory": false
+                      },
+                      "aggregator-ready": {
+                        "description": "Aggregator status on wait while timer expiry",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "actor": {
+                    "description": "Actor specific data for LACP aggregators",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Actor specific operational data for LACP aggregators",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "admin-key": {
+                            "description": "Administrative value of the key for the aggregated link",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "mandatory": false
+                          },
+                          "oper-key": {
+                            "description": "Current operational value of the key for the aggregate interface",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "mandatory": false
+                          },
+                          "system-priority": {
+                            "description": "Indicates the priority value associated with the System ID. Lower value is higher priority",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "mandatory": false
+                          },
+                          "system-id": {
+                            "description": "MAC address that defines the system ID for the aggregate interface",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "partner": {
+                    "description": "Partner specific data for LACP aggregators",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Partner specific operational data for LACP aggregators",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "oper-key": {
+                            "description": "Current operational value of the key for the aggregate interface",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "mandatory": false
+                          },
+                          "system-priority": {
+                            "description": "Indicates the priority value associated with the System ID. Lower value is higher priority",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "mandatory": false
+                          },
+                          "system-id": {
+                            "description": "MAC address that defines the system ID for the aggregate interface",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "members": {
+                    "description": "Links of LACP aggregator",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "member": {
+                        "description": "List of links in lacp aggregator",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "link-name": {
+                              "description": "LACP Aggregated Link Name",
+                              "readOnly": true,
+                              "path": "../state/link-name",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "state": {
+                              "description": "Operational data for links in LACP aggregator",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "link-name": {
+                                  "description": "Name of LACP Aggregated Link",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "sync-state": {
+                                  "description": "Indicates LACP synchronization state",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "out-of-sync",
+                                    "in-sync"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "receive-state": {
+                                  "description": "Indicates the Receive state machine for the Aggregation Port",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "Invalid",
+                                    "Initialize",
+                                    "Port-disabled",
+                                    "LACP-disabled",
+                                    "Expired",
+                                    "Defaulted",
+                                    "Current"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "periodic-transmission-state": {
+                                  "description": "The period type of LACP PDU transmission",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "Invalid",
+                                    "No-periodic",
+                                    "Fast-periodic",
+                                    "Slow-periodic",
+                                    "Periodic"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "mux-machine-state": {
+                                  "description": "This attribute indicates the Mux state machine for the Aggregation Port",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "Detached",
+                                    "Waiting",
+                                    "Attached",
+                                    "Collecting",
+                                    "Distributing",
+                                    "Collecting-Distributing"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "protocol-destination-mac": {
+                                  "description": "Multicast destination address types for LACP PDUs",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "01-80-c2-00-00-00",
+                                    "01-80-c2-00-00-02",
+                                    "01-80-c2-00-00-03"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "admin-key": {
+                                  "description": "Administrative value of the key for the aggregated link",
+                                  "readOnly": true,
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 65535,
+                                  "mandatory": false
+                                },
+                                "counters": {
+                                  "description": "Counters for LACP aggregated links",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "lacp-out-pkts": {
+                                      "description": "Number of LACP PDUs transmitted",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "lacp-in-pkts": {
+                                      "description": "Number of LACP PDUs received",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "lacp-in-marker-pdu": {
+                                      "description": "The number of valid Marker PDUs received on this Aggregation Port",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "lacp-out-marker-pdu": {
+                                      "description": "The number of valid Marker PDUs transmitted on this Aggregation Port",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "lacp-tx-errors": {
+                                      "description": "Number of LACPDU transmit packet errors",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "lacp-rx-errors": {
+                                      "description": "Number of LACPDU receive packet errors",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "lacp-in-marker-pdu-response": {
+                                      "description": "The number of valid Marker Response PDUs received on this Aggregation Port",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "lacp-out-marker-pdu-response": {
+                                      "description": "The number of valid Marker Response PDUs transmitted on this Aggregation Port",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "conversation-sensitive-frame-distribution": {
+                              "description": "Conversation Sensitive Frame Collection and Distribution",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "state": {
+                                  "description": "Operational data related to Conversation Sensitive Frame Collection    and Distribution",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "partner-conversation-mask-sync": {
+                                      "description": "Indicates that conversation mask sync received in the PDU from the partner",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    },
+                                    "local-conversation-mask-sync": {
+                                      "description": "Indicates whether the port conversation mask is in sync with the partner converation mask received in the PDU",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    },
+                                    "long-lacp-pdu-transmit": {
+                                      "description": "Indicates whether Long LACP pdu is sent, when partner-conversation-mask-sync and local-conversation-mask-sync are false",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "actor": {
+                              "description": "Actor specific data for LACP aggregated links",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "state": {
+                                  "description": "Actor specific admin/oper data for LACP aggregated links",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "version": {
+                                      "description": "LACP version number",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "lacpv1",
+                                        "lacpv2"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "operational": {
+                                      "description": "Actor operational data for LACP aggregated links",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "activity": {
+                                          "description": "Describes the LACP membership type, active or passive, of the interface in the aggregate",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "passive",
+                                            "active"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "timeout": {
+                                          "description": "Type of timeout used, short or long, by LACP participants",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "long",
+                                            "short"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "aggregatable": {
+                                          "description": "A true value indicates that the participant will allow the link to be used as part of the aggregate. A false value indicates the link should be used as an individual link",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "synchronization": {
+                                          "description": "Indicates whether the participant is in-sync or out-of-sync",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "out-of-sync",
+                                            "in-sync"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "collecting": {
+                                          "description": "If true, the participant is collecting incoming frames on the link, otherwise false",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "distributing": {
+                                          "description": "When true, the participant is distributing outgoing frames; when false, distribution is disabled",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "defaulted": {
+                                          "description": "Indicates whether the participant is in defaulted state - no LACP PDUs are being received from the LACP partner device",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "expired": {
+                                          "description": "Indicates whether the participant is in expired state - no LACP PDUs are being received from the LACP partner device in the current-while period",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "port-key": {
+                                          "description": "Configured value of the key for the aggregate interface",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "admin": {
+                                      "description": "Actor admin data for LACP aggregated links",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "activity": {
+                                          "description": "Describes the LACP membership type, active or passive, of the interface in the aggregate",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "passive",
+                                            "active"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "timeout": {
+                                          "description": "Type of timeout used, short or long, by LACP participants",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "long",
+                                            "short"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "aggregatable": {
+                                          "description": "A true value indicates that the participant will allow the link to be used as part of the aggregate. A false value indicates the link should be used as an individual link",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "synchronization": {
+                                          "description": "Indicates whether the participant is in-sync or out-of-sync",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "out-of-sync",
+                                            "in-sync"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "collecting": {
+                                          "description": "If true, the participant is collecting incoming frames on the link, otherwise false",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "distributing": {
+                                          "description": "When true, the participant is distributing outgoing frames; when false, distribution is disabled",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "defaulted": {
+                                          "description": "Indicates whether the participant is in defaulted state - no LACP PDUs are being received from the LACP partner device",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "expired": {
+                                          "description": "Indicates whether the participant is in expired state - no LACP PDUs are being received from the LACP partner device in the current-while period",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "port-key": {
+                                          "description": "Configured value of the key for the aggregate interface",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "system-id": {
+                                      "description": "MAC address that defines the system ID for the aggregate interface",
+                                      "readOnly": true,
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "system-priority": {
+                                      "description": "Indicates the priority value associated with the System ID",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 65535,
+                                      "mandatory": false
+                                    },
+                                    "port-number": {
+                                      "description": "Port number of the aggregation member",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 65535,
+                                      "mandatory": false
+                                    },
+                                    "port-priority": {
+                                      "description": "The priority value assigned to this Aggregation Port",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 65535,
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "partner": {
+                              "description": "Partner specific data for LACP aggregators",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "state": {
+                                  "description": "Partner specific admin/operational data for LACP aggregators",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "lacp-pdu-version": {
+                                      "description": "LACP PDU version number",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "lacpv1",
+                                        "lacpv2"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "operational": {
+                                      "description": "Partner operational data for LACP aggregated links",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "activity": {
+                                          "description": "Describes the LACP membership type, active or passive, of the interface in the aggregate",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "passive",
+                                            "active"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "timeout": {
+                                          "description": "Type of timeout used, short or long, by LACP participants",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "long",
+                                            "short"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "aggregatable": {
+                                          "description": "A true value indicates that the participant will allow the link to be used as part of the aggregate. A false value indicates the link should be used as an individual link",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "synchronization": {
+                                          "description": "Indicates whether the participant is in-sync or out-of-sync",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "out-of-sync",
+                                            "in-sync"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "collecting": {
+                                          "description": "If true, the participant is collecting incoming frames on the link, otherwise false",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "distributing": {
+                                          "description": "When true, the participant is distributing outgoing frames; when false, distribution is disabled",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "defaulted": {
+                                          "description": "Indicates whether the participant is in defaulted state - no LACP PDUs are being received from the LACP partner device",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "expired": {
+                                          "description": "Indicates whether the participant is in expired state - no LACP PDUs are being received from the LACP partner device in the current-while period",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "system-id": {
+                                          "description": "MAC address that defines the system ID for the aggregate interface",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "system-priority": {
+                                          "description": "Indicates the priority value associated with the System ID",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "mandatory": false
+                                        },
+                                        "port-number": {
+                                          "description": "Port number of the aggregation member",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "mandatory": false
+                                        },
+                                        "port-priority": {
+                                          "description": "The priority value assigned to this Aggregation Port",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "mandatory": false
+                                        },
+                                        "port-key": {
+                                          "description": "Configured value of the key for the aggregate interface",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "admin": {
+                                      "description": "Partner admin data for LACP aggregated links",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "activity": {
+                                          "description": "Describes the LACP membership type, active or passive, of the interface in the aggregate",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "passive",
+                                            "active"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "timeout": {
+                                          "description": "Type of timeout used, short or long, by LACP participants",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "long",
+                                            "short"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "aggregatable": {
+                                          "description": "A true value indicates that the participant will allow the link to be used as part of the aggregate. A false value indicates the link should be used as an individual link",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "synchronization": {
+                                          "description": "Indicates whether the participant is in-sync or out-of-sync",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "out-of-sync",
+                                            "in-sync"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "collecting": {
+                                          "description": "If true, the participant is collecting incoming frames on the link, otherwise false",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "distributing": {
+                                          "description": "When true, the participant is distributing outgoing frames; when false, distribution is disabled",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "defaulted": {
+                                          "description": "Indicates whether the participant is in defaulted state - no LACP PDUs are being received from the LACP partner device",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "expired": {
+                                          "description": "Indicates whether the participant is in expired state - no LACP PDUs are being received from the LACP partner device in the current-while period",
+                                          "readOnly": true,
+                                          "type": "boolean",
+                                          "mandatory": false
+                                        },
+                                        "system-id": {
+                                          "description": "MAC address that defines the system ID for the aggregate interface",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "system-priority": {
+                                          "description": "Indicates the priority value associated with the System ID",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "mandatory": false
+                                        },
+                                        "port-number": {
+                                          "description": "Port number of the aggregation member",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "mandatory": false
+                                        },
+                                        "port-priority": {
+                                          "description": "The priority value assigned to this Aggregation Port",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "link-name"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "agg-name"
+                ]
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "LACP interface related Configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "LACP interface list",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Reference to the base interface name",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "LACP aggregated interface related Configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Reference to the base interface name",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational date for LACP aggregated interface",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Reference to the base interface name",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "member-aggregation": {
+                    "description": "LACP aggregated interface related Configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "LACP aggregated interface related Configurations",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "port-priority": {
+                            "description": "Use this attribute to set the priority of a channel. Channels are selected for aggregation based on their priority with the higher priority (numerically lower) channels selected first",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "timeout": {
+                            "description": "Use this attribute to set either a short or long timeout value on a port. The timeout value is the number of seconds before invalidating a received LACP data unit (DU). If the LACP_timeout bit (encoded in Actor_State and Partner_State fields) is set to 1, the short timeout takes effect; if set to 0, the long timeout takes effect.",
+                            "readOnly": false,
+                            "enum": [
+                              "long",
+                              "short"
+                            ],
+                            "mandatory": false
+                          },
+                          "bridge-type": {
+                            "description": "Use this attribute to set the address type to use for sending LACPDUs (Link Aggregation Control Protocol Data Units).",
+                            "readOnly": false,
+                            "enum": [
+                              "customer-bridge-group-address",
+                              "multicast-group-address",
+                              "non-tmpr-group-address"
+                            ],
+                            "mandatory": false
+                          },
+                          "force-up": {
+                            "description": "Use this attribute to enable the port as force-up in a channel group. Setting this attribute makes the port logically operational even if link aggregation goes down.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational date for LACP aggregated interface",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "port-priority": {
+                            "description": "Use this attribute to set the priority of a channel. Channels are selected for aggregation based on their priority with the higher priority (numerically lower) channels selected first",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "timeout": {
+                            "description": "Use this attribute to set either a short or long timeout value on a port. The timeout value is the number of seconds before invalidating a received LACP data unit (DU). If the LACP_timeout bit (encoded in Actor_State and Partner_State fields) is set to 1, the short timeout takes effect; if set to 0, the long timeout takes effect.",
+                            "readOnly": true,
+                            "enum": [
+                              "long",
+                              "short"
+                            ],
+                            "mandatory": false
+                          },
+                          "bridge-type": {
+                            "description": "Use this attribute to set the address type to use for sending LACPDUs (Link Aggregation Control Protocol Data Units).",
+                            "readOnly": true,
+                            "enum": [
+                              "customer-bridge-group-address",
+                              "multicast-group-address",
+                              "non-tmpr-group-address"
+                            ],
+                            "mandatory": false
+                          },
+                          "force-up": {
+                            "description": "Use this attribute to enable the port as force-up in a channel group. Setting this attribute makes the port logically operational even if link aggregation goes down.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "aggregator": {
+                    "description": "LACP aggregator interface related Configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "LACP aggregator interface related Configurations",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "discard-conversation": {
+                            "description": "Use this attribute to enable or disable discarding frames with an incorrect port conversation identifier.",
+                            "readOnly": false,
+                            "enum": [
+                              "disable",
+                              "enable"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational date for LACP aggregator interface",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "discard-conversation": {
+                            "description": "Use this attribute to enable or disable discarding frames with an incorrect port conversation identifier.",
+                            "readOnly": true,
+                            "enum": [
+                              "disable",
+                              "enable"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

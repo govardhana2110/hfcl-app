@@ -1,0 +1,3455 @@
+{
+  "title": "ipi-dhcp",
+  "description": "feature_dhcp_configuration",
+  "type": "object",
+  "properties": {
+    "ipi-dhcp:dhcp": {
+      "description": "Enable feature dhcp",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "global": {
+          "description": "DHCP global level information",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configurationd data for feature dhcp",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "disable-dhcp-feature": {
+                  "description": "Disable the DHCP client and DHCP relay on the device.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "disable-dhcp-feature": {
+                  "description": "Disable the DHCP client and DHCP relay on the device.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "relay": {
+          "description": "DHCP relay related operations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "global": {
+              "description": "DHCP relay global level information",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configuration data for DHCP relay global level",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "disable-dhcpv4-relay": {
+                      "description": "Use this attribute to disable the DHCP relay global config",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": false
+                    },
+                    "disable-dhcpv6-relay": {
+                      "description": "Use this attribute to disable the DHCP relay global config",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational state data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "disable-dhcpv4-relay": {
+                      "description": "Use this attribute to disable the DHCP relay global config",
+                      "readOnly": true,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": false
+                    },
+                    "disable-dhcpv6-relay": {
+                      "description": "Use this attribute to disable the DHCP relay global config",
+                      "readOnly": true,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "interfaces": {
+              "description": "Top level container for DHCP relay on each interface",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "interface": {
+                  "description": "List of interfaces mapped with DHCP relay",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The textual name of the interface. The value of this object should be the name of the interface as assigned by the local device and should be suitable for use in commands entered at the device's `console'. This might be a text name, such as `le0' or a simple port number, such as `1', depending on the interface naming syntax of the device. If several entries in the ifTable together represent a single interface as named by the device, then each will have the same value of name. Note that for an agent which responds to SNMP queries concerning an interface on some other (proxied) device, then the value of name for such an interface is the proxied device's local name for it. If there is no local name, or this object is otherwise not applicable, then this object contains a zero-length string.",
+                        "readOnly": false,
+                        "path": "../config/name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data for DHCP relay on each interface",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "Name of the Interface",
+                            "readOnly": false,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "ipv4-relay-interface": {
+                            "description": "Enable relay on Client facing interface",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "ipv4-uplink-interface": {
+                            "description": "Specify the interface as an uplink interface(Server facing)",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "ipv4-group-name": {
+                            "description": "Correlate specified interface to a specified DHCP server group.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 63,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "ipv6-relay-interface": {
+                            "description": "Enable IPv6 relay on Client facing interface",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "ipv6-uplink-interface": {
+                            "description": "Specify the interface as an uplink interface(Server facing)",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "ipv6-group-name": {
+                            "description": "Correlate specified interface to a specified DHCPv6 server group.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 63,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "Name of the Interface",
+                            "readOnly": true,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "ipv4-relay-interface": {
+                            "description": "Enable relay on Client facing interface",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "ipv4-uplink-interface": {
+                            "description": "Specify the interface as an uplink interface(Server facing)",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "ipv4-group-name": {
+                            "description": "Correlate specified interface to a specified DHCP server group.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 63,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "ipv6-relay-interface": {
+                            "description": "Enable IPv6 relay on Client facing interface",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "ipv6-uplink-interface": {
+                            "description": "Specify the interface as an uplink interface(Server facing)",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "ipv6-group-name": {
+                            "description": "Correlate specified interface to a specified DHCPv6 server group.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 63,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "name"
+                    ]
+                  }
+                }
+              }
+            },
+            "vrfs": {
+              "description": "Top level container for DHCP Relay on each VRF",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "vrf": {
+                  "description": "List of vrfs mapped with DHCP relay",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VPN routing/forwarding Instance name",
+                        "readOnly": false,
+                        "path": "../config/vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration parameters relating to a VRF instance",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "vrf-name": {
+                            "description": "VRF name associated with this instance.",
+                            "readOnly": false,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "link-selection-source-ip": {
+                            "description": "Enable link selection sub-option (5) in the option-82 in DHCP packet",
+                            "readOnly": false,
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "enable-option82": {
+                            "description": "Enable the device to insert and remove option-82 information on DHCP packets forwarded by the DHCP relay agent.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "enable-option82-always-on": {
+                            "description": "Keep option-82 information on DHCP packets forwarded by the DHCP relay agent.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "enable-dhcpv6-pd-route-injection": {
+                            "description": "Enable the route installation from the prefixes learned through prefix delegation.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "remote-id": {
+                            "description": "Remote host identifier. Use option 82 to provide the DHCP server information about the DHCP client",
+                            "readOnly": false,
+                            "oneOf": [
+                              {
+                                "enum": [
+                                  "hostname"
+                                ]
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "subscriber-id": {
+                            "description": "Subscriber identifier. Use this option to allows the service provider to assign/activate subscriber-specific actions",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "vrf-name": {
+                            "description": "VRF name associated with this instance.",
+                            "readOnly": true,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "link-selection-source-ip": {
+                            "description": "Enable link selection sub-option (5) in the option-82 in DHCP packet",
+                            "readOnly": true,
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "enable-option82": {
+                            "description": "Enable the device to insert and remove option-82 information on DHCP packets forwarded by the DHCP relay agent.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "enable-option82-always-on": {
+                            "description": "Keep option-82 information on DHCP packets forwarded by the DHCP relay agent.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "enable-dhcpv6-pd-route-injection": {
+                            "description": "Enable the route installation from the prefixes learned through prefix delegation.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "remote-id": {
+                            "description": "Remote host identifier. Use option 82 to provide the DHCP server information about the DHCP client",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "enum": [
+                                  "hostname"
+                                ]
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "subscriber-id": {
+                            "description": "Subscriber identifier. Use this option to allows the service provider to assign/activate subscriber-specific actions",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "bogus-giaddr-drops": {
+                            "description": "Packets sent to us to relay back to a client, but with a bogus giaddr",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "client-packets-relayed": {
+                            "description": "Packets relayed from client to server",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "server-packet-errors": {
+                            "description": "Errors sending packets to servers",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "server-packets-relayed": {
+                            "description": "Packets relayed from server to client",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "client-packet-errors": {
+                            "description": "Errors sending packets to clients",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "agent-option-errors": {
+                            "description": "Number of packets forwarded without agent options because there was no room",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "corrupt-agent-options": {
+                            "description": "Number of packets dropped because relay agent information option was bad",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "missing-agent-option": {
+                            "description": "Number of packets dropped because no RAI option matching our ID was found",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "bad-circuit-id": {
+                            "description": "Circuit ID option in matching RAI option did not match any known circuit ID",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "missing-circuit-id": {
+                            "description": "Circuit ID option in matching RAI option was missing",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "circuit-id": {
+                            "description": "Circuit ID",
+                            "readOnly": true,
+                            "minLength": 0,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "ipv4-vpn-links": {
+                        "description": "Top level container for IPv4 DHCP Relay VPN config",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "ipv4-vpn-link": {
+                            "description": "DHCPv4 relay vpn configs",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "interface-type": {
+                                  "description": "DHCP relay vpn interface type",
+                                  "readOnly": false,
+                                  "path": "../config/interface-type",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration data for DHCP-relay on each vpn",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "interface-type": {
+                                      "description": "DHCP relay vpn interface type",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "l3vpn",
+                                        "evpn"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "interface-direction": {
+                                      "description": "DHCP relay vpn interface direction",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "uplink",
+                                        "downlink"
+                                      ],
+                                      "mandatory": true
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational data for DHCP-relay on each vpn",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "interface-type": {
+                                      "description": "DHCP relay vpn interface type",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "l3vpn",
+                                        "evpn"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "interface-direction": {
+                                      "description": "DHCP relay vpn interface direction",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "uplink",
+                                        "downlink"
+                                      ],
+                                      "mandatory": true
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "interface-type"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "ipv6-vpn-links": {
+                        "description": "Top level container for IPv6 DHCP Relay VPN config",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "ipv6-vpn-link": {
+                            "description": "DHCPv6 relay vpn configs",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "interface-type-v6": {
+                                  "description": "DHCPv6 relay vpn interface type",
+                                  "readOnly": false,
+                                  "path": "../config/interface-type-v6",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration data for DHCP-relay on each vpn",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "interface-type-v6": {
+                                      "description": "DHCPv6 relay vpn interface type",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "l3vpn",
+                                        "evpn"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "interface-direction-v6": {
+                                      "description": "DHCPv6 relay vpn interface direction",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "uplink",
+                                        "downlink"
+                                      ],
+                                      "mandatory": true
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational data for DHCP-relay on each vpn",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "interface-type-v6": {
+                                      "description": "DHCPv6 relay vpn interface type",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "l3vpn",
+                                        "evpn"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "interface-direction-v6": {
+                                      "description": "DHCPv6 relay vpn interface direction",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "uplink",
+                                        "downlink"
+                                      ],
+                                      "mandatory": true
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "interface-type-v6"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "dhcpv6-delegated-prefixes": {
+                        "description": "Delegated prefix list",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "interface-name": {
+                              "description": "DHCP client facing interface, which is part of the LAN network",
+                              "readOnly": true,
+                              "path": "../state/interface-name",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "state": {
+                              "description": "Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "interface-name": {
+                                  "description": "DHCP client facing interface, which is part of the LAN network",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "next-hop": {
+                                  "description": "DHCP client interface linklocal adddress",
+                                  "readOnly": true,
+                                  "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "prefix": {
+                                  "description": "Delegated prefix",
+                                  "readOnly": true,
+                                  "minLength": 0,
+                                  "maxLength": 50,
+                                  "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "preferred-lifetime": {
+                                  "description": "Specifies how long the prefix remains preferred in seconds",
+                                  "readOnly": true,
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 4294967295,
+                                  "mandatory": false
+                                },
+                                "maximum-lifetime": {
+                                  "description": "Specifies how long the prefix remains validin seconds",
+                                  "readOnly": true,
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 4294967295,
+                                  "mandatory": false
+                                },
+                                "prefix-start-time": {
+                                  "description": "The time when the prefix was learned",
+                                  "readOnly": true,
+                                  "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "prefix-expiry-time": {
+                                  "description": "The time when the prefix would expire",
+                                  "readOnly": true,
+                                  "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "state": {
+                                  "description": "Notification route add/delete input",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "add",
+                                    "delete"
+                                  ],
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "interface-name"
+                          ]
+                        }
+                      },
+                      "ipv4-dhcp-servers": {
+                        "description": "Top level container for IPv4 DHCP Relay Server address config",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "ipv4-dhcp-server": {
+                            "description": "DHCPv4 relay server address configs",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "ip-address": {
+                                  "description": "IPv4 address of the DHCP server",
+                                  "readOnly": false,
+                                  "path": "../config/ip-address",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration data for DHCP-relay server addr",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "ip-address": {
+                                      "description": "IPv4 address of the DHCP server",
+                                      "readOnly": false,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "dhcpv4-server-global-vrf": {
+                                      "description": "This attributes defines the VRF in which the DHCPv4 relay server is present",
+                                      "readOnly": false,
+                                      "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational data for DHCP-relay server address",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "ip-address": {
+                                      "description": "IPv4 address of the DHCP server",
+                                      "readOnly": true,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "dhcpv4-server-global-vrf": {
+                                      "description": "This attributes defines the VRF in which the DHCPv4 relay server is present",
+                                      "readOnly": true,
+                                      "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "ip-address"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "ipv6-dhcp-servers": {
+                        "description": "Top level container for IPv6 DHCP Relay Server address config",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "ipv6-dhcp-server": {
+                            "description": "DHCPv6 relay server address configs",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "ipv6-address": {
+                                  "description": "IPv6 address of the DHCP server",
+                                  "readOnly": false,
+                                  "path": "../config/ipv6-address",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration data for DHCP-relay server addr",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "ipv6-address": {
+                                      "description": "IPv6 address of the DHCP server",
+                                      "readOnly": false,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "dhcpv6-server-global-vrf": {
+                                      "description": "This attributes defines the VRF in which the DHCPv6 relay server is present",
+                                      "readOnly": false,
+                                      "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational data for DHCP-relay server addr",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "ipv6-address": {
+                                      "description": "IPv6 address of the DHCP server",
+                                      "readOnly": true,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "dhcpv6-server-global-vrf": {
+                                      "description": "This attributes defines the VRF in which the DHCPv6 relay server is present",
+                                      "readOnly": true,
+                                      "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "ipv6-address"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "dhcp-groups": {
+                        "description": "Container for IPv4 DHCP relay groups",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "dhcp-group": {
+                            "description": "List of IPv4 DHCP relay group",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "group-name": {
+                                  "description": "IPv4 DHCP Relay group name",
+                                  "readOnly": false,
+                                  "path": "../config/group-name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration data for each IPv4 DHCP relay group",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "group-name": {
+                                      "description": "IPv4 DHCP Relay group name",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 63,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "server": {
+                                      "description": "IPv4 DHCP Relay Group server details",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational data for each IPv4 DHCP address group",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "group-name": {
+                                      "description": "IPv4 DHCP Relay group name",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 63,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "server": {
+                                      "description": "IPv4 DHCP Relay Group server details",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "group-name"
+                              ]
+                            },
+                            "maxItems": 32
+                          }
+                        }
+                      },
+                      "dhcpv6-groups": {
+                        "description": "Container for IPv6 DHCP relay groups",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "dhcpv6-group": {
+                            "description": "List of IPv6 DHCP relay group",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "group6-name": {
+                                  "description": "IPv6 DHCP Relay group name",
+                                  "readOnly": false,
+                                  "path": "../config/group6-name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration data for each IPv6 DHCP relay group",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "group6-name": {
+                                      "description": "IPv6 DHCP Relay group name",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 63,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "server": {
+                                      "description": "IPv6 DHCP Relay Group server details",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational data for each IPv6 DHCP relay group",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "group6-name": {
+                                      "description": "IPv6 DHCP Relay group name",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 63,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "server": {
+                                      "description": "IPv6 DHCP Relay Group server details",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "group6-name"
+                              ]
+                            },
+                            "maxItems": 32
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "vrf-name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "client": {
+          "description": "DHCP client related operations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interfaces": {
+              "description": "Top level container for dhcp-client on each interface",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "interface": {
+                  "description": "List of interfaces mapped with dhcp-client",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The textual name of the interface. The value of this object should be the name of the interface as assigned by the local device and should be suitable for use in commands entered at the device's `console'. This might be a text name, such as `le0' or a simple port number, such as `1', depending on the interface naming syntax of the device. If several entries in the ifTable together represent a single interface as named by the device, then each will have the same value of name. Note that for an agent which responds to SNMP queries concerning an interface on some other (proxied) device, then the value of name for such an interface is the proxied device's local name for it. If there is no local name, or this object is otherwise not applicable, then this object contains a zero-length string.",
+                        "readOnly": false,
+                        "path": "../config/name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data for dhcp-client on each interface",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "Name of the Interface",
+                            "readOnly": false,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "request-ipv4-dns": {
+                            "description": "Use this attribute to to add an option to a DHCP request.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "request-log-server": {
+                            "description": "Use this attribute to to add an option to a DHCP request.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "request-host-name": {
+                            "description": "Use this attribute to to add an option to a DHCP request.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "request-ntp-server": {
+                            "description": "Use this attribute to to add an option to a DHCP request.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "request-ipv6-dns": {
+                            "description": "Use this attribute to to add an option to a DHCP request.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "request-ipv6-domain-list": {
+                            "description": "Use this attribute to specifies a search list of Domain Names to be used by the client to locate not-fully-qualified domain names.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "request-ipv6-ntp-server": {
+                            "description": "Use this attribute to specifies a list of local NTP servers available for the client to synchronize their clocks.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "request-ipv6-rapid-commit": {
+                            "description": "Use this attribute to indicate the clients to enter into rapid-commit with the server.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "request-ipv6-vendor-opts": {
+                            "description": "Use this attribute to specify a 32-bit Enterprise-ID number.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "ipv6-information-request": {
+                            "description": "Use this attribute to get only stateless configuration parameters (i.e., without address).",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "ipv6-dad-wait-time": {
+                            "description": "Use this attribute to Specify maximum time (in seconds) that the client should wait for the duplicate address detection (DAD) to complete on an interface.",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 600,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "ipv6-client-duid-type": {
+                            "description": "Use this attribute to configure duid type(ll or llt).",
+                            "readOnly": false,
+                            "enum": [
+                              "ll",
+                              "llt"
+                            ],
+                            "mandatory": false
+                          },
+                          "request-ipv6-prefix": {
+                            "description": "Use this attribute to add an option to a DHCP request.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "Name of the Interface",
+                            "readOnly": true,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "request-ipv4-dns": {
+                            "description": "Use this attribute to to add an option to a DHCP request.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "request-log-server": {
+                            "description": "Use this attribute to to add an option to a DHCP request.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "request-host-name": {
+                            "description": "Use this attribute to to add an option to a DHCP request.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "request-ntp-server": {
+                            "description": "Use this attribute to to add an option to a DHCP request.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "request-ipv6-dns": {
+                            "description": "Use this attribute to to add an option to a DHCP request.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "request-ipv6-domain-list": {
+                            "description": "Use this attribute to specifies a search list of Domain Names to be used by the client to locate not-fully-qualified domain names.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "request-ipv6-ntp-server": {
+                            "description": "Use this attribute to specifies a list of local NTP servers available for the client to synchronize their clocks.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "request-ipv6-rapid-commit": {
+                            "description": "Use this attribute to indicate the clients to enter into rapid-commit with the server.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "request-ipv6-vendor-opts": {
+                            "description": "Use this attribute to specify a 32-bit Enterprise-ID number.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "ipv6-information-request": {
+                            "description": "Use this attribute to get only stateless configuration parameters (i.e., without address).",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "ipv6-dad-wait-time": {
+                            "description": "Use this attribute to Specify maximum time (in seconds) that the client should wait for the duplicate address detection (DAD) to complete on an interface.",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 600,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "ipv6-client-duid-type": {
+                            "description": "Use this attribute to configure duid type(ll or llt).",
+                            "readOnly": true,
+                            "enum": [
+                              "ll",
+                              "llt"
+                            ],
+                            "mandatory": false
+                          },
+                          "request-ipv6-prefix": {
+                            "description": "Use this attribute to add an option to a DHCP request.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "learned-prefix": {
+                        "description": "Learnt prefix parameters",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "state": {
+                            "description": "Operational state data",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "learnt-prefix": {
+                                "description": "Learnt prefix addr from DHCP server",
+                                "readOnly": true,
+                                "minLength": 0,
+                                "maxLength": 50,
+                                "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "max-lifetime": {
+                                "description": "Learnt Prefix Max lifetime in secs",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "preferred-lifetime": {
+                                "description": "Learnt Prefix Preffered life time in secs",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "prefix-ipv6-addresses": {
+                        "description": "IPv6 address configured using learnt Prefix from DHCP Server",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "prefix-ipv6-address": {
+                            "description": "IPv6 address configured using learnt Prefix from DHCP Server",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "prefix-name": {
+                                  "description": "This attribute is the name of the prefix learnt from DHCP Server",
+                                  "readOnly": false,
+                                  "path": "../config/prefix-name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "suffix-ipv6-addr": {
+                                  "description": "This attribute points to IPv6 address",
+                                  "readOnly": false,
+                                  "path": "../config/suffix-ipv6-addr",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "IPv6 address configured using learnt Prefix from DHCP Server",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "prefix-name": {
+                                      "description": "This attribute is the name of the prefix learnt from DHCP Server",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "suffix-ipv6-addr": {
+                                      "description": "This attribute points to IPv6 address",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Prefix addr Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "prefix-name": {
+                                      "description": "This attribute is the name of the prefix learnt from DHCP Server",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "suffix-ipv6-addr": {
+                                      "description": "This attribute points to IPv6 address",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "prefix-name",
+                                "suffix-ipv6-addr"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "server": {
+          "description": "DHCP server related operations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interfaces": {
+              "description": "Top level container for DHCP server on each interface",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "interface": {
+                  "description": "List of interfaces mapped with DHCP server",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "This attribute maps to physical interface on which DHCP Server can be enabled",
+                        "readOnly": false,
+                        "path": "../config/name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data for DHCP server on each interface",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "This attribute maps to physical interface on which DHCP Server can be enabled",
+                            "readOnly": false,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "enable-ipv4-server": {
+                            "description": "Interface on which IPv4 DHCP Server has to be run",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "enable-ipv6-server": {
+                            "description": "Interface on which IPv6 DHCP Server has to be run",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "This attribute maps to physical interface on which DHCP Server can be enabled",
+                            "readOnly": true,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "enable-ipv4-server": {
+                            "description": "Interface on which IPv4 DHCP Server has to be run",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "enable-ipv6-server": {
+                            "description": "Interface on which IPv6 DHCP Server has to be run",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "name"
+                    ]
+                  }
+                }
+              }
+            },
+            "vrfs": {
+              "description": "Top level container for DHCP server on each VRF",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "vrf": {
+                  "description": "List of vrfs mapped with DHCP server",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VPN routing/forwarding Instance name",
+                        "readOnly": false,
+                        "path": "../config/vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "configuration data for each IPv6 DHCP server address pool",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "max-lease-time": {
+                            "description": "Maximum length in seconds that will be assigned to a lease.If not defined, the default maximum lease time is 86400.",
+                            "readOnly": false,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "default-lease-time": {
+                            "description": "Length in seconds that will be assigned to a lease if the client requesting the lease does not ask for a specific expiration time. The default is 43200",
+                            "readOnly": false,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "rapid-commit": {
+                            "description": "Option enables the DHCP Client to obtain configuration parameters from the server through a rapid two message exchange (solicit and reply).",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "preference": {
+                            "description": "Use this to configure preference option in dhcp server.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "vrf-name": {
+                            "description": "VRF name associated with this instance.",
+                            "readOnly": false,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational data for each IPv6 DHCP server address pool",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "max-lease-time": {
+                            "description": "Maximum length in seconds that will be assigned to a lease.If not defined, the default maximum lease time is 86400.",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "default-lease-time": {
+                            "description": "Length in seconds that will be assigned to a lease if the client requesting the lease does not ask for a specific expiration time. The default is 43200",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "rapid-commit": {
+                            "description": "Option enables the DHCP Client to obtain configuration parameters from the server through a rapid two message exchange (solicit and reply).",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "preference": {
+                            "description": "Use this to configure preference option in dhcp server.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "vrf-name": {
+                            "description": "VRF name associated with this instance.",
+                            "readOnly": true,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "dhcp-pools": {
+                        "description": "Container for IPv4 DHCP server address pools",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "dhcp-pool": {
+                            "description": "List of IPv4 DHCP server address pool",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "pool-name": {
+                                  "description": "IPv4 DHCP Server address pool name",
+                                  "readOnly": false,
+                                  "path": "../config/pool-name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration data for each IPv4 DHCP address pool",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "pool-name": {
+                                      "description": "IPv4 DHCP Server address pool name",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 63,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "host-name": {
+                                      "description": "IPv4 DHCP Server option to provide hostname details to a DHCP client",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 63,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "routers": {
+                                      "description": "IPv4 DHCP Server option to provide routers details to a DHCP client",
+                                      "readOnly": false,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "boot-file": {
+                                      "description": "IPv4 DHCP Server option to provide boot-file details to a DHCP client",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 63,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "tftp-server": {
+                                      "description": "IPv4 DHCP Server option to provide tftp-server details to a DHCP client",
+                                      "readOnly": false,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "network": {
+                                      "description": "Network part of the subnet that will be used to assign IPv4 addresses to hosts",
+                                      "readOnly": false,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "netmask": {
+                                      "description": "Mask part of the subnet that will be used to assign IPv4 addresses to hosts",
+                                      "readOnly": false,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "low-address-in-range": {
+                                      "description": "Specifies the low range of the IPv4 addresses that the DHCP server should assign to DHCP clients.",
+                                      "readOnly": false,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "high-address-in-range": {
+                                      "description": "Specifies the high range of the IPv4 addresses that the DHCP server should assign to DHCP clients.",
+                                      "readOnly": false,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "ntp-server": {
+                                      "description": "IPv4 DHCP Server option to provide ntp-server details to a DHCP client",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    },
+                                    "log-server": {
+                                      "description": "IPv4 DHCP Server option to provide log-server details to a DHCP client",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    },
+                                    "dns-server": {
+                                      "description": "IPv4 DHCP Server option to provide dns name-server details to a DHCP client",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational data for each IPv4 DHCP address pool",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "pool-name": {
+                                      "description": "IPv4 DHCP Server address pool name",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 63,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "host-name": {
+                                      "description": "IPv4 DHCP Server option to provide hostname details to a DHCP client",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 63,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "routers": {
+                                      "description": "IPv4 DHCP Server option to provide routers details to a DHCP client",
+                                      "readOnly": true,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "boot-file": {
+                                      "description": "IPv4 DHCP Server option to provide boot-file details to a DHCP client",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 63,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "tftp-server": {
+                                      "description": "IPv4 DHCP Server option to provide tftp-server details to a DHCP client",
+                                      "readOnly": true,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "network": {
+                                      "description": "Network part of the subnet that will be used to assign IPv4 addresses to hosts",
+                                      "readOnly": true,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "netmask": {
+                                      "description": "Mask part of the subnet that will be used to assign IPv4 addresses to hosts",
+                                      "readOnly": true,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "low-address-in-range": {
+                                      "description": "Specifies the low range of the IPv4 addresses that the DHCP server should assign to DHCP clients.",
+                                      "readOnly": true,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "high-address-in-range": {
+                                      "description": "Specifies the high range of the IPv4 addresses that the DHCP server should assign to DHCP clients.",
+                                      "readOnly": true,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "ntp-server": {
+                                      "description": "IPv4 DHCP Server option to provide ntp-server details to a DHCP client",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    },
+                                    "log-server": {
+                                      "description": "IPv4 DHCP Server option to provide log-server details to a DHCP client",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    },
+                                    "dns-server": {
+                                      "description": "IPv4 DHCP Server option to provide dns name-server details to a DHCP client",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "pool-name"
+                              ]
+                            },
+                            "maxItems": 30
+                          }
+                        }
+                      },
+                      "dhcp6-pools": {
+                        "description": "Container for IPv6 DHCP server address pools",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "dhcp6-pool": {
+                            "description": "List of IPv6 DHCP server address pool",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "pool6-name": {
+                                  "description": "IPv6 DHCP Server address pool name",
+                                  "readOnly": false,
+                                  "path": "../config/pool6-name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration data for each IPv6 DHCP address pool",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "pool6-name": {
+                                      "description": "IPv6 DHCP Server address pool name",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 63,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "domain-name": {
+                                      "description": "IPv6 DHCP Server option to provide domain-name details to a DHCP client",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 63,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "vendor-options": {
+                                      "description": "IPv6 DHCP Server option to provide vendor details to a DHCP client",
+                                      "readOnly": false,
+                                      "pattern": "[^?'=,>|]*",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "ipv6-network": {
+                                      "description": "Network part of the subnet that will be used to assign IPv6 addresses to hosts",
+                                      "readOnly": false,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "ipv6-netmask": {
+                                      "description": "Mask part of the subnet that will be used to assign IPv6 addresses to hosts",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 128,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "low-address-in-range": {
+                                      "description": "Specifies the low range of the IPv6 addresses that the DHCP server should assign to DHCP clients.",
+                                      "readOnly": false,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "high-address-in-range": {
+                                      "description": "Specifies the high range of the IPv6 addresses that the DHCP server should assign to DHCP clients.",
+                                      "readOnly": false,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "temporary-address": {
+                                      "description": "Specifies the temporary IPv6 address that the DHCP server should assign to DHCP clients.",
+                                      "readOnly": false,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "ipv6-prefix-high-address": {
+                                      "description": "Specifies the higher prefix value in IPV6 prefix range",
+                                      "readOnly": false,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "ipv6-prefix-low-address": {
+                                      "description": "Specifies the lower prefix value in IPV6 prefix range",
+                                      "readOnly": false,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "ipv6-prefix-netmask": {
+                                      "description": "Mask part of the ipv6 Prefix used for Prefix delegation",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 128,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "ntp-server": {
+                                      "description": "IPv6 DHCP Server option to provide ntp-server details to a DHCP client",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    },
+                                    "dns-server": {
+                                      "description": "IPv6 DHCP Server option to provide dns name-server details to a DHCP client",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational data for each IPv6 DHCP address pool",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "pool6-name": {
+                                      "description": "IPv6 DHCP Server address pool name",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 63,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "domain-name": {
+                                      "description": "IPv6 DHCP Server option to provide domain-name details to a DHCP client",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 63,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "vendor-options": {
+                                      "description": "IPv6 DHCP Server option to provide vendor details to a DHCP client",
+                                      "readOnly": true,
+                                      "pattern": "[^?'=,>|]*",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "ipv6-network": {
+                                      "description": "Network part of the subnet that will be used to assign IPv6 addresses to hosts",
+                                      "readOnly": true,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "ipv6-netmask": {
+                                      "description": "Mask part of the subnet that will be used to assign IPv6 addresses to hosts",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 128,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "low-address-in-range": {
+                                      "description": "Specifies the low range of the IPv6 addresses that the DHCP server should assign to DHCP clients.",
+                                      "readOnly": true,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "high-address-in-range": {
+                                      "description": "Specifies the high range of the IPv6 addresses that the DHCP server should assign to DHCP clients.",
+                                      "readOnly": true,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "temporary-address": {
+                                      "description": "Specifies the temporary IPv6 address that the DHCP server should assign to DHCP clients.",
+                                      "readOnly": true,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "ipv6-prefix-high-address": {
+                                      "description": "Specifies the higher prefix value in IPV6 prefix range",
+                                      "readOnly": true,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "ipv6-prefix-low-address": {
+                                      "description": "Specifies the lower prefix value in IPV6 prefix range",
+                                      "readOnly": true,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "ipv6-prefix-netmask": {
+                                      "description": "Mask part of the ipv6 Prefix used for Prefix delegation",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 128,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "ntp-server": {
+                                      "description": "IPv6 DHCP Server option to provide ntp-server details to a DHCP client",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    },
+                                    "dns-server": {
+                                      "description": "IPv6 DHCP Server option to provide dns name-server details to a DHCP client",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "pool6-name"
+                              ]
+                            },
+                            "maxItems": 30
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "vrf-name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "snooping": {
+          "description": "DHCP snooping configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "debug": {
+              "description": "Debugging functions",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configuration data",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "options": {
+                      "description": "Use this attribute to debug the DHCP snooping feature.",
+                      "readOnly": false,
+                      "type": "string",
+                      "bits": {
+                        "event": "0",
+                        "rx": "1",
+                        "tx": "2",
+                        "packet": "3"
+                      },
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational state data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "options": {
+                      "description": "Use this attribute to debug the DHCP snooping feature.",
+                      "readOnly": true,
+                      "type": "string",
+                      "bits": {
+                        "event": "0",
+                        "rx": "1",
+                        "tx": "2",
+                        "packet": "3"
+                      },
+                      "mandatory": false
+                    },
+                    "terminal-debug-status": {
+                      "description": "Use this attribute to debug the DHCP snooping feature in terminal.",
+                      "readOnly": true,
+                      "type": "string",
+                      "bits": {
+                        "event": "0",
+                        "rx": "1",
+                        "tx": "2",
+                        "packet": "3"
+                      },
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "snooping-bridges": {
+              "description": "Snooping bridges configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "snooping-bridge": {
+                  "description": "List of DHCP snooping bridges",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "bridge-id": {
+                        "description": "Bridge group number",
+                        "readOnly": false,
+                        "path": "../config/bridge-id",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "snooping-enable": {
+                            "description": "Enable DHCP snooping feature",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": true
+                          },
+                          "bridge-id": {
+                            "description": "Bridge group number",
+                            "readOnly": false,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-network-instance:instance-name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "verify-mac-address": {
+                            "description": "Use this command to enable MAC address verification.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "option-82-enable": {
+                            "description": "Use this command to insert interface and VLAN name in the option 82 field in DHCP packets.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "write-delay": {
+                            "description": "Configure DHCP snooping database write delay in multiples of 10 seconds",
+                            "readOnly": false,
+                            "minimum": 20,
+                            "maximum": 86400,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "strict-validation": {
+                            "description": "Use this command to enable strict validation of DHCP packets.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "vlan-range": {
+                            "description": "Use this command to enable DHCP snooping for the given VLAN.",
+                            "readOnly": false,
+                            "pattern": "[^?'=>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "snooping-enable": {
+                            "description": "Enable DHCP snooping feature",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": true
+                          },
+                          "bridge-id": {
+                            "description": "Bridge group number",
+                            "readOnly": true,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-network-instance:instance-name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "verify-mac-address": {
+                            "description": "Use this command to enable MAC address verification.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "option-82-enable": {
+                            "description": "Use this command to insert interface and VLAN name in the option 82 field in DHCP packets.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "write-delay": {
+                            "description": "Configure DHCP snooping database write delay in multiples of 10 seconds",
+                            "readOnly": true,
+                            "minimum": 20,
+                            "maximum": 86400,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "strict-validation": {
+                            "description": "Use this command to enable strict validation of DHCP packets.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "vlan-range": {
+                            "description": "Use this command to enable DHCP snooping for the given VLAN.",
+                            "readOnly": true,
+                            "pattern": "[^?'=>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "arp-inspection": {
+                        "description": "DHCP snooping arp inspection",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration data",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "enable": {
+                                "description": "Use this command to enable/disable arp-inspection on the bridge.",
+                                "readOnly": false,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": true
+                              },
+                              "validate": {
+                                "description": "Use this command to enable validation of the source-mac, destination-mac, or IP address field in the ARP packet payload.",
+                                "readOnly": false,
+                                "enum": [
+                                  "src-mac",
+                                  "dst-mac",
+                                  "ip"
+                                ],
+                                "mandatory": false
+                              },
+                              "vlan-range": {
+                                "description": "Use this command to enable ARP inspection on the VLAN in a bridge.",
+                                "readOnly": false,
+                                "pattern": "[^?'=>|]*",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational state data",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "enable": {
+                                "description": "Use this command to enable/disable arp-inspection on the bridge.",
+                                "readOnly": true,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": true
+                              },
+                              "validate": {
+                                "description": "Use this command to enable validation of the source-mac, destination-mac, or IP address field in the ARP packet payload.",
+                                "readOnly": true,
+                                "enum": [
+                                  "src-mac",
+                                  "dst-mac",
+                                  "ip"
+                                ],
+                                "mandatory": false
+                              },
+                              "vlan-range": {
+                                "description": "Use this command to enable ARP inspection on the VLAN in a bridge.",
+                                "readOnly": true,
+                                "pattern": "[^?'=>|]*",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "counters": {
+                                "description": "DHCP snooping counters",
+                                "readOnly": true,
+                                "type": "object",
+                                "properties": {
+                                  "forwarded": {
+                                    "description": "This attribute to returns counters for ARP inspection forwarded.",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  },
+                                  "dropped": {
+                                    "description": "This attribute to returns counters for ARP inspection dropped.",
+                                    "readOnly": true,
+                                    "type": "number",
+                                    "minimum": 0,
+                                    "maximum": 4294967295,
+                                    "mandatory": false
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "vlans": {
+                        "description": "DHCP snooping bridge VLANs configuration",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "vlan": {
+                            "description": "List of DHCP snooping VLANs",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "vlan-id": {
+                                  "description": "Use this attribute to set the vlan-id",
+                                  "readOnly": false,
+                                  "path": "../config/vlan-id",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration data",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "vlan-id": {
+                                      "description": "Use this attribute to set the vlan-id",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 4094,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "vlan-id": {
+                                      "description": "Use this attribute to set the vlan-id",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 4094,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "statistics": {
+                                      "description": "DHCP snooping binding info by interfaces",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "static-entries-ipv4": {
+                                          "description": "This attribute returns the number of static entries for IPv4",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "dynamic-entries-ipv4": {
+                                          "description": "This attribute returns the number of dynamic entries for IPv4",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "static-entries-ipv6": {
+                                          "description": "This attribute returns the number of static entries for IPv6",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "dynamic-entries-ipv6": {
+                                          "description": "This attribute returns the number of dynamic entries for IPv6",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "mac-addresses-ipv4": {
+                                  "description": "DHCP snooping MAC addresses configuration",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "mac-address-ipv4": {
+                                      "description": "List of MAC addresses",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "mac-address": {
+                                            "description": "Use this attribute to set the MAC address",
+                                            "readOnly": false,
+                                            "path": "../config/mac-address",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "config": {
+                                            "description": "Configuration data",
+                                            "readOnly": false,
+                                            "type": "object",
+                                            "properties": {
+                                              "if-name": {
+                                                "description": "Use this attribute to set the interface name",
+                                                "readOnly": false,
+                                                "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                                "type": "string",
+                                                "mandatory": true
+                                              },
+                                              "ipv4-address": {
+                                                "description": "Use this attribute to set the IPv4 address",
+                                                "readOnly": false,
+                                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                "type": "string",
+                                                "mandatory": true
+                                              },
+                                              "mac-address": {
+                                                "description": "Use this attribute to set the MAC address",
+                                                "readOnly": false,
+                                                "type": "string",
+                                                "mandatory": false
+                                              }
+                                            }
+                                          },
+                                          "state": {
+                                            "description": "Operational state data",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "if-name": {
+                                                "description": "Use this attribute to set the interface name",
+                                                "readOnly": true,
+                                                "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                                "type": "string",
+                                                "mandatory": true
+                                              },
+                                              "ipv4-address": {
+                                                "description": "Use this attribute to set the IPv4 address",
+                                                "readOnly": true,
+                                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                "type": "string",
+                                                "mandatory": true
+                                              },
+                                              "mac-address": {
+                                                "description": "Use this attribute to set the MAC address",
+                                                "readOnly": true,
+                                                "type": "string",
+                                                "mandatory": false
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "keyFields": [
+                                          "mac-address"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                },
+                                "mac-addresses-ipv6": {
+                                  "description": "DHCP snooping MAC addresses configuration",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "mac-address-ipv6": {
+                                      "description": "List of MAC addresses",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "mac-address": {
+                                            "description": "Use this attribute to set the MAC address",
+                                            "readOnly": false,
+                                            "path": "../config/mac-address",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "config": {
+                                            "description": "Configuration data",
+                                            "readOnly": false,
+                                            "type": "object",
+                                            "properties": {
+                                              "if-name": {
+                                                "description": "Use this attribute to set the interface name",
+                                                "readOnly": false,
+                                                "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                                "type": "string",
+                                                "mandatory": true
+                                              },
+                                              "ipv6-address": {
+                                                "description": "Use this attribute to set the ipv6 address",
+                                                "readOnly": false,
+                                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                "type": "string",
+                                                "mandatory": true
+                                              },
+                                              "mac-address": {
+                                                "description": "Use this attribute to set the MAC address",
+                                                "readOnly": false,
+                                                "type": "string",
+                                                "mandatory": false
+                                              }
+                                            }
+                                          },
+                                          "state": {
+                                            "description": "Operational state data",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "if-name": {
+                                                "description": "Use this attribute to set the interface name",
+                                                "readOnly": true,
+                                                "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                                "type": "string",
+                                                "mandatory": true
+                                              },
+                                              "ipv6-address": {
+                                                "description": "Use this attribute to set the ipv6 address",
+                                                "readOnly": true,
+                                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                "type": "string",
+                                                "mandatory": true
+                                              },
+                                              "mac-address": {
+                                                "description": "Use this attribute to set the MAC address",
+                                                "readOnly": true,
+                                                "type": "string",
+                                                "mandatory": false
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "keyFields": [
+                                          "mac-address"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                },
+                                "snooping-binding-info": {
+                                  "description": "DHCP snooping binding info by source binding",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "ipv4": {
+                                      "description": "List of IPv4 and MAC addresses binded",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "mac-address": {
+                                            "description": "This attribute returns the mac-address binded",
+                                            "readOnly": true,
+                                            "path": "../state/mac-address",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "ip-address": {
+                                            "description": "This attribute returns the ip-address binded",
+                                            "readOnly": true,
+                                            "path": "../state/ip-address",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "state": {
+                                            "description": "Operational state data",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "mac-address": {
+                                                "description": "This attribute returns the DHCP snooping binding mac-address",
+                                                "readOnly": true,
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "lease-time": {
+                                                "description": "This attribute returns the lease-time",
+                                                "readOnly": true,
+                                                "type": "number",
+                                                "minimum": 0,
+                                                "maximum": 4294967295,
+                                                "mandatory": false
+                                              },
+                                              "type": {
+                                                "description": "This attribute returns the DHCP snooping binding type",
+                                                "readOnly": true,
+                                                "enum": [
+                                                  "static"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "if-name": {
+                                                "description": "This attribute returns the dhcp-snooping binding interface name",
+                                                "readOnly": true,
+                                                "minLength": 1,
+                                                "maxLength": 1965,
+                                                "pattern": "[^?' =,>|]+",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "ip-address": {
+                                                "description": "This attribute returns the IPv4 address binded",
+                                                "readOnly": true,
+                                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                "type": "string",
+                                                "mandatory": false
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "keyFields": [
+                                          "mac-address",
+                                          "ip-address"
+                                        ]
+                                      }
+                                    },
+                                    "ipv6": {
+                                      "description": "List of ipv6 and MAC addresses binded",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "mac-address": {
+                                            "description": "This attribute returns the mac-address binded",
+                                            "readOnly": true,
+                                            "path": "../state/mac-address",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "ip-address": {
+                                            "description": "This attribute returns the ip-address binded",
+                                            "readOnly": true,
+                                            "path": "../state/ip-address",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "state": {
+                                            "description": "Operational state data",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "mac-address": {
+                                                "description": "This attribute returns the DHCP snooping binding mac-address",
+                                                "readOnly": true,
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "lease-time": {
+                                                "description": "This attribute returns the lease-time",
+                                                "readOnly": true,
+                                                "type": "number",
+                                                "minimum": 0,
+                                                "maximum": 4294967295,
+                                                "mandatory": false
+                                              },
+                                              "type": {
+                                                "description": "This attribute returns the DHCP snooping binding type",
+                                                "readOnly": true,
+                                                "enum": [
+                                                  "static"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "if-name": {
+                                                "description": "This attribute returns the dhcp-snooping binding interface name",
+                                                "readOnly": true,
+                                                "minLength": 1,
+                                                "maxLength": 1965,
+                                                "pattern": "[^?' =,>|]+",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "ip-address": {
+                                                "description": "This attribute returns the IPv6 address binded",
+                                                "readOnly": true,
+                                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                "type": "string",
+                                                "mandatory": false
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "keyFields": [
+                                          "mac-address",
+                                          "ip-address"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "vlan-id"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "bridge-id"
+                    ]
+                  }
+                }
+              }
+            },
+            "interfaces": {
+              "description": "DHCP snooping interfaces configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "interface": {
+                  "description": "List of DHCP snooping interfaces",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Use this command to configured interface name.",
+                        "readOnly": false,
+                        "path": "../config/name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "Use this command to configured interface name.",
+                            "readOnly": false,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "Use this command to configured interface name.",
+                            "readOnly": true,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "trust": {
+                        "description": "DHCP snooping trust interfaces configurations",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration data",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "snooping-trust": {
+                                "description": "Use this command to enable the snooping trust on the interface level.",
+                                "readOnly": false,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational state data",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "snooping-trust": {
+                                "description": "Use this command to enable the snooping trust on the interface level.",
+                                "readOnly": true,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "verify": {
+                        "description": "DHCP snooping verify on interfaces configurations",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration data",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "verify-snooping-vlan": {
+                                "description": "Use this command to enable the IPSG feature at the interface level.",
+                                "readOnly": false,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": true
+                              },
+                              "verify-access-group-mode": {
+                                "description": "Use this command to enable the snooping access-group on the interface level.",
+                                "readOnly": false,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational state data",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "verify-snooping-vlan": {
+                                "description": "Use this command to enable the IPSG feature at the interface level.",
+                                "readOnly": true,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": true
+                              },
+                              "verify-access-group-mode": {
+                                "description": "Use this command to enable the snooping access-group on the interface level.",
+                                "readOnly": true,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "snooping-binding-info": {
+                        "description": "DHCP snooping binding info by interfaces",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "ipv4-entries": {
+                            "description": "DHCP snooping binding info by interfaces configured with IPv4    addresses",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "ipv4-entry": {
+                                "description": "List of DHCP snooping binding ipv4 entries by interfaces",
+                                "readOnly": true,
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "ip-address": {
+                                      "description": "This attribute returns the IPv4 address binded",
+                                      "readOnly": true,
+                                      "path": "../state/ip-address",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "state": {
+                                      "description": "Operational state data",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "interface": {
+                                          "description": "This attribute to returns counters for interface snooping binding.",
+                                          "readOnly": true,
+                                          "minLength": 1,
+                                          "maxLength": 1965,
+                                          "pattern": "[^?' =,>|]+",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "filter-type": {
+                                          "description": "This attribute to returns DHCP snooping filter-type configured on interface.",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "ip-mac"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "vlan-id": {
+                                          "description": "This attribute to returns DHCP snooping VLAN-ID on interface.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "mandatory": false
+                                        },
+                                        "mac-address": {
+                                          "description": "This attribute to returns DHCP snooping MAC address on interface.",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "ip-address": {
+                                          "description": "This attribute returns the IPv4 address binded",
+                                          "readOnly": true,
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string",
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "keyFields": [
+                                    "ip-address"
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "ipv6-entries": {
+                            "description": "DHCP snooping binding info by interfaces configured with IPv6    addresses",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "ipv6-entry": {
+                                "description": "List of DHCP snooping binding ipv6 entries by interfaces",
+                                "readOnly": true,
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "ip-address": {
+                                      "description": "This attribute returns the IPv6 address binded",
+                                      "readOnly": true,
+                                      "path": "../state/ip-address",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "state": {
+                                      "description": "Operational state data",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "interface": {
+                                          "description": "This attribute to returns counters for interface snooping binding.",
+                                          "readOnly": true,
+                                          "minLength": 1,
+                                          "maxLength": 1965,
+                                          "pattern": "[^?' =,>|]+",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "filter-type": {
+                                          "description": "This attribute to returns DHCP snooping filter-type configured on interface.",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "ip-mac"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "vlan-id": {
+                                          "description": "This attribute to returns DHCP snooping VLAN-ID on interface.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "mandatory": false
+                                        },
+                                        "mac-address": {
+                                          "description": "This attribute to returns DHCP snooping MAC address on interface.",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "ip-address": {
+                                          "description": "This attribute returns the IPv6 address binded",
+                                          "readOnly": true,
+                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                          "type": "string",
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "keyFields": [
+                                    "ip-address"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "source-binding-info": {
+                        "description": "DHCP source binding info by interfaces",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "ipv4-entries": {
+                            "description": "DHCP source binding info by interfaces configured with IPv4 addresses",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "ipv4-entry": {
+                                "description": "List of DHCP snooping source binding ipv4 entries by interfaces",
+                                "readOnly": true,
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "ip-address": {
+                                      "description": "This attribute returns the IPv4 address binded",
+                                      "readOnly": true,
+                                      "path": "../state/ip-address",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "state": {
+                                      "description": "Operational state data",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "interface": {
+                                          "description": "This attribute to returns counters for interface snooping binding.",
+                                          "readOnly": true,
+                                          "minLength": 1,
+                                          "maxLength": 1965,
+                                          "pattern": "[^?' =,>|]+",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "filter-type": {
+                                          "description": "This attribute to returns DHCP snooping filter-type configured on interface.",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "ip-mac"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "vlan-id": {
+                                          "description": "This attribute to returns DHCP snooping VLAN-ID on interface.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "mandatory": false
+                                        },
+                                        "mac-address": {
+                                          "description": "This attribute to returns DHCP snooping MAC address on interface.",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "ip-address": {
+                                          "description": "This attribute returns the IPv4 address binded",
+                                          "readOnly": true,
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string",
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "keyFields": [
+                                    "ip-address"
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "ipv6-entries": {
+                            "description": "DHCP source binding info by interfaces configured with IPv6 addresses",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "ipv6-entry": {
+                                "description": "List of DHCP snooping source binding ipv6 entries by interfaces",
+                                "readOnly": true,
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "ip-address": {
+                                      "description": "This attribute returns the IPv6 address binded",
+                                      "readOnly": true,
+                                      "path": "../state/ip-address",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "state": {
+                                      "description": "Operational state data",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "interface": {
+                                          "description": "This attribute to returns counters for interface snooping binding.",
+                                          "readOnly": true,
+                                          "minLength": 1,
+                                          "maxLength": 1965,
+                                          "pattern": "[^?' =,>|]+",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "filter-type": {
+                                          "description": "This attribute to returns DHCP snooping filter-type configured on interface.",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "ip-mac"
+                                          ],
+                                          "mandatory": false
+                                        },
+                                        "vlan-id": {
+                                          "description": "This attribute to returns DHCP snooping VLAN-ID on interface.",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "mandatory": false
+                                        },
+                                        "mac-address": {
+                                          "description": "This attribute to returns DHCP snooping MAC address on interface.",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "ip-address": {
+                                          "description": "This attribute returns the IPv6 address binded",
+                                          "readOnly": true,
+                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                          "type": "string",
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "keyFields": [
+                                    "ip-address"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "title": "ipi-if-ethernet",
+  "description": "Model for managing Ethernet interfaces -- augments the OpenConfig    model for interface configuration and state.",
+  "type": "object",
+  "properties": {}
+}

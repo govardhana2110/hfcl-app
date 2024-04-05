@@ -1,0 +1,1925 @@
+{
+  "title": "ipi-twamp",
+  "description": "Two-Way Active Measurement Protocol (TWAMP)",
+  "type": "object",
+  "properties": {
+    "ipi-twamp:twamp": {
+      "description": "Two-Way Active Measurement Protocol (TWAMP) data model",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "light": {
+          "description": "TWAMP Light implementation",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "control": {
+              "description": "TWAMP Light Control",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configuration data for TWAMP Light Control",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "enable": {
+                      "description": "Enables TWAMP Light Control",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": true
+                    },
+                    "administrative-state": {
+                      "description": "Sets TWAMP Light Control administrative state",
+                      "readOnly": false,
+                      "enum": [
+                        "disable",
+                        "enable"
+                      ],
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational state data for TWAMP Light Control",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "enable": {
+                      "description": "Enables TWAMP Light Control",
+                      "readOnly": true,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": true
+                    },
+                    "administrative-state": {
+                      "description": "Sets TWAMP Light Control administrative state",
+                      "readOnly": true,
+                      "enum": [
+                        "disable",
+                        "enable"
+                      ],
+                      "mandatory": false
+                    }
+                  }
+                },
+                "test-sessions": {
+                  "description": "Container for TWAMP Light Control Test Sessions list",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "test-session": {
+                      "description": "List of TWAMP Light Control Test Session",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "session-name": {
+                            "description": "Test Session name associated with this instance",
+                            "readOnly": false,
+                            "path": "../config/session-name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "vrf-name": {
+                            "description": "Use this attribute to set the session VRF name",
+                            "readOnly": false,
+                            "path": "../config/vrf-name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "config": {
+                            "description": "Configuration data for TWAMP Light Control Test Session",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "session-name": {
+                                "description": "Use this attribute to set test session name",
+                                "readOnly": false,
+                                "minLength": 1,
+                                "maxLength": 128,
+                                "pattern": "[^?' =,>|]+",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "sender-ip-address": {
+                                "description": "Use this attribute to set test session sender IP address",
+                                "readOnly": false,
+                                "oneOf": [
+                                  {
+                                    "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "string"
+                                  }
+                                ],
+                                "mandatory": true
+                              },
+                              "sender-udp-port": {
+                                "description": "Use this attribute to set test session sender UDP port",
+                                "readOnly": false,
+                                "oneOf": [
+                                  {
+                                    "enum": [
+                                      "862"
+                                    ]
+                                  },
+                                  {
+                                    "minimum": 1025,
+                                    "maximum": 65535,
+                                    "type": "number"
+                                  }
+                                ],
+                                "mandatory": true
+                              },
+                              "reflector-ip-address": {
+                                "description": "Use this attribute to set test session reflector IP address",
+                                "readOnly": false,
+                                "oneOf": [
+                                  {
+                                    "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "string"
+                                  }
+                                ],
+                                "mandatory": true
+                              },
+                              "reflector-udp-port": {
+                                "description": "Use this attribute to set test session reflector UDP port",
+                                "readOnly": false,
+                                "oneOf": [
+                                  {
+                                    "enum": [
+                                      "862"
+                                    ]
+                                  },
+                                  {
+                                    "minimum": 1025,
+                                    "maximum": 65535,
+                                    "type": "number"
+                                  }
+                                ],
+                                "mandatory": true
+                              },
+                              "dscp-value": {
+                                "description": "Use this attribute to set test session DSCP value",
+                                "readOnly": false,
+                                "oneOf": [
+                                  {
+                                    "enum": [
+                                      "default",
+                                      "cs1",
+                                      "af11",
+                                      "af12",
+                                      "af13",
+                                      "cs2",
+                                      "af21",
+                                      "af22",
+                                      "af23",
+                                      "cs3",
+                                      "af31",
+                                      "af32",
+                                      "af33",
+                                      "cs4",
+                                      "af41",
+                                      "af42",
+                                      "af43",
+                                      "cs5",
+                                      "ef",
+                                      "cs6",
+                                      "cs7"
+                                    ]
+                                  },
+                                  {
+                                    "minimum": 0,
+                                    "maximum": 63,
+                                    "type": "number"
+                                  }
+                                ],
+                                "mandatory": false
+                              },
+                              "vrf-name": {
+                                "description": "Use this attribute to set the session VRF name",
+                                "readOnly": false,
+                                "minLength": 1,
+                                "maxLength": 1965,
+                                "pattern": "[^?' =,>|]+",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational state data for TWAMP Light Control Test Session",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "session-name": {
+                                "description": "Use this attribute to set test session name",
+                                "readOnly": true,
+                                "minLength": 1,
+                                "maxLength": 128,
+                                "pattern": "[^?' =,>|]+",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "sender-ip-address": {
+                                "description": "Use this attribute to set test session sender IP address",
+                                "readOnly": true,
+                                "oneOf": [
+                                  {
+                                    "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "string"
+                                  }
+                                ],
+                                "mandatory": true
+                              },
+                              "sender-udp-port": {
+                                "description": "Use this attribute to set test session sender UDP port",
+                                "readOnly": true,
+                                "oneOf": [
+                                  {
+                                    "enum": [
+                                      "862"
+                                    ]
+                                  },
+                                  {
+                                    "minimum": 1025,
+                                    "maximum": 65535,
+                                    "type": "number"
+                                  }
+                                ],
+                                "mandatory": true
+                              },
+                              "reflector-ip-address": {
+                                "description": "Use this attribute to set test session reflector IP address",
+                                "readOnly": true,
+                                "oneOf": [
+                                  {
+                                    "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "string"
+                                  }
+                                ],
+                                "mandatory": true
+                              },
+                              "reflector-udp-port": {
+                                "description": "Use this attribute to set test session reflector UDP port",
+                                "readOnly": true,
+                                "oneOf": [
+                                  {
+                                    "enum": [
+                                      "862"
+                                    ]
+                                  },
+                                  {
+                                    "minimum": 1025,
+                                    "maximum": 65535,
+                                    "type": "number"
+                                  }
+                                ],
+                                "mandatory": true
+                              },
+                              "dscp-value": {
+                                "description": "Use this attribute to set test session DSCP value",
+                                "readOnly": true,
+                                "oneOf": [
+                                  {
+                                    "enum": [
+                                      "default",
+                                      "cs1",
+                                      "af11",
+                                      "af12",
+                                      "af13",
+                                      "cs2",
+                                      "af21",
+                                      "af22",
+                                      "af23",
+                                      "cs3",
+                                      "af31",
+                                      "af32",
+                                      "af33",
+                                      "cs4",
+                                      "af41",
+                                      "af42",
+                                      "af43",
+                                      "cs5",
+                                      "ef",
+                                      "cs6",
+                                      "cs7"
+                                    ]
+                                  },
+                                  {
+                                    "minimum": 0,
+                                    "maximum": 63,
+                                    "type": "number"
+                                  }
+                                ],
+                                "mandatory": false
+                              },
+                              "vrf-name": {
+                                "description": "Use this attribute to set the session VRF name",
+                                "readOnly": true,
+                                "minLength": 1,
+                                "maxLength": 1965,
+                                "pattern": "[^?' =,>|]+",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "start-time": {
+                                "description": "This attribute represents the start time of a Test Session",
+                                "readOnly": true,
+                                "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "elapsed-time": {
+                                "description": "This attribute represents the elapsed time of a Test Session",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "statistics": {
+                                "description": "Operational state data for TWAMP Light Control Test Session statistics",
+                                "readOnly": true,
+                                "type": "object",
+                                "properties": {
+                                  "packets-sent": {
+                                    "description": "This attribute represents the amount of sent packets for a Test Session",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "mandatory": false
+                                  },
+                                  "packets-received": {
+                                    "description": "This attribute represents the amount of received packets for a Test Session",
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "mandatory": false
+                                  },
+                                  "packet-loss": {
+                                    "description": "This attribute represents the amount of lost packets for a Test Session",
+                                    "readOnly": true,
+                                    "fraction-digits": "4",
+                                    "type": "string",
+                                    "mandatory": false
+                                  },
+                                  "round-trip-delay": {
+                                    "description": "Test Session Statistics Round-trip Delay",
+                                    "readOnly": true,
+                                    "type": "object",
+                                    "properties": {
+                                      "minimum": {
+                                        "description": "This attribute represents the minimum value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "maximum": {
+                                        "description": "This attribute represents the maximum value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "average": {
+                                        "description": "This attribute represents the average value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  },
+                                  "forward-delay": {
+                                    "description": "Test Session Statistics Forward Delay",
+                                    "readOnly": true,
+                                    "type": "object",
+                                    "properties": {
+                                      "minimum": {
+                                        "description": "This attribute represents the minimum value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "maximum": {
+                                        "description": "This attribute represents the maximum value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "average": {
+                                        "description": "This attribute represents the average value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  },
+                                  "reverse-delay": {
+                                    "description": "Test Session Statistics Reverse Delay",
+                                    "readOnly": true,
+                                    "type": "object",
+                                    "properties": {
+                                      "minimum": {
+                                        "description": "This attribute represents the minimum value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "maximum": {
+                                        "description": "This attribute represents the maximum value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "average": {
+                                        "description": "This attribute represents the average value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  },
+                                  "round-trip-delay-variation": {
+                                    "description": "Test Session Statistics Round-trip Delay Variation",
+                                    "readOnly": true,
+                                    "type": "object",
+                                    "properties": {
+                                      "minimum": {
+                                        "description": "This attribute represents the minimum value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "maximum": {
+                                        "description": "This attribute represents the maximum value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "average": {
+                                        "description": "This attribute represents the average value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  },
+                                  "forward-delay-variation": {
+                                    "description": "Test Session Statistics Forward Delay Variation",
+                                    "readOnly": true,
+                                    "type": "object",
+                                    "properties": {
+                                      "minimum": {
+                                        "description": "This attribute represents the minimum value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "maximum": {
+                                        "description": "This attribute represents the maximum value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "average": {
+                                        "description": "This attribute represents the average value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  },
+                                  "reverse-delay-variation": {
+                                    "description": "Test Session Statistics Reverse Delay Variation",
+                                    "readOnly": true,
+                                    "type": "object",
+                                    "properties": {
+                                      "minimum": {
+                                        "description": "This attribute represents the minimum value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "maximum": {
+                                        "description": "This attribute represents the maximum value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "average": {
+                                        "description": "This attribute represents the average value within the statistics",
+                                        "readOnly": true,
+                                        "type": "string",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "keyFields": [
+                          "session-name",
+                          "vrf-name"
+                        ]
+                      },
+                      "maxItems": 64
+                    }
+                  }
+                }
+              }
+            },
+            "session-reflector": {
+              "description": "Configuration data for TWAMP Light Session Reflector",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configuration data for TWAMP Light Session Reflector",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "enable": {
+                      "description": "Enables TWAMP Light Session Reflector",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": true
+                    },
+                    "administrative-state": {
+                      "description": "Sets TWAMP Light Session Reflector administrative state",
+                      "readOnly": false,
+                      "enum": [
+                        "disable",
+                        "enable"
+                      ],
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "operational state data for TWAMP Light Reflector Session",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "enable": {
+                      "description": "Enables TWAMP Light Session Reflector",
+                      "readOnly": true,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": true
+                    },
+                    "administrative-state": {
+                      "description": "Sets TWAMP Light Session Reflector administrative state",
+                      "readOnly": true,
+                      "enum": [
+                        "disable",
+                        "enable"
+                      ],
+                      "mandatory": false
+                    }
+                  }
+                },
+                "sessions": {
+                  "description": "TWAMP reflector sessions",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "session": {
+                      "description": "List of TWAMP Light Reflector sessions",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "Sets Reflector Session Name",
+                            "readOnly": false,
+                            "path": "../config/name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "vrf-name": {
+                            "description": "Use this attribute to set the Reflector VRF name",
+                            "readOnly": false,
+                            "path": "../config/vrf-name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "config": {
+                            "description": "Configuration data for TWAMP Light Session Reflector Ip address",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "description": "Sets Reflector Session Name",
+                                "readOnly": false,
+                                "minLength": 1,
+                                "maxLength": 128,
+                                "pattern": "[^?' =,>|]+",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "reflector-ip-address": {
+                                "description": "Set TWAMP Reflector Session IP address",
+                                "readOnly": false,
+                                "oneOf": [
+                                  {
+                                    "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "string"
+                                  }
+                                ],
+                                "mandatory": true
+                              },
+                              "reflector-udp-port": {
+                                "description": "Use this attribute to set Reflector UDP Port",
+                                "readOnly": false,
+                                "oneOf": [
+                                  {
+                                    "enum": [
+                                      "862"
+                                    ]
+                                  },
+                                  {
+                                    "minimum": 1025,
+                                    "maximum": 65535,
+                                    "type": "number"
+                                  }
+                                ],
+                                "mandatory": true
+                              },
+                              "sender-ip-address": {
+                                "description": "Set TWAMP Reflector Session sender IP address",
+                                "readOnly": false,
+                                "oneOf": [
+                                  {
+                                    "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "string"
+                                  }
+                                ],
+                                "mandatory": true
+                              },
+                              "sender-udp-port": {
+                                "description": "Use this attribute to set the sender UDP Port",
+                                "readOnly": false,
+                                "oneOf": [
+                                  {
+                                    "enum": [
+                                      "0"
+                                    ]
+                                  },
+                                  {
+                                    "enum": [
+                                      "862"
+                                    ]
+                                  },
+                                  {
+                                    "minimum": 1025,
+                                    "maximum": 65535,
+                                    "type": "number"
+                                  }
+                                ],
+                                "mandatory": true
+                              },
+                              "vrf-name": {
+                                "description": "Use this attribute to set the Reflector VRF name",
+                                "readOnly": false,
+                                "minLength": 1,
+                                "maxLength": 1965,
+                                "pattern": "[^?' =,>|]+",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "operational state data for TWAMP Light Session Reflector IP address",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "description": "Sets Reflector Session Name",
+                                "readOnly": true,
+                                "minLength": 1,
+                                "maxLength": 128,
+                                "pattern": "[^?' =,>|]+",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "reflector-ip-address": {
+                                "description": "Set TWAMP Reflector Session IP address",
+                                "readOnly": true,
+                                "oneOf": [
+                                  {
+                                    "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "string"
+                                  }
+                                ],
+                                "mandatory": true
+                              },
+                              "reflector-udp-port": {
+                                "description": "Use this attribute to set Reflector UDP Port",
+                                "readOnly": true,
+                                "oneOf": [
+                                  {
+                                    "enum": [
+                                      "862"
+                                    ]
+                                  },
+                                  {
+                                    "minimum": 1025,
+                                    "maximum": 65535,
+                                    "type": "number"
+                                  }
+                                ],
+                                "mandatory": true
+                              },
+                              "sender-ip-address": {
+                                "description": "Set TWAMP Reflector Session sender IP address",
+                                "readOnly": true,
+                                "oneOf": [
+                                  {
+                                    "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "string"
+                                  }
+                                ],
+                                "mandatory": true
+                              },
+                              "sender-udp-port": {
+                                "description": "Use this attribute to set the sender UDP Port",
+                                "readOnly": true,
+                                "oneOf": [
+                                  {
+                                    "enum": [
+                                      "0"
+                                    ]
+                                  },
+                                  {
+                                    "enum": [
+                                      "862"
+                                    ]
+                                  },
+                                  {
+                                    "minimum": 1025,
+                                    "maximum": 65535,
+                                    "type": "number"
+                                  }
+                                ],
+                                "mandatory": true
+                              },
+                              "vrf-name": {
+                                "description": "Use this attribute to set the Reflector VRF name",
+                                "readOnly": true,
+                                "minLength": 1,
+                                "maxLength": 1965,
+                                "pattern": "[^?' =,>|]+",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        },
+                        "keyFields": [
+                          "name",
+                          "vrf-name"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "Debug Flags",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Debug flags for configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Use this attribute to debug the twamp session",
+                  "readOnly": false,
+                  "enum": [
+                    "twamp"
+                  ],
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Debug flags state information",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Use this attribute to debug the twamp session",
+                  "readOnly": true,
+                  "enum": [
+                    "twamp"
+                  ],
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Terminal debug option",
+                  "readOnly": true,
+                  "enum": [
+                    "twamp"
+                  ],
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "server": {
+          "description": "TWAMP Server implementation",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for TWAMP Server",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "port": {
+                  "description": "Use this attribute to set Server TCP Port",
+                  "readOnly": false,
+                  "oneOf": [
+                    {
+                      "enum": [
+                        "862"
+                      ]
+                    },
+                    {
+                      "minimum": 1025,
+                      "maximum": 65535,
+                      "type": "number"
+                    }
+                  ],
+                  "mandatory": false
+                },
+                "max-connection-duration": {
+                  "description": "Set the maximum connection duration in hours, 0 to disable",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 120,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "max-connections": {
+                  "description": "Set the maximum connections",
+                  "readOnly": false,
+                  "minimum": 1,
+                  "maximum": 32,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "max-connections-per-client": {
+                  "description": "Set the maximum number of connections per client",
+                  "readOnly": false,
+                  "minimum": 1,
+                  "maximum": 4,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "maximum-sessions": {
+                  "description": "Set the maximum number of test sessions for the server",
+                  "readOnly": false,
+                  "minimum": 1,
+                  "maximum": 64,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "maximum-sessions-per-connection": {
+                  "description": "Set the maximum number of test sessions per client connection",
+                  "readOnly": false,
+                  "minimum": 1,
+                  "maximum": 64,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "inactivity-timeout": {
+                  "description": "Set the control packet idle timeout value in minutes, 0 to disable",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 30,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "vrf-name": {
+                  "description": "Use this attribute to add a custom vrf to the list of VRFs where the twamp server is listening",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for TWAMP Server",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "port": {
+                  "description": "Use this attribute to set Server TCP Port",
+                  "readOnly": true,
+                  "oneOf": [
+                    {
+                      "enum": [
+                        "862"
+                      ]
+                    },
+                    {
+                      "minimum": 1025,
+                      "maximum": 65535,
+                      "type": "number"
+                    }
+                  ],
+                  "mandatory": false
+                },
+                "max-connection-duration": {
+                  "description": "Set the maximum connection duration in hours, 0 to disable",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 120,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "max-connections": {
+                  "description": "Set the maximum connections",
+                  "readOnly": true,
+                  "minimum": 1,
+                  "maximum": 32,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "max-connections-per-client": {
+                  "description": "Set the maximum number of connections per client",
+                  "readOnly": true,
+                  "minimum": 1,
+                  "maximum": 4,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "maximum-sessions": {
+                  "description": "Set the maximum number of test sessions for the server",
+                  "readOnly": true,
+                  "minimum": 1,
+                  "maximum": 64,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "maximum-sessions-per-connection": {
+                  "description": "Set the maximum number of test sessions per client connection",
+                  "readOnly": true,
+                  "minimum": 1,
+                  "maximum": 64,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "inactivity-timeout": {
+                  "description": "Set the control packet idle timeout value in minutes, 0 to disable",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 30,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "vrf-name": {
+                  "description": "Use this attribute to add a custom vrf to the list of VRFs where the twamp server is listening",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                },
+                "nb-connections": {
+                  "description": "This attribute represents the number of connections to the TWAMP server",
+                  "readOnly": true,
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 4294967295,
+                  "mandatory": false
+                },
+                "nb-sessions": {
+                  "description": "This attribute represents the number of sessions accepted by the server",
+                  "readOnly": true,
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 4294967295,
+                  "mandatory": false
+                },
+                "nb-running-sessions": {
+                  "description": "This attribute represents the number of running sessions on the server",
+                  "readOnly": true,
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 4294967295,
+                  "mandatory": false
+                }
+              }
+            },
+            "connections": {
+              "description": "Operational state data for TWAMP Server connections",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "connection": {
+                  "description": "Top level list for client connections to the TWAMP server",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "connection-id": {
+                        "description": "Connection ID",
+                        "readOnly": true,
+                        "path": "../state/connection-id",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "state": {
+                        "description": "State level container for all client connections to the TWAMP server",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "connection-id": {
+                            "description": "Connection ID",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "client-address": {
+                            "description": "IP address of the client",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "client-port": {
+                            "description": "Port used by the client",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "mandatory": false
+                          },
+                          "client-vrf": {
+                            "description": "VRF where the client is connected",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "connection-state": {
+                            "description": "State of the connection with the client",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "connection-time": {
+                            "description": "Time when the connection was established",
+                            "readOnly": true,
+                            "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "last-activity-time": {
+                            "description": "Time of the last activity that happened on the connection",
+                            "readOnly": true,
+                            "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "nb-session-requests": {
+                            "description": "Number of session requests received on the connection",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "nb-accepted-sessions": {
+                            "description": "Number of accepted sessions on the connection",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "connection-id"
+                    ]
+                  }
+                }
+              }
+            },
+            "sessions": {
+              "description": "Operational state data for TWAMP Server sessions",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "session": {
+                  "description": "Top level list for sessions accepted by the TWAMP server",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "session-id": {
+                        "description": "Session ID",
+                        "readOnly": true,
+                        "path": "../state/session-id",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "state": {
+                        "description": "State level container for all sessions accepted by the TWAMP server",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "session-id": {
+                            "description": "Session ID",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "connection-id": {
+                            "description": "Connection ID",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "session-state": {
+                            "description": "Session state",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "sender-address": {
+                            "description": "IP address of the TWAMP sender",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "sender-port": {
+                            "description": "Port used by the sender",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "mandatory": false
+                          },
+                          "receiver-address": {
+                            "description": "IP address of the TWAMP receiver",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "receiver-port": {
+                            "description": "Port used by the receiver",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "mandatory": false
+                          },
+                          "receiver-vrf": {
+                            "description": "VRF where the receiver is running",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "start-time": {
+                            "description": "Start-Time requested by the client for the session",
+                            "readOnly": true,
+                            "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "timeout": {
+                            "description": "Timeout requested for the session",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "session-id"
+                    ]
+                  }
+                }
+              }
+            },
+            "admin": {
+              "description": "TWAMP Server Admin Configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Admin status configuration data for TWAMP Server",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "enable": {
+                      "description": "Enables TWAMP Server",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": true
+                    },
+                    "administrative-state": {
+                      "description": "Sets TWAMP Server administrative state",
+                      "readOnly": false,
+                      "enum": [
+                        "disable",
+                        "enable"
+                      ],
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational state data for TWAMP Server admin status data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "enable": {
+                      "description": "Enables TWAMP Server",
+                      "readOnly": true,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": true
+                    },
+                    "administrative-state": {
+                      "description": "Sets TWAMP Server administrative state",
+                      "readOnly": true,
+                      "enum": [
+                        "disable",
+                        "enable"
+                      ],
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "client": {
+          "description": "Twamp client container for global configs",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for TWAMP client gloabl configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Enables TWAMP Client",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                },
+                "maximum-sessions": {
+                  "description": "Maximum number of test sessions for the whole client node (default = 64)",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 64,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "maximum-connections": {
+                  "description": "The maximum number of connections that can be created systemwide",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 64,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "maximum-sessions-per-connection": {
+                  "description": "Maximum number of test sessions per connection (default = 1)",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 64,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for TWAMP client gloabl configuration",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Enables TWAMP Client",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                },
+                "maximum-sessions": {
+                  "description": "Maximum number of test sessions for the whole client node (default = 64)",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 64,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "maximum-connections": {
+                  "description": "The maximum number of connections that can be created systemwide",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 64,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "maximum-sessions-per-connection": {
+                  "description": "Maximum number of test sessions per connection (default = 1)",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 64,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "connections": {
+              "description": "TWAMP client connections",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "connection": {
+                  "description": "List of Twamp client connections",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "connection-name": {
+                        "description": "Sets client connection Name",
+                        "readOnly": false,
+                        "path": "../config/connection-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "vrf-name": {
+                        "description": "Use this attribute to set the Connection VRF name",
+                        "readOnly": false,
+                        "path": "../config/vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data for TWAMP Light Session Reflector Ip address",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "connection-name": {
+                            "description": "Create twamp connection name",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "server-address": {
+                            "description": "Configure twamp server address to connect with client",
+                            "readOnly": false,
+                            "oneOf": [
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "server-port": {
+                            "description": "Configure twamp server port to connect with client",
+                            "readOnly": false,
+                            "oneOf": [
+                              {
+                                "enum": [
+                                  "862"
+                                ]
+                              },
+                              {
+                                "minimum": 1025,
+                                "maximum": 65535,
+                                "type": "number"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "vrf-name": {
+                            "description": "Use this attribute to set the connection VRF name",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "operational state data for TWAMP Light Session Reflector IP address",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "connection-name": {
+                            "description": "Create twamp connection name",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "server-address": {
+                            "description": "Configure twamp server address to connect with client",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "server-port": {
+                            "description": "Configure twamp server port to connect with client",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "enum": [
+                                  "862"
+                                ]
+                              },
+                              {
+                                "minimum": 1025,
+                                "maximum": 65535,
+                                "type": "number"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "vrf-name": {
+                            "description": "Use this attribute to set the connection VRF name",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "client-port": {
+                            "description": "Use this attribute to display the client port",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "client-address": {
+                            "description": "IP address of the client",
+                            "readOnly": true,
+                            "oneOf": [
+                              {
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string"
+                              },
+                              {
+                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          },
+                          "connection-time": {
+                            "description": "Time when the connection was established",
+                            "readOnly": true,
+                            "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "last-activity-time": {
+                            "description": "Time of the last activity that happened on the connection",
+                            "readOnly": true,
+                            "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "connection-state": {
+                            "description": "State of the connection with the client",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "nb-session-requested": {
+                            "description": "Number of session requests received on the connection",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "nb-sessions-accepted": {
+                            "description": "Number of accepted sessions on the connection",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "sessions": {
+                        "description": "TWAMP client sessions",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "session": {
+                            "description": "List of Twamp client sessions",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "session-name": {
+                                  "description": "Sets client connection Name",
+                                  "readOnly": false,
+                                  "path": "../config/session-name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration data for TWAMP Light Session Reflector Ip address",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "session-name": {
+                                      "description": "Create twamp session name",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "sender-port": {
+                                      "description": "Configure twamp server port to connect with client",
+                                      "readOnly": false,
+                                      "minimum": 1025,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "receiver-port": {
+                                      "description": "Configure twamp server port to connect with client",
+                                      "readOnly": false,
+                                      "minimum": 1025,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "sender-address": {
+                                      "description": "Configure twamp server address to connect with client",
+                                      "readOnly": false,
+                                      "oneOf": [
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "receiver-address": {
+                                      "description": "Configure twamp server address to connect with client",
+                                      "readOnly": false,
+                                      "oneOf": [
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "start-time": {
+                                      "description": "Configure twamp server address to connect with client",
+                                      "readOnly": false,
+                                      "pattern": "([0-9]|[01][0-9]|2[0123]):([0-9]|[012345][0-9]):([0-9]|[012345][0-9]) (([12][0-9])|(3[01])|([0][1-9])) ((([a-z])|([A-Z])){2,8}) ((199[5-9])|(20[012][0-9])|(203[0-5]))",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "interface-name": {
+                                      "description": "Use this attribute to set the session VRF name",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "operational state data for TWAMP Light Session Reflector IP address",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "session-name": {
+                                      "description": "Create twamp session name",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "sender-port": {
+                                      "description": "Configure twamp server port to connect with client",
+                                      "readOnly": true,
+                                      "minimum": 1025,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "receiver-port": {
+                                      "description": "Configure twamp server port to connect with client",
+                                      "readOnly": true,
+                                      "minimum": 1025,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "sender-address": {
+                                      "description": "Configure twamp server address to connect with client",
+                                      "readOnly": true,
+                                      "oneOf": [
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "receiver-address": {
+                                      "description": "Configure twamp server address to connect with client",
+                                      "readOnly": true,
+                                      "oneOf": [
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "start-time": {
+                                      "description": "Configure twamp server address to connect with client",
+                                      "readOnly": true,
+                                      "pattern": "([0-9]|[01][0-9]|2[0123]):([0-9]|[012345][0-9]):([0-9]|[012345][0-9]) (([12][0-9])|(3[01])|([0][1-9])) ((([a-z])|([A-Z])){2,8}) ((199[5-9])|(20[012][0-9])|(203[0-5]))",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "interface-name": {
+                                      "description": "Use this attribute to set the session VRF name",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "requested-receiver-port": {
+                                      "description": "Use this attribute to display the port requested by server",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "session-id": {
+                                      "description": "session id of the server",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "session-name"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "connection-name",
+                      "vrf-name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

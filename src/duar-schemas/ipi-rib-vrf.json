@@ -1,0 +1,6 @@
+{
+  "title": "ipi-rib-vrf",
+  "description": "Datamodel for VRF RIB object",
+  "type": "object",
+  "properties": {}
+}

@@ -1,0 +1,358 @@
+{
+  "title": "ipi-dns-relay",
+  "description": "This module provides support for users to configure DNS Relay through    CLI",
+  "type": "object",
+  "properties": {
+    "ipi-dns-relay:dns-relay": {
+      "description": "DNS Relay",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "config": {
+          "description": "DNS Global Configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "enable-dns-feature": {
+              "description": "Use this attribute to enable the DNS relay agent feature.",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "enable-dnsv4-relay": {
+              "description": "Use this attribute to enable the IPv4 DNS relay agent.",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "enable-dnsv6-relay": {
+              "description": "Use this attribute to enable the IPv6 DNS relay agent.",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "dns-server-v4-addr": {
+              "description": "Use this attribute to set the IPv4 address",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                "type": "string",
+                "mandatory": false
+              }
+            },
+            "dns-server-v6-addr": {
+              "description": "Use this attribute to set the IPv6 address",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                "type": "string",
+                "mandatory": false
+              }
+            }
+          }
+        },
+        "state": {
+          "description": "DNS dump state",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "enable-dns-feature": {
+              "description": "Use this attribute to enable the DNS relay agent feature.",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "enable-dnsv4-relay": {
+              "description": "Use this attribute to enable the IPv4 DNS relay agent.",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "enable-dnsv6-relay": {
+              "description": "Use this attribute to enable the IPv6 DNS relay agent.",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "dns-server-v4-addr": {
+              "description": "Use this attribute to set the IPv4 address",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                "type": "string",
+                "mandatory": false
+              }
+            },
+            "dns-server-v6-addr": {
+              "description": "Use this attribute to set the IPv6 address",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                "type": "string",
+                "mandatory": false
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "DNS Relay Interface",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "List of interfaces on which Ethernet OAM available",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "DNS relay interface name.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "DNS Interface Configuration",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "DNS relay Interface name",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable-dnsv4-relay": {
+                        "description": "Use this attribute to enable the IPv4 DNS relay agent.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "enable-dnsv6-relay": {
+                        "description": "Use this attribute to enable the IPv6 DNS relay agent.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "dns-relay-uplink": {
+                        "description": "Use this attribute to set the uplink IPv4 DNS relay agent.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "dns-relay-v6-uplink": {
+                        "description": "Use this attribute to set the uplink IPv6 DNS relay agent.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "DNS dump state",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "DNS relay Interface name",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable-dnsv4-relay": {
+                        "description": "Use this attribute to enable the IPv4 DNS relay agent.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "enable-dnsv6-relay": {
+                        "description": "Use this attribute to enable the IPv6 DNS relay agent.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "dns-relay-uplink": {
+                        "description": "Use this attribute to set the uplink IPv4 DNS relay agent.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "dns-relay-v6-uplink": {
+                        "description": "Use this attribute to set the uplink IPv6 DNS relay agent.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "vrfs": {
+          "description": "VRF's List on which DNS relay can be configured",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "vrf": {
+              "description": "VRF for DNS configuration",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vrf-name": {
+                    "description": "VRF name on which DNS relay is configured",
+                    "readOnly": false,
+                    "path": "../config/vrf-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "DNS Relay configuration in VRF",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF name on which DNS relay is configured",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "dns-server-v4-addr": {
+                        "description": "Use this attribute to set the IPv4 address",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      },
+                      "dns-server-v6-addr": {
+                        "description": "Use this attribute to set the IPv4 address",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "DNS dump state",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF name on which DNS relay is configured",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "dns-server-v4-addr": {
+                        "description": "Use this attribute to set the IPv4 address",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      },
+                      "dns-server-v6-addr": {
+                        "description": "Use this attribute to set the IPv4 address",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "vrf-name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

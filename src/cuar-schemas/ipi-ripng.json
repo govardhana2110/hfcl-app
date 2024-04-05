@@ -1,0 +1,2668 @@
+{
+  "title": "ipi-ripng",
+  "description": "Data model for IPI RIPng Configuration and Operational state",
+  "type": "object",
+  "properties": {
+    "ipi-ripng:ripng": {
+      "description": "Top level container for RIPng Configuration",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "debug": {
+          "description": "Container for RIPng Debug",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "RIPng Debug Configuration Data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "This attribute enables debugging for RIPng",
+                  "readOnly": false,
+                  "type": "string",
+                  "bits": {
+                    "events": "1",
+                    "packet-send": "2",
+                    "packet-recv": "3",
+                    "packet-detail": "4",
+                    "nsm": "5",
+                    "rib": "6"
+                  },
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "RIPng Debug Operational Data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "This attribute enables debugging for RIPng",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "events": "1",
+                    "packet-send": "2",
+                    "packet-recv": "3",
+                    "packet-detail": "4",
+                    "nsm": "5",
+                    "rib": "6"
+                  },
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "This attribute describes the RIPng terminal debug status",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "events": "1",
+                    "packet-send": "2",
+                    "packet-recv": "3",
+                    "packet-detail": "4",
+                    "nsm": "5",
+                    "rib": "6"
+                  },
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Container for interface RIPng",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "List of interfaces",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The textual name of the interface",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Interface RIPng Configuration Data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The textual name of the interface",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enabled": {
+                        "description": "Use this attribute to perform the router rip action on the interface",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "split-horizon": {
+                        "description": "Use this attribute to perform the split-horizon action on the interface. Deleting this attribute would set the split-horizon to poisoned reverse which is the default value.",
+                        "readOnly": false,
+                        "type": "boolean",
+                        "mandatory": false
+                      },
+                      "metric-offset": {
+                        "description": "Use this attribute to perform the metric-offset action on the interface",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 16,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Interface RIPng Operational Data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The textual name of the interface",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enabled": {
+                        "description": "Use this attribute to perform the router rip action on the interface",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "split-horizon": {
+                        "description": "Use this attribute to perform the split-horizon action on the interface. Deleting this attribute would set the split-horizon to poisoned reverse which is the default value.",
+                        "readOnly": true,
+                        "type": "boolean",
+                        "mandatory": false
+                      },
+                      "metric-offset": {
+                        "description": "Use this attribute to perform the metric-offset action on the interface",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 16,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "instance": {
+          "description": "Container for RIPng Instance",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "RIPng Instance Configuration Data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "passive-interfaces": {
+                  "description": "Use this attribute to block RIP broadcast on the interface",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                },
+                "static-routes": {
+                  "description": "Use this attribute to configure static RIP routes",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "minLength": 0,
+                    "maxLength": 50,
+                    "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                },
+                "aggregate-prefixes": {
+                  "description": "Use this attribute to configure aggregate prefixes",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "minLength": 0,
+                    "maxLength": 50,
+                    "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                },
+                "distance": {
+                  "description": "Use this attribute to set the administrative distance. The administrative distance is a feature used by the routers to select the path when there are two or more different routes to the same destination from two different routing protocols. A smaller administrative distance indicating a more reliable protocol",
+                  "readOnly": false,
+                  "minimum": 1,
+                  "maximum": 255,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "default-metric": {
+                  "description": "Use this attribute to specify the metrics to be assigned to redistributed routers",
+                  "readOnly": false,
+                  "minimum": 1,
+                  "maximum": 15,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "originate-default-route": {
+                  "description": "Use this attribute to add default routes to the RIP updates",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "enable-cisco-metric-behavior": {
+                  "description": "Use this attribute to enable the metric update consistent with Cisco",
+                  "readOnly": false,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "receive-buffer-size": {
+                  "description": "Use this attribute to run-time configure the RIP UDP receive-buffer size",
+                  "readOnly": false,
+                  "minimum": 8192,
+                  "maximum": 2147483647,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "ripng-enabled": {
+                  "description": "Use this attribute to enable the router instance",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                }
+              }
+            },
+            "state": {
+              "description": "RIPng Instance Operational Data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "passive-interfaces": {
+                  "description": "Use this attribute to block RIP broadcast on the interface",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                },
+                "static-routes": {
+                  "description": "Use this attribute to configure static RIP routes",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "minLength": 0,
+                    "maxLength": 50,
+                    "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                },
+                "aggregate-prefixes": {
+                  "description": "Use this attribute to configure aggregate prefixes",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "minLength": 0,
+                    "maxLength": 50,
+                    "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                },
+                "distance": {
+                  "description": "Use this attribute to set the administrative distance. The administrative distance is a feature used by the routers to select the path when there are two or more different routes to the same destination from two different routing protocols. A smaller administrative distance indicating a more reliable protocol",
+                  "readOnly": true,
+                  "minimum": 1,
+                  "maximum": 255,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "default-metric": {
+                  "description": "Use this attribute to specify the metrics to be assigned to redistributed routers",
+                  "readOnly": true,
+                  "minimum": 1,
+                  "maximum": 15,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "originate-default-route": {
+                  "description": "Use this attribute to add default routes to the RIP updates",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "enable-cisco-metric-behavior": {
+                  "description": "Use this attribute to enable the metric update consistent with Cisco",
+                  "readOnly": true,
+                  "type": "boolean",
+                  "mandatory": false
+                },
+                "receive-buffer-size": {
+                  "description": "Use this attribute to run-time configure the RIP UDP receive-buffer size",
+                  "readOnly": true,
+                  "minimum": 8192,
+                  "maximum": 2147483647,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "ripng-enabled": {
+                  "description": "Use this attribute to enable the router instance",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                }
+              }
+            },
+            "redistribute-policies": {
+              "description": "Container for RIPng Redistribute Policies",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "redistribute-policy": {
+                  "description": "List of RIPng Redistribute Policies",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "route-type": {
+                        "description": "Use this attribute to redistribute information from other routing protocols",
+                        "readOnly": false,
+                        "path": "../config/route-type",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration Data for RIPng Redistribute Policies",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "metric": {
+                            "description": "Use this attribute to redistribute metric information from other routing protocols",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 16,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "route-map": {
+                            "description": "Use this attribute to redistribute route-map from other routing protocols",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "route-type": {
+                            "description": "Use this attribute to redistribute information from other routing protocols",
+                            "readOnly": false,
+                            "enum": [
+                              "kernel",
+                              "connected",
+                              "static",
+                              "ospf6",
+                              "isis",
+                              "bgp"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational Data for RIPng Redistribute Policies",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "metric": {
+                            "description": "Use this attribute to redistribute metric information from other routing protocols",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 16,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "route-map": {
+                            "description": "Use this attribute to redistribute route-map from other routing protocols",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "route-type": {
+                            "description": "Use this attribute to redistribute information from other routing protocols",
+                            "readOnly": true,
+                            "enum": [
+                              "kernel",
+                              "connected",
+                              "static",
+                              "ospf6",
+                              "isis",
+                              "bgp"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "route-type"
+                    ]
+                  }
+                }
+              }
+            },
+            "timers": {
+              "description": "Container for RIPng Timers",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configuration Data for RIPng Timers",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "route-table-update-interval": {
+                      "description": "Use this attribute to adjust basic routing protocol update timer interval",
+                      "readOnly": false,
+                      "minimum": 5,
+                      "maximum": 2147483647,
+                      "type": "number",
+                      "mandatory": true
+                    },
+                    "route-info-timeout-interval": {
+                      "description": "Use this attribute to adjust routing information timeout interval",
+                      "readOnly": false,
+                      "minimum": 5,
+                      "maximum": 2147483647,
+                      "type": "number",
+                      "mandatory": true
+                    },
+                    "garbage-collection-interval": {
+                      "description": "Use this attribute to adjust garbage collection interval",
+                      "readOnly": false,
+                      "minimum": 5,
+                      "maximum": 2147483647,
+                      "type": "number",
+                      "mandatory": true
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational Data for RIPng Timers",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "route-table-update-interval": {
+                      "description": "Use this attribute to adjust basic routing protocol update timer interval",
+                      "readOnly": true,
+                      "minimum": 5,
+                      "maximum": 2147483647,
+                      "type": "number",
+                      "mandatory": true
+                    },
+                    "route-info-timeout-interval": {
+                      "description": "Use this attribute to adjust routing information timeout interval",
+                      "readOnly": true,
+                      "minimum": 5,
+                      "maximum": 2147483647,
+                      "type": "number",
+                      "mandatory": true
+                    },
+                    "garbage-collection-interval": {
+                      "description": "Use this attribute to adjust garbage collection interval",
+                      "readOnly": true,
+                      "minimum": 5,
+                      "maximum": 2147483647,
+                      "type": "number",
+                      "mandatory": true
+                    }
+                  }
+                }
+              }
+            },
+            "neighbors": {
+              "description": "Container for RIPng Neighbors",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "neighbor": {
+                  "description": "List of RIPng Neighbors",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "description": "Use this attribute to specify a link local address of neighbor router. It is used for each connected point-to-point link. This command exchanges non-broadcast routing information. It can be used multiple times for additional neighbors",
+                        "readOnly": false,
+                        "path": "../config/address",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration Data for RIPng Neighbors",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "address": {
+                            "description": "Use this attribute to specify a link local address of neighbor router. It is used for each connected point-to-point link. This command exchanges non-broadcast routing information. It can be used multiple times for additional neighbors",
+                            "readOnly": false,
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "if-name": {
+                            "description": "The textual name of the interface",
+                            "readOnly": false,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": true
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational Data for RIPng Neighbors",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "address": {
+                            "description": "Use this attribute to specify a link local address of neighbor router. It is used for each connected point-to-point link. This command exchanges non-broadcast routing information. It can be used multiple times for additional neighbors",
+                            "readOnly": true,
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "if-name": {
+                            "description": "The textual name of the interface",
+                            "readOnly": true,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": true
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "address"
+                    ]
+                  }
+                }
+              }
+            },
+            "interfaces": {
+              "description": "Container for RIPng Interfaces",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "interface": {
+                  "description": "List of RIPng Interfaces",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The textual name of the interface",
+                        "readOnly": false,
+                        "path": "../config/name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration Data for RIPng Interfaces",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "The textual name of the interface",
+                            "readOnly": false,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational Data for RIPng Interfaces",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "The textual name of the interface",
+                            "readOnly": true,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "filtering-route-maps": {
+                        "description": "Container for RIPng Filtering Route Maps",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "filtering-route-map": {
+                            "description": "List of RIPng Filtering Route Maps",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "description": "Use this attribute to decide the type of packets to which the filtering is applied",
+                                  "readOnly": false,
+                                  "path": "../config/type",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration Data for RIPng Filtering Route Maps",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "description": "Use this attribute to decide the type of packets to which the filtering is applied",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "in",
+                                        "out"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "route-map-name": {
+                                      "description": "Use this attribute to apply the route map to the type of filtering",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 63,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": true
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational Data for RIPng Filtering Route Maps",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "description": "Use this attribute to decide the type of packets to which the filtering is applied",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "in",
+                                        "out"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "route-map-name": {
+                                      "description": "Use this attribute to apply the route map to the type of filtering",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 63,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": true
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "type"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "offset-lists": {
+                        "description": "Container for RIPng Offset Lists",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "offset-list": {
+                            "description": "List of RIPng Offset Lists",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "direction": {
+                                  "description": "Use this attribute to decide the type of packets to which the offset list is applied",
+                                  "readOnly": false,
+                                  "path": "../config/direction",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration Data for RIPng Offset Lists",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "direction": {
+                                      "description": "Use this attribute to decide the type of packets to which the offset list is applied",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "in",
+                                        "out"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "access-list-name": {
+                                      "description": "Use this attribute to add an offset to in and out metrics to routes learned through RIP. This command specifies the offset value that is added to the routing metric. When the networks match the access list the offset is applied to the metrics. No change occurs if the offset value is zero",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": true
+                                    },
+                                    "metric": {
+                                      "description": "This attribute describes the metric used for offset list",
+                                      "readOnly": false,
+                                      "minimum": 0,
+                                      "maximum": 16,
+                                      "type": "number",
+                                      "mandatory": true
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational Data for RIPng Offset Lists",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "direction": {
+                                      "description": "Use this attribute to decide the type of packets to which the offset list is applied",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "in",
+                                        "out"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "access-list-name": {
+                                      "description": "Use this attribute to add an offset to in and out metrics to routes learned through RIP. This command specifies the offset value that is added to the routing metric. When the networks match the access list the offset is applied to the metrics. No change occurs if the offset value is zero",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": true
+                                    },
+                                    "metric": {
+                                      "description": "This attribute describes the metric used for offset list",
+                                      "readOnly": true,
+                                      "minimum": 0,
+                                      "maximum": 16,
+                                      "type": "number",
+                                      "mandatory": true
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "direction"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "distribute-lists": {
+                        "description": "Container for RIPng Distribute Lists",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "distribute-list": {
+                            "description": "List of RIPng Distribute Lists",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "direction": {
+                                  "description": "Use this attribute to decide the type of packets to which the distribute list is applied",
+                                  "readOnly": false,
+                                  "path": "../config/direction",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration Data for RIPng Distribute Lists",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "direction": {
+                                      "description": "Use this attribute to decide the type of packets to which the distribute list is applied",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "in",
+                                        "out"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "access-list-name": {
+                                      "description": "Use this attribute to filter incoming or outgoing route updates using an access list or a prefix list. You can filter out incoming or outgoing route updates using an access list or a prefix list. If you do not specify the name of the interface, the filter will be applied to all the interfaces.",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": true
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational Data for RIPng Distribute Lists",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "direction": {
+                                      "description": "Use this attribute to decide the type of packets to which the distribute list is applied",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "in",
+                                        "out"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "access-list-name": {
+                                      "description": "Use this attribute to filter incoming or outgoing route updates using an access list or a prefix list. You can filter out incoming or outgoing route updates using an access list or a prefix list. If you do not specify the name of the interface, the filter will be applied to all the interfaces.",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": true
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "direction"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "distribute-prefix-lists": {
+                        "description": "Container for RIPng Distribute Prefix Lists",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "distribute-prefix-list": {
+                            "description": "List of RIPng Distribute Prefix Lists",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "direction": {
+                                  "description": "Use this attribute to decide the type of packets to which the distribute list prefix is applied",
+                                  "readOnly": false,
+                                  "path": "../config/direction",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration Data for RIPng Distribute Prefix Lists",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "direction": {
+                                      "description": "Use this attribute to decide the type of packets to which the distribute list prefix is applied",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "in",
+                                        "out"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "list-name": {
+                                      "description": "Use this attribute to filter incoming or outgoing route updates using an access list or a prefix list. You can filter out incoming or outgoing route updates using an access list or a prefix list. If you do not specify the name of the interface, the filter will be applied to all the interfaces.",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": true
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational Data for RIPng Distribute Prefix Lists",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "direction": {
+                                      "description": "Use this attribute to decide the type of packets to which the distribute list prefix is applied",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "in",
+                                        "out"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "list-name": {
+                                      "description": "Use this attribute to filter incoming or outgoing route updates using an access list or a prefix list. You can filter out incoming or outgoing route updates using an access list or a prefix list. If you do not specify the name of the interface, the filter will be applied to all the interfaces.",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": true
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "direction"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "name"
+                    ]
+                  }
+                }
+              }
+            },
+            "offset-lists": {
+              "description": "Container for RIPng Offset Lists",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "offset-list": {
+                  "description": "List of RIPng Offset Lists",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "direction": {
+                        "description": "Use this attribute to decide the type of packets to which the offset list is applied",
+                        "readOnly": false,
+                        "path": "../config/direction",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration Data for RIPng Offset Lists",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "direction": {
+                            "description": "Use this attribute to decide the type of packets to which the offset list is applied",
+                            "readOnly": false,
+                            "enum": [
+                              "in",
+                              "out"
+                            ],
+                            "mandatory": false
+                          },
+                          "access-list-name": {
+                            "description": "Use this attribute to add an offset to in and out metrics to routes learned through RIP. This command specifies the offset value that is added to the routing metric. When the networks match the access list the offset is applied to the metrics. No change occurs if the offset value is zero",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": true
+                          },
+                          "metric": {
+                            "description": "This attribute describes the metric used for offset list",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 16,
+                            "type": "number",
+                            "mandatory": true
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational Data for RIPng Offset Lists",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "direction": {
+                            "description": "Use this attribute to decide the type of packets to which the offset list is applied",
+                            "readOnly": true,
+                            "enum": [
+                              "in",
+                              "out"
+                            ],
+                            "mandatory": false
+                          },
+                          "access-list-name": {
+                            "description": "Use this attribute to add an offset to in and out metrics to routes learned through RIP. This command specifies the offset value that is added to the routing metric. When the networks match the access list the offset is applied to the metrics. No change occurs if the offset value is zero",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": true
+                          },
+                          "metric": {
+                            "description": "This attribute describes the metric used for offset list",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 16,
+                            "type": "number",
+                            "mandatory": true
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "direction"
+                    ]
+                  }
+                }
+              }
+            },
+            "distribute-lists": {
+              "description": "Container for RIPng Distribute Lists",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "distribute-list": {
+                  "description": "List of RIPng Distribute Lists",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "direction": {
+                        "description": "Use this attribute to decide the type of packets to which the distribute list is applied",
+                        "readOnly": false,
+                        "path": "../config/direction",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration Data for RIPng Distribute Lists",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "direction": {
+                            "description": "Use this attribute to decide the type of packets to which the distribute list is applied",
+                            "readOnly": false,
+                            "enum": [
+                              "in",
+                              "out"
+                            ],
+                            "mandatory": false
+                          },
+                          "access-list-name": {
+                            "description": "Use this attribute to filter incoming or outgoing route updates using an access list or a prefix list. You can filter out incoming or outgoing route updates using an access list or a prefix list. If you do not specify the name of the interface, the filter will be applied to all the interfaces.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": true
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational Data for RIPng Distribute Lists",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "direction": {
+                            "description": "Use this attribute to decide the type of packets to which the distribute list is applied",
+                            "readOnly": true,
+                            "enum": [
+                              "in",
+                              "out"
+                            ],
+                            "mandatory": false
+                          },
+                          "access-list-name": {
+                            "description": "Use this attribute to filter incoming or outgoing route updates using an access list or a prefix list. You can filter out incoming or outgoing route updates using an access list or a prefix list. If you do not specify the name of the interface, the filter will be applied to all the interfaces.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": true
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "direction"
+                    ]
+                  }
+                }
+              }
+            },
+            "distribute-prefix-lists": {
+              "description": "Container for RIPng Distribute Prefix Lists",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "distribute-prefix-list": {
+                  "description": "List of RIPng Distribute Prefix Lists",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "direction": {
+                        "description": "Use this attribute to decide the type of packets to which the distribute list prefix is applied",
+                        "readOnly": false,
+                        "path": "../config/direction",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration Data for RIPng Distribute Prefix Lists",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "direction": {
+                            "description": "Use this attribute to decide the type of packets to which the distribute list prefix is applied",
+                            "readOnly": false,
+                            "enum": [
+                              "in",
+                              "out"
+                            ],
+                            "mandatory": false
+                          },
+                          "list-name": {
+                            "description": "Use this attribute to filter incoming or outgoing route updates using an access list or a prefix list. You can filter out incoming or outgoing route updates using an access list or a prefix list. If you do not specify the name of the interface, the filter will be applied to all the interfaces.",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": true
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational Data for RIPng Distribute Prefix Lists",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "direction": {
+                            "description": "Use this attribute to decide the type of packets to which the distribute list prefix is applied",
+                            "readOnly": true,
+                            "enum": [
+                              "in",
+                              "out"
+                            ],
+                            "mandatory": false
+                          },
+                          "list-name": {
+                            "description": "Use this attribute to filter incoming or outgoing route updates using an access list or a prefix list. You can filter out incoming or outgoing route updates using an access list or a prefix list. If you do not specify the name of the interface, the filter will be applied to all the interfaces.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": true
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "direction"
+                    ]
+                  }
+                }
+              }
+            },
+            "routes": {
+              "description": "Container for RIPng Routes",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "route": {
+                  "description": "List of RIPng Routes",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "prefix": {
+                        "description": "This attribute describes the prefix of the route",
+                        "readOnly": true,
+                        "path": "../state/prefix",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "state": {
+                        "description": "Operational Data for RIPng Routes",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "prefix": {
+                            "description": "This attribute describes the prefix of the route",
+                            "readOnly": true,
+                            "minLength": 0,
+                            "maxLength": 50,
+                            "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "type": {
+                            "description": "This attribute describes the type of the route",
+                            "readOnly": true,
+                            "enum": [
+                              "system",
+                              "kernel",
+                              "connected",
+                              "static",
+                              "rip",
+                              "ripng",
+                              "ospf",
+                              "ospf6",
+                              "isis",
+                              "bgp"
+                            ],
+                            "mandatory": false
+                          },
+                          "sub-type": {
+                            "description": "This attribute describes the sub type of the route",
+                            "readOnly": true,
+                            "enum": [
+                              "rip-other",
+                              "rip-entry",
+                              "rip-connect",
+                              "rip-static",
+                              "rip-aggregate"
+                            ],
+                            "mandatory": false
+                          },
+                          "tag": {
+                            "description": "This attribute describes the tag field of the route",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 65535,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "next-hops": {
+                        "description": "Container for RIPng Routes' Next Hops",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "next-hop": {
+                            "description": "List of RIPng Routes' Next Hops",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "address": {
+                                  "description": "This attribute describes the nexthop address of the route",
+                                  "readOnly": true,
+                                  "path": "../state/address",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "state": {
+                                  "description": "Operational Data for RIPng Routes' Next Hops",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "address": {
+                                      "description": "This attribute describes the nexthop address of the route",
+                                      "readOnly": true,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "if-name": {
+                                      "description": "This attribute describes the outgoing interface name for the nexthop address of the route",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "metric": {
+                                      "description": "This attribute describes the metric of the nexthop address of the route",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 255,
+                                      "mandatory": false
+                                    },
+                                    "up-time": {
+                                      "description": "This attribute describes the uptime of the nexthop address of the route",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "((([0-1]?[0-9])|(2[0-3])):[0-5][0-9]:[0-5][0-9])|([0-9]+d(([0-1][0-9])|(2[0-3]))h[0-5][0-9]m)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "address"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "aggregate-route": {
+                        "description": "Container for RIPng Aggregate Routes",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "state": {
+                            "description": "Operational Data for RIPng Aggregate Routes",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "count": {
+                                "description": "This attribute describes the aggregate route count",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "mandatory": false
+                              },
+                              "metric": {
+                                "description": "This attribute describes the metric of aggregate route",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 255,
+                                "mandatory": false
+                              },
+                              "tag": {
+                                "description": "This attribute describes the tag field of aggregate route",
+                                "readOnly": true,
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 65535,
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "prefix"
+                    ]
+                  }
+                }
+              }
+            },
+            "vrfs": {
+              "description": "Top level container for RIPng VRF Configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "vrf": {
+                  "description": "List of RIPng VRF Configuration",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF Name",
+                        "readOnly": false,
+                        "path": "../config/vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration Data for RIPng VRF",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "passive-interfaces": {
+                            "description": "Use this attribute to block RIP broadcast on the interface",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          },
+                          "static-routes": {
+                            "description": "Use this attribute to configure static RIP routes",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "minLength": 0,
+                              "maxLength": 50,
+                              "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          },
+                          "aggregate-prefixes": {
+                            "description": "Use this attribute to configure aggregate prefixes",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "minLength": 0,
+                              "maxLength": 50,
+                              "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          },
+                          "distance": {
+                            "description": "Use this attribute to set the administrative distance. The administrative distance is a feature used by the routers to select the path when there are two or more different routes to the same destination from two different routing protocols. A smaller administrative distance indicating a more reliable protocol",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "default-metric": {
+                            "description": "Use this attribute to specify the metrics to be assigned to redistributed routers",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 15,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "originate-default-route": {
+                            "description": "Use this attribute to add default routes to the RIP updates",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "enable-cisco-metric-behavior": {
+                            "description": "Use this attribute to enable the metric update consistent with Cisco",
+                            "readOnly": false,
+                            "type": "boolean",
+                            "mandatory": false
+                          },
+                          "receive-buffer-size": {
+                            "description": "Use this attribute to run-time configure the RIP UDP receive-buffer size",
+                            "readOnly": false,
+                            "minimum": 8192,
+                            "maximum": 2147483647,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "vrf-name": {
+                            "description": "VRF Name",
+                            "readOnly": false,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational Data for RIPng VRF",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "passive-interfaces": {
+                            "description": "Use this attribute to block RIP broadcast on the interface",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          },
+                          "static-routes": {
+                            "description": "Use this attribute to configure static RIP routes",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "minLength": 0,
+                              "maxLength": 50,
+                              "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          },
+                          "aggregate-prefixes": {
+                            "description": "Use this attribute to configure aggregate prefixes",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "minLength": 0,
+                              "maxLength": 50,
+                              "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          },
+                          "distance": {
+                            "description": "Use this attribute to set the administrative distance. The administrative distance is a feature used by the routers to select the path when there are two or more different routes to the same destination from two different routing protocols. A smaller administrative distance indicating a more reliable protocol",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "default-metric": {
+                            "description": "Use this attribute to specify the metrics to be assigned to redistributed routers",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 15,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "originate-default-route": {
+                            "description": "Use this attribute to add default routes to the RIP updates",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "enable-cisco-metric-behavior": {
+                            "description": "Use this attribute to enable the metric update consistent with Cisco",
+                            "readOnly": true,
+                            "type": "boolean",
+                            "mandatory": false
+                          },
+                          "receive-buffer-size": {
+                            "description": "Use this attribute to run-time configure the RIP UDP receive-buffer size",
+                            "readOnly": true,
+                            "minimum": 8192,
+                            "maximum": 2147483647,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "vrf-name": {
+                            "description": "VRF Name",
+                            "readOnly": true,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "redistribute-policies": {
+                        "description": "Container for RIPng Redistribute Policies",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "redistribute-policy": {
+                            "description": "List of RIPng Redistribute Policies",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "route-type": {
+                                  "description": "Use this attribute to redistribute information from other routing protocols",
+                                  "readOnly": false,
+                                  "path": "../config/route-type",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration Data for RIPng Redistribute Policies",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "metric": {
+                                      "description": "Use this attribute to redistribute metric information from other routing protocols",
+                                      "readOnly": false,
+                                      "minimum": 0,
+                                      "maximum": 16,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "route-map": {
+                                      "description": "Use this attribute to redistribute route-map from other routing protocols",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "route-type": {
+                                      "description": "Use this attribute to redistribute information from other routing protocols",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "connected",
+                                        "static",
+                                        "ospf6",
+                                        "bgp"
+                                      ],
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational Data for RIPng Redistribute Policies",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "metric": {
+                                      "description": "Use this attribute to redistribute metric information from other routing protocols",
+                                      "readOnly": true,
+                                      "minimum": 0,
+                                      "maximum": 16,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "route-map": {
+                                      "description": "Use this attribute to redistribute route-map from other routing protocols",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "route-type": {
+                                      "description": "Use this attribute to redistribute information from other routing protocols",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "connected",
+                                        "static",
+                                        "ospf6",
+                                        "bgp"
+                                      ],
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "route-type"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "timers": {
+                        "description": "Container for RIPng Timers",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration Data for RIPng Timers",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "route-table-update-interval": {
+                                "description": "Use this attribute to adjust basic routing protocol update timer interval",
+                                "readOnly": false,
+                                "minimum": 5,
+                                "maximum": 2147483647,
+                                "type": "number",
+                                "mandatory": true
+                              },
+                              "route-info-timeout-interval": {
+                                "description": "Use this attribute to adjust routing information timeout interval",
+                                "readOnly": false,
+                                "minimum": 5,
+                                "maximum": 2147483647,
+                                "type": "number",
+                                "mandatory": true
+                              },
+                              "garbage-collection-interval": {
+                                "description": "Use this attribute to adjust garbage collection interval",
+                                "readOnly": false,
+                                "minimum": 5,
+                                "maximum": 2147483647,
+                                "type": "number",
+                                "mandatory": true
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational Data for RIPng Timers",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "route-table-update-interval": {
+                                "description": "Use this attribute to adjust basic routing protocol update timer interval",
+                                "readOnly": true,
+                                "minimum": 5,
+                                "maximum": 2147483647,
+                                "type": "number",
+                                "mandatory": true
+                              },
+                              "route-info-timeout-interval": {
+                                "description": "Use this attribute to adjust routing information timeout interval",
+                                "readOnly": true,
+                                "minimum": 5,
+                                "maximum": 2147483647,
+                                "type": "number",
+                                "mandatory": true
+                              },
+                              "garbage-collection-interval": {
+                                "description": "Use this attribute to adjust garbage collection interval",
+                                "readOnly": true,
+                                "minimum": 5,
+                                "maximum": 2147483647,
+                                "type": "number",
+                                "mandatory": true
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "neighbors": {
+                        "description": "Container for RIPng Neighbors",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "neighbor": {
+                            "description": "List of RIPng Neighbors",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "address": {
+                                  "description": "Use this attribute to specify a link local address of neighbor router. It is used for each connected point-to-point link. This command exchanges non-broadcast routing information. It can be used multiple times for additional neighbors",
+                                  "readOnly": false,
+                                  "path": "../config/address",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration Data for RIPng Neighbors",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "address": {
+                                      "description": "Use this attribute to specify a link local address of neighbor router. It is used for each connected point-to-point link. This command exchanges non-broadcast routing information. It can be used multiple times for additional neighbors",
+                                      "readOnly": false,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "if-name": {
+                                      "description": "The textual name of the interface",
+                                      "readOnly": false,
+                                      "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                      "type": "string",
+                                      "mandatory": true
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational Data for RIPng Neighbors",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "address": {
+                                      "description": "Use this attribute to specify a link local address of neighbor router. It is used for each connected point-to-point link. This command exchanges non-broadcast routing information. It can be used multiple times for additional neighbors",
+                                      "readOnly": true,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "if-name": {
+                                      "description": "The textual name of the interface",
+                                      "readOnly": true,
+                                      "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                      "type": "string",
+                                      "mandatory": true
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "address"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "interfaces": {
+                        "description": "Container for RIPng Interfaces",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "interface": {
+                            "description": "List of RIPng Interfaces",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "description": "The textual name of the interface",
+                                  "readOnly": false,
+                                  "path": "../config/name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration Data for RIPng Interfaces",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "description": "The textual name of the interface",
+                                      "readOnly": false,
+                                      "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational Data for RIPng Interfaces",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "description": "The textual name of the interface",
+                                      "readOnly": true,
+                                      "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "filtering-route-maps": {
+                                  "description": "Container for RIPng Filtering Route Maps",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "filtering-route-map": {
+                                      "description": "List of RIPng Filtering Route Maps",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "type": {
+                                            "description": "Use this attribute to decide the type of packets to which the filtering is applied",
+                                            "readOnly": false,
+                                            "path": "../config/type",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "config": {
+                                            "description": "Configuration Data for RIPng Filtering Route Maps",
+                                            "readOnly": false,
+                                            "type": "object",
+                                            "properties": {
+                                              "type": {
+                                                "description": "Use this attribute to decide the type of packets to which the filtering is applied",
+                                                "readOnly": false,
+                                                "enum": [
+                                                  "in",
+                                                  "out"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "route-map-name": {
+                                                "description": "Use this attribute to apply the route map to the type of filtering",
+                                                "readOnly": false,
+                                                "minLength": 1,
+                                                "maxLength": 63,
+                                                "pattern": "[^?' =,>|]+",
+                                                "type": "string",
+                                                "mandatory": true
+                                              }
+                                            }
+                                          },
+                                          "state": {
+                                            "description": "Operational Data for RIPng Filtering Route Maps",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "type": {
+                                                "description": "Use this attribute to decide the type of packets to which the filtering is applied",
+                                                "readOnly": true,
+                                                "enum": [
+                                                  "in",
+                                                  "out"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "route-map-name": {
+                                                "description": "Use this attribute to apply the route map to the type of filtering",
+                                                "readOnly": true,
+                                                "minLength": 1,
+                                                "maxLength": 63,
+                                                "pattern": "[^?' =,>|]+",
+                                                "type": "string",
+                                                "mandatory": true
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "keyFields": [
+                                          "type"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                },
+                                "offset-lists": {
+                                  "description": "Container for RIPng Offset Lists",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "offset-list": {
+                                      "description": "List of RIPng Offset Lists",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "direction": {
+                                            "description": "Use this attribute to decide the type of packets to which the offset list is applied",
+                                            "readOnly": false,
+                                            "path": "../config/direction",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "config": {
+                                            "description": "Configuration Data for RIPng Offset Lists",
+                                            "readOnly": false,
+                                            "type": "object",
+                                            "properties": {
+                                              "direction": {
+                                                "description": "Use this attribute to decide the type of packets to which the offset list is applied",
+                                                "readOnly": false,
+                                                "enum": [
+                                                  "in",
+                                                  "out"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "access-list-name": {
+                                                "description": "Use this attribute to add an offset to in and out metrics to routes learned through RIP. This command specifies the offset value that is added to the routing metric. When the networks match the access list the offset is applied to the metrics. No change occurs if the offset value is zero",
+                                                "readOnly": false,
+                                                "minLength": 1,
+                                                "maxLength": 1965,
+                                                "pattern": "[^?' =,>|]+",
+                                                "type": "string",
+                                                "mandatory": true
+                                              },
+                                              "metric": {
+                                                "description": "This attribute describes the metric used for offset list",
+                                                "readOnly": false,
+                                                "minimum": 0,
+                                                "maximum": 16,
+                                                "type": "number",
+                                                "mandatory": true
+                                              }
+                                            }
+                                          },
+                                          "state": {
+                                            "description": "Operational Data for RIPng Offset Lists",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "direction": {
+                                                "description": "Use this attribute to decide the type of packets to which the offset list is applied",
+                                                "readOnly": true,
+                                                "enum": [
+                                                  "in",
+                                                  "out"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "access-list-name": {
+                                                "description": "Use this attribute to add an offset to in and out metrics to routes learned through RIP. This command specifies the offset value that is added to the routing metric. When the networks match the access list the offset is applied to the metrics. No change occurs if the offset value is zero",
+                                                "readOnly": true,
+                                                "minLength": 1,
+                                                "maxLength": 1965,
+                                                "pattern": "[^?' =,>|]+",
+                                                "type": "string",
+                                                "mandatory": true
+                                              },
+                                              "metric": {
+                                                "description": "This attribute describes the metric used for offset list",
+                                                "readOnly": true,
+                                                "minimum": 0,
+                                                "maximum": 16,
+                                                "type": "number",
+                                                "mandatory": true
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "keyFields": [
+                                          "direction"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                },
+                                "distribute-lists": {
+                                  "description": "Container for RIPng Distribute Lists",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "distribute-list": {
+                                      "description": "List of RIPng Distribute Lists",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "direction": {
+                                            "description": "Use this attribute to decide the type of packets to which the distribute list is applied",
+                                            "readOnly": false,
+                                            "path": "../config/direction",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "config": {
+                                            "description": "Configuration Data for RIPng Distribute Lists",
+                                            "readOnly": false,
+                                            "type": "object",
+                                            "properties": {
+                                              "direction": {
+                                                "description": "Use this attribute to decide the type of packets to which the distribute list is applied",
+                                                "readOnly": false,
+                                                "enum": [
+                                                  "in",
+                                                  "out"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "access-list-name": {
+                                                "description": "Use this attribute to filter incoming or outgoing route updates using an access list or a prefix list. You can filter out incoming or outgoing route updates using an access list or a prefix list. If you do not specify the name of the interface, the filter will be applied to all the interfaces.",
+                                                "readOnly": false,
+                                                "minLength": 1,
+                                                "maxLength": 1965,
+                                                "pattern": "[^?' =,>|]+",
+                                                "type": "string",
+                                                "mandatory": true
+                                              }
+                                            }
+                                          },
+                                          "state": {
+                                            "description": "Operational Data for RIPng Distribute Lists",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "direction": {
+                                                "description": "Use this attribute to decide the type of packets to which the distribute list is applied",
+                                                "readOnly": true,
+                                                "enum": [
+                                                  "in",
+                                                  "out"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "access-list-name": {
+                                                "description": "Use this attribute to filter incoming or outgoing route updates using an access list or a prefix list. You can filter out incoming or outgoing route updates using an access list or a prefix list. If you do not specify the name of the interface, the filter will be applied to all the interfaces.",
+                                                "readOnly": true,
+                                                "minLength": 1,
+                                                "maxLength": 1965,
+                                                "pattern": "[^?' =,>|]+",
+                                                "type": "string",
+                                                "mandatory": true
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "keyFields": [
+                                          "direction"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                },
+                                "distribute-prefix-lists": {
+                                  "description": "Container for RIPng Distribute Prefix Lists",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "distribute-prefix-list": {
+                                      "description": "List of RIPng Distribute Prefix Lists",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "direction": {
+                                            "description": "Use this attribute to decide the type of packets to which the distribute list prefix is applied",
+                                            "readOnly": false,
+                                            "path": "../config/direction",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "config": {
+                                            "description": "Configuration Data for RIPng Distribute Prefix Lists",
+                                            "readOnly": false,
+                                            "type": "object",
+                                            "properties": {
+                                              "direction": {
+                                                "description": "Use this attribute to decide the type of packets to which the distribute list prefix is applied",
+                                                "readOnly": false,
+                                                "enum": [
+                                                  "in",
+                                                  "out"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "list-name": {
+                                                "description": "Use this attribute to filter incoming or outgoing route updates using an access list or a prefix list. You can filter out incoming or outgoing route updates using an access list or a prefix list. If you do not specify the name of the interface, the filter will be applied to all the interfaces.",
+                                                "readOnly": false,
+                                                "minLength": 1,
+                                                "maxLength": 1965,
+                                                "pattern": "[^?' =,>|]+",
+                                                "type": "string",
+                                                "mandatory": true
+                                              }
+                                            }
+                                          },
+                                          "state": {
+                                            "description": "Operational Data for RIPng Distribute Prefix Lists",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "direction": {
+                                                "description": "Use this attribute to decide the type of packets to which the distribute list prefix is applied",
+                                                "readOnly": true,
+                                                "enum": [
+                                                  "in",
+                                                  "out"
+                                                ],
+                                                "mandatory": false
+                                              },
+                                              "list-name": {
+                                                "description": "Use this attribute to filter incoming or outgoing route updates using an access list or a prefix list. You can filter out incoming or outgoing route updates using an access list or a prefix list. If you do not specify the name of the interface, the filter will be applied to all the interfaces.",
+                                                "readOnly": true,
+                                                "minLength": 1,
+                                                "maxLength": 1965,
+                                                "pattern": "[^?' =,>|]+",
+                                                "type": "string",
+                                                "mandatory": true
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "keyFields": [
+                                          "direction"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "name"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "offset-lists": {
+                        "description": "Container for RIPng Offset Lists",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "offset-list": {
+                            "description": "List of RIPng Offset Lists",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "direction": {
+                                  "description": "Use this attribute to decide the type of packets to which the offset list is applied",
+                                  "readOnly": false,
+                                  "path": "../config/direction",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration Data for RIPng Offset Lists",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "direction": {
+                                      "description": "Use this attribute to decide the type of packets to which the offset list is applied",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "in",
+                                        "out"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "access-list-name": {
+                                      "description": "Use this attribute to add an offset to in and out metrics to routes learned through RIP. This command specifies the offset value that is added to the routing metric. When the networks match the access list the offset is applied to the metrics. No change occurs if the offset value is zero",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": true
+                                    },
+                                    "metric": {
+                                      "description": "This attribute describes the metric used for offset list",
+                                      "readOnly": false,
+                                      "minimum": 0,
+                                      "maximum": 16,
+                                      "type": "number",
+                                      "mandatory": true
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational Data for RIPng Offset Lists",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "direction": {
+                                      "description": "Use this attribute to decide the type of packets to which the offset list is applied",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "in",
+                                        "out"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "access-list-name": {
+                                      "description": "Use this attribute to add an offset to in and out metrics to routes learned through RIP. This command specifies the offset value that is added to the routing metric. When the networks match the access list the offset is applied to the metrics. No change occurs if the offset value is zero",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": true
+                                    },
+                                    "metric": {
+                                      "description": "This attribute describes the metric used for offset list",
+                                      "readOnly": true,
+                                      "minimum": 0,
+                                      "maximum": 16,
+                                      "type": "number",
+                                      "mandatory": true
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "direction"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "distribute-lists": {
+                        "description": "Container for RIPng Distribute Lists",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "distribute-list": {
+                            "description": "List of RIPng Distribute Lists",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "direction": {
+                                  "description": "Use this attribute to decide the type of packets to which the distribute list is applied",
+                                  "readOnly": false,
+                                  "path": "../config/direction",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration Data for RIPng Distribute Lists",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "direction": {
+                                      "description": "Use this attribute to decide the type of packets to which the distribute list is applied",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "in",
+                                        "out"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "access-list-name": {
+                                      "description": "Use this attribute to filter incoming or outgoing route updates using an access list or a prefix list. You can filter out incoming or outgoing route updates using an access list or a prefix list. If you do not specify the name of the interface, the filter will be applied to all the interfaces.",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": true
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational Data for RIPng Distribute Lists",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "direction": {
+                                      "description": "Use this attribute to decide the type of packets to which the distribute list is applied",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "in",
+                                        "out"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "access-list-name": {
+                                      "description": "Use this attribute to filter incoming or outgoing route updates using an access list or a prefix list. You can filter out incoming or outgoing route updates using an access list or a prefix list. If you do not specify the name of the interface, the filter will be applied to all the interfaces.",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": true
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "direction"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "distribute-prefix-lists": {
+                        "description": "Container for RIPng Distribute Prefix Lists",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "distribute-prefix-list": {
+                            "description": "List of RIPng Distribute Prefix Lists",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "direction": {
+                                  "description": "Use this attribute to decide the type of packets to which the distribute list prefix is applied",
+                                  "readOnly": false,
+                                  "path": "../config/direction",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration Data for RIPng Distribute Prefix Lists",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "direction": {
+                                      "description": "Use this attribute to decide the type of packets to which the distribute list prefix is applied",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "in",
+                                        "out"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "list-name": {
+                                      "description": "Use this attribute to filter incoming or outgoing route updates using an access list or a prefix list. You can filter out incoming or outgoing route updates using an access list or a prefix list. If you do not specify the name of the interface, the filter will be applied to all the interfaces.",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": true
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational Data for RIPng Distribute Prefix Lists",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "direction": {
+                                      "description": "Use this attribute to decide the type of packets to which the distribute list prefix is applied",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "in",
+                                        "out"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "list-name": {
+                                      "description": "Use this attribute to filter incoming or outgoing route updates using an access list or a prefix list. You can filter out incoming or outgoing route updates using an access list or a prefix list. If you do not specify the name of the interface, the filter will be applied to all the interfaces.",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": true
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "direction"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "routes": {
+                        "description": "Container for RIPng Routes",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "route": {
+                            "description": "List of RIPng Routes",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "prefix": {
+                                  "description": "This attribute describes the prefix of the route",
+                                  "readOnly": true,
+                                  "path": "../state/prefix",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "state": {
+                                  "description": "Operational Data for RIPng Routes",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "prefix": {
+                                      "description": "This attribute describes the prefix of the route",
+                                      "readOnly": true,
+                                      "minLength": 0,
+                                      "maxLength": 50,
+                                      "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "type": {
+                                      "description": "This attribute describes the type of the route",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "system",
+                                        "kernel",
+                                        "connected",
+                                        "static",
+                                        "rip",
+                                        "ripng",
+                                        "ospf",
+                                        "ospf6",
+                                        "isis",
+                                        "bgp"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "sub-type": {
+                                      "description": "This attribute describes the sub type of the route",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "rip-other",
+                                        "rip-entry",
+                                        "rip-connect",
+                                        "rip-static",
+                                        "rip-aggregate"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "tag": {
+                                      "description": "This attribute describes the tag field of the route",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 65535,
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "next-hops": {
+                                  "description": "Container for RIPng Routes' Next Hops",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "next-hop": {
+                                      "description": "List of RIPng Routes' Next Hops",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "address": {
+                                            "description": "This attribute describes the nexthop address of the route",
+                                            "readOnly": true,
+                                            "path": "../state/address",
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "state": {
+                                            "description": "Operational Data for RIPng Routes' Next Hops",
+                                            "readOnly": true,
+                                            "type": "object",
+                                            "properties": {
+                                              "address": {
+                                                "description": "This attribute describes the nexthop address of the route",
+                                                "readOnly": true,
+                                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "if-name": {
+                                                "description": "This attribute describes the outgoing interface name for the nexthop address of the route",
+                                                "readOnly": true,
+                                                "minLength": 1,
+                                                "maxLength": 1965,
+                                                "pattern": "[^?' =,>|]+",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "metric": {
+                                                "description": "This attribute describes the metric of the nexthop address of the route",
+                                                "readOnly": true,
+                                                "type": "number",
+                                                "minimum": 0,
+                                                "maximum": 255,
+                                                "mandatory": false
+                                              },
+                                              "up-time": {
+                                                "description": "This attribute describes the uptime of the nexthop address of the route",
+                                                "readOnly": true,
+                                                "minLength": 1,
+                                                "maxLength": 1965,
+                                                "pattern": "((([0-1]?[0-9])|(2[0-3])):[0-5][0-9]:[0-5][0-9])|([0-9]+d(([0-1][0-9])|(2[0-3]))h[0-5][0-9]m)",
+                                                "type": "string",
+                                                "mandatory": false
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "keyFields": [
+                                          "address"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                },
+                                "aggregate-route": {
+                                  "description": "Container for RIPng Aggregate Routes",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "state": {
+                                      "description": "Operational Data for RIPng Aggregate Routes",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "count": {
+                                          "description": "This attribute describes the aggregate route count",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 4294967295,
+                                          "mandatory": false
+                                        },
+                                        "metric": {
+                                          "description": "This attribute describes the metric of aggregate route",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 255,
+                                          "mandatory": false
+                                        },
+                                        "tag": {
+                                          "description": "This attribute describes the tag field of aggregate route",
+                                          "readOnly": true,
+                                          "type": "number",
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "prefix"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "vrf-name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

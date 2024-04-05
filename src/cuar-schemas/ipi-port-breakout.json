@@ -1,0 +1,296 @@
+{
+  "title": "ipi-port-breakout",
+  "description": "Datamodel for Layer-2 Port Breakout",
+  "type": "object",
+  "properties": {
+    "ipi-port-breakout:port-breakout": {
+      "description": "Port-breakout data model",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "breakouts": {
+          "description": "Container for port-breakout list configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "breakout": {
+              "description": "List of port breakout",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "interface": {
+                    "description": "Name of the interface to breakout",
+                    "readOnly": false,
+                    "path": "../config/interface",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for port-breakout entry",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "interface": {
+                        "description": "use this attribute to configure the port breakout with Interface name/portnumber",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mode": {
+                        "description": "Use this attribute to set port breakout mode",
+                        "readOnly": false,
+                        "enum": [
+                          "4X10g",
+                          "4X25g",
+                          "2X50g",
+                          "4X100g",
+                          "8X50g",
+                          "8X25g",
+                          "8X10g",
+                          "2X200g",
+                          "3X100g",
+                          "2X100g",
+                          "1X100g",
+                          "1X200g",
+                          "4X50g"
+                        ],
+                        "mandatory": true
+                      },
+                      "serdes": {
+                        "description": "Use this attribute to set lane per port",
+                        "readOnly": false,
+                        "enum": [
+                          "25g"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for port-breakout entry",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "interface": {
+                        "description": "use this attribute to configure the port breakout with Interface name/portnumber",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mode": {
+                        "description": "Use this attribute to set port breakout mode",
+                        "readOnly": true,
+                        "enum": [
+                          "4X10g",
+                          "4X25g",
+                          "2X50g",
+                          "4X100g",
+                          "8X50g",
+                          "8X25g",
+                          "8X10g",
+                          "2X200g",
+                          "3X100g",
+                          "2X100g",
+                          "1X100g",
+                          "1X200g",
+                          "4X50g"
+                        ],
+                        "mandatory": true
+                      },
+                      "serdes": {
+                        "description": "Use this attribute to set lane per port",
+                        "readOnly": true,
+                        "enum": [
+                          "25g"
+                        ],
+                        "mandatory": false
+                      },
+                      "block": {
+                        "description": "Use this attribute to get port-breakout block operational state data",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 255,
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "interface"
+                ]
+              }
+            }
+          }
+        },
+        "groups-speed": {
+          "description": "Container for Port Breakout group speed list configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "group-speed": {
+              "description": "List of group speed",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "port-group": {
+                    "description": "Use this attribute to set the port group associated with this instance",
+                    "readOnly": false,
+                    "path": "../config/port-group",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for group speed entry",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "port-group": {
+                        "description": "Use this attribute to set the port group associated with this instance",
+                        "readOnly": false,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 255,
+                        "mandatory": false
+                      },
+                      "speed": {
+                        "description": "Use this attribute to set the port group speed",
+                        "readOnly": false,
+                        "enum": [
+                          "10g"
+                        ],
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for group speed entry",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "port-group": {
+                        "description": "Use this attribute to set the port group associated with this instance",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 255,
+                        "mandatory": false
+                      },
+                      "speed": {
+                        "description": "Use this attribute to set the port group speed",
+                        "readOnly": true,
+                        "enum": [
+                          "10g"
+                        ],
+                        "mandatory": true
+                      },
+                      "ports": {
+                        "description": "Use this attribute to get the list of ports within the group speed",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 255,
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "port-group"
+                ]
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Container for Port-breakout Interface configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "List of interfaces on which port-breakout will be configured",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Use this attribute to configure Port-breakout for an interface.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for Port-breakout Interface",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Use this attribute to configure Port-breakout for an interface.",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mode": {
+                        "description": "Use this attribute to configure Port-breakout mode for an interface",
+                        "readOnly": false,
+                        "enum": [
+                          "4X10g",
+                          "4X25g",
+                          "2X50g"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for Port-breakout Interface",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Use this attribute to configure Port-breakout for an interface.",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mode": {
+                        "description": "Use this attribute to configure Port-breakout mode for an interface",
+                        "readOnly": true,
+                        "enum": [
+                          "4X10g",
+                          "4X25g",
+                          "2X50g"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "title": "ipi-bgp-vrf",
+  "description": "Datamodel for BGP VRF",
+  "type": "object",
+  "properties": {}
+}

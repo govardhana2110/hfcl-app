@@ -1,0 +1,6 @@
+{
+  "title": "ipi-sflow-interface",
+  "description": "This module provides user with the possibility to configure sflow    interface parameters",
+  "type": "object",
+  "properties": {}
+}

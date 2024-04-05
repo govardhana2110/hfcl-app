@@ -1,0 +1,163 @@
+{
+  "title": "ipi-telnet",
+  "description": "Data model for telnet Module",
+  "type": "object",
+  "properties": {
+    "ipi-telnet:telnet-server": {
+      "description": "telnet-server configurations",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "debug": {
+          "description": "telnet debug configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "config container for telnet debug configurations",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this attribute to enable telnet debugging configurations",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "state container for telnet debug configurations",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this attribute to enable telnet debugging configurations",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Use this attribute to display telnet terminal debugging information.",
+                  "readOnly": true,
+                  "enum": [
+                    "off",
+                    "on"
+                  ],
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "vrfs": {
+          "description": "telnet vrf configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "vrf": {
+              "description": "telnet vrf instance configurations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vrf-name": {
+                    "description": "VPN routing/forwarding Instance name",
+                    "readOnly": false,
+                    "path": "../config/vrf-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "config container for telnet vrf instance configurations",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF Name associated with this instance",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable": {
+                        "description": "Use this attribute to enable the Telnet server.",
+                        "readOnly": false,
+                        "type": "boolean",
+                        "mandatory": true
+                      },
+                      "port": {
+                        "description": "Use this attribute to set the port number on which the telnet server listens for connections. The default port on which the telnet server listens is 23.",
+                        "readOnly": false,
+                        "minimum": 1024,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "session-limit": {
+                        "description": "Use this attribute to set the maximum number of simultaneous sessions allowed. By default, 40 ssh-telnet sessions are allowed",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 40,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "state container for ssh vrf instance configurations",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF Name associated with this instance",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable": {
+                        "description": "Use this attribute to enable the Telnet server.",
+                        "readOnly": true,
+                        "type": "boolean",
+                        "mandatory": true
+                      },
+                      "port": {
+                        "description": "Use this attribute to set the port number on which the telnet server listens for connections. The default port on which the telnet server listens is 23.",
+                        "readOnly": true,
+                        "minimum": 1024,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "session-limit": {
+                        "description": "Use this attribute to set the maximum number of simultaneous sessions allowed. By default, 40 ssh-telnet sessions are allowed",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 40,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "vrf-name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

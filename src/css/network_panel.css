@@ -1,0 +1,1203 @@
+@media only screen and (max-width: 768px) 
+{
+  .device
+  {
+    margin-top: -6% !important;
+  }
+  .networkmaincontent
+  {
+    margin-top:3% !important;
+  }
+  .topelement {
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s, background-color 0.3s; /* Add transitions */
+    font-size:0.7rem;
+    }
+  .togglerIcon label {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    margin-top:22px
+  }
+  .devicelistsearch{
+    display: flex;
+     position: relative;
+     left: 56%;
+     bottom:-36px;
+  }
+   .networkContent
+   {
+        margin-top: 27px;
+   }
+   .lspContent
+   {
+    margin-top:2%
+   }
+   .lspGetReport
+   {
+    
+    position:fixed !important;
+    margin-top: 3% !important;
+    font-size: 12px !important;
+    margin-left: 72% !important;
+}
+.softwareinstallbutton{
+  margin-top: 4% !important;
+  margin-left: 38px !important;
+  margin-bottom: 7% !important;
+  /* width: 25%; */
+  font-size: 10px !important;
+
+}
+.getslastatsbutton
+{
+  right:-2% !important;
+  font-size:13px;
+  margin-top:9% !important;
+}
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+
+  .topelement {
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s, background-color 0.3s; /* Add transitions */
+    font-size:0.7rem;
+    }
+    .devicelisttoggle
+    {
+      margin-top: 2%;
+
+    }
+
+    .devicelistsearch{
+      display: flex;
+       position: relative;
+       left: 67%;
+       bottom:-35px;
+    }
+
+  .networkmaincontent
+  {
+    margin-top:1%;
+  }
+  .lspGetReport
+   {
+    
+    position:fixed !important;
+    margin-top: 2% !important;
+    font-size: 12px !important;
+    margin-left: 72% !important;
+}
+}
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+
+
+  .networkmaincontent
+{
+  margin-top:-1%;
+}
+  .lspGetReport
+   {
+    
+    position:fixed !important;
+    margin-top: 2% !important;
+    font-size: 12px !important;
+    margin-left: 72% !important;
+}
+.devicelistsearch{
+  display: flex;
+   position: relative;
+   left: 75%;
+   bottom:-36px;
+}
+.topelement {
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.3s, background-color 0.3s; /* Add transitions */
+  font-size:small;
+  }
+}
+@media screen and (min-width: 1441px) and (max-width: 2560px) {
+  .devicelistsearch{
+    display: flex;
+     position: relative;
+     left: 75%;
+     bottom:-87px;
+  }
+  .networkmaincontent
+  {
+    margin-top:-1%;
+  }
+  .topelement {
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s, background-color 0.3s; /* Add transitions */
+    font-size:0.7rem;
+    }
+
+
+}
+
+
+
+
+
+.networkpage {
+  margin-top: 0px;
+  min-width:auto;    
+}
+.network_elements_header{
+      font-size: x-large;
+      font-weight: bold;
+     margin-left: 15px;
+      margin-top: 20px;
+      color: white;
+      /* font-family: cursive; */
+}
+.Popupshow {
+  display: flex; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  width: 70%; /* Full width */
+  height: 150%; /* Full height */
+  overflow: auto;
+  flex-direction: row-reverse;
+  right:0;
+  top:100px;
+ 
+}
+.modalcontent {
+  border: 1px solid rgb(216, 211, 211);
+  border-radius: 20px;
+  width: 300px;
+  /* box-shadow: -4px 6px 11px 3px rgb(221 208 208); */
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-right: 80px;
+  width: 320px;
+  padding: 20px;
+  margin-top: -80px;
+}
+.DialogButtonClass{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 37px;
+  margin-right: 37px;
+}
+
+.DialogInputs{
+margin-top :-12px;
+}
+.DialogInformation{
+  margin-left: 40px;
+}
+
+.RoundButton{
+  position: fixed;
+  bottom: 2.5rem;
+  right: 4rem;
+}
+.fab_main_btn {
+  padding-bottom:5px;
+  background-color: #3c40c6;
+  width: 55px;
+  height: 55px;
+  border-radius: 100%;
+  background: rgb(8,97,148);
+  border: none;
+  outline: none;
+  color: #FFF;
+  /* font-size: 32px; */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: 0.3s;
+  /* margin-left: 1300px; */
+  
+}
+.fab_main_btn:hover{
+ cursor: pointer;
+ background: rgb(5, 110, 170);
+ font-weight: 700;
+}
+
+
+.network_tbody{
+  margin-top:40px;
+}
+
+.connect_disconnect_button {
+  width: 160px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  height: 35px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 5px;
+  transition: all .4s ease-in-out;
+  margin-top: 3.3%;
+}
+.connect_disconnect_button.connect {
+  background-color: rgb(8, 97, 148); 
+}
+.connect_disconnect_button.disconnect {
+  background-color: #d10e0e; 
+}
+.connect_disconnect_button.connect:hover{
+  cursor: pointer;
+  background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+  box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+.connect_disconnect_button.disconnect:hover{
+  cursor: pointer;
+  background: linear-gradient(to bottom, #ff0000, #990000);
+  box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+
+
+.popup_show_delete{
+  display: flex; 
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  /* top: 0; */
+  width: 70%; /* Full width */
+  height: 150%; /* Full height */
+  overflow: auto; 
+  flex-direction: row-reverse;
+  right:0;
+  top:100px;
+}
+.delete_network_element_popup {
+  background-color: #fefefe;
+  border: 3px solid rgb(216, 211, 211);
+  border-radius: 10px;
+  box-shadow: -4px 6px 11px 3px rgb(221 208 208);
+  height: 140px;
+  margin-right: 80px;
+  width: 280px;
+  padding: 20px;
+}
+.delete_buttons{
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  margin-right: 10px;
+}
+.delete_cancel{
+  margin-right: 30px;
+  background: #b13939;;
+  border: 0px;
+  outline: none;
+  color: white;
+  height: 30px;
+  border-radius: 3px;
+}
+.delete_cancel:hover{
+  cursor: pointer;
+  font-weight: 600;
+  background: #9c1d1d;;
+}
+.delete_yes{
+  width: 50px;
+  margin-left: 30px;
+  background: rgb(8, 97, 148);
+  border: 0px;
+  outline: none;
+  color: white;
+  height: 30px;
+  border-radius: 3px;
+}
+.delete_yes:hover{
+  cursor: pointer;
+  font-weight: 600;
+  background-color:rgb(11, 124, 189)
+}
+.popupshow_notification_message{
+  display: flex; 
+  z-index: 1; 
+  margin-top: 70px;
+  left: 30%;
+  width: 500px; 
+  height: 660px;
+  overflow: auto; 
+  flex-direction: row-reverse;
+  right:20%;
+  top:70px; 
+  position: fixed;
+}
+.modalcontent_notification_message{
+  background-color: #fefefe;
+  border: 2px solid rgb(216 211 211 / 38%);
+  border-radius: 7px;
+  width: 800px;
+  /* box-shadow: -4px 6px 11px 3px rgb(221 208 208); */
+  /* margin-right: 80px; */
+  padding: 0px 20px 20px 20px;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: auto;
+}
+.network_element_row:hover{
+  cursor: pointer;
+  /* background-color: #c4f0f3; */
+}
+.cluster_body:hover{
+  cursor: pointer;
+  /* background-color: #bbb3b3; */
+  color: rgb(146, 90, 90);
+  font-weight: bold;
+  border-radius: 10px;
+}
+.table_row_sites:hover{
+  cursor: pointer;
+  color: rgb(173, 46, 46);
+  font-weight: bold;
+}
+thead{
+  text-align: center;
+  font-size: large;
+  color: black;
+}
+th td{
+  text-align: center;
+}
+tr{
+  text-align: center;
+  height: 45px;
+  border: 1px solid black;
+}
+.react-diff-viewer{
+height: 100vh;
+overflow: scroll;
+}
+.react-diff-viewer tr {
+text-align: left;
+height: 0px;
+border: 0px;
+}
+tr.ru_head:nth-child(even) {
+  background-color: rgb(217, 235, 217);
+}
+/* tr.table_row_sites:nth-child(even) {
+  background-color: rgba(226, 235, 236, 0.993);
+} */
+.table_row_sites{
+  margin: 10px;
+}
+table.network_table_body{
+  align-items: center;
+  padding: 5px;
+  width: 100%;
+
+}
+thead.cluster_head {
+  width: 800px;
+  background-color: rgb(229 232 255);
+}
+.cluster_head th{
+  display: table-cell;
+  color: #2a1d1d;
+}
+thead.cluster_head{
+  border-bottom: 1px solid black;
+  height: 50px;
+  color: darkslategrey;
+}
+tr.cluster_body{
+  border: 1px solid black;
+  font-size: large;
+}
+td.arrow_open{
+  font-size: large;
+  color: black;
+  font-weight: bold;
+}
+tr.site_head{
+  margin-top: 20px;
+  background-color: #c9c997;
+}
+th.connect_disconnect_td{
+  width: 85px;
+}
+tr.ru_head{
+  outline: rgb(227, 230, 238) solid 1px;
+  padding: 3px 5px 5px 5px;
+  margin: 10px 30px 10px 30px;
+  transition: all 0.3s ease-in-out;
+  border: 2px  black;
+}
+#ru_row_id:hover{
+  cursor: pointer;
+  background-color: #bac3c7;
+  border-radius: 10px;
+}
+.bot-row:hover {
+  transition: all 0.3s ease-in-out;
+  transform: translate(5px,5px);
+}
+.network_table_body thead {
+  border-top: none;
+  color: rgb(5, 5, 5);
+  font-size: small;  
+}
+
+.network_table_body tr {
+border-top: 1px solid #ddd;
+border-bottom: 1px solid #ddd;
+background-color: #f5f9fc;
+}
+
+.network_table_body tr:nth-child(odd):not(:first-child) {
+background-color: #ebf3f9;
+}
+.network_table_body tr:hover{
+  cursor: pointer;
+  background: rgb(217, 218, 223);
+}
+.network_table_body td {
+font-size: medium;
+font-weight: light;
+}
+.network_table_body td:first-child {
+margin-top: .5em;
+}
+
+.network_table_body {
+color: #333;
+border-radius: .4em;
+background: #f5f5f5;
+    border-collapse: separate;
+    box-shadow: inset 0 1px 0 #fff;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: left;
+}
+td.uppercase{
+  text-transform: uppercase;
+}
+.new_device_header{
+  padding: 4px;
+  color: #086194;
+  font-weight: 700;
+  border-radius: 3px;
+  /* margin-right: 278px; */
+  margin-top: 12px;
+}
+
+.close{
+  /* position: absolute; */
+  /* right: 30px; */
+  transition: all 200ms;
+  font-size: 30px;
+  text-decoration: none;
+  color: #333;
+  cursor:pointer;
+}
+
+
+
+/* header_css */
+.header_panel{
+  padding: 20px;
+  /* background-color: #0a253b; */
+  background: linear-gradient(to right,#0a253b, #0c528d);
+  position: fixed;
+  width: 100%; 
+  box-shadow: 3px 4px 5px 6px rgba(60, 61, 62, 0.74);
+}
+.header_text{
+  font-size: large;
+  color: #ffffff85;
+  font-weight: 700;
+}
+.header_text_with_logo{
+  font-size: 28px;
+  color: #ffffffb8;
+  font-weight: 900;
+  /* margin-top: 10px; */
+  right: 115px;
+  position: absolute;
+}
+  .whitelist{
+      height: auto;
+      width: 20px;
+      cursor: pointer;
+  }
+.PopUpWhitelist{
+    width: 100%;
+    /* height: 345px; */
+    color: rgb(84 98 98);
+    background-color: #dee5eb5c;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #011627;
+   
+}
+.whitelistClose{
+  border-radius: 3px;
+  position: absolute;
+  left: 88%;
+  background: #625a5aa6;
+  color: white;
+  border: 0;
+  font-size: 15px;
+  margin-top: -11px
+}
+.modalcontentEditdevice{
+  border: 1px solid rgb(216, 211, 211);
+  border-radius: 10px;
+  width: 300px;
+  /* box-shadow: -4px 6px 11px 3px rgb(221 208 208); */
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-right: 80px;
+  width: 270px;
+  padding: 20px;
+  position: fixed;
+  top: 10%;
+}
+.popup-container-sse {
+  position: fixed;
+  left: -100%;
+  bottom: 0;
+  transform: translateX(-100%); 
+  z-index: 10;
+  margin-left: 77%; 
+  margin-bottom: 2%;
+}
+
+.popup-container-sse.active {
+  animation: slide-in 1.5s forwards;
+}
+
+@keyframes slide-in {
+  from {
+    left: -100%;
+    transform: translateX(-100%);
+  }
+  to {
+    left: 0; 
+    transform: translateX(0);
+  }
+}
+
+
+.popup-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+  width: 300px;
+  background-color: #fff;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.popup-content h3 {
+  margin-bottom: 10px;
+}
+
+.popup-content input[type='file'] {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #007bff;
+  border-radius: 6px;
+}
+
+.popup-content button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  padding: 8px 16px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.popup-content button .upload-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+.PopUp{
+  position: fixed;
+  top: 15%;
+  left: 34%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+.PopUp2{
+  position: fixed;
+  top: 19%;
+  left: 26%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  width: 52%;
+}
+.closePopup{
+  color: red;
+  left: 59%;
+  top: 38%;
+  /* bottom: 0%; */
+  font-size: medium;
+  position: fixed;
+  cursor: pointer;
+  z-index: 1;
+}
+.goldenTemplateBox{
+  width:40%;
+  height: 80%;
+  margin-left: 60%;
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+.togglerIcon label {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.togglerIcon input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.togglerIcon span {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2c3e50;
+  transition: 0.3s;
+  border-radius: 30px;
+  height: 88%;
+}
+.togglerIcon span:before {
+  position: absolute;
+  content: "";
+  height: 21px;
+  width: 25px;
+  left: 3px;
+  bottom: 2.6px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.togglerIcon input:checked + span {
+  background-color: #00c853;
+}
+
+.togglerIcon input:checked + span:before {
+  transform: translateX(29px);
+}
+.togglerIcon strong {
+  position: absolute;
+  left: 100%;
+  width: max-content;
+  line-height: 30px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.saveConfigPopup{
+  width:100%;
+  height: 500%;
+  margin-left: 100%;
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+.templateCard{
+  margin-left: 0;
+  margin-top: 0.5%;
+  width: 49%;
+  height: 110px;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+}
+.templateCardText{
+  font-size:smaller;
+  font-weight: 500;
+  /* padding: 0.5%; */
+  }
+.chooseTemplate{
+      right: 5%;
+      bottom: 67%;
+      border: 0;
+      background: #c73c29;
+      color: white;
+      padding: 3px;
+      border-radius: 3px;
+      width: 170px;
+  }
+.generateReport{
+      right: 5%;
+      bottom: 75%;
+      border: 0;
+      background: #214c91;
+      color: white;
+      padding: 3px;
+      border-radius: 3px;
+      width: 150px;
+      margin-left: 5%;
+}
+.viewTemplate{
+  position: absolute;
+  right: 69%;
+  bottom:70%;
+  border: 0;
+  background: #214c91;
+  color: white;
+  padding: 3px;
+  border-radius: 3px;
+  width:7%;
+}
+.configureTemplate{
+  position: absolute;
+  right: 61%;
+  bottom:70%;
+  border: 0;
+  background: #306fce;
+  color: white;
+  padding: 3px;
+  border-radius: 3px;
+  width:7%;
+
+}
+.deleteTemplate{
+  position: absolute;
+  right: 53%;
+  bottom:70%;
+  border: 0;
+  background: #c73c29;
+  color: white;
+  padding: 3px;
+  border-radius: 3px;
+  width:7%;
+
+}
+
+.dropdown-content-network {
+  display: none;
+  position: fixed;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 10;
+  margin-left: -8%;
+  /* flex-direction: column; Add this line to override flex direction */
+}
+
+.container-node {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 50px auto;
+}
+
+.central-node {
+  background-color: lightblue;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  margin: 0 auto;
+}
+
+.direct-node {
+  background-color: lightgray;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  text-align: center;
+  line-height: 50px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.even-row {
+  background-color: #f2f2f2;
+}
+
+.odd-row {
+  background-color: #ffffff;
+}
+
+.checkboxes{
+font-size: small;
+}
+
+.custom-scrollbar {
+/* You can customize these styles as per your design requirements */
+overflow: scroll; /* or 'auto' to show the scrollbar only when needed */
+scrollbar-width: thin; /* Set the scrollbar width as per your preference */
+scrollbar-color: #999999 transparent; /* Set the scrollbar color as per your preference */
+}
+
+.sideNetwork{
+position: fixed;
+right:0;
+width: 60px;
+height: 91vh;
+background-color: rgb(255, 255, 255,0.8);
+margin-top: 4.7%;
+display: flex;
+flex-direction: column;
+align-items: center;
+z-index: 1001;
+}
+
+.iconNetwork{
+  margin-top: 50%;
+  cursor: pointer;
+}
+
+.networktopbar{
+  margin-bottom: 1%;
+  height: 40px;
+  display: flex;
+}
+
+
+.topelement:hover{
+  background-color:rgb(232, 235, 241)!important;
+  font-weight: 600;
+  padding: 10px;
+}
+.topelement2 {
+  font-size: xx-small;
+  padding: 2px 19px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .topelement2:hover {
+    background-color: rgb(176, 202, 218);
+    color: white;
+    }
+.topelement:hover,
+.topelement.clicked {
+background-color: rgba(255, 255, 255, 0.747);
+color: rgb(0, 0, 0);
+/* box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); */
+border-top-left-radius: 12px;
+/* border-top-right-radius: 10px; */
+}
+
+
+.interline{
+height: 40px;
+width: 1px;
+background-color: rgb(233 233 233);
+}
+
+.selectedTab{
+background-color: red;
+}
+
+.custom-search-container {
+  position: absolute;
+  top: 10px; /* Adjust the top value to position it as needed */
+  left: 27%; /* Adjust the left value to position it as needed */
+  z-index: 1000; /* Ensure it's above the map */
+  background-color: white; /* Optional: Add a background color */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.custom-search-container input {
+  width: 200px; /* Adjust the width as needed */
+  padding: 5px;
+  margin-right: 5px;
+  border-bottom: 0;
+}
+
+.custom-search-container button {
+  padding: 5px 10px;
+  background-color: #007bff; /* Optional: Change button color */
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.yangTreeModuleTab{
+  box-shadow: 0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    width: 53%;
+    height: 84%;
+    /* position: fixed; */
+    /* overflow-y: scroll; */
+    padding: 1%;
+
+}
+.selectDevicesTab{
+  box-shadow: 0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  width: 42%;
+  position: fixed;
+  overflow-y: scroll;
+  margin-left: 46%;
+  height: 79%;
+  flex: 1 1;
+  z-index: 1;
+  margin-left: 51%;
+  padding: 1%;
+}
+.disabled {
+  cursor: not-allowed; /* Change cursor to not-allowed */
+  opacity: 0.5; /* Reduce opacity to visually indicate it's disabled */
+  pointer-events: none; /* Disable pointer events to prevent interaction */
+}
+.custom-popup {
+  width: auto !important;
+  max-width: 100% !important;
+  /* display:flex; */
+}
+.customPopupLabel{
+  font-size: small;
+    font-weight: 500;
+    width: 100px;
+    padding: 10px;
+}
+.protocolLabel{
+  font-size: small;
+  position: relative;
+  left: 10px;
+  top: 5px;
+  color: grey;
+}
+.singleBulkTab{
+  margin-top: 11px;
+  height: 33px;
+}
+
+.sortTab{
+  display: flex;
+  font-size: 11px;
+  margin-left: 9px;
+}
+.sortTab:hover{
+  cursor: pointer;
+  background-color: rgb(221, 209, 209);
+  border-radius: 2px;
+}
+.sortTabCheckBoxColumn{
+  overflow-y: scroll;
+    min-height: 60px;
+    max-height: 130px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    display: flex;
+    align-items: baseline;
+    min-width: 152px;
+    max-width: fit-content;
+}
+.header-container {
+  position: relative;
+}
+.filter-tab {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: fit-content;
+  width: 160px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 3px;
+  z-index: 1;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #444242;
+  display: flex;
+  /* box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.8); */
+}
+
+.deviceOkFilterButton{
+  border: 0;
+    background: #1b235094;
+    border-radius: 2px;
+    margin-top: 3px;
+    margin-left: 3px;
+    padding-bottom: 3px;
+    color: white;
+}
+
+th{
+  position: relative;
+}
+
+.filtericoncenter{
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.popup-template{
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+.popup-template-content{
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    width: 902px;
+    height: 500px;
+    top: 68%;
+    border: 1px solid #d5d1d1;
+    position: fixed;
+    z-index: 999;
+    max-height: 98%;
+    overflow-y: scroll; 
+}
+.applyChangesTemplate{
+  position: fixed;
+  top: 78%;
+  right: 21px;
+  border-radius: 2px;
+  border-color: #d1bdbd;
+  border-radius: 4px;
+}
+.whiteListTable{
+  background: #f5f5f5;
+  border-collapse: separate;
+  box-shadow: inset 0 1px 0 #fff;
+  font-size: 12px;
+  line-height: 24px;
+  margin: 30px auto;
+  text-align: left;
+}
+.downloadReportOption{
+  background: white;
+  position: absolute;
+  top: 100%;
+  right: 0%;
+  font-size: small;
+  border: 0.5px solid rgb(224, 243, 250);
+  border-radius: 5px;
+}
+.downloadReportOptionType{
+  padding: 3px;
+  padding-left: 11px;
+}
+.downloadReportOptionType:hover{
+  cursor: pointer;
+  background-color: rgb(67, 137, 202);
+  color: white;
+  border-radius: 3px;
+}
+
+
+/* Basic reset for table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+/* Style for the table header */
+thead th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Style for table rows and cells */
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* Style for the 'Idea' column */
+.column-idea {
+  background-color: #e7e7ff; /* Light blue background */
+  font-weight: bold;
+}
+
+/* Style for the 'Votes' column */
+.column-votes {
+  color: green; /* Green text for positive votes */
+  font-weight: bold;
+}
+
+/* Style for a selected row */
+tr.selected {
+  border: 2px solid blue; /* Highlight selected row with blue border */
+}
+
+/* Additional styles can be added as needed */
+.error_fields_discovery{
+  margin-top: -14px;
+  margin-left: 40%;
+  color: red;
+  font-size: smaller;
+}

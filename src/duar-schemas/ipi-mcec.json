@@ -1,0 +1,1110 @@
+{
+  "title": "ipi-mcec",
+  "description": "Multi Chassis Ethernet Channel (MCEC)",
+  "type": "object",
+  "properties": {
+    "ipi-mcec:mcec": {
+      "description": "Multi-Chassis-Ethernet-Channel",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "debug": {
+          "description": "Debugging functions",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Use this attribute to debug the mlag feature.",
+                  "readOnly": false,
+                  "type": "string",
+                  "bits": {
+                    "hello": "0",
+                    "info": "1",
+                    "timer": "2",
+                    "event": "3",
+                    "cli": "4",
+                    "mac-sync": "5",
+                    "stp": "6"
+                  },
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Use this attribute to debug the mlag feature.",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "hello": "0",
+                    "info": "1",
+                    "timer": "2",
+                    "event": "3",
+                    "cli": "4",
+                    "mac-sync": "5",
+                    "stp": "6"
+                  },
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Use this attribute to debug the mlag feature in terminal.",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "hello": "0",
+                    "info": "1",
+                    "timer": "2",
+                    "event": "3",
+                    "cli": "4",
+                    "mac-sync": "5",
+                    "stp": "6"
+                  },
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "domain": {
+          "description": "MCEC domain configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "system-number": {
+                  "description": "Use this attribute to configure domain system number, which uniquely identifies domain system in MCEC domain",
+                  "readOnly": false,
+                  "minimum": 1,
+                  "maximum": 2,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "address": {
+                  "description": "Use this attribute configure domain address, which helps to identify the MCEC domain",
+                  "readOnly": false,
+                  "pattern": "([0-9a-fA-F]{4}(\\.[0-9a-fA-F]{4}){2})",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "priority": {
+                  "description": "Use this attribute to specify the priority value associated with MCEC domain",
+                  "readOnly": false,
+                  "minimum": 1,
+                  "maximum": 65535,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "hello-timeout": {
+                  "description": "Use this attribute to specify the domain hello-timeout value",
+                  "readOnly": false,
+                  "enum": [
+                    "long",
+                    "short"
+                  ],
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "system-number": {
+                  "description": "Use this attribute to configure domain system number, which uniquely identifies domain system in MCEC domain",
+                  "readOnly": true,
+                  "minimum": 1,
+                  "maximum": 2,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "address": {
+                  "description": "Use this attribute configure domain address, which helps to identify the MCEC domain",
+                  "readOnly": true,
+                  "pattern": "([0-9a-fA-F]{4}(\\.[0-9a-fA-F]{4}){2})",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "priority": {
+                  "description": "Use this attribute to specify the priority value associated with MCEC domain",
+                  "readOnly": true,
+                  "minimum": 1,
+                  "maximum": 65535,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "hello-timeout": {
+                  "description": "Use this attribute to specify the domain hello-timeout value",
+                  "readOnly": true,
+                  "enum": [
+                    "long",
+                    "short"
+                  ],
+                  "mandatory": false
+                },
+                "domain-sync": {
+                  "description": "MCEC domain is synchronized between the two nodes",
+                  "readOnly": true,
+                  "enum": [
+                    "OUT_OF_SYNC",
+                    "IN_SYNC"
+                  ],
+                  "mandatory": false
+                },
+                "domain-adjacency": {
+                  "description": "Configured MCEC Domain adjacency state formed between the two nodes",
+                  "readOnly": true,
+                  "enum": [
+                    "DOWN",
+                    "UP"
+                  ],
+                  "mandatory": false
+                },
+                "mcec-invalid-pdu-rx": {
+                  "description": "Invalid PDU received for the MCEC domain",
+                  "readOnly": true,
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 4294967295,
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "mcec-instance": {
+          "description": "List of MCEC instance related details",
+          "readOnly": true,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "mlag-id": {
+                "description": "MLAG-id configured by the user",
+                "readOnly": true,
+                "path": "../state/mlag-id",
+                "type": "string",
+                "mandatory": false
+              },
+              "state": {
+                "description": "Operational state data",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "mlag-id": {
+                    "description": "MLAG-id configured by the user",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 65535,
+                    "mandatory": false
+                  },
+                  "interface": {
+                    "description": "MLAG interface details",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "administrative-aggregation-key": {
+                    "description": "Admin key mapped to the MLAG instance",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 65535,
+                    "mandatory": false
+                  },
+                  "operational-aggregation-key": {
+                    "description": "MLAG operational key obtained from the comparison of admin key of both nodes",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 65535,
+                    "mandatory": false
+                  },
+                  "physical-properties-digest": {
+                    "description": "MD5 digest of the MCEC attributed critical for sync formation",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "operational-partner-aggregation-key": {
+                    "description": "MLAG operational key of the peer node",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 65535,
+                    "mandatory": false
+                  },
+                  "partner-system": {
+                    "description": "System number of the peer MLAG instance",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "partner-system-priority": {
+                    "description": "System priority of the peer MLAG instance",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 65535,
+                    "mandatory": false
+                  },
+                  "member-interface-bandwidth": {
+                    "description": "MLAG interface bandwidth",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "member-interface-state": {
+                    "description": "MLAG interface state",
+                    "readOnly": true,
+                    "enum": [
+                      "DOWN",
+                      "UP"
+                    ],
+                    "mandatory": false
+                  },
+                  "mlag-sync": {
+                    "description": "MLAG instance sync state between MLAG nodes",
+                    "readOnly": true,
+                    "enum": [
+                      "OUT-OF-SYNC",
+                      "IN-SYNC"
+                    ],
+                    "mandatory": false
+                  },
+                  "flood-enabled": {
+                    "description": "Intra-domain-link to MLAG flooding status",
+                    "readOnly": true,
+                    "enum": [
+                      "DISABLED",
+                      "ENABLED"
+                    ],
+                    "mandatory": false
+                  },
+                  "mlag-port-state": {
+                    "description": "MLAG interface state based on user configuration (admin shutdown/admin no-shutdown)",
+                    "readOnly": true,
+                    "enum": [
+                      "DOWN",
+                      "UP"
+                    ],
+                    "mandatory": false
+                  },
+                  "mlag-interface-state": {
+                    "description": "MLAG interface state",
+                    "readOnly": true,
+                    "enum": [
+                      "DOWN",
+                      "UP"
+                    ],
+                    "mandatory": false
+                  },
+                  "aggregation-mapped": {
+                    "description": "MLAG is mapped to a static aggregator",
+                    "readOnly": true,
+                    "type": "boolean",
+                    "mandatory": false
+                  },
+                  "mlag-bandwidth": {
+                    "description": "MLAG interface bandwidth",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "info-receive-state": {
+                    "description": "Receive state machine states of MLAG instance",
+                    "readOnly": true,
+                    "enum": [
+                      "MCEC_INFO_RCV_INVALID",
+                      "MCEC_INFO_RCV_INITIALIZE",
+                      "MCEC_INFO_RCV_EXPIRED",
+                      "MCEC_INFO_RCV_PORTAL_CHECK",
+                      "MCEC_INFO_RCV_DISCARD",
+                      "MCEC_INFO_RCV_CURRENT",
+                      "MCEC_INFO_RCV_UNKNOWN"
+                    ],
+                    "mandatory": false
+                  },
+                  "info-periodic-tx-state": {
+                    "description": "Transmission state machine states of MLAG instance",
+                    "readOnly": true,
+                    "enum": [
+                      "MCEC_INFO_PERIODIC_TX_INVALID",
+                      "MCEC_INFO_PERIODIC_TX_NO_PERIODIC",
+                      "MCEC_INFO_PERIODIC_TX_FAST_PERIODIC",
+                      "MCEC_INFO_PERIODIC_TX_PERIODIC_TX",
+                      "MCEC_INFO_PERIODIC_TX_STANDBY",
+                      "MCEC_INFO_PERIODIC_TX_UNKNOWN"
+                    ],
+                    "mandatory": false
+                  },
+                  "valid-info-pdu-rx": {
+                    "description": "Valid MLAG information PDU received",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "valid-info-pdu-tx": {
+                    "description": "Valid MLAG information PDU transmitted",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  }
+                }
+              },
+              "neighbor": {
+                "description": "Container for instance neighbor parameters",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "administrative-aggregation-key": {
+                        "description": "MLAG administrative key received from the peer DSN node",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "mandatory": false
+                      },
+                      "physical-properties-digest": {
+                        "description": "MD5 physical digest properties of the peer DSN node",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "operational-partner-aggregation-key": {
+                        "description": "MLAG partner aggregation key from the peer DSN node",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "mandatory": false
+                      },
+                      "partner-system": {
+                        "description": "MLAG partner system number received from peer DSN node",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "partner-system-priority": {
+                        "description": "MLAG partner system priority received from peer DSN node",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "mandatory": false
+                      },
+                      "member-interface-bandwidth": {
+                        "description": "MLAG member interface bandwidth from the peer DSN node",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "member-interface-state": {
+                        "description": "MLAG interface state of peer node",
+                        "readOnly": true,
+                        "enum": [
+                          "DOWN",
+                          "UP"
+                        ],
+                        "mandatory": false
+                      },
+                      "mlag-sync": {
+                        "description": "Neighbor MLAG interface sync state",
+                        "readOnly": true,
+                        "enum": [
+                          "OUT-OF-SYNC",
+                          "IN-SYNC"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "mlag-id"
+            ]
+          }
+        },
+        "intra-domain": {
+          "description": "Intra Domain Peer configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "peer-link": {
+              "description": "Intra Domain Peer link configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configuration data",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "interface": {
+                      "description": "Use this attribute to map an interface as intra domain link that connects the domain system with its neighbour in a mcec domain",
+                      "readOnly": false,
+                      "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                      "type": "string",
+                      "mandatory": false
+                    },
+                    "higig": {
+                      "description": "Turn on/off higig on inter domain link",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational state data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "interface": {
+                      "description": "Use this attribute to map an interface as intra domain link that connects the domain system with its neighbour in a mcec domain",
+                      "readOnly": true,
+                      "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                      "type": "string",
+                      "mandatory": false
+                    },
+                    "higig": {
+                      "description": "Turn on/off higig on inter domain link",
+                      "readOnly": true,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "peer-address": {
+              "description": "Intra Domain Peer address configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configuration data",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "peer-address": {
+                      "description": "User configured IPV4 address of the peer DSN node",
+                      "readOnly": false,
+                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                      "type": "string",
+                      "mandatory": true
+                    },
+                    "local-address": {
+                      "description": "User configured IPV4 address of the local node",
+                      "readOnly": false,
+                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                      "type": "string",
+                      "mandatory": true
+                    },
+                    "vrf": {
+                      "description": "vrf of the peer DSN node",
+                      "readOnly": false,
+                      "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                      "type": "string",
+                      "mandatory": true
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational state data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "peer-address": {
+                      "description": "User configured IPV4 address of the peer DSN node",
+                      "readOnly": true,
+                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                      "type": "string",
+                      "mandatory": true
+                    },
+                    "local-address": {
+                      "description": "User configured IPV4 address of the local node",
+                      "readOnly": true,
+                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                      "type": "string",
+                      "mandatory": true
+                    },
+                    "vrf": {
+                      "description": "vrf of the peer DSN node",
+                      "readOnly": true,
+                      "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                      "type": "string",
+                      "mandatory": true
+                    }
+                  }
+                }
+              }
+            },
+            "neighbor-info": {
+              "description": "Neighbor domain details of the peer DSN node",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "state": {
+                  "description": "Operational state data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "domain-address": {
+                      "description": "Domain address of the peer node in HHHH.HHHH.HHHH format Values 0000.0000.0000 and FFFF.FFFF.FFFF are not valid",
+                      "readOnly": true,
+                      "pattern": "([0-9a-fA-F]{4}(\\.[0-9a-fA-F]{4}){2})",
+                      "type": "string",
+                      "mandatory": false
+                    },
+                    "domain-priority": {
+                      "description": "Domain priority of the peer node",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "domain-system-number": {
+                      "description": "Domain system number of the peer node",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 65535,
+                      "mandatory": false
+                    },
+                    "domain-sync": {
+                      "description": "Domain sync flag received from the peer node",
+                      "readOnly": true,
+                      "enum": [
+                        "OUT_OF_SYNC",
+                        "IN_SYNC"
+                      ],
+                      "mandatory": false
+                    },
+                    "hello-timeout": {
+                      "description": "MCEC domain timeout of the peer node",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 65535,
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "intra-domain-peer-info": {
+              "description": "MCEC domain state machine states and counters related",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "state": {
+                  "description": "Operational state data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "mcec-hello-periodic-tx-state": {
+                      "description": "Holds the current state of domain PDU transmission state machine",
+                      "readOnly": true,
+                      "enum": [
+                        "MCEC_HELLO_PERIODIC_TX_INVALID",
+                        "MCEC_HELLO_PERIODIC_TX_NO_PERIODIC",
+                        "MCEC_HELLO_PERIODIC_TX_FAST_PERIODIC",
+                        "MCEC_HELLO_PERIODIC_TX_SLOW_PERIODIC",
+                        "MCEC_HELLO_PERIODIC_TX_PERIODIC_TX",
+                        "MCEC_HELLO_PERIODIC_TX_UNKNOWN"
+                      ],
+                      "mandatory": false
+                    },
+                    "mcec-valid-hello-pdu-rx": {
+                      "description": "Valid domain PDU received from peer node",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "mcec-valid-hello-pdu-tx": {
+                      "description": "Valid domain PDU transmitted to the peer node",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "mcec-valid-info-pdu-rx": {
+                      "description": "Valid MLAG information PDU received from peer node",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "mcec-valid-info-pdu-tx": {
+                      "description": "Valid MLAG information PDU transmitted to peer node",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "mcec-valid-mac-sync-pdu-rx": {
+                      "description": "Valid MLAG MAC synchronized PDU received from peer node",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "mcec-valid-mac-sync-pdu-tx": {
+                      "description": "Valid MLAG MAC synchronized PDU transmitted to peer node",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "mac-sync": {
+          "description": "Container for dynamic MAC address synchronized between the MLAG nodes",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "local-mac-table": {
+              "description": "List of MAC addresses learnt from the local node",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "mac-address": {
+                    "description": "MAC address that are learnt on the local node",
+                    "readOnly": true,
+                    "path": "../state/mac-address",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "vlan-id": {
+                    "description": "Vlan-id of the MAC address it belongs to",
+                    "readOnly": true,
+                    "path": "../state/vlan-id",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "mac-address": {
+                        "description": "MAC address that are learnt on the local node",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "vlan-id": {
+                        "description": "Vlan-id of the MAC address it belongs to",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "mandatory": false
+                      },
+                      "output-interface": {
+                        "description": "Interface on which the remote MAC entry is learnt",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "mac-address",
+                  "vlan-id"
+                ]
+              }
+            },
+            "remote-mac-table": {
+              "description": "MAC address list learnt from the peer node",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "mac-address": {
+                    "description": "MAC address that are learnt on the remote node",
+                    "readOnly": true,
+                    "path": "../state/mac-address",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "vlan-id": {
+                    "description": "Vlan-id of the MAC address it belongs to",
+                    "readOnly": true,
+                    "path": "../state/vlan-id",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "mac-address": {
+                        "description": "MAC address that are learnt on the local node",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "vlan-id": {
+                        "description": "Vlan-id of the MAC address it belongs to",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "mandatory": false
+                      },
+                      "output-interface": {
+                        "description": "Interface on which the remote MAC entry is learnt",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "mac-address",
+                  "vlan-id"
+                ]
+              }
+            }
+          }
+        },
+        "stp-sync": {
+          "description": "STP synchronization details related with MCEC",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "bridge-priority": {
+                  "description": "Bridge priority of the node that will be used for STP",
+                  "readOnly": true,
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 65535,
+                  "mandatory": false
+                },
+                "path-cost-method": {
+                  "description": "The metric STP uses to calculate the shortest path",
+                  "readOnly": true,
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 255,
+                  "mandatory": false
+                },
+                "domain-digest": {
+                  "description": "STP domain digest used for MCEC",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "neighbor-domain-digest": {
+                  "description": "Peer STP domain digest received for the MCEC",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            },
+            "mlag-interface-sync-entry": {
+              "description": "List of mlag interface sync entries participating in STP",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "mlag-id": {
+                    "description": "User configured MLAG-id",
+                    "readOnly": true,
+                    "path": "../state/mlag-id",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "mlag-id": {
+                        "description": "User configured MLAG-id",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "mandatory": false
+                      },
+                      "port-priority": {
+                        "description": "MLAG interface priority that will be used in STP",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "mandatory": false
+                      },
+                      "path-cost": {
+                        "description": "MLAG interface path cost that will be used on STP",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "interface-digest": {
+                        "description": "Used to form STP sync between the two MLAG nodes",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "neighbor-interface-digest": {
+                        "description": "Neighbor MLAG interface digest received from the peer node",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "mlag-id"
+                ]
+              }
+            }
+          }
+        },
+        "mlag-interfaces": {
+          "description": "Top leve container for list of MLAG interfaces",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "mlag-interface": {
+              "description": "List of MLAG interfaces",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "User specified MLAG interface name",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "User specified MLAG interface name",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "interface-mode": {
+                        "description": "Use this attribute to set the MC-LAG mode. active-standby: The interface is ready to transition from active to standby state should a failure occur in the other node.",
+                        "readOnly": false,
+                        "enum": [
+                          "active-standby",
+                          "active-active"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "User specified MLAG interface name",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "interface-mode": {
+                        "description": "Use this attribute to set the MC-LAG mode. active-standby: The interface is ready to transition from active to standby state should a failure occur in the other node.",
+                        "readOnly": true,
+                        "enum": [
+                          "active-standby",
+                          "active-active"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "switchover-type": {
+                    "description": "Container for switchover type parameters",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "revertive-timer": {
+                            "description": "Use this attribute to set the timer for MC-LAG switchover revertive type. After Revertive timer expires Slave will handover the control to Master Node. If a failure happens that triggers a switchover, after failure recovery the initially-active node becomes active again. Default switchover type is revertive 10s.",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "enable-non-revertive": {
+                            "description": "Use this attribute to set the MC-LAG switchover to non-revertive type. Do not switch back to the initially-active node after failure recovery. Default switchover type is revertive 10s.",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "revertive-timer": {
+                            "description": "Use this attribute to set the timer for MC-LAG switchover revertive type. After Revertive timer expires Slave will handover the control to Master Node. If a failure happens that triggers a switchover, after failure recovery the initially-active node becomes active again. Default switchover type is revertive 10s.",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "enable-non-revertive": {
+                            "description": "Use this attribute to set the MC-LAG switchover to non-revertive type. Do not switch back to the initially-active node after failure recovery. Default switchover type is revertive 10s.",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

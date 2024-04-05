@@ -1,0 +1,233 @@
+{
+  "title": "ipi-mlag",
+  "description": "NSM Mlag configurations",
+  "type": "object",
+  "properties": {
+    "ipi-mlag:mlag": {
+      "description": "NSM MLAG master",
+      "readOnly": true,
+      "type": "object",
+      "properties": {
+        "mlag-interface": {
+          "description": "List of MLAG interface ids",
+          "readOnly": true,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "mlag-id": {
+                "description": "MLAG group number",
+                "readOnly": true,
+                "path": "../state/mlag-id",
+                "type": "string",
+                "mandatory": false
+              },
+              "state": {
+                "description": "Operational state data",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "mlag-id": {
+                    "description": "MLAG group number",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 65535,
+                    "mandatory": false
+                  },
+                  "interface-flags": {
+                    "description": "MLAG and neighbor MLAG interface state flags",
+                    "readOnly": true,
+                    "type": "string",
+                    "bits": {
+                      "NSM_MLAG_PORT_STATE_FORWARD": "0",
+                      "NSM_MLAG_PORT_UP": "1",
+                      "NSM_MLAG_ROLE_MASTER": "2",
+                      "NSM_MLAG_NEIGH_MEM_IF_STATE_UP": "3",
+                      "LAG_FORCED_MLAG_UP": "4"
+                    },
+                    "mandatory": false
+                  },
+                  "bandwidth": {
+                    "description": "Bandwidth of the MLAG",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "mlag-id"
+            ]
+          }
+        },
+        "intra-domain-port": {
+          "description": "Inter-Domain-Port states",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "interface-name": {
+                  "description": "Inter-domain-port interface name",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "interface-index": {
+                  "description": "Inter-domain-port interface index",
+                  "readOnly": true,
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 4294967295,
+                  "mandatory": false
+                },
+                "interface-type": {
+                  "description": "Configured interface type of the Intra-Domain-Link is L2(switchport) or L3",
+                  "readOnly": true,
+                  "enum": [
+                    "L3",
+                    "L2"
+                  ],
+                  "mandatory": false
+                },
+                "bridge-name": {
+                  "description": "Bridge name configured for the specified interface",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "mstp-sync-info": {
+          "description": "MSTP sync info states",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "bridge-priority": {
+                  "description": "Bridge priority",
+                  "readOnly": true,
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 65535,
+                  "mandatory": false
+                },
+                "path-cost-method": {
+                  "description": "Path cost method",
+                  "readOnly": true,
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 255,
+                  "mandatory": false
+                },
+                "num-of-interfaces": {
+                  "description": "Number of MLAG interfaces",
+                  "readOnly": true,
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 65535,
+                  "mandatory": false
+                },
+                "domain-digest": {
+                  "description": "Domain MD5 digest",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                }
+              }
+            },
+            "interface-sync-info": {
+              "description": "List of interface sync info for a given MLAG",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "interface-mlag-id": {
+                    "description": "MLAG group number",
+                    "readOnly": true,
+                    "path": "../state/interface-mlag-id",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "interface-mlag-id": {
+                        "description": "MLAG group number",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "mandatory": false
+                      },
+                      "interface-priority": {
+                        "description": "Interface priority",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "mandatory": false
+                      },
+                      "path-cost": {
+                        "description": "Path cost",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "interface-digest": {
+                        "description": "Interface MD5 digest",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "minLength": 1,
+                          "maxLength": 1965,
+                          "pattern": "[^?' =,>|]+",
+                          "type": "string",
+                          "mandatory": false
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "interface-mlag-id"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

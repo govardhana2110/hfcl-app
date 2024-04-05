@@ -1,0 +1,229 @@
+{
+  "title": "ipi-streaming-telemetry",
+  "description": "Data model for management streaming telemetry configurations",
+  "type": "object",
+  "properties": {
+    "ipi-streaming-telemetry:telemetry-system": {
+      "description": "Top level container for device's streaming telemetry configurations",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "streaming-telemetry": {
+          "description": "Top level container for enable or disable telemetry configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration parameters related to streaming telemetry enable or    disable",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "feature-enabled": {
+                  "description": "Enable or Disable device's telemetry system",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "state information related to streaming telemetry enable or disable",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "feature-enabled": {
+                  "description": "Enable or Disable device's telemetry system",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "debug": {
+              "description": "Container for debug related configurations",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Config container for debug options",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "gnmi-debug": {
+                      "description": "Enable or Disable device's debug telemetry",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": false
+                    },
+                    "gnmi-severity": {
+                      "description": "device's debug telemetry severity level",
+                      "readOnly": false,
+                      "enum": [
+                        "debug",
+                        "info",
+                        "warning",
+                        "error",
+                        "fatal",
+                        "panic",
+                        "d-panic"
+                      ],
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "state container for debug options",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "gnmi-debug": {
+                      "description": "Enable or Disable device's debug telemetry",
+                      "readOnly": true,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": false
+                    },
+                    "gnmi-severity": {
+                      "description": "device's debug telemetry severity level",
+                      "readOnly": true,
+                      "enum": [
+                        "debug",
+                        "info",
+                        "warning",
+                        "error",
+                        "fatal",
+                        "panic",
+                        "d-panic"
+                      ],
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "dynamic-subscriptions": {
+          "description": "This container holds information relating to dynamic telemetry    subscriptions",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "dynamic-subscription": {
+              "description": "List representation of telemetry subscriptions that are configured via      an inline RPC, otherwise known as dynamic telemetry subscriptions",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "System generated identifer of the telemetry subscription",
+                    "readOnly": true,
+                    "path": "../state/id",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "state": {
+                    "description": "State information relating to dynamic telemetry subscriptions",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "description": "System generated identifer of the telemetry subscription",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "client-address": {
+                        "description": "Dial-in subscription client address which is combination of ip-address:port",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "sample-interval": {
+                        "description": "Time in seconds between the device's sample of a telemetry data source",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "encoding": {
+                        "description": "Selection of the specific encoding or RPC framework for telemetry messages to and from the network element. The encoding method controls specifically the wire format of the telemetry data, and also controls which RPC framework may be in use to exchange telemetry data",
+                        "readOnly": true,
+                        "enum": [
+                          "json",
+                          "json-ietf"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "sensor-paths": {
+                    "description": "Top level container to hold a set of sensor paths grouped together",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "sensor-path": {
+                        "description": "List of paths in the model which together comprise a sensor grouping",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "path": {
+                              "description": "Reference to the path of interest",
+                              "readOnly": true,
+                              "path": "../state/path",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "state": {
+                              "description": "State information for a dynamic subscription's paths of interest",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "path": {
+                                  "description": "Path to a section of operational state of interest (the sensor)",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "type": "string",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "path"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "id"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,3417 @@
+{
+  "title": "ipi-segment-routing",
+  "description": "Model for managing segment-routing global configurations and state    which includes traffic-enireening for sr as well",
+  "type": "object",
+  "properties": {
+    "ipi-segment-routing:segment-routing": {
+      "description": "This defines a YANG data model for segment routing MPLS and TE    configuration and operation. This document does not define the IGP    extensions to support segment routing",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "config": {
+          "description": "segment-routing configuration container,     enables global    configuration of segment-routing and allows to configure    various SR related CLIs",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "enable": {
+              "description": "Enable segment routing",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": true
+            }
+          }
+        },
+        "state": {
+          "description": "segment-routing state container describes segment-routing state",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "enable": {
+              "description": "Enable segment routing",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": true
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Top level container for interfaces, including configuration and state    data",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "This list defines global SR interface configuration and state      information.",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Reference to interface name",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for segment-routing interface name",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Reference to interface name",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "adjacency-segment": {
+                    "description": "MPLS segment-route adjacency",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for segment-route adjacency module",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "adj-sid-absolute": {
+                            "description": "This attribute is used to configure Segment Route adjacency SID absolute value",
+                            "readOnly": false,
+                            "minimum": 16,
+                            "maximum": 1048575,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "adj-sid-index": {
+                            "description": "This attribute is used to configure Segment Route adjacency SID index-value",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 1048575,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for segment-route prefix module",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "adj-sid-absolute": {
+                            "description": "This attribute is used to configure Segment Route adjacency SID absolute value",
+                            "readOnly": true,
+                            "minimum": 16,
+                            "maximum": 1048575,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "adj-sid-index": {
+                            "description": "This attribute is used to configure Segment Route adjacency SID index-value",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 1048575,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "prefix-segment": {
+                    "description": "MPLS segment-route Prefix",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for segment-route prefix module",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "sid-absolute": {
+                            "description": "This attribute is used to configure Segment Route Prefix SID absolute value",
+                            "readOnly": false,
+                            "minimum": 16,
+                            "maximum": 1048575,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "sid-index": {
+                            "description": "This attribute is used to configure Segment Route Prefix SID index-value",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 1048575,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "exp-null": {
+                            "description": "This attribute describes except Null",
+                            "readOnly": false,
+                            "enum": [
+                              "explicit-null",
+                              "no-php"
+                            ],
+                            "mandatory": false
+                          },
+                          "n-flag-clear": {
+                            "description": "This attribute is used to set n-flag-clear",
+                            "readOnly": false,
+                            "enum": [
+                              "n-flag-clear"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data for segment-route prefix module",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "sid-absolute": {
+                            "description": "This attribute is used to configure Segment Route Prefix SID absolute value",
+                            "readOnly": true,
+                            "minimum": 16,
+                            "maximum": 1048575,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "sid-index": {
+                            "description": "This attribute is used to configure Segment Route Prefix SID index-value",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 1048575,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "exp-null": {
+                            "description": "This attribute describes except Null",
+                            "readOnly": true,
+                            "enum": [
+                              "explicit-null",
+                              "no-php"
+                            ],
+                            "mandatory": false
+                          },
+                          "n-flag-clear": {
+                            "description": "This attribute is used to set n-flag-clear",
+                            "readOnly": true,
+                            "enum": [
+                              "n-flag-clear"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "sr-mpls": {
+          "description": "SR MPLS data plane global configuration and operational state",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "sr-prefer-over-ldp": {
+              "description": "to prefer segment-routing labels over LDP labels",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "config attribute for preferring sr-label over LDP",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "enable-preference": {
+                      "description": "preference for segment routing label over LDP",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "State attribute to describe preference of sr-label over LDP",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "enable-preference": {
+                      "description": "preference for segment routing label over LDP",
+                      "readOnly": true,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "bindings": {
+              "description": "prefix to sid bindings",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "mapping-server": {
+                  "description": "Configuration and state information of mapping-server entries.",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "config": {
+                      "description": "config parameters for mapping-server entries",
+                      "readOnly": false,
+                      "type": "object",
+                      "properties": {
+                        "enable": {
+                          "description": "To enable mapping server configuration",
+                          "readOnly": false,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": true
+                        }
+                      }
+                    },
+                    "state": {
+                      "description": "Operational parameters for mapping-server entries",
+                      "readOnly": true,
+                      "type": "object",
+                      "properties": {
+                        "enable": {
+                          "description": "To enable mapping server configuration",
+                          "readOnly": true,
+                          "type": "array",
+                          "items": {
+                            "type": "null"
+                          },
+                          "maxItems": 1,
+                          "mandatory": true
+                        }
+                      }
+                    },
+                    "srms-preferenece": {
+                      "description": "The SRMS preference TLV is        used to advertise a    preference associated with the node that acts        as an SR    Mapping Server",
+                      "readOnly": false,
+                      "type": "object",
+                      "properties": {
+                        "config": {
+                          "description": "container used to configure preference value associated with node that    acts as an Mapping server",
+                          "readOnly": false,
+                          "type": "object",
+                          "properties": {
+                            "preference": {
+                              "description": "preference for segment routing mapping server",
+                              "readOnly": false,
+                              "minimum": 1,
+                              "maximum": 255,
+                              "type": "number",
+                              "mandatory": false
+                            }
+                          }
+                        },
+                        "state": {
+                          "description": "Operational parameters of SRMS preference TLV",
+                          "readOnly": true,
+                          "type": "object",
+                          "properties": {
+                            "preference": {
+                              "description": "preference for segment routing mapping server",
+                              "readOnly": true,
+                              "minimum": 1,
+                              "maximum": 255,
+                              "type": "number",
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "prefix-sid-map-ipv4": {
+                      "description": "mapping-server entries.",
+                      "readOnly": false,
+                      "type": "object",
+                      "properties": {
+                        "config": {
+                          "description": "Config parameters to enable mapping server configuration",
+                          "readOnly": false,
+                          "type": "object",
+                          "properties": {
+                            "enable": {
+                              "description": "To enable ipv4 mapping server configuration",
+                              "readOnly": false,
+                              "type": "array",
+                              "items": {
+                                "type": "null"
+                              },
+                              "maxItems": 1,
+                              "mandatory": true
+                            }
+                          }
+                        },
+                        "state": {
+                          "description": "Operational information of mapping server",
+                          "readOnly": true,
+                          "type": "object",
+                          "properties": {
+                            "enable": {
+                              "description": "To enable ipv4 mapping server configuration",
+                              "readOnly": true,
+                              "type": "array",
+                              "items": {
+                                "type": "null"
+                              },
+                              "maxItems": 1,
+                              "mandatory": true
+                            }
+                          }
+                        },
+                        "mapping-entries": {
+                          "description": "Mapping entries container",
+                          "readOnly": false,
+                          "type": "object",
+                          "properties": {
+                            "mapping-entry": {
+                              "description": "This objectlist contains config and state parameters for mapping      entries",
+                              "readOnly": false,
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "start-address": {
+                                    "description": "connected prefix for prefix-sid",
+                                    "readOnly": false,
+                                    "path": "../config/start-address",
+                                    "type": "string",
+                                    "mandatory": false
+                                  },
+                                  "start-sid": {
+                                    "description": "Starting Segment Identifier",
+                                    "readOnly": false,
+                                    "path": "../config/start-sid",
+                                    "type": "string",
+                                    "mandatory": false
+                                  },
+                                  "config": {
+                                    "description": "this container contains configuration parameters for mapping entries",
+                                    "readOnly": false,
+                                    "type": "object",
+                                    "properties": {
+                                      "start-address": {
+                                        "description": "ipv4 prefix mapping entry address",
+                                        "readOnly": false,
+                                        "minLength": 0,
+                                        "maxLength": 32,
+                                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "start-sid": {
+                                        "description": "Starting Segment Identifier",
+                                        "readOnly": false,
+                                        "minimum": 0,
+                                        "maximum": 1048575,
+                                        "type": "number",
+                                        "mandatory": false
+                                      },
+                                      "range": {
+                                        "description": "Segment Identifier interval",
+                                        "readOnly": false,
+                                        "minimum": 1,
+                                        "maximum": 65535,
+                                        "type": "number",
+                                        "mandatory": false
+                                      },
+                                      "attached": {
+                                        "description": "Attached",
+                                        "readOnly": false,
+                                        "type": "boolean",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  },
+                                  "state": {
+                                    "description": "this container contains operational parameters for mapping entries",
+                                    "readOnly": true,
+                                    "type": "object",
+                                    "properties": {
+                                      "start-address": {
+                                        "description": "ipv4 prefix mapping entry address",
+                                        "readOnly": true,
+                                        "minLength": 0,
+                                        "maxLength": 32,
+                                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "start-sid": {
+                                        "description": "Starting Segment Identifier",
+                                        "readOnly": true,
+                                        "minimum": 0,
+                                        "maximum": 1048575,
+                                        "type": "number",
+                                        "mandatory": false
+                                      },
+                                      "range": {
+                                        "description": "Segment Identifier interval",
+                                        "readOnly": true,
+                                        "minimum": 1,
+                                        "maximum": 65535,
+                                        "type": "number",
+                                        "mandatory": false
+                                      },
+                                      "attached": {
+                                        "description": "Attached",
+                                        "readOnly": true,
+                                        "type": "boolean",
+                                        "mandatory": false
+                                      }
+                                    }
+                                  },
+                                  "ipv4-table": {
+                                    "description": "IPv4 SR Mapping Table Attributes",
+                                    "readOnly": true,
+                                    "type": "object",
+                                    "properties": {
+                                      "state": {
+                                        "description": "IPv4 SR Mapping-Server Table",
+                                        "readOnly": true,
+                                        "type": "object",
+                                        "properties": {
+                                          "start-prefix": {
+                                            "description": "SR MS prefix-sid-map Start Address",
+                                            "readOnly": true,
+                                            "oneOf": [
+                                              {
+                                                "minLength": 0,
+                                                "maxLength": 32,
+                                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                                                "type": "string"
+                                              },
+                                              {
+                                                "minLength": 0,
+                                                "maxLength": 50,
+                                                "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                                                "type": "string"
+                                              }
+                                            ],
+                                            "mandatory": false
+                                          },
+                                          "start-sid-index": {
+                                            "description": "Start SID Index",
+                                            "readOnly": true,
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 65535,
+                                            "mandatory": false
+                                          },
+                                          "range": {
+                                            "description": "range",
+                                            "readOnly": true,
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 65535,
+                                            "mandatory": false
+                                          },
+                                          "end-prefix": {
+                                            "description": "SR MS prefix-sid-map End Address",
+                                            "readOnly": true,
+                                            "oneOf": [
+                                              {
+                                                "minLength": 0,
+                                                "maxLength": 32,
+                                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                                                "type": "string"
+                                              },
+                                              {
+                                                "minLength": 0,
+                                                "maxLength": 50,
+                                                "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                                                "type": "string"
+                                              }
+                                            ],
+                                            "mandatory": false
+                                          },
+                                          "end-sid-index": {
+                                            "description": "Last SID Index",
+                                            "readOnly": true,
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 65535,
+                                            "mandatory": false
+                                          },
+                                          "attached": {
+                                            "description": "SR MS attachedd",
+                                            "readOnly": true,
+                                            "type": "array",
+                                            "items": {
+                                              "type": "null"
+                                            },
+                                            "maxItems": 1,
+                                            "mandatory": false
+                                          },
+                                          "preference": {
+                                            "description": "SR map table entry SRMS pref",
+                                            "readOnly": true,
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 255,
+                                            "mandatory": false
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "keyFields": [
+                                  "start-address",
+                                  "start-sid"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "global-block": {
+              "description": "Segment routing Global block",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configurable parameters for SRGB",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "start": {
+                      "description": "SRGB starting range",
+                      "readOnly": false,
+                      "minimum": 16,
+                      "maximum": 1048575,
+                      "type": "number",
+                      "mandatory": true
+                    },
+                    "end": {
+                      "description": "SRGB end range",
+                      "readOnly": false,
+                      "minimum": 16,
+                      "maximum": 1048575,
+                      "type": "number",
+                      "mandatory": true
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational parameters for SRGB",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "start": {
+                      "description": "SRGB starting range",
+                      "readOnly": true,
+                      "minimum": 16,
+                      "maximum": 1048575,
+                      "type": "number",
+                      "mandatory": true
+                    },
+                    "end": {
+                      "description": "SRGB end range",
+                      "readOnly": true,
+                      "minimum": 16,
+                      "maximum": 1048575,
+                      "type": "number",
+                      "mandatory": true
+                    }
+                  }
+                }
+              }
+            },
+            "local-block": {
+              "description": "Segment routing Local block",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Configurable parameters for SRLB",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "start": {
+                      "description": "Start range for srlb-config",
+                      "readOnly": false,
+                      "minimum": 16,
+                      "maximum": 1048575,
+                      "type": "number",
+                      "mandatory": true
+                    },
+                    "end": {
+                      "description": "End range for srlb-config",
+                      "readOnly": false,
+                      "minimum": 16,
+                      "maximum": 1048575,
+                      "type": "number",
+                      "mandatory": true
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Operational parameters for SRLB",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "start": {
+                      "description": "Start range for srlb-config",
+                      "readOnly": true,
+                      "minimum": 16,
+                      "maximum": 1048575,
+                      "type": "number",
+                      "mandatory": true
+                    },
+                    "end": {
+                      "description": "End range for srlb-config",
+                      "readOnly": true,
+                      "minimum": 16,
+                      "maximum": 1048575,
+                      "type": "number",
+                      "mandatory": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "traffic-engineering": {
+          "description": "Traffic-engineering container for segment routing",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Segment routing traffic engineering configuration and other CLIs    inside traffic enginnering",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "fast-reroute-enable": {
+                  "description": "Enable fast reroute for traffic engineering polices",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "enable": {
+                  "description": "Enable SR traffic engineering",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                }
+              }
+            },
+            "state": {
+              "description": "Segment routing traffic engineering runtime parameters",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "fast-reroute-enable": {
+                  "description": "Enable fast reroute for traffic engineering polices",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "enable": {
+                  "description": "Enable SR traffic engineering",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                }
+              }
+            },
+            "attributes": {
+              "description": "Attributes applicable to SR policies",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "segment-lists": {
+                  "description": "Segment-lists properties",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "segment-list": {
+                      "description": "Properties of a segment list",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "list-name": {
+                            "description": "Segment-list name",
+                            "readOnly": false,
+                            "path": "../config/list-name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "config": {
+                            "description": "Config parameters for segment-list configuration",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "list-name": {
+                                "description": "Segment-list name",
+                                "readOnly": false,
+                                "minLength": 1,
+                                "maxLength": 1965,
+                                "pattern": "[^?' =,>|]+",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational state for segment-list configuration",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "list-name": {
+                                "description": "Segment-list name",
+                                "readOnly": true,
+                                "minLength": 1,
+                                "maxLength": 1965,
+                                "pattern": "[^?' =,>|]+",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "segments": {
+                            "description": "Segments for given segment list",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "segment": {
+                                "description": "Configure a segment at given index",
+                                "readOnly": false,
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "segment-index": {
+                                      "description": "Index of the segment through which it can be modified or unconfigured",
+                                      "readOnly": false,
+                                      "path": "../config/segment-index",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "type": {
+                                      "description": "Type of the segment",
+                                      "readOnly": false,
+                                      "path": "../config/type",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "config": {
+                                      "description": "Contains config parameters for configuring segment index and type",
+                                      "readOnly": false,
+                                      "type": "object",
+                                      "properties": {
+                                        "segment-index": {
+                                          "description": "Index of the segment through which it can be modified or unconfigured",
+                                          "readOnly": false,
+                                          "minimum": 1,
+                                          "maximum": 65535,
+                                          "type": "number",
+                                          "mandatory": false
+                                        },
+                                        "type": {
+                                          "description": "Type of the segment",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "segment-type-1"
+                                          ],
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "state": {
+                                      "description": "Contains operational information about segment index and type",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "segment-index": {
+                                          "description": "Index of the segment through which it can be modified or unconfigured",
+                                          "readOnly": true,
+                                          "minimum": 1,
+                                          "maximum": 65535,
+                                          "type": "number",
+                                          "mandatory": false
+                                        },
+                                        "type": {
+                                          "description": "Type of the segment",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "segment-type-1"
+                                          ],
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "segment-type-1": {
+                                      "description": "Segment declared by MPLS label",
+                                      "readOnly": false,
+                                      "type": "object",
+                                      "properties": {
+                                        "config": {
+                                          "description": "Contains parameters to configure segment-type-1",
+                                          "readOnly": false,
+                                          "type": "object",
+                                          "properties": {
+                                            "sid-value": {
+                                              "description": "MPLS label value",
+                                              "readOnly": false,
+                                              "minimum": 0,
+                                              "maximum": 1048575,
+                                              "type": "number",
+                                              "mandatory": false
+                                            }
+                                          }
+                                        },
+                                        "state": {
+                                          "description": "Contains operational information regarding segment-type-1",
+                                          "readOnly": true,
+                                          "type": "object",
+                                          "properties": {
+                                            "sid-value": {
+                                              "description": "MPLS label value",
+                                              "readOnly": true,
+                                              "minimum": 0,
+                                              "maximum": 1048575,
+                                              "type": "number",
+                                              "mandatory": false
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "keyFields": [
+                                    "segment-index",
+                                    "type"
+                                  ]
+                                }
+                              },
+                              "segment-v6": {
+                                "description": "Configure a segment at given index",
+                                "readOnly": false,
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "segment-index": {
+                                      "description": "Index of the segment through which it can be modified or unconfigured",
+                                      "readOnly": false,
+                                      "path": "../config/segment-index",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "type": {
+                                      "description": "Type of the segment",
+                                      "readOnly": false,
+                                      "path": "../config/type",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "config": {
+                                      "description": "Contains config parameters for configuring segment index and type",
+                                      "readOnly": false,
+                                      "type": "object",
+                                      "properties": {
+                                        "segment-index": {
+                                          "description": "Index of the segment through which it can be modified or unconfigured",
+                                          "readOnly": false,
+                                          "minimum": 1,
+                                          "maximum": 65535,
+                                          "type": "number",
+                                          "mandatory": false
+                                        },
+                                        "type": {
+                                          "description": "Type of the segment",
+                                          "readOnly": false,
+                                          "enum": [
+                                            "segment-type-2"
+                                          ],
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "state": {
+                                      "description": "Contains operational information about segment index and type",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "segment-index": {
+                                          "description": "Index of the segment through which it can be modified or unconfigured",
+                                          "readOnly": true,
+                                          "minimum": 1,
+                                          "maximum": 65535,
+                                          "type": "number",
+                                          "mandatory": false
+                                        },
+                                        "type": {
+                                          "description": "Type of the segment",
+                                          "readOnly": true,
+                                          "enum": [
+                                            "segment-type-2"
+                                          ],
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "segment-type-2": {
+                                      "description": "Segment declared by SRv6 SID",
+                                      "readOnly": false,
+                                      "type": "object",
+                                      "properties": {
+                                        "config": {
+                                          "description": "Contains parameters to configure segment-type-2",
+                                          "readOnly": false,
+                                          "type": "object",
+                                          "properties": {
+                                            "prefix": {
+                                              "description": "SRV6 Prefix",
+                                              "readOnly": false,
+                                              "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                              "type": "string",
+                                              "mandatory": false
+                                            }
+                                          }
+                                        },
+                                        "state": {
+                                          "description": "Contains operational information regarding segment-type-2",
+                                          "readOnly": true,
+                                          "type": "object",
+                                          "properties": {
+                                            "prefix": {
+                                              "description": "SRV6 Prefix",
+                                              "readOnly": true,
+                                              "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                              "type": "string",
+                                              "mandatory": false
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "keyFields": [
+                                    "segment-index",
+                                    "type"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "keyFields": [
+                          "list-name"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "policies": {
+              "description": "SR Policy container",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "policy": {
+                  "description": "SR Policy properties",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "User friendly name of the SR Policy",
+                        "readOnly": false,
+                        "path": "../config/name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "policy-keys": {
+                        "description": "SR Policy key container",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "policy-key": {
+                            "description": "SR Policy key",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "color": {
+                                  "description": "Color associated with the policy",
+                                  "readOnly": false,
+                                  "path": "../config/color",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "end-point": {
+                                  "description": "Policy end point IP address",
+                                  "readOnly": false,
+                                  "path": "../config/end-point",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "SR policy config container",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "color": {
+                                      "description": "Color associated with the policy",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 4294967295,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "end-point": {
+                                      "description": "Policy end point IP address",
+                                      "readOnly": false,
+                                      "oneOf": [
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "SR policy state container",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "color": {
+                                      "description": "Color associated with the policy",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 4294967295,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "end-point": {
+                                      "description": "Policy end point IP address",
+                                      "readOnly": true,
+                                      "oneOf": [
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "color",
+                                "end-point"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "config": {
+                        "description": "SR policy config container",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "User friendly name of the SR Policy",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "admin-state": {
+                            "description": "SR policy administrative state, true for enabled, false for disabled",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "explicit-null": {
+                            "description": "To set explicit null behaviour for the policy",
+                            "readOnly": false,
+                            "enum": [
+                              "ipv4"
+                            ],
+                            "mandatory": false
+                          },
+                          "cspf-retry-limit": {
+                            "description": "Limit on the number of times a dynamic candidate path will retry to calculate segment-list",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "cspf-retry-interval": {
+                            "description": "Interval between two successive retries for calculating segment list of a dynamic candidate path using CSPF",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 600,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "entropy-erld": {
+                            "description": "Setting Policy Entropy ERLD Value to Enable Policy Entropy Capability",
+                            "readOnly": false,
+                            "minimum": 3,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "pce-lsp-delegate": {
+                            "description": "To delegate all the configured candidate path of policy to PCE controller",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "pce-state-report": {
+                            "description": "To only report all the configured candidate path of policy to PCE controller",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "pce-entity-id": {
+                            "description": "Entity Id of PCEP entity to which this policy should be queried/reported/delegated",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "bsid-value": {
+                            "description": "configurable value for static binding sid",
+                            "readOnly": false,
+                            "minimum": 16,
+                            "maximum": 15999,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "candidate-paths": {
+                        "description": "SR policy candidate path(s)",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "candidate-path": {
+                            "description": "SR policy Candidate path(s) list entry",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "discriminator": {
+                                  "description": "Candidate path distinguisher, it's taken as a unique identifier for a Local candidate path",
+                                  "readOnly": false,
+                                  "path": "../config/discriminator",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "protocol-origin": {
+                                  "description": "Instantiation mechanism used to create the candidate path",
+                                  "readOnly": false,
+                                  "path": "../config/protocol-origin",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "originator": {
+                                  "description": "Identifier (concatenation of ASN and node-address) of the node that signalled/instantiated the candidate path on headend",
+                                  "readOnly": false,
+                                  "path": "../config/originator",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "SR policy config container",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "discriminator": {
+                                      "description": "Candidate path distinguisher, it's taken as a unique identifier for a Local candidate path",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "protocol-origin": {
+                                      "description": "Instantiation mechanism used to create the candidate path",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "pcep",
+                                        "bgp",
+                                        "local"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "originator": {
+                                      "description": "Identifier (concatenation of ASN and node-address) of the node that signalled/instantiated the candidate path on headend",
+                                      "readOnly": false,
+                                      "minLength": 0,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]*",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "preference": {
+                                      "description": "Candidate path preference",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "SR policy candidate path table",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "discriminator": {
+                                      "description": "Candidate path distinguisher, it's taken as a unique identifier for a Local candidate path",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "protocol-origin": {
+                                      "description": "Instantiation mechanism used to create the candidate path",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "pcep",
+                                        "bgp",
+                                        "local"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "originator": {
+                                      "description": "Identifier (concatenation of ASN and node-address) of the node that signalled/instantiated the candidate path on headend",
+                                      "readOnly": true,
+                                      "minLength": 0,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]*",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "preference": {
+                                      "description": "Candidate path preference",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "is-valid": {
+                                      "description": "Specifies the state of candidate path",
+                                      "readOnly": true,
+                                      "type": "boolean",
+                                      "mandatory": false
+                                    },
+                                    "non-selection-reason": {
+                                      "description": "Specifies the inactive reason for candidate path",
+                                      "readOnly": true,
+                                      "pattern": "[^?'=,>|]*",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "is-best-candidate-path": {
+                                      "description": "Specifies the whether it is best candidate path",
+                                      "readOnly": true,
+                                      "type": "boolean",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "forwarding-paths": {
+                                  "description": "Top level container for SR Policy candidate forwarding paths",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "forwarding-path": {
+                                      "description": "SR policy candidate path forwarding path",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "state": {
+                                          "description": "SR policy forwarding path table",
+                                          "readOnly": true,
+                                          "type": "object",
+                                          "properties": {
+                                            "path-id": {
+                                              "description": "Specifies the forwarding path ID",
+                                              "readOnly": true,
+                                              "type": "number",
+                                              "minimum": 0,
+                                              "maximum": 255,
+                                              "mandatory": false
+                                            },
+                                            "next-hop-address": {
+                                              "description": "Specifies the IP address of next hop",
+                                              "readOnly": true,
+                                              "oneOf": [
+                                                {
+                                                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                  "type": "string"
+                                                },
+                                                {
+                                                  "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                  "type": "string"
+                                                }
+                                              ],
+                                              "mandatory": false
+                                            },
+                                            "outgoing-interface": {
+                                              "description": "Specifies the outgoing interface",
+                                              "readOnly": true,
+                                              "minLength": 1,
+                                              "maxLength": 1965,
+                                              "pattern": "[^?' =,>|]+",
+                                              "type": "string",
+                                              "mandatory": false
+                                            },
+                                            "path-type": {
+                                              "description": "Specifies the path type",
+                                              "readOnly": true,
+                                              "minLength": 1,
+                                              "maxLength": 1965,
+                                              "pattern": "[^?' =,>|]+",
+                                              "type": "string",
+                                              "mandatory": false
+                                            }
+                                          }
+                                        },
+                                        "label-stack": {
+                                          "description": "SR policy forwarding path label stack",
+                                          "readOnly": true,
+                                          "type": "object",
+                                          "properties": {
+                                            "labels": {
+                                              "description": "SR policy forwarding path labels",
+                                              "readOnly": true,
+                                              "type": "object",
+                                              "properties": {
+                                                "state": {
+                                                  "description": "SR policy label stack table",
+                                                  "readOnly": true,
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "label": {
+                                                      "description": "Specifies the label",
+                                                      "readOnly": true,
+                                                      "minLength": 1,
+                                                      "maxLength": 1965,
+                                                      "pattern": "[^?' =,>|]+",
+                                                      "type": "string",
+                                                      "mandatory": false
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "dynamic": {
+                                  "description": "Candidate path with dynamic computed segment-list",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "config": {
+                                      "description": "Dynamic CP config container",
+                                      "readOnly": false,
+                                      "type": "object",
+                                      "properties": {
+                                        "pcep": {
+                                          "description": "Dynamic candidate path properties of PCEP",
+                                          "readOnly": false,
+                                          "type": "array",
+                                          "items": {
+                                            "type": "null"
+                                          },
+                                          "maxItems": 1,
+                                          "mandatory": false
+                                        },
+                                        "isis": {
+                                          "description": "Dynamic candidate path properties of ISIS",
+                                          "readOnly": false,
+                                          "minLength": 0,
+                                          "maxLength": 1965,
+                                          "pattern": "[^?' =,>|]*",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "ospf": {
+                                          "description": "Dynamic candidate path properties of OSPF with process-id",
+                                          "readOnly": false,
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "type": "number",
+                                          "mandatory": false
+                                        },
+                                        "ospf-empty": {
+                                          "description": "Dynamic candidate path properties of OSPF without process-id",
+                                          "readOnly": false,
+                                          "type": "array",
+                                          "items": {
+                                            "type": "null"
+                                          },
+                                          "maxItems": 1,
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "state": {
+                                      "description": "Dynamic CP state container",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "pcep": {
+                                          "description": "Dynamic candidate path properties of PCEP",
+                                          "readOnly": true,
+                                          "type": "array",
+                                          "items": {
+                                            "type": "null"
+                                          },
+                                          "maxItems": 1,
+                                          "mandatory": false
+                                        },
+                                        "isis": {
+                                          "description": "Dynamic candidate path properties of ISIS",
+                                          "readOnly": true,
+                                          "minLength": 0,
+                                          "maxLength": 1965,
+                                          "pattern": "[^?' =,>|]*",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "ospf": {
+                                          "description": "Dynamic candidate path properties of OSPF with process-id",
+                                          "readOnly": true,
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "type": "number",
+                                          "mandatory": false
+                                        },
+                                        "ospf-empty": {
+                                          "description": "Dynamic candidate path properties of OSPF without process-id",
+                                          "readOnly": true,
+                                          "type": "array",
+                                          "items": {
+                                            "type": "null"
+                                          },
+                                          "maxItems": 1,
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "constraints": {
+                                      "description": "constraints for candidate path which needs to be satisfied by    computation engine when calculating a segment-list for the cp",
+                                      "readOnly": false,
+                                      "type": "object",
+                                      "properties": {
+                                        "config": {
+                                          "description": "constraint config container",
+                                          "readOnly": false,
+                                          "type": "object",
+                                          "properties": {
+                                            "enable": {
+                                              "description": "Enable constraints for the candidate path",
+                                              "readOnly": false,
+                                              "type": "array",
+                                              "items": {
+                                                "type": "null"
+                                              },
+                                              "maxItems": 1,
+                                              "mandatory": true
+                                            }
+                                          }
+                                        },
+                                        "state": {
+                                          "description": "constraint state container",
+                                          "readOnly": true,
+                                          "type": "object",
+                                          "properties": {
+                                            "enable": {
+                                              "description": "Enable constraints for the candidate path",
+                                              "readOnly": true,
+                                              "type": "array",
+                                              "items": {
+                                                "type": "null"
+                                              },
+                                              "maxItems": 1,
+                                              "mandatory": true
+                                            }
+                                          }
+                                        },
+                                        "admin-groups": {
+                                          "description": "CP constraint admin-group",
+                                          "readOnly": false,
+                                          "type": "object",
+                                          "properties": {
+                                            "admin-group": {
+                                              "description": "list of affinity admin group",
+                                              "readOnly": false,
+                                              "type": "array",
+                                              "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "admin-group-name": {
+                                                    "description": "admin group name",
+                                                    "readOnly": false,
+                                                    "path": "../config/admin-group-name",
+                                                    "type": "string",
+                                                    "mandatory": false
+                                                  },
+                                                  "config": {
+                                                    "description": "configuration container for affinity admin group",
+                                                    "readOnly": false,
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "affinity-type": {
+                                                        "description": "Use this attribute to configure the type is include-any or include-all or exclude-any",
+                                                        "readOnly": false,
+                                                        "enum": [
+                                                          "exclude-any",
+                                                          "include-any",
+                                                          "include-all"
+                                                        ],
+                                                        "mandatory": false
+                                                      },
+                                                      "admin-group-name": {
+                                                        "description": "Affinity admin-group name",
+                                                        "readOnly": false,
+                                                        "minLength": 1,
+                                                        "maxLength": 1965,
+                                                        "pattern": "[^?' =,>|]+",
+                                                        "type": "string",
+                                                        "mandatory": false
+                                                      }
+                                                    }
+                                                  },
+                                                  "state": {
+                                                    "description": "state container for admin group",
+                                                    "readOnly": true,
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "affinity-type": {
+                                                        "description": "Use this attribute to configure the type is include-any or include-all or exclude-any",
+                                                        "readOnly": true,
+                                                        "enum": [
+                                                          "exclude-any",
+                                                          "include-any",
+                                                          "include-all"
+                                                        ],
+                                                        "mandatory": false
+                                                      },
+                                                      "admin-group-name": {
+                                                        "description": "Affinity admin-group name",
+                                                        "readOnly": true,
+                                                        "minLength": 1,
+                                                        "maxLength": 1965,
+                                                        "pattern": "[^?' =,>|]+",
+                                                        "type": "string",
+                                                        "mandatory": false
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "keyFields": [
+                                                  "admin-group-name"
+                                                ]
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "bounds": {
+                                          "description": "Upper-bound constraints container",
+                                          "readOnly": false,
+                                          "type": "object",
+                                          "properties": {
+                                            "bound": {
+                                              "description": "Upper-bound constraints on the computed dynamic path",
+                                              "readOnly": false,
+                                              "type": "array",
+                                              "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "metric-type": {
+                                                    "description": "Metric type can be IGP or TE",
+                                                    "readOnly": false,
+                                                    "path": "../config/metric-type",
+                                                    "type": "string",
+                                                    "mandatory": false
+                                                  },
+                                                  "config": {
+                                                    "description": "Bounds config container",
+                                                    "readOnly": false,
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "metric-type": {
+                                                        "description": "Metric type to be used for path computation for this dynamic cp",
+                                                        "readOnly": false,
+                                                        "enum": [
+                                                          "igp",
+                                                          "te"
+                                                        ],
+                                                        "mandatory": false
+                                                      },
+                                                      "bound": {
+                                                        "description": "Path is invalid if its metric exceeds this value, If no value is specified",
+                                                        "readOnly": false,
+                                                        "minimum": 1,
+                                                        "maximum": 4294967295,
+                                                        "type": "number",
+                                                        "mandatory": false
+                                                      },
+                                                      "segment-bound": {
+                                                        "description": "Path is invalid if it has more segments than this value",
+                                                        "readOnly": false,
+                                                        "type": "number",
+                                                        "minimum": 0,
+                                                        "maximum": 4294967295,
+                                                        "mandatory": false
+                                                      }
+                                                    }
+                                                  },
+                                                  "state": {
+                                                    "description": "Bounds State container",
+                                                    "readOnly": true,
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "metric-type": {
+                                                        "description": "Metric type to be used for path computation for this dynamic cp",
+                                                        "readOnly": true,
+                                                        "enum": [
+                                                          "igp",
+                                                          "te"
+                                                        ],
+                                                        "mandatory": false
+                                                      },
+                                                      "bound": {
+                                                        "description": "Path is invalid if its metric exceeds this value, If no value is specified",
+                                                        "readOnly": true,
+                                                        "minimum": 1,
+                                                        "maximum": 4294967295,
+                                                        "type": "number",
+                                                        "mandatory": false
+                                                      },
+                                                      "segment-bound": {
+                                                        "description": "Path is invalid if it has more segments than this value",
+                                                        "readOnly": true,
+                                                        "type": "number",
+                                                        "minimum": 0,
+                                                        "maximum": 4294967295,
+                                                        "mandatory": false
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "keyFields": [
+                                                  "metric-type"
+                                                ]
+                                              },
+                                              "maxItems": 1
+                                            }
+                                          }
+                                        },
+                                        "ip": {
+                                          "description": "IP constraints to be used for dynamic candidate path",
+                                          "readOnly": false,
+                                          "type": "object",
+                                          "properties": {
+                                            "include-hop": {
+                                              "description": "All the ip constriants should be included for the path computation",
+                                              "readOnly": false,
+                                              "type": "array",
+                                              "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "address": {
+                                                    "description": "Hop address which needs toincluded in the LSP",
+                                                    "readOnly": false,
+                                                    "path": "../config/address",
+                                                    "type": "string",
+                                                    "mandatory": false
+                                                  },
+                                                  "config": {
+                                                    "description": "include-hop config container",
+                                                    "readOnly": false,
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "address": {
+                                                        "description": "Hop address which needs toincluded in the LSP",
+                                                        "readOnly": false,
+                                                        "oneOf": [
+                                                          {
+                                                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                            "type": "string"
+                                                          },
+                                                          {
+                                                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                            "type": "string"
+                                                          }
+                                                        ],
+                                                        "mandatory": false
+                                                      },
+                                                      "type": {
+                                                        "description": "Type of the constraints whether it is node or loose or it is a link or strict, It is highly recomeneded to use strict fro link constraint",
+                                                        "readOnly": false,
+                                                        "enum": [
+                                                          "loose",
+                                                          "strict"
+                                                        ],
+                                                        "mandatory": false
+                                                      }
+                                                    }
+                                                  },
+                                                  "state": {
+                                                    "description": "include-hop state container",
+                                                    "readOnly": true,
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "address": {
+                                                        "description": "Hop address which needs toincluded in the LSP",
+                                                        "readOnly": true,
+                                                        "oneOf": [
+                                                          {
+                                                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                            "type": "string"
+                                                          },
+                                                          {
+                                                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                            "type": "string"
+                                                          }
+                                                        ],
+                                                        "mandatory": false
+                                                      },
+                                                      "type": {
+                                                        "description": "Type of the constraints whether it is node or loose or it is a link or strict, It is highly recomeneded to use strict fro link constraint",
+                                                        "readOnly": true,
+                                                        "enum": [
+                                                          "loose",
+                                                          "strict"
+                                                        ],
+                                                        "mandatory": false
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "keyFields": [
+                                                  "address"
+                                                ]
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "explicit": {
+                                  "description": "Candidate path with explicitly defined set of segment-list",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "segment-lists": {
+                                      "description": "Path segment list(s) properties",
+                                      "readOnly": false,
+                                      "type": "object",
+                                      "properties": {
+                                        "segment-list": {
+                                          "description": "SR policy candidate path segment lists",
+                                          "readOnly": false,
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "list-name": {
+                                                "description": "Reference to segment-list name",
+                                                "readOnly": false,
+                                                "path": "../config/list-name",
+                                                "type": "string",
+                                                "mandatory": false
+                                              },
+                                              "config": {
+                                                "description": "Configuration state for SR policy candidate path segment lists",
+                                                "readOnly": false,
+                                                "type": "object",
+                                                "properties": {
+                                                  "list-name": {
+                                                    "description": "Segment-list name",
+                                                    "readOnly": false,
+                                                    "minLength": 1,
+                                                    "maxLength": 1965,
+                                                    "pattern": "[^?' =,>|]+",
+                                                    "type": "string",
+                                                    "mandatory": false
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "keyFields": [
+                                              "list-name"
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "discriminator",
+                                "protocol-origin",
+                                "originator"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "SR policy state container",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "statistics": {
+                            "description": "Segment Routing Policy packet stats",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "tx-bytes": {
+                                "description": "SR Policy statistics Tx Bytes",
+                                "readOnly": true,
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "rx-bytes": {
+                                "description": "SR Policy statistics Rx Bytes",
+                                "readOnly": true,
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "tx-packets": {
+                                "description": "SR Policy statistics Tx Packets",
+                                "readOnly": true,
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "rx-packets": {
+                                "description": "SR Policy statistics Rx Packets",
+                                "readOnly": true,
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "name": {
+                            "description": "User friendly name of the SR Policy",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "admin-state": {
+                            "description": "SR policy administrative state, true for enabled, false for disabled",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "explicit-null": {
+                            "description": "To set explicit null behaviour for the policy",
+                            "readOnly": true,
+                            "enum": [
+                              "ipv4"
+                            ],
+                            "mandatory": false
+                          },
+                          "cspf-retry-limit": {
+                            "description": "Limit on the number of times a dynamic candidate path will retry to calculate segment-list",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "cspf-retry-interval": {
+                            "description": "Interval between two successive retries for calculating segment list of a dynamic candidate path using CSPF",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 600,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "entropy-erld": {
+                            "description": "Setting Policy Entropy ERLD Value to Enable Policy Entropy Capability",
+                            "readOnly": true,
+                            "minimum": 3,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "pce-lsp-delegate": {
+                            "description": "To delegate all the configured candidate path of policy to PCE controller",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "pce-state-report": {
+                            "description": "To only report all the configured candidate path of policy to PCE controller",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "pce-entity-id": {
+                            "description": "Entity Id of PCEP entity to which this policy should be queried/reported/delegated",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "bsid-value": {
+                            "description": "configurable value for static binding sid",
+                            "readOnly": true,
+                            "minimum": 16,
+                            "maximum": 15999,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "oper-state": {
+                            "description": "SR policy operational state",
+                            "readOnly": true,
+                            "enum": [
+                              "up",
+                              "down"
+                            ],
+                            "mandatory": false
+                          },
+                          "transition-count": {
+                            "description": "Indicates number of up/down transitions",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "up-time": {
+                            "description": "Policy up time in seconds",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "((([0-1]?[0-9])|(2[0-3])):[0-5][0-9]:[0-5][0-9])|([0-9]+d(([0-1][0-9])|(2[0-3]))h[0-5][0-9]m)",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "down-time": {
+                            "description": "Policy down time in seconds",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "((([0-1]?[0-9])|(2[0-3])):[0-5][0-9]:[0-5][0-9])|([0-9]+d(([0-1][0-9])|(2[0-3]))h[0-5][0-9]m)",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "bsid-alloc-mode": {
+                            "description": "SR Policy Binding SID alloc mode",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "bsid-oper-state": {
+                            "description": "SR Policy Binding SID operational state",
+                            "readOnly": true,
+                            "enum": [
+                              "pending",
+                              "programmed",
+                              "conflict"
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "name"
+                    ]
+                  }
+                }
+              }
+            },
+            "on-demand-nexthops": {
+              "description": "Top level container for On-Demand Nexthops",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "on-demand-nexthop": {
+                  "description": "SR On Demand Nexthop",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "color": {
+                        "description": "Color associated with ODN",
+                        "readOnly": false,
+                        "path": "../config/color",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "On-demand-nexthop config container",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "color": {
+                            "description": "Color associated with ODN",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 4294967295,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "cspf-retry-limit": {
+                            "description": "Limit on the number of times a dynamic candidate path will retry to calculate segment-list",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "cspf-retry-interval": {
+                            "description": "Interval between two successive retries for calculating segment list of a dynamic candidate path using CSPF",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 600,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "pce-lsp-delegate": {
+                            "description": "To delegate all the configured candidate path of policy to PCE controller",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "pce-state-report": {
+                            "description": "To only report all the configured candidate path of policy to PCE controller",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "pce-entity-id": {
+                            "description": "Entity Id of PCEP entity to which this policy should be queried/reported/delegated",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "binding-sid-label": {
+                            "description": "Configurable Value for static binding SID",
+                            "readOnly": false,
+                            "minimum": 16,
+                            "maximum": 15999,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "On-demand-nexthop state container",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "color": {
+                            "description": "Color associated with ODN",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 4294967295,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "cspf-retry-limit": {
+                            "description": "Limit on the number of times a dynamic candidate path will retry to calculate segment-list",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "cspf-retry-interval": {
+                            "description": "Interval between two successive retries for calculating segment list of a dynamic candidate path using CSPF",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 600,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "pce-lsp-delegate": {
+                            "description": "To delegate all the configured candidate path of policy to PCE controller",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "pce-state-report": {
+                            "description": "To only report all the configured candidate path of policy to PCE controller",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "pce-entity-id": {
+                            "description": "Entity Id of PCEP entity to which this policy should be queried/reported/delegated",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 255,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "binding-sid-label": {
+                            "description": "Configurable Value for static binding SID",
+                            "readOnly": true,
+                            "minimum": 16,
+                            "maximum": 15999,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "candidate-paths": {
+                        "description": "On-demand-nexthop candidate path(s)",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "candidate-path": {
+                            "description": "On-demand-nexthop Candidate path(s) list entry",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "discriminator": {
+                                  "description": "Candidate path distinguisher, it's taken as a unique identifier for a Local candidate path",
+                                  "readOnly": false,
+                                  "path": "../config/discriminator",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "protocol-origin": {
+                                  "description": "Instantiation mechanism used to create the candidate path",
+                                  "readOnly": false,
+                                  "path": "../config/protocol-origin",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "originator": {
+                                  "description": "Identifier (concatenation of ASN and node-address) of the node that signalled/instantiated the candidate path on headend",
+                                  "readOnly": false,
+                                  "path": "../config/originator",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "On-demand-nexthop config container",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "discriminator": {
+                                      "description": "Candidate path distinguisher, it's taken as a unique identifier for a Local candidate path",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "protocol-origin": {
+                                      "description": "Instantiation mechanism used to create the candidate path",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "pcep",
+                                        "bgp",
+                                        "local"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "originator": {
+                                      "description": "Identifier (concatenation of ASN and node-address) of the node that signalled/instantiated the candidate path on headend",
+                                      "readOnly": false,
+                                      "minLength": 0,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]*",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "preference": {
+                                      "description": "Candidate path preference",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "On-demand-nexthop candidate path state container",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "discriminator": {
+                                      "description": "Candidate path distinguisher, it's taken as a unique identifier for a Local candidate path",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "protocol-origin": {
+                                      "description": "Instantiation mechanism used to create the candidate path",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "pcep",
+                                        "bgp",
+                                        "local"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "originator": {
+                                      "description": "Identifier (concatenation of ASN and node-address) of the node that signalled/instantiated the candidate path on headend",
+                                      "readOnly": true,
+                                      "minLength": 0,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]*",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "preference": {
+                                      "description": "Candidate path preference",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "dynamic": {
+                                  "description": "Candidate path with dynamic computed segment-list",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "config": {
+                                      "description": "Dynamic CP config container",
+                                      "readOnly": false,
+                                      "type": "object",
+                                      "properties": {
+                                        "pcep": {
+                                          "description": "Dynamic candidate path properties of PCEP",
+                                          "readOnly": false,
+                                          "type": "array",
+                                          "items": {
+                                            "type": "null"
+                                          },
+                                          "maxItems": 1,
+                                          "mandatory": false
+                                        },
+                                        "isis-instance-id": {
+                                          "description": "Dynamic candidate path properties of ISIS",
+                                          "readOnly": false,
+                                          "minLength": 0,
+                                          "maxLength": 1965,
+                                          "pattern": "[^?' =,>|]*",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "ospf-process-id": {
+                                          "description": "Dynamic candidate path properties of OSPF with process-id",
+                                          "readOnly": false,
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "type": "number",
+                                          "mandatory": false
+                                        },
+                                        "ospf-empty": {
+                                          "description": "Dynamic candidate path properties of OSPF without process-id",
+                                          "readOnly": false,
+                                          "type": "array",
+                                          "items": {
+                                            "type": "null"
+                                          },
+                                          "maxItems": 1,
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "state": {
+                                      "description": "Dynamic CP state container",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "pcep": {
+                                          "description": "Dynamic candidate path properties of PCEP",
+                                          "readOnly": true,
+                                          "type": "array",
+                                          "items": {
+                                            "type": "null"
+                                          },
+                                          "maxItems": 1,
+                                          "mandatory": false
+                                        },
+                                        "isis-instance-id": {
+                                          "description": "Dynamic candidate path properties of ISIS",
+                                          "readOnly": true,
+                                          "minLength": 0,
+                                          "maxLength": 1965,
+                                          "pattern": "[^?' =,>|]*",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "ospf-process-id": {
+                                          "description": "Dynamic candidate path properties of OSPF with process-id",
+                                          "readOnly": true,
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "type": "number",
+                                          "mandatory": false
+                                        },
+                                        "ospf-empty": {
+                                          "description": "Dynamic candidate path properties of OSPF without process-id",
+                                          "readOnly": true,
+                                          "type": "array",
+                                          "items": {
+                                            "type": "null"
+                                          },
+                                          "maxItems": 1,
+                                          "mandatory": false
+                                        }
+                                      }
+                                    },
+                                    "constraints": {
+                                      "description": "constraints for candidate path which needs to be satisfied by    computation engine when calculating the cp",
+                                      "readOnly": false,
+                                      "type": "object",
+                                      "properties": {
+                                        "config": {
+                                          "description": "constraint config container",
+                                          "readOnly": false,
+                                          "type": "object",
+                                          "properties": {
+                                            "enable": {
+                                              "description": "Enable constraints for the candidate path",
+                                              "readOnly": false,
+                                              "type": "array",
+                                              "items": {
+                                                "type": "null"
+                                              },
+                                              "maxItems": 1,
+                                              "mandatory": true
+                                            }
+                                          }
+                                        },
+                                        "state": {
+                                          "description": "constraint state container",
+                                          "readOnly": true,
+                                          "type": "object",
+                                          "properties": {
+                                            "enable": {
+                                              "description": "Enable constraints for the candidate path",
+                                              "readOnly": true,
+                                              "type": "array",
+                                              "items": {
+                                                "type": "null"
+                                              },
+                                              "maxItems": 1,
+                                              "mandatory": true
+                                            }
+                                          }
+                                        },
+                                        "affinity-admin-groups": {
+                                          "description": "CP constraint admin-group",
+                                          "readOnly": false,
+                                          "type": "object",
+                                          "properties": {
+                                            "affinity-admin-group": {
+                                              "description": "list of affinity admin group",
+                                              "readOnly": false,
+                                              "type": "array",
+                                              "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "admin-group-name": {
+                                                    "description": "admin group name",
+                                                    "readOnly": false,
+                                                    "path": "../config/admin-group-name",
+                                                    "type": "string",
+                                                    "mandatory": false
+                                                  },
+                                                  "config": {
+                                                    "description": "configuration container for affinity admin group",
+                                                    "readOnly": false,
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "affinity-type": {
+                                                        "description": "Use this attribute to configure the type is include-any or include-all or exclude-any",
+                                                        "readOnly": false,
+                                                        "enum": [
+                                                          "exclude-any",
+                                                          "include-any",
+                                                          "include-all"
+                                                        ],
+                                                        "mandatory": false
+                                                      },
+                                                      "admin-group-name": {
+                                                        "description": "Affinity admin-group name",
+                                                        "readOnly": false,
+                                                        "minLength": 1,
+                                                        "maxLength": 1965,
+                                                        "pattern": "[^?' =,>|]+",
+                                                        "type": "string",
+                                                        "mandatory": false
+                                                      }
+                                                    }
+                                                  },
+                                                  "state": {
+                                                    "description": "state container for admin group",
+                                                    "readOnly": true,
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "affinity-type": {
+                                                        "description": "Use this attribute to configure the type is include-any or include-all or exclude-any",
+                                                        "readOnly": true,
+                                                        "enum": [
+                                                          "exclude-any",
+                                                          "include-any",
+                                                          "include-all"
+                                                        ],
+                                                        "mandatory": false
+                                                      },
+                                                      "admin-group-name": {
+                                                        "description": "Affinity admin-group name",
+                                                        "readOnly": true,
+                                                        "minLength": 1,
+                                                        "maxLength": 1965,
+                                                        "pattern": "[^?' =,>|]+",
+                                                        "type": "string",
+                                                        "mandatory": false
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "keyFields": [
+                                                  "admin-group-name"
+                                                ]
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "bounds": {
+                                          "description": "Upper-bound constraints container",
+                                          "readOnly": false,
+                                          "type": "object",
+                                          "properties": {
+                                            "bound": {
+                                              "description": "Upper-bound constraints on the computed dynamic path",
+                                              "readOnly": false,
+                                              "type": "array",
+                                              "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "metric-type": {
+                                                    "description": "Metric type can be IGP or TE",
+                                                    "readOnly": false,
+                                                    "path": "../config/metric-type",
+                                                    "type": "string",
+                                                    "mandatory": false
+                                                  },
+                                                  "config": {
+                                                    "description": "Bounds config container",
+                                                    "readOnly": false,
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "metric-type": {
+                                                        "description": "Metric type to be used for path computation for this dynamic cp",
+                                                        "readOnly": false,
+                                                        "enum": [
+                                                          "igp",
+                                                          "te"
+                                                        ],
+                                                        "mandatory": false
+                                                      },
+                                                      "bound": {
+                                                        "description": "Path is invalid if its metric exceeds this value, If no value is specified",
+                                                        "readOnly": false,
+                                                        "minimum": 1,
+                                                        "maximum": 4294967295,
+                                                        "type": "number",
+                                                        "mandatory": false
+                                                      }
+                                                    }
+                                                  },
+                                                  "state": {
+                                                    "description": "Bounds State container",
+                                                    "readOnly": true,
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "metric-type": {
+                                                        "description": "Metric type to be used for path computation for this dynamic cp",
+                                                        "readOnly": true,
+                                                        "enum": [
+                                                          "igp",
+                                                          "te"
+                                                        ],
+                                                        "mandatory": false
+                                                      },
+                                                      "bound": {
+                                                        "description": "Path is invalid if its metric exceeds this value, If no value is specified",
+                                                        "readOnly": true,
+                                                        "minimum": 1,
+                                                        "maximum": 4294967295,
+                                                        "type": "number",
+                                                        "mandatory": false
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "keyFields": [
+                                                  "metric-type"
+                                                ]
+                                              },
+                                              "maxItems": 1
+                                            }
+                                          }
+                                        },
+                                        "ip": {
+                                          "description": "IP constraints to be used for dynamic candidate path",
+                                          "readOnly": false,
+                                          "type": "object",
+                                          "properties": {
+                                            "include-hops": {
+                                              "description": "include-hops container",
+                                              "readOnly": false,
+                                              "type": "object",
+                                              "properties": {
+                                                "include-hop": {
+                                                  "description": "All the ip constriants should be included for the path computation",
+                                                  "readOnly": false,
+                                                  "type": "array",
+                                                  "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "address": {
+                                                        "description": "Hop address which needs toincluded in the LSP",
+                                                        "readOnly": false,
+                                                        "path": "../config/address",
+                                                        "type": "string",
+                                                        "mandatory": false
+                                                      },
+                                                      "config": {
+                                                        "description": "include-hop config container",
+                                                        "readOnly": false,
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "address": {
+                                                            "description": "Hop address which needs to be included in the LSP",
+                                                            "readOnly": false,
+                                                            "oneOf": [
+                                                              {
+                                                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                                "type": "string"
+                                                              },
+                                                              {
+                                                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                                "type": "string"
+                                                              }
+                                                            ],
+                                                            "mandatory": false
+                                                          },
+                                                          "type": {
+                                                            "description": "Type of the constraints whether it is node or loose or it is a link or strict, It is highly recomeneded to use strict fro link constraint",
+                                                            "readOnly": false,
+                                                            "enum": [
+                                                              "loose",
+                                                              "strict"
+                                                            ],
+                                                            "mandatory": false
+                                                          }
+                                                        }
+                                                      },
+                                                      "state": {
+                                                        "description": "include-hop state container",
+                                                        "readOnly": true,
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "address": {
+                                                            "description": "Hop address which needs to be included in the LSP",
+                                                            "readOnly": true,
+                                                            "oneOf": [
+                                                              {
+                                                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                                                "type": "string"
+                                                              },
+                                                              {
+                                                                "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                                                "type": "string"
+                                                              }
+                                                            ],
+                                                            "mandatory": false
+                                                          },
+                                                          "type": {
+                                                            "description": "Type of the constraints whether it is node or loose or it is a link or strict, It is highly recomeneded to use strict fro link constraint",
+                                                            "readOnly": true,
+                                                            "enum": [
+                                                              "loose",
+                                                              "strict"
+                                                            ],
+                                                            "mandatory": false
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "keyFields": [
+                                                      "address"
+                                                    ]
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "discriminator",
+                                "protocol-origin",
+                                "originator"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "color"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "srv6": {
+          "description": "SRv6 container for segment routing",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Segment routing SRv6 configuration and other CLIs inside srv6",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Enable segment routing v6",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                }
+              }
+            },
+            "state": {
+              "description": "Segment routing V6 runtime parameters",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Enable segment routing v6",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                }
+              }
+            },
+            "locators": {
+              "description": "SRv6 container for segment routing",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "Segment routing SRv6 locators configuration and other CLIs inside srv6",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "enable": {
+                      "description": "Enable segment routing v6 locator",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": true
+                    }
+                  }
+                },
+                "state": {
+                  "description": "Segment routing V6 runtime parameters",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "enable": {
+                      "description": "Enable segment routing v6 locator",
+                      "readOnly": true,
+                      "type": "array",
+                      "items": {
+                        "type": "null"
+                      },
+                      "maxItems": 1,
+                      "mandatory": true
+                    }
+                  }
+                },
+                "locator": {
+                  "description": "Properties of a locator list",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "locator-name": {
+                        "description": "Locator name",
+                        "readOnly": false,
+                        "path": "../config/locator-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Config parameters for locator-list configuration",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "locator-name": {
+                            "description": "Locator name",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "prefix": {
+                            "description": "Ipv6 Address for locator",
+                            "readOnly": false,
+                            "minLength": 0,
+                            "maxLength": 50,
+                            "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state for locator-list configuration",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "locator-name": {
+                            "description": "Locator name",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "prefix": {
+                            "description": "Ipv6 Address for locator",
+                            "readOnly": true,
+                            "minLength": 0,
+                            "maxLength": 50,
+                            "pattern": "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "uptime": {
+                            "description": "Locator up time in seconds",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "((([0-1]?[0-9])|(2[0-3])):[0-5][0-9]:[0-5][0-9])|([0-9]+d(([0-1][0-9])|(2[0-3]))h[0-5][0-9]m)",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "locator-name"
+                    ]
+                  }
+                }
+              }
+            },
+            "services-entries": {
+              "description": "Global SRV6 services entries",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "services-entry": {
+                  "description": "SRv6 services entry",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "fec-ipv4-prefix": {
+                        "description": "IPv4 prefix",
+                        "readOnly": true,
+                        "path": "../state/fec-ipv4-prefix",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "service-vrf-id": {
+                        "description": "VRF ID",
+                        "readOnly": true,
+                        "path": "../state/service-vrf-id",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "state": {
+                        "description": "State Container for SRv6 services entry",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "fec-ipv4-prefix": {
+                            "description": "SRv6 IPv4 FEC",
+                            "readOnly": true,
+                            "minLength": 0,
+                            "maxLength": 32,
+                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "service-vrf-id": {
+                            "description": "SRv6 service VRF ID",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "service-vrf-name": {
+                            "description": "SRv6 service VRF Name",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "service-type": {
+                            "description": "SRv6 service Type",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "flags": {
+                            "description": "SRv6 service flags. Possible values are - Installed and/or Uses service-mapped tunnel",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "address-family": {
+                            "description": "SRv6 service address-family",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "sid": {
+                            "description": "SRv6 service SID",
+                            "readOnly": true,
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "nexthop-ipv6-prefix": {
+                            "description": "SRv6 service nexthop ipv6 address",
+                            "readOnly": true,
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "service-policy-name": {
+                            "description": "SRv6 service Policy Name",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "fec-ipv4-prefix",
+                      "service-vrf-id"
+                    ]
+                  }
+                }
+              }
+            },
+            "transport-entries": {
+              "description": "Global SRv6 transport entries",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "transport-entry": {
+                  "description": "SRv6 transport entry",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "fec": {
+                        "description": "IPv6 prefix",
+                        "readOnly": true,
+                        "path": "../state/fec",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "state": {
+                        "description": "State container for SRv6 transport entry",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "fec": {
+                            "description": "SRv6 Transport entry Ipv6 FEC",
+                            "readOnly": true,
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "policy-name": {
+                            "description": "SRv6 Transport Entry Policy Name",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "policy-id": {
+                            "description": "SRv6 Transport Policy ID",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "transport-color": {
+                            "description": "SRv6 Policy color. Possible color values are (1-4294967295)",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "code": {
+                            "description": "SRv6 transport code. Possible Values are SELECTED or INSTALLED",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "is-primary": {
+                            "description": "SRv6 Transport entry Flag to denote, whether the entry in Primary or Not",
+                            "readOnly": true,
+                            "type": "boolean",
+                            "mandatory": false
+                          },
+                          "out-sid": {
+                            "description": "SRv6 transport outgoing segment identifier",
+                            "readOnly": true,
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "out-interface": {
+                            "description": "SRv6 transport outgoing interface name",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "nexthop": {
+                            "description": "SRv6 transport entry - nexthop Ipv6 address used for this FEC",
+                            "readOnly": true,
+                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "ftn-entries": {
+                        "description": "SRv6 transport table FTN entries",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "ftn-entry": {
+                            "description": "FTN entries per SRv6 transport entry",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "vrf-id": {
+                                  "description": "VRF ID for FTN Entry",
+                                  "readOnly": true,
+                                  "path": "../state/vrf-id",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "fec-prefix": {
+                                  "description": "FEC for FTN Entry",
+                                  "readOnly": true,
+                                  "path": "../state/fec-prefix",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "state": {
+                                  "description": "State Container for FTN entries",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "vrf-id": {
+                                      "description": "SRv6 FTN VRF ID",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    },
+                                    "fec-prefix": {
+                                      "description": "SRv6 Transport FTN Ipv4 FEC",
+                                      "readOnly": true,
+                                      "minLength": 0,
+                                      "maxLength": 18,
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "vrf-name": {
+                                      "description": "SRv6 FTN VRF Name",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "ftn-nexthop": {
+                                      "description": "SRv6 Transport FTN Next hop ipv6 address",
+                                      "readOnly": true,
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "tunnel-policy": {
+                                      "description": "SRv6 Transport FTN Policy Name",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "ftn-color": {
+                                      "description": "SRv6 Transport FTN Policy color. Possible color values are (1-4294967295)",
+                                      "readOnly": true,
+                                      "type": "number",
+                                      "minimum": 0,
+                                      "maximum": 4294967295,
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "vrf-id",
+                                "fec-prefix"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "fec"
+                    ]
+                  }
+                }
+              }
+            },
+            "manager-entries": {
+              "description": "SRv6 Manager entries",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "state": {
+                  "description": "State Container for SRv6 manager entry",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "protocol-state": {
+                      "description": "SRv6 Protocol State",
+                      "readOnly": true,
+                      "enum": [
+                        "enabled",
+                        "disabled"
+                      ],
+                      "mandatory": false
+                    },
+                    "srv6-locator-name": {
+                      "description": "SRv6 Locator Name",
+                      "readOnly": true,
+                      "minLength": 1,
+                      "maxLength": 1965,
+                      "pattern": "[^?' =,>|]+",
+                      "type": "string",
+                      "mandatory": false
+                    },
+                    "platform-capabilities-end-function": {
+                      "description": "Platform Capabilities END Function",
+                      "readOnly": true,
+                      "type": "array",
+                      "items": {
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    },
+                    "platform-capabilities-ingress-function": {
+                      "description": "platform-capabilities ingress function",
+                      "readOnly": true,
+                      "type": "array",
+                      "items": {
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    },
+                    "platform-capabilities-ingress-sr-policy": {
+                      "description": "platform capabilities sr policy",
+                      "readOnly": true,
+                      "type": "array",
+                      "items": {
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "enable/disable debug for sr-policy",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for debugging parameters",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "This attribute is used to enable/disable SR Policy debug logs",
+                  "readOnly": false,
+                  "type": "string",
+                  "bits": {
+                    "policy": "0",
+                    "cp": "1",
+                    "pce": "2"
+                  },
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational data for debugging parameters",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "This attribute is used to enable/disable SR Policy debug logs",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "policy": "0",
+                    "cp": "1",
+                    "pce": "2"
+                  },
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "This attribute is used to enable/disable SR Policy debug logs",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "policy": "0",
+                    "cp": "1",
+                    "pce": "2"
+                  },
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

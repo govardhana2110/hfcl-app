@@ -1,0 +1,6 @@
+{
+  "title": "ipi-snmp-server",
+  "description": "This module provides Simple Network Management Protocol configuration",
+  "type": "object",
+  "properties": {}
+}

@@ -1,0 +1,876 @@
+{
+  "title": "ipi-logging",
+  "description": "Syslog Configurations",
+  "type": "object",
+  "properties": {
+    "ipi-logging:logging": {
+      "description": "Logging control",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "logging-modules": {
+          "description": "Top level container for syslog modules",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "module-logging": {
+              "description": "Modules",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "module-name": {
+                    "description": "Use this attribute to set the module name of proccess to be logged.",
+                    "readOnly": false,
+                    "path": "../config/module-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "module-name": {
+                        "description": "Use this attribute to set the module name of proccess to be logged.",
+                        "readOnly": false,
+                        "enum": [
+                          "auth",
+                          "bgp",
+                          "cmm",
+                          "dvmrp",
+                          "hostp",
+                          "hsl",
+                          "isis",
+                          "ldp",
+                          "lag",
+                          "l2mrib",
+                          "mstp",
+                          "mrib",
+                          "nsm",
+                          "onm",
+                          "oam",
+                          "ospf",
+                          "ospf6",
+                          "ptp",
+                          "rip",
+                          "rmon",
+                          "pim",
+                          "rib",
+                          "vrrp",
+                          "sflow",
+                          "trill",
+                          "rsvp",
+                          "pserv",
+                          "cml",
+                          "ndd",
+                          "ripng",
+                          "vlog",
+                          "all",
+                          "synce",
+                          "pon",
+                          "pcep",
+                          "udld"
+                        ],
+                        "mandatory": false
+                      },
+                      "severity-level": {
+                        "description": "Use this attribute to set the severity level that a message for a specific module must reach before the messages is logged. Default value is 2-critical.",
+                        "readOnly": false,
+                        "enum": [
+                          "0",
+                          "1",
+                          "2",
+                          "3",
+                          "4",
+                          "5",
+                          "6",
+                          "7"
+                        ],
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "module-name": {
+                        "description": "Use this attribute to set the module name of proccess to be logged.",
+                        "readOnly": true,
+                        "enum": [
+                          "auth",
+                          "bgp",
+                          "cmm",
+                          "dvmrp",
+                          "hostp",
+                          "hsl",
+                          "isis",
+                          "ldp",
+                          "lag",
+                          "l2mrib",
+                          "mstp",
+                          "mrib",
+                          "nsm",
+                          "onm",
+                          "oam",
+                          "ospf",
+                          "ospf6",
+                          "ptp",
+                          "rip",
+                          "rmon",
+                          "pim",
+                          "rib",
+                          "vrrp",
+                          "sflow",
+                          "trill",
+                          "rsvp",
+                          "pserv",
+                          "cml",
+                          "ndd",
+                          "ripng",
+                          "vlog",
+                          "all",
+                          "synce",
+                          "pon",
+                          "pcep",
+                          "udld"
+                        ],
+                        "mandatory": false
+                      },
+                      "severity-level": {
+                        "description": "Use this attribute to set the severity level that a message for a specific module must reach before the messages is logged. Default value is 2-critical.",
+                        "readOnly": true,
+                        "enum": [
+                          "0",
+                          "1",
+                          "2",
+                          "3",
+                          "4",
+                          "5",
+                          "6",
+                          "7"
+                        ],
+                        "mandatory": true
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "module-name"
+                ]
+              }
+            }
+          }
+        },
+        "monitor-logging": {
+          "description": "Monitor logging configuration parameters",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable-logging": {
+                  "description": "Use this attribute to enable logging monitor.",
+                  "readOnly": false,
+                  "enum": [
+                    "disable",
+                    "enable"
+                  ],
+                  "mandatory": true
+                },
+                "severity-level": {
+                  "description": "Use this attribute to set severity level of logging monitor. Default value is 7-debug-details.",
+                  "readOnly": false,
+                  "enum": [
+                    "0",
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                  ],
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable-logging": {
+                  "description": "Use this attribute to enable logging monitor.",
+                  "readOnly": true,
+                  "enum": [
+                    "disable",
+                    "enable"
+                  ],
+                  "mandatory": true
+                },
+                "severity-level": {
+                  "description": "Use this attribute to set severity level of logging monitor. Default value is 7-debug-details.",
+                  "readOnly": true,
+                  "enum": [
+                    "0",
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                  ],
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "console-logging": {
+          "description": "Console logging configuration parameters",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable-logging": {
+                  "description": "Use this attribute to enable the logging console.",
+                  "readOnly": false,
+                  "enum": [
+                    "disable",
+                    "enable"
+                  ],
+                  "mandatory": true
+                },
+                "severity-level": {
+                  "description": "Use this attribute to set severity level of logging console. Default value is 2-critical.",
+                  "readOnly": false,
+                  "enum": [
+                    "0",
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                  ],
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable-logging": {
+                  "description": "Use this attribute to enable the logging console.",
+                  "readOnly": true,
+                  "enum": [
+                    "disable",
+                    "enable"
+                  ],
+                  "mandatory": true
+                },
+                "severity-level": {
+                  "description": "Use this attribute to set severity level of logging console. Default value is 2-critical.",
+                  "readOnly": true,
+                  "enum": [
+                    "0",
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                  ],
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "logfile": {
+          "description": "Log file logging configuration parameters",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "file-name": {
+                  "description": "Use this attribute to set name of the logging file.",
+                  "readOnly": false,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[a-zA-Z0-9_]*",
+                  "type": "string",
+                  "mandatory": true
+                },
+                "severity-level": {
+                  "description": "Use this attribute to set severity level of logging file. Default value is 6-debug-info.",
+                  "readOnly": false,
+                  "enum": [
+                    "0",
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                  ],
+                  "mandatory": true
+                },
+                "max-file-size": {
+                  "description": "Set size of the log file in bytes. Default value is 419430400 bytes.",
+                  "readOnly": false,
+                  "minimum": 4096,
+                  "maximum": 419430400,
+                  "type": "number",
+                  "mandatory": true
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "file-name": {
+                  "description": "Use this attribute to set name of the logging file.",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[a-zA-Z0-9_]*",
+                  "type": "string",
+                  "mandatory": true
+                },
+                "severity-level": {
+                  "description": "Use this attribute to set severity level of logging file. Default value is 6-debug-info.",
+                  "readOnly": true,
+                  "enum": [
+                    "0",
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                  ],
+                  "mandatory": true
+                },
+                "max-file-size": {
+                  "description": "Set size of the log file in bytes. Default value is 419430400 bytes.",
+                  "readOnly": true,
+                  "minimum": 4096,
+                  "maximum": 419430400,
+                  "type": "number",
+                  "mandatory": true
+                }
+              }
+            }
+          }
+        },
+        "debug-logfile": {
+          "description": "Log file logging debug configuration parameters",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "file-name": {
+                  "description": "Set name of the debug log file.",
+                  "readOnly": false,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[a-zA-Z0-9_]*",
+                  "type": "string",
+                  "mandatory": true
+                },
+                "max-file-size": {
+                  "description": "Set size of the debug log file in bytes. The default value is 4194304 bytes.",
+                  "readOnly": false,
+                  "minimum": 4096,
+                  "maximum": 4194304,
+                  "type": "number",
+                  "mandatory": true
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "file-name": {
+                  "description": "Set name of the debug log file.",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[a-zA-Z0-9_]*",
+                  "type": "string",
+                  "mandatory": true
+                },
+                "max-file-size": {
+                  "description": "Set size of the debug log file in bytes. The default value is 4194304 bytes.",
+                  "readOnly": true,
+                  "minimum": 4096,
+                  "maximum": 4194304,
+                  "type": "number",
+                  "mandatory": true
+                }
+              }
+            }
+          }
+        },
+        "syslog": {
+          "description": "Syslog configuration parameters",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable-syslog": {
+                  "description": "Use this attribute to begin logging of information to the system log and set the level to debug.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "timestamp-granularity": {
+                  "description": "Use this attribute to set the logging timestamp granularity.",
+                  "readOnly": false,
+                  "enum": [
+                    "none",
+                    "microseconds",
+                    "milliseconds",
+                    "seconds"
+                  ],
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable-syslog": {
+                  "description": "Use this attribute to begin logging of information to the system log and set the level to debug.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "timestamp-granularity": {
+                  "description": "Use this attribute to set the logging timestamp granularity.",
+                  "readOnly": true,
+                  "enum": [
+                    "none",
+                    "microseconds",
+                    "milliseconds",
+                    "seconds"
+                  ],
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "remote-logging": {
+          "description": "Top level container for remote logging feature",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "rsyslog": {
+              "description": "Remote Logging feature",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vrf": {
+                    "description": "VRF name for which the feature is being enabled",
+                    "readOnly": false,
+                    "path": "../config/vrf",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vrf": {
+                        "description": "VRF name for which the feature is being enabled",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable-rsyslog": {
+                        "description": "Enable/disable the rsyslog feature",
+                        "readOnly": false,
+                        "type": "boolean",
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "vrf": {
+                        "description": "VRF name for which the feature is being enabled",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable-rsyslog": {
+                        "description": "Enable/disable the rsyslog feature",
+                        "readOnly": true,
+                        "type": "boolean",
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "remote-servers": {
+                    "description": "Remote servers configuration",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "remote-server": {
+                        "description": "list of servers",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "address": {
+                              "description": "Use this attribute to set a syslog server. Each sys log server can be configured by address or hostname. You can configure the maximum 8 servers.",
+                              "readOnly": false,
+                              "path": "../config/address",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "address": {
+                                  "description": "Use this attribute to set a syslog server. Each syslog server can be configured by address or hostname. You can configure the maximum 8 servers.",
+                                  "readOnly": false,
+                                  "oneOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string"
+                                    }
+                                  ],
+                                  "mandatory": false
+                                },
+                                "severity": {
+                                  "description": "This atribute is used to specify the kind of messages by severity level. The default value is debug-detail. The possible values for levels are as follows: [Operator] 0-emerg; 1-alert; 2-critical; 3-error; 4-notify; 5-info [Debug] 3-error; 4-warning; 5-notif; 6-debug-info; 7-debug-detail",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "0",
+                                    "1",
+                                    "2",
+                                    "3",
+                                    "4",
+                                    "5",
+                                    "6",
+                                    "7"
+                                  ],
+                                  "mandatory": true
+                                },
+                                "port": {
+                                  "description": "Use this attribute to configure the syslog server UDP port. Default value is 514",
+                                  "readOnly": false,
+                                  "minimum": 1024,
+                                  "maximum": 65535,
+                                  "type": "number",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "address": {
+                                  "description": "Use this attribute to set a syslog server. Each syslog server can be configured by address or hostname. You can configure the maximum 8 servers.",
+                                  "readOnly": true,
+                                  "oneOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string"
+                                    }
+                                  ],
+                                  "mandatory": false
+                                },
+                                "severity": {
+                                  "description": "This atribute is used to specify the kind of messages by severity level. The default value is debug-detail. The possible values for levels are as follows: [Operator] 0-emerg; 1-alert; 2-critical; 3-error; 4-notify; 5-info [Debug] 3-error; 4-warning; 5-notif; 6-debug-info; 7-debug-detail",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "0",
+                                    "1",
+                                    "2",
+                                    "3",
+                                    "4",
+                                    "5",
+                                    "6",
+                                    "7"
+                                  ],
+                                  "mandatory": true
+                                },
+                                "port": {
+                                  "description": "Use this attribute to configure the syslog server UDP port. Default value is 514",
+                                  "readOnly": true,
+                                  "minimum": 1024,
+                                  "maximum": 65535,
+                                  "type": "number",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "address"
+                          ]
+                        },
+                        "maxItems": 8
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "vrf"
+                ]
+              },
+              "maxItems": 1
+            }
+          }
+        },
+        "global": {
+          "description": "Global rsyslog configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "remote-server-facility": {
+                  "description": "This attribute is used to specify the facility level used by syslog messages. The default value is local7. The possible values are local0, local1, local2, local3, local4, local5, local6, local7 and user.",
+                  "readOnly": false,
+                  "enum": [
+                    "local0",
+                    "local1",
+                    "local2",
+                    "local3",
+                    "local4",
+                    "local5",
+                    "local6",
+                    "local7",
+                    "user"
+                  ],
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "remote-server-facility": {
+                  "description": "This attribute is used to specify the facility level used by syslog messages. The default value is local7. The possible values are local0, local1, local2, local3, local4, local5, local6, local7 and user.",
+                  "readOnly": true,
+                  "enum": [
+                    "local0",
+                    "local1",
+                    "local2",
+                    "local3",
+                    "local4",
+                    "local5",
+                    "local6",
+                    "local7",
+                    "user"
+                  ],
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "cli-logging": {
+          "description": "Logging cli configurations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable-logging": {
+                  "description": "Use this attribute to enable/disable CLI history logs. By default CLI history is enabled.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable-logging": {
+                  "description": "Use this attribute to enable/disable CLI history logs. By default CLI history is enabled.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "max-session-limit": {
+              "description": "This container defines max limit Configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "config": {
+                  "description": "This container defines max limit Configuration",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "max-session-limit": {
+                      "description": "Use this attribute to set maximum session limit for vty.",
+                      "readOnly": false,
+                      "minimum": 1,
+                      "maximum": 40,
+                      "type": "number",
+                      "mandatory": false
+                    }
+                  }
+                },
+                "state": {
+                  "description": "This container defines max limit state",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "max-session-limit": {
+                      "description": "Use this attribute to set maximum session limit for vty.",
+                      "readOnly": true,
+                      "minimum": 1,
+                      "maximum": 40,
+                      "type": "number",
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "fault-management": {
+          "description": "Fault management configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable-fault-management": {
+                  "description": "Enable Fault Management System",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable-fault-management": {
+                  "description": "Enable Fault Management System",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

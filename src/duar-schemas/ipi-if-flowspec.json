@@ -1,0 +1,6 @@
+{
+  "title": "ipi-if-flowspec",
+  "description": "Interface level configurations for flowspec",
+  "type": "object",
+  "properties": {}
+}

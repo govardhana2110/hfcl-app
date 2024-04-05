@@ -1,0 +1,6 @@
+{
+  "title": "ipi-mpls-rib",
+  "description": "Data model for MPLS RIB",
+  "type": "object",
+  "properties": {}
+}

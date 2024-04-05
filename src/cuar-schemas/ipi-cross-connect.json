@@ -1,0 +1,6 @@
+{
+  "title": "ipi-cross-connect",
+  "description": "Cross-Connect configurations",
+  "type": "object",
+  "properties": {}
+}

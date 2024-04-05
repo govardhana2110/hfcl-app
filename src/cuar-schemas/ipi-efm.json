@@ -1,0 +1,388 @@
+{
+  "title": "ipi-efm",
+  "description": "Datamodel for Ethernet OAM on interface",
+  "type": "object",
+  "properties": {
+    "ipi-efm:ethernet-oam": {
+      "description": "Top level container for Ethernet OAM (EFM)",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "interfaces": {
+          "description": "Top level container for Ethernet OAM on each interface",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "List of interfaces on which Ethernet OAM available",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Name of the interface on which to enable Ethernet OAM.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "configuration data for Ethernet OAM on interface",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Name of the interface on which to enable Ethernet OAM.",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable": {
+                        "description": "Enable Ethernet OAM on the interface",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "mode": {
+                        "description": "Ethernet OAM mode on the interface",
+                        "readOnly": false,
+                        "enum": [
+                          "active",
+                          "passive"
+                        ],
+                        "mandatory": false
+                      },
+                      "link-lost-timeout": {
+                        "description": "Ethernet OAM link lost timer related configs",
+                        "readOnly": false,
+                        "minimum": 2,
+                        "maximum": 30,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "pdu-min-rate": {
+                        "description": "OAMPDU minimum rate per second",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 10,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "pdu-max-rate": {
+                        "description": "OAMPDU maximum rate per second",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 10,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "unidirectional-link-support": {
+                        "description": "Ethernet OAM unidirectional link support on the interface",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "remote-loopback-support": {
+                        "description": "Ethernet OAM remote loopback support on the interface",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "remote-loopback-timeout": {
+                        "description": "Ethernet OAM remote loopback timeout on the interface",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 10,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "link-monitor-support": {
+                        "description": "Ethernet OAM link monitor support on the interface",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "link-monitor-off": {
+                        "description": "Ethernet OAM link monitoring on the interface",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "link-monitor-event-log-size": {
+                        "description": "Ethernet OAM maximum event log entries on interface",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 100,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "disable-port-on-remote-failure-events": {
+                        "description": "Ethernet OAM remote failure action on interface",
+                        "readOnly": false,
+                        "type": "string",
+                        "bits": {
+                          "dying-gasp": "0",
+                          "link-fault": "1",
+                          "critical-event": "2"
+                        },
+                        "mandatory": false
+                      },
+                      "remote-loopback-start": {
+                        "description": "Ethernet OAM remote loopback trigger on interface",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Ethernet OAM config states",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Name of the interface on which to enable Ethernet OAM.",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable": {
+                        "description": "Enable Ethernet OAM on the interface",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "mode": {
+                        "description": "Ethernet OAM mode on the interface",
+                        "readOnly": true,
+                        "enum": [
+                          "active",
+                          "passive"
+                        ],
+                        "mandatory": false
+                      },
+                      "link-lost-timeout": {
+                        "description": "Ethernet OAM link lost timer related configs",
+                        "readOnly": true,
+                        "minimum": 2,
+                        "maximum": 30,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "pdu-min-rate": {
+                        "description": "OAMPDU minimum rate per second",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 10,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "pdu-max-rate": {
+                        "description": "OAMPDU maximum rate per second",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 10,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "unidirectional-link-support": {
+                        "description": "Ethernet OAM unidirectional link support on the interface",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "remote-loopback-support": {
+                        "description": "Ethernet OAM remote loopback support on the interface",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "remote-loopback-timeout": {
+                        "description": "Ethernet OAM remote loopback timeout on the interface",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 10,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "link-monitor-support": {
+                        "description": "Ethernet OAM link monitor support on the interface",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "link-monitor-off": {
+                        "description": "Ethernet OAM link monitoring on the interface",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "link-monitor-event-log-size": {
+                        "description": "Ethernet OAM maximum event log entries on interface",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 100,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "disable-port-on-remote-failure-events": {
+                        "description": "Ethernet OAM remote failure action on interface",
+                        "readOnly": true,
+                        "type": "string",
+                        "bits": {
+                          "dying-gasp": "0",
+                          "link-fault": "1",
+                          "critical-event": "2"
+                        },
+                        "mandatory": false
+                      },
+                      "remote-loopback-start": {
+                        "description": "Ethernet OAM remote loopback trigger on interface",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "if-index": {
+                        "description": "The internal interface index",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 4294967295,
+                        "mandatory": false
+                      },
+                      "interface-state": {
+                        "description": "The interface Ethernet OAM operational state",
+                        "readOnly": true,
+                        "enum": [
+                          "disabled",
+                          "link-fault",
+                          "passive-wait",
+                          "active-send-local",
+                          "send-local-remote",
+                          "send-local-remote-ok",
+                          "peering-locally-rejected",
+                          "peering-remotely-rejected",
+                          "operational",
+                          "non-operational-half-duplex"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "The debug configuration data",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "configuration data for Ethernet OAM debug configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Debugging enable configuration for Ethernet OAM",
+                  "readOnly": false,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "rx": "1",
+                    "tx": "2"
+                  },
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "PON debug states",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Debugging enable configuration for Ethernet OAM",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "rx": "1",
+                    "tx": "2"
+                  },
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Indicate current terminal debugging state for Ethernet OAM",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "rx": "1",
+                    "tx": "2"
+                  },
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

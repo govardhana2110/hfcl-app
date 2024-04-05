@@ -1,0 +1,911 @@
+{
+  "title": "ipi-synce",
+  "description": "Synchronous Ethernet configurations",
+  "type": "object",
+  "properties": {
+    "ipi-synce:synce": {
+      "description": "Synce global level information",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "globals": {
+          "description": "synce global structure",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "synce global structure for config parameters",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this command to configure Synchronous Ethernet. This command changes the mode from configure mode to configure Synchronous Ethernet mode and initializes the global Synchronous Ethernet parameters.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                },
+                "network-option": {
+                  "description": "Use this command to set the synchronization option for the internal clock that is locked in frequency to an incoming signal.",
+                  "readOnly": false,
+                  "enum": [
+                    "1",
+                    "2"
+                  ],
+                  "mandatory": false
+                },
+                "clock-selection-mode": {
+                  "description": "Use this command to determine whether to use the Quality Level (QL) as a criteria when selecting a clock",
+                  "readOnly": false,
+                  "enum": [
+                    "ql-enabled",
+                    "ql-disabled"
+                  ],
+                  "mandatory": false
+                },
+                "dpll3-select-10mhz-in": {
+                  "description": "Use this command to select/deselect dpll3 input",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "holdover-timer": {
+                  "description": "set this command to enable synce holdover (default 120 min)",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 1440,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "synce Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this command to configure Synchronous Ethernet. This command changes the mode from configure mode to configure Synchronous Ethernet mode and initializes the global Synchronous Ethernet parameters.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": true
+                },
+                "network-option": {
+                  "description": "Use this command to set the synchronization option for the internal clock that is locked in frequency to an incoming signal.",
+                  "readOnly": true,
+                  "enum": [
+                    "1",
+                    "2"
+                  ],
+                  "mandatory": false
+                },
+                "clock-selection-mode": {
+                  "description": "Use this command to determine whether to use the Quality Level (QL) as a criteria when selecting a clock",
+                  "readOnly": true,
+                  "enum": [
+                    "ql-enabled",
+                    "ql-disabled"
+                  ],
+                  "mandatory": false
+                },
+                "dpll3-select-10mhz-in": {
+                  "description": "Use this command to select/deselect dpll3 input",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "holdover-timer": {
+                  "description": "set this command to enable synce holdover (default 120 min)",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 1440,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "equipment-clock": {
+                  "description": "Equipment Clock option",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "locked-interface": {
+                  "description": "The input interface which is locked for clock synchronization",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "esmc-state": {
+                  "description": "The condition of Ethernet Synchronization Messaging Channel (ESMC) status on the associated interface.",
+                  "readOnly": true,
+                  "enum": [
+                    "Idle",
+                    "Start",
+                    "OK",
+                    "Failed",
+                    "Not-Applicable"
+                  ],
+                  "mandatory": false
+                },
+                "is-source-selected": {
+                  "description": "Whether this interface is the selected source for frequency signal",
+                  "readOnly": true,
+                  "enum": [
+                    "No",
+                    "Yes"
+                  ],
+                  "mandatory": false
+                },
+                "quality-level": {
+                  "description": "The signals Quality Level (SyncE can choose its selected frequency source based on level of signal quality or on configured Priority Number)",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "current-clock-state": {
+                  "description": "The clock state of the frequency signal on the associated interface. Either Locked or Free Running",
+                  "readOnly": true,
+                  "enum": [
+                    "Not-Applicable",
+                    "Free-run",
+                    "Holdover",
+                    "Locked",
+                    "Acquiring"
+                  ],
+                  "mandatory": false
+                },
+                "dpll-clock-state": {
+                  "description": "The clock state of the frequency signal on the associated interface in device level. Either Locked or Free Running",
+                  "readOnly": true,
+                  "enum": [
+                    "Not-Applicable",
+                    "Free-run",
+                    "Holdover",
+                    "Locked",
+                    "Acquiring"
+                  ],
+                  "mandatory": false
+                },
+                "state-duration": {
+                  "description": "Synce State Duration",
+                  "readOnly": true,
+                  "type": "string",
+                  "mandatory": false
+                },
+                "selected-clock-src-id": {
+                  "description": "Selected Clk-Src-ID",
+                  "readOnly": true,
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 4294967295,
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Top level container for interfaces, including configuration and state    data",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "SyncE interface related operations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "synce interface configurations associated interface name",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "SyncE interface for config parameters",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "synce interface configurations associated interface name",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable": {
+                        "description": "Use this command to enable Synchronous Ethernet for an interface. This command changes the mode from interface mode to interface Synchronous Ethernet mode. This command does not automatically start synchronization distribution. You must explicitly give the mode command, specifying the synchronous option",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": true
+                      },
+                      "synchronous-mode": {
+                        "description": "Use this command to configure the interface as synchronous or non-synchronous",
+                        "readOnly": false,
+                        "enum": [
+                          "synchronous",
+                          "non-synchronous"
+                        ],
+                        "mandatory": false
+                      },
+                      "input-source-priority": {
+                        "description": "Use this command to set an input timing source. Synchronization packets are received from this source and sent to the clock selection algorithm",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 255,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "is-output-source": {
+                        "description": "Use this command to configures an Ethernet interface as a timing output interface",
+                        "readOnly": false,
+                        "type": "boolean",
+                        "mandatory": false
+                      },
+                      "wait-to-restore-timer": {
+                        "description": "Use this command to set the wait-to-restore timer in minutes. The wait-to-restore time ensures that a synchronization source that previously failed is considered by the selection process again only if it is fault free for a certain time.",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 12,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "vlan-id": {
+                        "description": "use this command to configure and unconfigure the dot1q 1-4095",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 4095,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "hold-off-timer": {
+                        "description": "Use this command to set the hold-off time in milliseconds. The hold-off time ensures that short activation of signal fail is not passed to the selection process.",
+                        "readOnly": false,
+                        "minimum": 300,
+                        "maximum": 1800,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "quality-level": {
+                        "description": "Use this command to set the quality level (QL) for the timing source",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "clock-source-id": {
+                        "description": "Configure clock-source-identifier",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 255,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "clock-source-lockout": {
+                        "description": "Use this command to set or clear the lockout for a clock source. A clock source flagged as lockout is not considered by the clock selection algorithm.",
+                        "readOnly": false,
+                        "type": "boolean",
+                        "mandatory": false
+                      },
+                      "source-switch": {
+                        "description": "Use this command to forcefully or manually select a synchronization source",
+                        "readOnly": false,
+                        "enum": [
+                          "force",
+                          "manual"
+                        ],
+                        "mandatory": false
+                      },
+                      "auto-neg-mode": {
+                        "description": "Use this command to configure mode",
+                        "readOnly": false,
+                        "enum": [
+                          "master",
+                          "slave"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "SyncE interface Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "synce interface configurations associated interface name",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable": {
+                        "description": "Use this command to enable Synchronous Ethernet for an interface. This command changes the mode from interface mode to interface Synchronous Ethernet mode. This command does not automatically start synchronization distribution. You must explicitly give the mode command, specifying the synchronous option",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": true
+                      },
+                      "synchronous-mode": {
+                        "description": "Use this command to configure the interface as synchronous or non-synchronous",
+                        "readOnly": true,
+                        "enum": [
+                          "synchronous",
+                          "non-synchronous"
+                        ],
+                        "mandatory": false
+                      },
+                      "input-source-priority": {
+                        "description": "Use this command to set an input timing source. Synchronization packets are received from this source and sent to the clock selection algorithm",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 255,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "is-output-source": {
+                        "description": "Use this command to configures an Ethernet interface as a timing output interface",
+                        "readOnly": true,
+                        "type": "boolean",
+                        "mandatory": false
+                      },
+                      "wait-to-restore-timer": {
+                        "description": "Use this command to set the wait-to-restore timer in minutes. The wait-to-restore time ensures that a synchronization source that previously failed is considered by the selection process again only if it is fault free for a certain time.",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 12,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "vlan-id": {
+                        "description": "use this command to configure and unconfigure the dot1q 1-4095",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 4095,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "hold-off-timer": {
+                        "description": "Use this command to set the hold-off time in milliseconds. The hold-off time ensures that short activation of signal fail is not passed to the selection process.",
+                        "readOnly": true,
+                        "minimum": 300,
+                        "maximum": 1800,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "quality-level": {
+                        "description": "Use this command to set the quality level (QL) for the timing source",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "clock-source-id": {
+                        "description": "Configure clock-source-identifier",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 255,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "clock-source-lockout": {
+                        "description": "Use this command to set or clear the lockout for a clock source. A clock source flagged as lockout is not considered by the clock selection algorithm.",
+                        "readOnly": true,
+                        "type": "boolean",
+                        "mandatory": false
+                      },
+                      "source-switch": {
+                        "description": "Use this command to forcefully or manually select a synchronization source",
+                        "readOnly": true,
+                        "enum": [
+                          "force",
+                          "manual"
+                        ],
+                        "mandatory": false
+                      },
+                      "auto-neg-mode": {
+                        "description": "Use this command to configure mode",
+                        "readOnly": true,
+                        "enum": [
+                          "master",
+                          "slave"
+                        ],
+                        "mandatory": false
+                      },
+                      "esmc-state": {
+                        "description": "The condition of Ethernet Synchronization Messaging Channel (ESMC) status on the associated interface.",
+                        "readOnly": true,
+                        "enum": [
+                          "Idle",
+                          "Start",
+                          "OK",
+                          "Failed",
+                          "Not-Applicable"
+                        ],
+                        "mandatory": false
+                      },
+                      "is-source-selected": {
+                        "description": "Whether this interface is the selected source for frequency signal.",
+                        "readOnly": true,
+                        "enum": [
+                          "No",
+                          "Yes"
+                        ],
+                        "mandatory": false
+                      },
+                      "esmc-received": {
+                        "description": "The count of Ethernet Synchronization Messaging Channel (ESMC) packets received on this interface.",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "esmc-sent": {
+                        "description": "The count of Ethernet Synchronization Messaging Channel (ESMC) packets sent on this interface.",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "quality-level-received-esmc": {
+                        "description": "The signals Quality Level received in ESMC",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "operational-quality-level": {
+                        "description": "The Operational Quality Level (SyncE can choose its selected frequency source based on level of signal quality or on configured Priority Number)",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "configured-quality-level": {
+                        "description": "The Configured Quality Level (SyncE can choose its selected frequency source based on level of signal quality or on configured Priority Number)",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "interface-config-priority": {
+                        "description": "The configured Priority for this interface (used when selection process is based on priority rather than on oscillator frequency quality level)",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 255,
+                        "mandatory": false
+                      },
+                      "signal-fail": {
+                        "description": "Whether a synchronization source has failed",
+                        "readOnly": true,
+                        "enum": [
+                          "No",
+                          "Yes"
+                        ],
+                        "mandatory": false
+                      },
+                      "external-command": {
+                        "description": "Commands activated on SyncE interfaces that connect to external devices. Lockout keeps a signal from a connected external device from participating in the frequency source selection process. The command force causes the device to use the external synchronization signal arriving on a particular interface.",
+                        "readOnly": true,
+                        "enum": [
+                          "None",
+                          "Lockout",
+                          "Force",
+                          "Manual"
+                        ],
+                        "mandatory": false
+                      },
+                      "wtr-timer-status": {
+                        "description": "Whether WTR Timer Running",
+                        "readOnly": true,
+                        "enum": [
+                          "Not-Running",
+                          "Running"
+                        ],
+                        "mandatory": false
+                      },
+                      "hold-off-timer-status": {
+                        "description": "Hold-off Timer Running",
+                        "readOnly": true,
+                        "enum": [
+                          "Not-Running",
+                          "Running"
+                        ],
+                        "mandatory": false
+                      },
+                      "link-state": {
+                        "description": "Synce interface link state(up/down)",
+                        "readOnly": true,
+                        "enum": [
+                          "up",
+                          "down"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "external-interfaces": {
+          "description": "External Synce interfaces related operations",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "external-interface": {
+              "description": "External SyncE interface related operations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "external-synce-interface": {
+                    "description": "synce external interface name",
+                    "readOnly": false,
+                    "path": "../config/external-synce-interface",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "SyncE external interface for config parameters",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "external-synce-interface": {
+                        "description": "synce external interface name",
+                        "readOnly": false,
+                        "enum": [
+                          "gps",
+                          "10mhz-in",
+                          "ptp",
+                          "bits-t1",
+                          "bits-e1",
+                          "2mhz-in",
+                          "bits-t1-1",
+                          "bits-t1-2",
+                          "bits-t1-3",
+                          "bits-e1-1",
+                          "bits-e1-2",
+                          "bits-e1-3"
+                        ],
+                        "mandatory": false
+                      },
+                      "synchronous-mode": {
+                        "description": "Configure the synce interface mode",
+                        "readOnly": false,
+                        "enum": [
+                          "synchronous",
+                          "non-synchronous"
+                        ],
+                        "mandatory": false
+                      },
+                      "input-source-priority": {
+                        "description": "Use this command to set an input timing source. Synchronization packets are received from this source and sent to the clock selection algorithm.Use the no form of this command to delete an input source.",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 255,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "wait-to-restore-timer": {
+                        "description": "Use this command to set the wait-to-restore timer in minutes. The wait-to-restore time ensures that a synchronization source that previously failed is considered by the selection process again only if it is fault free for a certain time",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 12,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "hold-off-timer": {
+                        "description": "Use this command to set the hold-off time in milliseconds. The hold-off time ensures that short activation of signal fail is not passed to the selection process",
+                        "readOnly": false,
+                        "minimum": 300,
+                        "maximum": 1800,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "quality-level": {
+                        "description": "Use this command to set the quality level (QL) for the timing source",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "SyncE interface Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "external-synce-interface": {
+                        "description": "synce external interface name",
+                        "readOnly": true,
+                        "enum": [
+                          "gps",
+                          "10mhz-in",
+                          "ptp",
+                          "bits-t1",
+                          "bits-e1",
+                          "2mhz-in",
+                          "bits-t1-1",
+                          "bits-t1-2",
+                          "bits-t1-3",
+                          "bits-e1-1",
+                          "bits-e1-2",
+                          "bits-e1-3"
+                        ],
+                        "mandatory": false
+                      },
+                      "synchronous-mode": {
+                        "description": "Configure the synce interface mode",
+                        "readOnly": true,
+                        "enum": [
+                          "synchronous",
+                          "non-synchronous"
+                        ],
+                        "mandatory": false
+                      },
+                      "input-source-priority": {
+                        "description": "Use this command to set an input timing source. Synchronization packets are received from this source and sent to the clock selection algorithm.Use the no form of this command to delete an input source.",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 255,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "wait-to-restore-timer": {
+                        "description": "Use this command to set the wait-to-restore timer in minutes. The wait-to-restore time ensures that a synchronization source that previously failed is considered by the selection process again only if it is fault free for a certain time",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 12,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "hold-off-timer": {
+                        "description": "Use this command to set the hold-off time in milliseconds. The hold-off time ensures that short activation of signal fail is not passed to the selection process",
+                        "readOnly": true,
+                        "minimum": 300,
+                        "maximum": 1800,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "quality-level": {
+                        "description": "Use this command to set the quality level (QL) for the timing source",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "esmc-state": {
+                        "description": "The condition of Ethernet Synchronization Messaging Channel (ESMC) status on the associated interface.",
+                        "readOnly": true,
+                        "enum": [
+                          "Idle",
+                          "Start",
+                          "OK",
+                          "Failed",
+                          "Not-Applicable"
+                        ],
+                        "mandatory": false
+                      },
+                      "is-source-selected": {
+                        "description": "Whether this interface is the selected source for frequency signal.",
+                        "readOnly": true,
+                        "enum": [
+                          "No",
+                          "Yes"
+                        ],
+                        "mandatory": false
+                      },
+                      "esmc-received": {
+                        "description": "The count of Ethernet Synchronization Messaging Channel (ESMC) packets received on this interface.",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "esmc-sent": {
+                        "description": "The count of Ethernet Synchronization Messaging Channel (ESMC) packets sent on this interface.",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "quality-level-received-esmc": {
+                        "description": "The signals Quality Level received in ESMC",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "operational-quality-level": {
+                        "description": "The Operational Quality Level (SyncE can choose its selected frequency source based on level of signal quality or on configured Priority Number)",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "configured-quality-level": {
+                        "description": "The Configured Quality Level (SyncE can choose its selected frequency source based on level of signal quality or on configured Priority Number)",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "interface-config-priority": {
+                        "description": "The configured Priority for this interface (used when selection process is based on priority rather than on oscillator frequency quality level)",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 255,
+                        "mandatory": false
+                      },
+                      "signal-fail": {
+                        "description": "Whether a synchronization source has failed",
+                        "readOnly": true,
+                        "enum": [
+                          "No",
+                          "Yes"
+                        ],
+                        "mandatory": false
+                      },
+                      "external-command": {
+                        "description": "Commands activated on SyncE interfaces that connect to external devices. Lockout keeps a signal from a connected external device from participating in the frequency source selection process. The command force causes the device to use the external synchronization signal arriving on a particular interface.",
+                        "readOnly": true,
+                        "enum": [
+                          "None",
+                          "Lockout",
+                          "Force",
+                          "Manual"
+                        ],
+                        "mandatory": false
+                      },
+                      "wtr-timer-status": {
+                        "description": "Whether WTR Timer Running",
+                        "readOnly": true,
+                        "enum": [
+                          "Not-Running",
+                          "Running"
+                        ],
+                        "mandatory": false
+                      },
+                      "hold-off-timer-status": {
+                        "description": "Hold-off Timer Running",
+                        "readOnly": true,
+                        "enum": [
+                          "Not-Running",
+                          "Running"
+                        ],
+                        "mandatory": false
+                      },
+                      "link-state": {
+                        "description": "Synce interface link state(up/down)",
+                        "readOnly": true,
+                        "enum": [
+                          "up",
+                          "down"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "external-synce-interface"
+                ]
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "Container for debug",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for SyncE debug",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Use this Attribute to set or unset the SyncE debug related configurations",
+                  "readOnly": false,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "recvd": "1",
+                    "trans": "2"
+                  },
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operation data for SyncE debug",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Use this Attribute to set or unset the SyncE debug related configurations",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "recvd": "1",
+                    "trans": "2"
+                  },
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "This attribute describes the SyncE terminal debug status",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "event": "0",
+                    "recvd": "1",
+                    "trans": "2"
+                  },
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

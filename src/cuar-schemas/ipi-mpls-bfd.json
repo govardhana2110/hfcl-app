@@ -1,0 +1,6 @@
+{
+  "title": "ipi-mpls-bfd",
+  "description": "Datamodel for MPLS BFD",
+  "type": "object",
+  "properties": {}
+}

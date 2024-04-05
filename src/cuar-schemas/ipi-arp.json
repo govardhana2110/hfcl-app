@@ -1,0 +1,548 @@
+{
+  "title": "ipi-arp",
+  "description": "Address Resolution Protocol",
+  "type": "object",
+  "properties": {
+    "ipi-arp:arp": {
+      "description": "arp global level information",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "entries": {
+          "description": "static ARP entries information",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "entry": {
+              "description": "static ARP entry information",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vrf-name": {
+                    "description": "Use this attribute to create a static ARP entry with default and non-default vrf's",
+                    "readOnly": false,
+                    "path": "../config/vrf-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "ip-address": {
+                    "description": "Use this attribute to create a static ARP entry",
+                    "readOnly": false,
+                    "path": "../config/ip-address",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "static ARP entry information",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "Use this attribute to create a static ARP entry with default and non-default vrf's",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ip-address": {
+                        "description": "Use this attribute to create a static ARP entry",
+                        "readOnly": false,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mac-address": {
+                        "description": "Use this attribute to set the MAC (hardware) address of the ARP entry.",
+                        "readOnly": false,
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "respond-to-arp-request": {
+                        "description": "Use this attribute to set the response to ARP requests for the IP address",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "Use this attribute to create a static ARP entry with default and non-default vrf's",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "ip-address": {
+                        "description": "Use this attribute to create a static ARP entry",
+                        "readOnly": true,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mac-address": {
+                        "description": "Use this attribute to set the MAC (hardware) address of the ARP entry.",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "respond-to-arp-request": {
+                        "description": "Use this attribute to set the response to ARP requests for the IP address",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "arp-age": {
+                        "description": "The number of minutes before the ARP entry was refreshed. If this value reaches the ARP aging period, the entry is removed from the table. Static entries do not age out. ARP entry IP address in the device.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "interface-name": {
+                        "description": "Logical address to connect the device over network",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "physical-interface-name": {
+                        "description": "Logical address to connect the device over network",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "arp-state": {
+                        "description": "INCOMPLETE/FAILED state entries are only cleared if the total number of ARP entries is more than 2048. It might take up to 60 seconds to clear the entries. This is an optimization to improve ND performanc",
+                        "readOnly": true,
+                        "enum": [
+                          "INCOMPLETE",
+                          "REACHABLE",
+                          "STALE",
+                          "DELAY",
+                          "PROBE",
+                          "FAILED",
+                          "PERMANENT"
+                        ],
+                        "mandatory": false
+                      },
+                      "interface-state": {
+                        "description": "State (up or down) of the logical address",
+                        "readOnly": true,
+                        "enum": [
+                          "down",
+                          "up"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "vrf-name",
+                  "ip-address"
+                ]
+              }
+            }
+          }
+        },
+        "global": {
+          "description": "Arp global level icmp redirect information",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for icmp redirect global level",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "icmp-redirect": {
+                  "description": "Use this attribute to trap ICMP redirect packets to the CPU",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operation state data for icmp redirect global level",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "icmp-redirect": {
+                  "description": "Use this attribute to trap ICMP redirect packets to the CPU",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "arp debug information",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration for arp-debug",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Enable/Disable arp event debug",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Configuration for arp-ebug",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Enable/Disable arp event debug",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Enable/Disable arp event debug",
+                  "readOnly": true,
+                  "enum": [
+                    "off",
+                    "on"
+                  ],
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Top level container for arp on each interface",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "List of interfaces on which arp is enabled/available",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The textual name of the interface. The value of this object should be the name of the interface as assigned by the local device and should be suitable for use in commands entered at the device's `console'. This might be a text name, such as `le0' or a simple port number, such as `1', depending on the interface naming syntax of the device. If several entries in the ifTable together represent a single interface as named by the device, then each will have the same value of name. Note that for an agent which responds to SNMP queries concerning an interface on some other (proxied) device, then the value of name for such an interface is the proxied device's local name for it. If there is no local name, or this object is otherwise not applicable, then this object contains a zero-length string.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for ndd on each interface",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The textual name of the interface. The value of this object should be the name of the interface as assigned by the local device and should be suitable for use in commands entered at the device's `console'. This might be a text name, such as `le0' or a simple port number, such as `1', depending on the interface naming syntax of the device. If several entries in the ifTable together represent a single interface as named by the device, then each will have the same value of name. Note that for an agent which responds to SNMP queries concerning an interface on some other (proxied) device, then the value of name for such an interface is the proxied device's local name for it. If there is no local name, or this object is otherwise not applicable, then this object contains a zero-length string.",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable-proxy-arp": {
+                        "description": "Use this attribute to enable the proxy ARP feature",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "enable-local-proxy-arp": {
+                        "description": "Use this attribute to enable the local proxy ARP feature",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "enable-ip-redirects": {
+                        "description": "Use this attribute to enable ICMP redirects in kernel",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "arp-ageing-timeout": {
+                        "description": "Use this attribute to set the ARP aging timeout. The bridge aging time affects the ARP entries which are dependent upon the MAC addresses in hardware. If a MAC address ages out, it causes the corresponding ARP entry to refresh.",
+                        "readOnly": false,
+                        "minimum": 60,
+                        "maximum": 28800,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "arp-reachable-time": {
+                        "description": "Use this attribute to set the ARP reachable time.",
+                        "readOnly": false,
+                        "minimum": 10,
+                        "maximum": 3600,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The textual name of the interface. The value of this object should be the name of the interface as assigned by the local device and should be suitable for use in commands entered at the device's `console'. This might be a text name, such as `le0' or a simple port number, such as `1', depending on the interface naming syntax of the device. If several entries in the ifTable together represent a single interface as named by the device, then each will have the same value of name. Note that for an agent which responds to SNMP queries concerning an interface on some other (proxied) device, then the value of name for such an interface is the proxied device's local name for it. If there is no local name, or this object is otherwise not applicable, then this object contains a zero-length string.",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "enable-proxy-arp": {
+                        "description": "Use this attribute to enable the proxy ARP feature",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "enable-local-proxy-arp": {
+                        "description": "Use this attribute to enable the local proxy ARP feature",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "enable-ip-redirects": {
+                        "description": "Use this attribute to enable ICMP redirects in kernel",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "arp-ageing-timeout": {
+                        "description": "Use this attribute to set the ARP aging timeout. The bridge aging time affects the ARP entries which are dependent upon the MAC addresses in hardware. If a MAC address ages out, it causes the corresponding ARP entry to refresh.",
+                        "readOnly": true,
+                        "minimum": 60,
+                        "maximum": 28800,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "arp-reachable-time": {
+                        "description": "Use this attribute to set the ARP reachable time.",
+                        "readOnly": true,
+                        "minimum": 10,
+                        "maximum": 3600,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "dynamic-arp": {
+          "description": "Dyanmic arp information",
+          "readOnly": true,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "vrf-name": {
+                "description": "ARP entry associated vrf",
+                "readOnly": true,
+                "minLength": 1,
+                "maxLength": 1965,
+                "pattern": "[^?' =,>|]+",
+                "type": "string",
+                "mandatory": false
+              },
+              "entry": {
+                "description": "Dynamic ARP entry information",
+                "readOnly": true,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "ipv4-address": {
+                      "description": "ARP entry IP address in the device.",
+                      "readOnly": true,
+                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                      "type": "string",
+                      "mandatory": false
+                    },
+                    "mac-address": {
+                      "description": "Physical address of the host",
+                      "readOnly": true,
+                      "type": "string",
+                      "mandatory": false
+                    },
+                    "arp-age": {
+                      "description": "The number of minutes before the ARP entry was refreshed. If this value reaches the ARP aging period, the entry is removed from the table. Static entries do not age out. ARP entry IP address in the device.",
+                      "readOnly": true,
+                      "minLength": 1,
+                      "maxLength": 1965,
+                      "pattern": "[^?' =,>|]+",
+                      "type": "string",
+                      "mandatory": false
+                    },
+                    "interface-name": {
+                      "description": "Logical address to connect the device over network",
+                      "readOnly": true,
+                      "minLength": 1,
+                      "maxLength": 1965,
+                      "pattern": "[^?' =,>|]+",
+                      "type": "string",
+                      "mandatory": false
+                    },
+                    "physical-interface-name": {
+                      "description": "Logical address to connect the device over network",
+                      "readOnly": true,
+                      "minLength": 1,
+                      "maxLength": 1965,
+                      "pattern": "[^?' =,>|]+",
+                      "type": "string",
+                      "mandatory": false
+                    },
+                    "arp-state": {
+                      "description": "INCOMPLETE/FAILED state entries are only cleared if the total number of ARP entries is more than 2048. It might take up to 60 seconds to clear the entries. This is an optimization to improve ND performanc",
+                      "readOnly": true,
+                      "enum": [
+                        "INCOMPLETE",
+                        "REACHABLE",
+                        "STALE",
+                        "DELAY",
+                        "PROBE",
+                        "FAILED",
+                        "PERMANENT"
+                      ],
+                      "mandatory": false
+                    },
+                    "interface-state": {
+                      "description": "State (up or down) of the logical address",
+                      "readOnly": true,
+                      "enum": [
+                        "down",
+                        "up"
+                      ],
+                      "mandatory": false
+                    }
+                  },
+                  "keyFields": [
+                    "ipv4-address"
+                  ]
+                }
+              },
+              "adjacency-summary": {
+                "description": "ARP adjacency summary information",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "resolved-arp": {
+                    "description": "Count of working/known adjacencies",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "incomplete-arp": {
+                    "description": "Count of yet to be established adjacencies",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "unknown-arp": {
+                    "description": "Count of adjacencies not currently in ARP table",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "total-arp": {
+                    "description": "Total count of all adjacencies",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "vrf-name"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

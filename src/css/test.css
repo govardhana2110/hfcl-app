@@ -1,0 +1,29 @@
+.box_options{
+    width: 100%;
+    height: 85%;
+    border-radius: 16px;
+    background-color: #f7f8fa;
+    border: solid 1px #dbe1e8;
+    margin: 40px 40px 10px 40px;
+    transition: all 0.5s ease;
+    position: relative;
+    text-align: center;
+}
+.box_options:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 3px 4px rgb(60 61 62 / 50%);;
+}
+.a{
+    margin-right: 15%;
+    text-align: center;
+}
+.box_options_type{
+    height: 85%;
+    border-radius: 16px;
+    background-color: #f7f8fa;
+    border: solid 1px #dbe1e8;
+    margin: 40px 40px 10px 40px;
+    transition: all 0.5s ease;
+    position: relative;
+    text-align: center;
+}

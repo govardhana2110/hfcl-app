@@ -1,0 +1,719 @@
+{
+  "title": "ipi-network-address-translation",
+  "description": "Network Address Translation.",
+  "type": "object",
+  "properties": {
+    "ipi-network-address-translation:network-address-translation": {
+      "description": "Network Address Translation Datamodel",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "timeouts": {
+          "description": "Network Address Translation timeouts",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "IPV6 Router Advertisement Interface configuration",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "generic-timeout": {
+                  "description": "Generic time-out for NAT translations",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 536870,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "icmp-timeout": {
+                  "description": "ICMP timeout for NAT translations",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 536870,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "tcp-timeout": {
+                  "description": "TCP timeout for NAT translation",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 536870,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "udp-timeout": {
+                  "description": "UDP timeout for NAT translations",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 536870,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "tcp-fin-timeout": {
+                  "description": "TCP FIN timeout for NAT translations",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 536870,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "IPV6 Router Advertisement Interface state",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "generic-timeout": {
+                  "description": "Generic time-out for NAT translations",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 536870,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "icmp-timeout": {
+                  "description": "ICMP timeout for NAT translations",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 536870,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "tcp-timeout": {
+                  "description": "TCP timeout for NAT translation",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 536870,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "udp-timeout": {
+                  "description": "UDP timeout for NAT translations",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 536870,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "tcp-fin-timeout": {
+                  "description": "TCP FIN timeout for NAT translations",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 536870,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "ip-rules": {
+          "description": "Network Address Translation Address IP Rules",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "incoming": {
+              "description": "Network Address Translation Address IP Incomming Rules",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "source-mapping-entries": {
+                  "description": "Network Address Translation Address IP Source Rules",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "source-mapping-entry": {
+                      "description": "Network Address Translation Address IP Source Entry",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "local-address": {
+                            "description": "Network Address Translation Address local address",
+                            "readOnly": false,
+                            "path": "../config/local-address",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "global-address": {
+                            "description": "Network Address Translation Address global address",
+                            "readOnly": false,
+                            "path": "../config/global-address",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "config": {
+                            "description": "Network Address Translation Address Source configuration",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "local-address": {
+                                "description": "Network Address Translation Address local address",
+                                "readOnly": false,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "global-address": {
+                                "description": "Network Address Translation global address",
+                                "readOnly": false,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Network Address Translation Address Source state",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "local-address": {
+                                "description": "Network Address Translation Address local address",
+                                "readOnly": true,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "global-address": {
+                                "description": "Network Address Translation global address",
+                                "readOnly": true,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        },
+                        "keyFields": [
+                          "local-address",
+                          "global-address"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "destination-mapping-entries": {
+                  "description": "Network Address Translation Address IP Destination Rules",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "destination-mapping-entry": {
+                      "description": "Network Address Translation Address IP Destination entry",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "local-address": {
+                            "description": "Network Address Translation Address local address",
+                            "readOnly": false,
+                            "path": "../config/local-address",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "global-address": {
+                            "description": "Network Address Translation Address global address",
+                            "readOnly": false,
+                            "path": "../config/global-address",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "config": {
+                            "description": "Network Address Translation Address Destination configuration",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "local-address": {
+                                "description": "Network Address Translation Address local address",
+                                "readOnly": false,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "global-address": {
+                                "description": "Network Address Translation global address",
+                                "readOnly": false,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Network Address Translation Address Destination state",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "local-address": {
+                                "description": "Network Address Translation Address local address",
+                                "readOnly": true,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "global-address": {
+                                "description": "Network Address Translation global address",
+                                "readOnly": true,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        },
+                        "keyFields": [
+                          "local-address",
+                          "global-address"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "outgoing": {
+              "description": "Network Address Translation Address IP Outgoing Rules",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "source-mapping-entries": {
+                  "description": "Network Address Translation Address IP Source Rules",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "source-mapping-entry": {
+                      "description": "Network Address Translation Address IP Source Entry",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "local-address": {
+                            "description": "Network Address Translation Address local address",
+                            "readOnly": false,
+                            "path": "../config/local-address",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "global-address": {
+                            "description": "Network Address Translation Address global address",
+                            "readOnly": false,
+                            "path": "../config/global-address",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "config": {
+                            "description": "Network Address Translation Address Source configuration",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "local-address": {
+                                "description": "Network Address Translation Address local address",
+                                "readOnly": false,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "global-address": {
+                                "description": "Network Address Translation global address",
+                                "readOnly": false,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Network Address Translation Address Source state",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "local-address": {
+                                "description": "Network Address Translation Address local address",
+                                "readOnly": true,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "global-address": {
+                                "description": "Network Address Translation global address",
+                                "readOnly": true,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        },
+                        "keyFields": [
+                          "local-address",
+                          "global-address"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "destination-mapping-entries": {
+                  "description": "Network Address Translation Address IP Destination Rules",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "destination-mapping-entry": {
+                      "description": "Network Address Translation Address IP Destination entry",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "local-address": {
+                            "description": "Network Address Translation Address local address",
+                            "readOnly": false,
+                            "path": "../config/local-address",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "global-address": {
+                            "description": "Network Address Translation Address global address",
+                            "readOnly": false,
+                            "path": "../config/global-address",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "config": {
+                            "description": "Network Address Translation Address Destination configuration",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "local-address": {
+                                "description": "Network Address Translation Address local address",
+                                "readOnly": false,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "global-address": {
+                                "description": "Network Address Translation global address",
+                                "readOnly": false,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Network Address Translation Address Destination state",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "local-address": {
+                                "description": "Network Address Translation Address local address",
+                                "readOnly": true,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "global-address": {
+                                "description": "Network Address Translation global address",
+                                "readOnly": true,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        },
+                        "keyFields": [
+                          "local-address",
+                          "global-address"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "protocol-rule-mapping-entries": {
+                  "description": "Network Address Translation Address IP Protocol Rules",
+                  "readOnly": false,
+                  "type": "object",
+                  "properties": {
+                    "protocol-rule-mapping-entry": {
+                      "description": "Network Address Translation Address IP Protocol entry",
+                      "readOnly": false,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "protocol": {
+                            "description": "Network Address Translation protocol",
+                            "readOnly": false,
+                            "path": "../config/protocol",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "local-address": {
+                            "description": "Network Address Translation Address local address",
+                            "readOnly": false,
+                            "path": "../config/local-address",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "port": {
+                            "description": "Network Address Translation Address destination port",
+                            "readOnly": false,
+                            "path": "../config/port",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "config": {
+                            "description": "Network Address Translation Address Destination Protocol configuration",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "protocol": {
+                                "description": "Network Address Translation protocol",
+                                "readOnly": false,
+                                "enum": [
+                                  "tcp",
+                                  "udp"
+                                ],
+                                "mandatory": false
+                              },
+                              "local-address": {
+                                "description": "Network Address Translation Address local address",
+                                "readOnly": false,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "port": {
+                                "description": "Network Address Translation Address destination port",
+                                "readOnly": false,
+                                "minimum": 0,
+                                "maximum": 65535,
+                                "type": "number",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Network Address Translation Address Destination Protocol state",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "protocol": {
+                                "description": "Network Address Translation protocol",
+                                "readOnly": true,
+                                "enum": [
+                                  "tcp",
+                                  "udp"
+                                ],
+                                "mandatory": false
+                              },
+                              "local-address": {
+                                "description": "Network Address Translation Address local address",
+                                "readOnly": true,
+                                "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                "type": "string",
+                                "mandatory": false
+                              },
+                              "port": {
+                                "description": "Network Address Translation Address destination port",
+                                "readOnly": true,
+                                "minimum": 0,
+                                "maximum": 65535,
+                                "type": "number",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "global-addresses": {
+                            "description": "Network Address Translation Address Global Address",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "global-address": {
+                                "description": "Network Address Translation Address Global Address",
+                                "readOnly": false,
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "address": {
+                                      "description": "Network Address Translation global address",
+                                      "readOnly": false,
+                                      "path": "../config/address",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "config": {
+                                      "description": "Network Address Translation Address Global Address configuration",
+                                      "readOnly": false,
+                                      "type": "object",
+                                      "properties": {
+                                        "address": {
+                                          "description": "Network Address Translation Address global address",
+                                          "readOnly": false,
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "global-port": {
+                                          "description": "Destination port number",
+                                          "readOnly": false,
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "type": "number",
+                                          "mandatory": true
+                                        }
+                                      }
+                                    },
+                                    "state": {
+                                      "description": "Network Address Translation Address Global Address state",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "address": {
+                                          "description": "Network Address Translation Address global address",
+                                          "readOnly": true,
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "global-port": {
+                                          "description": "Destination port number",
+                                          "readOnly": true,
+                                          "minimum": 0,
+                                          "maximum": 65535,
+                                          "type": "number",
+                                          "mandatory": true
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "keyFields": [
+                                    "address"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "keyFields": [
+                          "protocol",
+                          "local-address",
+                          "port"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "NAT interfaces",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "List of NAT interfaces",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The interface name to configure the NAT parameters.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for OSPF interface",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The interface name to configure the NAT parameters.",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 33,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "incoming": {
+                        "description": "Incoming interface",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "outgoing": {
+                        "description": "Outgoing interface",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for OSPF interface",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The interface name to configure the NAT parameters.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 33,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "incoming": {
+                        "description": "Incoming interface",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      },
+                      "outgoing": {
+                        "description": "Outgoing interface",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

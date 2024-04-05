@@ -1,0 +1,392 @@
+{
+  "title": "ipi-ip-sla",
+  "description": "Datamodel for ipsla definations",
+  "type": "object",
+  "properties": {
+    "ipi-ip-sla:ip-sla": {
+      "description": "Grouping for IP SLA",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "processes": {
+          "description": "IP SLA processes",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "process": {
+              "description": "List of IP SLA processes",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "identifier": {
+                    "description": "Use this attribute to set the IPSLA.",
+                    "readOnly": false,
+                    "path": "../config/identifier",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for IP SLA process",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "identifier": {
+                        "description": "Use this attribute to set the IPSLA.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for IP SLA",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "identifier": {
+                        "description": "Use this attribute to set the IPSLA.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "ip-sla-statistics": {
+                    "description": "Statistics per SLA ID",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "start-time": {
+                            "description": "Time at which ip sla measurement started",
+                            "readOnly": true,
+                            "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "elapsed-time": {
+                            "description": "Time elapsed since the ip sla measurement started. In milliseconds",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "packets-sent": {
+                            "description": "Number of test packets sent",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "packets-received": {
+                            "description": "Number of test packets received",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "packets-lost": {
+                            "description": "Packet loss percentage",
+                            "readOnly": true,
+                            "fraction-digits": "6",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "invalid-tests": {
+                            "description": "Number of Invalid tests",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "minimum-round-trip-delay": {
+                            "description": "Minimum Round trip delay time",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "maximum-round-trip-delay": {
+                            "description": "Maximum Round Trip delay time",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "average-round-trip-delay": {
+                            "description": "Average Round Trip delay time",
+                            "readOnly": true,
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "icmp-echo-processes": {
+                    "description": "IP SLA ICMP Echo",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "icmp-echo-process": {
+                        "description": "List of ICMP Echo process",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "host": {
+                              "description": "Use this attribute to set the ICMP Echo host name or IP address.",
+                              "readOnly": false,
+                              "path": "../config/host",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data for icmp-echo",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "host": {
+                                  "description": "Use this attribute to set the ICMP Echo host name or IP address.",
+                                  "readOnly": false,
+                                  "oneOf": [
+                                    {
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "string"
+                                    }
+                                  ],
+                                  "mandatory": false
+                                },
+                                "source-interface": {
+                                  "description": "Source Interface name",
+                                  "readOnly": false,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "frequency": {
+                                  "description": "The frequency (interval) correlates to how often the ICMP packet is sent. The unit of this parameter is in seconds.",
+                                  "readOnly": false,
+                                  "minimum": 1,
+                                  "maximum": 60,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "timeout": {
+                                  "description": "The timeout value correlates to how long the Ping application will wait for the response after sending packets ICMP Echo packets.",
+                                  "readOnly": false,
+                                  "minimum": 1000,
+                                  "maximum": 60000,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "threshold": {
+                                  "description": "The threshold value correlates to the limit the administrator sets as what would be a successful test. Threshold can be configured in milli-seconds.",
+                                  "readOnly": false,
+                                  "minimum": 1000,
+                                  "maximum": 60000,
+                                  "type": "number",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data for icmp-echo",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "host": {
+                                  "description": "Use this attribute to set the ICMP Echo host name or IP address.",
+                                  "readOnly": true,
+                                  "oneOf": [
+                                    {
+                                      "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "string"
+                                    }
+                                  ],
+                                  "mandatory": false
+                                },
+                                "source-interface": {
+                                  "description": "Source Interface name",
+                                  "readOnly": true,
+                                  "minLength": 1,
+                                  "maxLength": 1965,
+                                  "pattern": "[^?' =,>|]+",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "frequency": {
+                                  "description": "The frequency (interval) correlates to how often the ICMP packet is sent. The unit of this parameter is in seconds.",
+                                  "readOnly": true,
+                                  "minimum": 1,
+                                  "maximum": 60,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "timeout": {
+                                  "description": "The timeout value correlates to how long the Ping application will wait for the response after sending packets ICMP Echo packets.",
+                                  "readOnly": true,
+                                  "minimum": 1000,
+                                  "maximum": 60000,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "threshold": {
+                                  "description": "The threshold value correlates to the limit the administrator sets as what would be a successful test. Threshold can be configured in milli-seconds.",
+                                  "readOnly": true,
+                                  "minimum": 1000,
+                                  "maximum": 60000,
+                                  "type": "number",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "host"
+                          ]
+                        },
+                        "maxItems": 1
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "identifier"
+                ]
+              }
+            }
+          }
+        },
+        "scheduled-processes": {
+          "description": "IP SLA Schedule Processes",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "scheduled-process": {
+              "description": "IP SLA Schedule process",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "scheduled-pid": {
+                    "description": "Use this attribute to schedule the IPSLA measurement operation.",
+                    "readOnly": false,
+                    "path": "../config/scheduled-pid",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "time-range-name": {
+                    "description": "Time range object name to schedule this SLA operation.",
+                    "readOnly": false,
+                    "path": "../config/time-range-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for IPSLA scheduling",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "scheduled-pid": {
+                        "description": "Use this attribute to schedule the IPSLA measurement operation.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "time-range-name": {
+                        "description": "Time range object name to schedule this SLA operation.",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "vrf-name": {
+                        "description": "VRF name",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for IPSLA scheduling",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "scheduled-pid": {
+                        "description": "Use this attribute to schedule the IPSLA measurement operation.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "time-range-name": {
+                        "description": "Time range object name to schedule this SLA operation.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "vrf-name": {
+                        "description": "VRF name",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "scheduled-pid",
+                  "time-range-name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

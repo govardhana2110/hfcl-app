@@ -1,0 +1,361 @@
+{
+  "title": "ipi-authentication-radius",
+  "description": "Layer-3 authentication radius configurations",
+  "type": "object",
+  "properties": {
+    "ipi-authentication-radius:authentication-radius": {
+      "description": "Grouping for Authentication Radius",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "global": {
+          "description": "Authentication Radius global configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for Authentication Radius global",
+              "readOnly": false,
+              "type": "object",
+              "oneOf": [
+                {
+                  "title": "key-string",
+                  "properties": {
+                    "key-string": {
+                      "description": "Use this attribute to set a global preshared key (shared secret) which is a text string shared between the device and RADIUS servers",
+                      "readOnly": false,
+                      "minLength": 1,
+                      "maxLength": 64,
+                      "pattern": "[^?' =,>|]+",
+                      "type": "string",
+                      "mandatory": false
+                    }
+                  }
+                },
+                {
+                  "title": "encrypted",
+                  "properties": {
+                    "encryption-key": {
+                      "description": "Use this attribute to set a global preshared key (shared secret) which is a text string shared between the device and RADIUS servers",
+                      "readOnly": false,
+                      "minLength": 18,
+                      "maxLength": 130,
+                      "pattern": "[^?' =,>|]+",
+                      "type": "string",
+                      "mandatory": false
+                    }
+                  }
+                }
+              ],
+              "properties": {
+                "source-address": {
+                  "description": "Use this command to set the local address sent in packets to the radius server.",
+                  "readOnly": false,
+                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "port": {
+                  "description": "Specify the radius client port number. The default port number is 1812.",
+                  "readOnly": false,
+                  "minimum": 0,
+                  "maximum": 65535,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "timeout": {
+                  "description": "Use this attribute to set the global timeout which is how long the device waits for a response from a RADIUS server before declaring a timeout failure.",
+                  "readOnly": false,
+                  "minimum": 1,
+                  "maximum": 60,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "retransmit-max-retries": {
+                  "description": "Use this attribute to specify the number of times the router transmits each radius request to the server before giving up",
+                  "readOnly": false,
+                  "minimum": 1,
+                  "maximum": 100,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for Authentication Radius global",
+              "readOnly": true,
+              "type": "object",
+              "oneOf": [
+                {
+                  "title": "key-string",
+                  "properties": {
+                    "key-string": {
+                      "description": "Use this attribute to set a global preshared key (shared secret) which is a text string shared between the device and RADIUS servers",
+                      "readOnly": false,
+                      "minLength": 1,
+                      "maxLength": 64,
+                      "pattern": "[^?' =,>|]+",
+                      "type": "string",
+                      "mandatory": false
+                    }
+                  }
+                },
+                {
+                  "title": "encrypted",
+                  "properties": {
+                    "encryption-key": {
+                      "description": "Use this attribute to set a global preshared key (shared secret) which is a text string shared between the device and RADIUS servers",
+                      "readOnly": false,
+                      "minLength": 18,
+                      "maxLength": 130,
+                      "pattern": "[^?' =,>|]+",
+                      "type": "string",
+                      "mandatory": false
+                    }
+                  }
+                }
+              ],
+              "properties": {
+                "source-address": {
+                  "description": "Use this command to set the local address sent in packets to the radius server.",
+                  "readOnly": true,
+                  "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "port": {
+                  "description": "Specify the radius client port number. The default port number is 1812.",
+                  "readOnly": true,
+                  "minimum": 0,
+                  "maximum": 65535,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "timeout": {
+                  "description": "Use this attribute to set the global timeout which is how long the device waits for a response from a RADIUS server before declaring a timeout failure.",
+                  "readOnly": true,
+                  "minimum": 1,
+                  "maximum": 60,
+                  "type": "number",
+                  "mandatory": false
+                },
+                "retransmit-max-retries": {
+                  "description": "Use this attribute to specify the number of times the router transmits each radius request to the server before giving up",
+                  "readOnly": true,
+                  "minimum": 1,
+                  "maximum": 100,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "hosts": {
+          "description": "Authentication Radius Host",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "host": {
+              "description": "List of Authentication Radius Hosts",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "host-address": {
+                    "description": "The host-address to configure the radius host.",
+                    "readOnly": false,
+                    "path": "../config/host-address",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data Authentication Radius Host",
+                    "readOnly": false,
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "title": "key-string",
+                        "properties": {
+                          "key-string": {
+                            "description": "Use this attribute to set a key (shared secret) which is a text string shared between the device and RADIUS servers",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 64,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      {
+                        "title": "encrypted",
+                        "properties": {
+                          "encryption-key": {
+                            "description": "Use this attribute to set a key (shared secret) which is a text string shared between the device and RADIUS servers",
+                            "readOnly": false,
+                            "minLength": 18,
+                            "maxLength": 130,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    ],
+                    "properties": {
+                      "host-address": {
+                        "description": "The host-address to configure the radius host.",
+                        "readOnly": false,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "host-port": {
+                        "description": "Specify the radius client port number. The default port number is 1812.",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "host-timeout": {
+                        "description": "Use this attribute to set the timeout which is how long the device waits for a response from a RADIUS server before declaring a timeout failure.",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 60,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "host-retransmit-max-retries": {
+                        "description": "Use this attribute to specify the number of times the router transmits each radius request to the server before giving up.",
+                        "readOnly": false,
+                        "minimum": 0,
+                        "maximum": 100,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data for Authentication Radius Host",
+                    "readOnly": true,
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "title": "key-string",
+                        "properties": {
+                          "key-string": {
+                            "description": "Use this attribute to set a key (shared secret) which is a text string shared between the device and RADIUS servers",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 64,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      {
+                        "title": "encrypted",
+                        "properties": {
+                          "encryption-key": {
+                            "description": "Use this attribute to set a key (shared secret) which is a text string shared between the device and RADIUS servers",
+                            "readOnly": false,
+                            "minLength": 18,
+                            "maxLength": 130,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    ],
+                    "properties": {
+                      "host-address": {
+                        "description": "The host-address to configure the radius host.",
+                        "readOnly": true,
+                        "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "host-port": {
+                        "description": "Specify the radius client port number. The default port number is 1812.",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "host-timeout": {
+                        "description": "Use this attribute to set the timeout which is how long the device waits for a response from a RADIUS server before declaring a timeout failure.",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 60,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "host-retransmit-max-retries": {
+                        "description": "Use this attribute to specify the number of times the router transmits each radius request to the server before giving up.",
+                        "readOnly": true,
+                        "minimum": 0,
+                        "maximum": 100,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "next-radius-message-id": {
+                        "description": "Next radius message id for radius host.",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 255,
+                        "mandatory": false
+                      },
+                      "encryption-key-operational": {
+                        "description": "Key shared between the device and RADIUS servers for radius host.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "host-port-operational": {
+                        "description": "Radius client port number for radius host.",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 65535,
+                        "mandatory": false
+                      },
+                      "host-timeout-operational": {
+                        "description": "How long the device waits for a response from a RADIUS server before declaring a timeout failure for radius host.",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 255,
+                        "mandatory": false
+                      },
+                      "host-retransmit-max-retries-operational": {
+                        "description": "Times the router transmits each radius request to the server before giving up for radius host.",
+                        "readOnly": true,
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 255,
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "host-address"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

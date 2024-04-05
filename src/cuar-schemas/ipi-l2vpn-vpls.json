@@ -1,0 +1,781 @@
+{
+  "title": "ipi-l2vpn-vpls",
+  "description": "YANG version of the ipi-l2vpn-vpls",
+  "type": "object",
+  "properties": {
+    "ipi-l2vpn-vpls:vpls": {
+      "description": "VPLS global level container",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "attachment-circuit": {
+          "description": "VPLS-Attachment Circuit container",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "service-template-mappings": {
+              "description": "Container for Service Templates mappings to VPLS on an interface",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "service-template-mapping": {
+                  "description": "Configuration data for Service Template mapping to VPLS on an      interface",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "interface-name": {
+                        "description": "This attribute specifies the attachment circuit interface to which the service template is applied",
+                        "readOnly": false,
+                        "path": "../config/interface-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "vpls-name": {
+                        "description": "Specify VPLS instance name",
+                        "readOnly": false,
+                        "path": "../config/vpls-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "service-template-name": {
+                        "description": "Specify Customer service template name to bind to this Attachment circuit",
+                        "readOnly": false,
+                        "path": "../config/service-template-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data for Attachment-Circuit",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "interface-name": {
+                            "description": "This attribute specifies the attachment circuit interface to which the service template is applied",
+                            "readOnly": false,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "service-template-name": {
+                            "description": "Specify Customer service template name to bind to this Attachment circuit",
+                            "readOnly": false,
+                            "path": "/ipi-mpls:mpls/ipi-mpls:l2vpn/ipi-mpls:customer-service-templates/ipi-mpls:customer-service-template/ipi-mpls:config/ipi-mpls:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "vpls-name": {
+                            "description": "Specify VPLS instance name",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "admin-status": {
+                            "description": "Specify admin status for VPLS AC",
+                            "readOnly": false,
+                            "enum": [
+                              "down"
+                            ],
+                            "mandatory": false
+                          },
+                          "attachment-circuit-description": {
+                            "description": "Specify description of VPLS AC",
+                            "readOnly": false,
+                            "pattern": "[^?'=,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "mac-learning": {
+                            "description": "Specify mac-learning for VPLS AC",
+                            "readOnly": false,
+                            "enum": [
+                              "enable",
+                              "disable"
+                            ],
+                            "mandatory": false
+                          },
+                          "split-horizon": {
+                            "description": "Specify split-horizon for VPLS",
+                            "readOnly": false,
+                            "enum": [
+                              "network",
+                              "access1",
+                              "access2"
+                            ],
+                            "mandatory": false
+                          },
+                          "allow-layer2-bridge-pdu": {
+                            "description": "Specify allowed L2 control packets in peer-mode",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "static-mac-address": {
+                            "description": "Specify static-mac to be added on AC",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operation state data for Attachment-Circuit",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "interface-name": {
+                            "description": "This attribute specifies the attachment circuit interface to which the service template is applied",
+                            "readOnly": true,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "service-template-name": {
+                            "description": "Specify Customer service template name to bind to this Attachment circuit",
+                            "readOnly": true,
+                            "path": "/ipi-mpls:mpls/ipi-mpls:l2vpn/ipi-mpls:customer-service-templates/ipi-mpls:customer-service-template/ipi-mpls:config/ipi-mpls:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "vpls-name": {
+                            "description": "Specify VPLS instance name",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "admin-status": {
+                            "description": "Specify admin status for VPLS AC",
+                            "readOnly": true,
+                            "enum": [
+                              "down"
+                            ],
+                            "mandatory": false
+                          },
+                          "attachment-circuit-description": {
+                            "description": "Specify description of VPLS AC",
+                            "readOnly": true,
+                            "pattern": "[^?'=,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "mac-learning": {
+                            "description": "Specify mac-learning for VPLS AC",
+                            "readOnly": true,
+                            "enum": [
+                              "enable",
+                              "disable"
+                            ],
+                            "mandatory": false
+                          },
+                          "split-horizon": {
+                            "description": "Specify split-horizon for VPLS",
+                            "readOnly": true,
+                            "enum": [
+                              "network",
+                              "access1",
+                              "access2"
+                            ],
+                            "mandatory": false
+                          },
+                          "allow-layer2-bridge-pdu": {
+                            "description": "Specify allowed L2 control packets in peer-mode",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "static-mac-address": {
+                            "description": "Specify static-mac to be added on AC",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      },
+                      "quality-of-service-profiles": {
+                        "description": "Container for VPLS QOS profiles on AC",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "quality-of-service-profile": {
+                            "description": "Configuration for VPLS QOS profile on AC",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "profile-type": {
+                                  "description": "Specify map profile type for VPLS",
+                                  "readOnly": false,
+                                  "path": "../config/profile-type",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "profile-name": {
+                                  "description": "Specify profile name for map profile",
+                                  "readOnly": false,
+                                  "path": "../config/profile-name",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration data for Attachment-Circuit",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "profile-type": {
+                                      "description": "Specify map profile type for VPLS",
+                                      "readOnly": false,
+                                      "enum": [
+                                        "cos-to-queue",
+                                        "queue-color-to-cos"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "profile-name": {
+                                      "description": "Specify profile name for map profile",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operation state data for Attachment-Circuit",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "profile-type": {
+                                      "description": "Specify map profile type for VPLS",
+                                      "readOnly": true,
+                                      "enum": [
+                                        "cos-to-queue",
+                                        "queue-color-to-cos"
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "profile-name": {
+                                      "description": "Specify profile name for map profile",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 1965,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "profile-type",
+                                "profile-name"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "interface-name",
+                      "vpls-name",
+                      "service-template-name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "static-forwarding": {
+          "description": "Static VPLS Forwarding Information Base container",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "vpls-entries": {
+              "description": "Enclosing container for Static VPLS Forwarding Information Base    entries",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "vpls-entry": {
+                  "description": "List for Static VPLS Forwarding Information Base",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "vpls-identifier": {
+                        "description": "VPLS Instance Identifier for static VPLS signaling",
+                        "readOnly": false,
+                        "path": "../config/vpls-identifier",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "peer-address": {
+                        "description": "Specify VPLS peer IPv4 address",
+                        "readOnly": false,
+                        "path": "../config/peer-address",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data for Static VPLS",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "in-label": {
+                            "description": "Specify in-coming label for VPLS static forwarding",
+                            "readOnly": false,
+                            "minimum": 16,
+                            "maximum": 52443,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "out-label": {
+                            "description": "Specify out going label for VPLS static forwarding",
+                            "readOnly": false,
+                            "minimum": 16,
+                            "maximum": 52443,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "out-interface-name": {
+                            "description": "Specify provider facing interface name",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": true
+                          },
+                          "vpls-identifier": {
+                            "description": "VPLS Instance Identifier for static VPLS signaling",
+                            "readOnly": false,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/vpls-instance/config/vpls-identifier",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "peer-address": {
+                            "description": "Specify VPLS peer IPv4 address",
+                            "readOnly": false,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/vpls-instance/vpls-peers/vpls-peer/config/peer-address",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operation state data for Static VPLS",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "in-label": {
+                            "description": "Specify in-coming label for VPLS static forwarding",
+                            "readOnly": true,
+                            "minimum": 16,
+                            "maximum": 52443,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "out-label": {
+                            "description": "Specify out going label for VPLS static forwarding",
+                            "readOnly": true,
+                            "minimum": 16,
+                            "maximum": 52443,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "out-interface-name": {
+                            "description": "Specify provider facing interface name",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": true
+                          },
+                          "vpls-identifier": {
+                            "description": "VPLS Instance Identifier for static VPLS signaling",
+                            "readOnly": true,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/vpls-instance/config/vpls-identifier",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "peer-address": {
+                            "description": "Specify VPLS peer IPv4 address",
+                            "readOnly": true,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/vpls-instance/vpls-peers/vpls-peer/config/peer-address",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "vpls-identifier",
+                      "peer-address"
+                    ]
+                  }
+                }
+              }
+            },
+            "hierarchical-vpls-entries": {
+              "description": "Enclosing container for static forwarding for HVPLS entries",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "hierarchical-vpls-entry": {
+                  "description": "List for Configuration data of Static Forwarding for HVPLS",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "vpls-identifier": {
+                        "description": "Specify VPLS identifier",
+                        "readOnly": false,
+                        "path": "../config/vpls-identifier",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "spoke-pseudowire-name": {
+                        "description": "Specify spoke virtual circuit name",
+                        "readOnly": false,
+                        "path": "../config/spoke-pseudowire-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data for Static HVPLS",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "in-label": {
+                            "description": "Specify in-coming label for VPLS static forwarding",
+                            "readOnly": false,
+                            "minimum": 16,
+                            "maximum": 52443,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "out-label": {
+                            "description": "Specify out going label for VPLS static forwarding",
+                            "readOnly": false,
+                            "minimum": 16,
+                            "maximum": 52443,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "out-interface-name": {
+                            "description": "Specify provider facing interface name",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": true
+                          },
+                          "vpls-identifier": {
+                            "description": "Specify VPLS identifier",
+                            "readOnly": false,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/vpls-instance/config/vpls-identifier",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "spoke-pseudowire-name": {
+                            "description": "Specify spoke virtual circuit name",
+                            "readOnly": false,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/vpls-instance/spoke-pseudowires/spoke-pseudowire/config/pseudowire-name",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operation state data for Static HVPLS",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "in-label": {
+                            "description": "Specify in-coming label for VPLS static forwarding",
+                            "readOnly": true,
+                            "minimum": 16,
+                            "maximum": 52443,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "out-label": {
+                            "description": "Specify out going label for VPLS static forwarding",
+                            "readOnly": true,
+                            "minimum": 16,
+                            "maximum": 52443,
+                            "type": "number",
+                            "mandatory": true
+                          },
+                          "out-interface-name": {
+                            "description": "Specify provider facing interface name",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": true
+                          },
+                          "vpls-identifier": {
+                            "description": "Specify VPLS identifier",
+                            "readOnly": true,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/vpls-instance/config/vpls-identifier",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "spoke-pseudowire-name": {
+                            "description": "Specify spoke virtual circuit name",
+                            "readOnly": true,
+                            "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/vpls-instance/spoke-pseudowires/spoke-pseudowire/config/pseudowire-name",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "vpls-identifier",
+                      "spoke-pseudowire-name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Top level container for interface level configuration for VPLS",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "VPLS interface related configuration",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "This attribute describes the interface on which attachment circuit is to be created for pseudowire.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration container for interface list",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "This attribute describes the interface on which attachment circuit is to be created for pseudowire.",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operation container for interface list",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "This attribute describes the interface on which attachment circuit is to be created for pseudowire.",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "vpls-access": {
+                    "description": "Container for L2vpn Vpls data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for L2VPN VPLS",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "enable": {
+                            "description": "This attribute is used to enable VPLS service on Subinterface",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": true
+                          },
+                          "vpls-name": {
+                            "description": "This attribute uniquely identifies a VPLS service on Subinterface",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 128,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "disable-mac-learning": {
+                            "description": "Use this attribute to disable dynamic learning of MAC's",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "static-mac-address": {
+                            "description": "Specify static-mac to be added on L2VPN VPLS",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operation state data for L2VPN VPLS",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "enable": {
+                            "description": "This attribute is used to enable VPLS service on Subinterface",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": true
+                          },
+                          "vpls-name": {
+                            "description": "This attribute uniquely identifies a VPLS service on Subinterface",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 128,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "disable-mac-learning": {
+                            "description": "Use this attribute to disable dynamic learning of MAC's",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "static-mac-address": {
+                            "description": "Specify static-mac to be added on L2VPN VPLS",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "mandatory": false
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "global": {
+          "description": "Top level container for global configuration for VPLS",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "state": {
+              "description": "State container for operational attributes",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "counters": {
+                  "description": "Operational container for VPLS counters",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "total-instances": {
+                      "description": "This attribute acquires total VPLS instances",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "total-peers": {
+                      "description": "This attribute acquires total VPLS peers",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "active-peer-instances": {
+                      "description": "This attribute acquires total active VPLS peer instances",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    },
+                    "inactive-peer-instances": {
+                      "description": "This attribute acquires total non-active VPLS peer instances",
+                      "readOnly": true,
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 4294967295,
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

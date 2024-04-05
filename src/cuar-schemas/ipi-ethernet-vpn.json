@@ -1,0 +1,912 @@
+{
+  "title": "ipi-ethernet-vpn",
+  "description": "Datamodel for EVPN protocol",
+  "type": "object",
+  "properties": {
+    "ipi-ethernet-vpn:evpn": {
+      "description": "EVPN global level container",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "multi-homing": {
+          "description": "Configuration data for multi-homing feature",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "esi-hold-time": {
+                  "description": "Use this attribute to set time before ESI can be made up on enabling evpn",
+                  "readOnly": false,
+                  "minimum": 10,
+                  "maximum": 300,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "esi-hold-time": {
+                  "description": "Use this attribute to set time before ESI can be made up on enabling evpn",
+                  "readOnly": true,
+                  "minimum": 10,
+                  "maximum": 300,
+                  "type": "number",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "global": {
+          "description": "Configuration data for EVPN global capability configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable-vxlan-multihoming": {
+                  "description": "Use this attribute to enable multihoming module on vxlan. Without this attribute multihomig functionality can not be achieved",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "enable-evpn-mpls-multihoming": {
+                  "description": "Use this attribute to enable multihoming module on evpn mpls. Without this attribute multihomig functionality can not be achieved",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "enable-evpn-srv6-multihoming": {
+                  "description": "Use this attribute to enable multihoming module on EVPN SRv6. Without this attribute multihomig functionality can not be achieved",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "enable-irb": {
+                  "description": "Use this attribute to enable integrated routing and bridging module. Without this attribute IRB functionality can not be achieved",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "enable-mpls-irb": {
+                  "description": "Use this attribute to enable integrated routing and bridging module. Without this attribute IRB functionality can not be achieved",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable-vxlan-multihoming": {
+                  "description": "Use this attribute to enable multihoming module on vxlan. Without this attribute multihomig functionality can not be achieved",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "enable-evpn-mpls-multihoming": {
+                  "description": "Use this attribute to enable multihoming module on evpn mpls. Without this attribute multihomig functionality can not be achieved",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "enable-evpn-srv6-multihoming": {
+                  "description": "Use this attribute to enable multihoming module on EVPN SRv6. Without this attribute multihomig functionality can not be achieved",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "enable-irb": {
+                  "description": "Use this attribute to enable integrated routing and bridging module. Without this attribute IRB functionality can not be achieved",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "enable-mpls-irb": {
+                  "description": "Use this attribute to enable integrated routing and bridging module. Without this attribute IRB functionality can not be achieved",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "irb-forwarding": {
+          "description": "Configuration data for integrated routing and bridging feature",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "mac-address": {
+                  "description": "Use this attribute to configure common anycast mac-address for all IRB interfaces",
+                  "readOnly": false,
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "mac-address": {
+                  "description": "Use this attribute to configure common anycast mac-address for all IRB interfaces",
+                  "readOnly": true,
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            },
+            "irb-interfaces": {
+              "description": "IRB interface list enclosing container",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "irb-interface": {
+                  "description": "IRB interface related configurations",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Use this attribute to map a physical interface to identify the tenant traffic and to enter NVO access interface mode",
+                        "readOnly": false,
+                        "path": "../config/name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "config": {
+                        "description": "Configuration data",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "Use this attribute to map a physical interface to identify the tenant traffic and to enter NVO access interface mode",
+                            "readOnly": false,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "gateway-mac": {
+                            "description": "Use this attribute to configure anycast mac-address for an IRB interface",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "Use this attribute to map a physical interface to identify the tenant traffic and to enter NVO access interface mode",
+                            "readOnly": true,
+                            "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "gateway-mac": {
+                            "description": "Use this attribute to configure anycast mac-address for an IRB interface",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Top level container for evpn interface",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "EVPN interface related operations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Reference to interface name",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Use this attribute to map a physical interface to identify the tenant traffic and to enter access interface mode",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "evpn-segment-id": {
+                        "description": "This Object is used to configure the evpn multi-homed Ethernet Segment Identifier value",
+                        "readOnly": false,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "system-mac": {
+                        "description": "This Object is used to configure evpn multi-homed system-mac",
+                        "readOnly": false,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "redundancy-mode": {
+                        "description": "Use this attribute to configure load balancing type",
+                        "readOnly": false,
+                        "enum": [
+                          "single-active",
+                          "port-active"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Use this attribute to map a physical interface to identify the tenant traffic and to enter access interface mode",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "evpn-segment-id": {
+                        "description": "This Object is used to configure the evpn multi-homed Ethernet Segment Identifier value",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "system-mac": {
+                        "description": "This Object is used to configure evpn multi-homed system-mac",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "redundancy-mode": {
+                        "description": "Use this attribute to configure load balancing type",
+                        "readOnly": true,
+                        "enum": [
+                          "single-active",
+                          "port-active"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "mh-load-balance-esi": {
+                    "description": "Multihoming ESI and load-balancing",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data related to EVPN multi-homing ESI load-balancing",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "service-carving": {
+                            "description": "Use this attribute to create or delete service-carving configuration",
+                            "readOnly": false,
+                            "enum": [
+                              "preference-based",
+                              "auto",
+                              "off"
+                            ],
+                            "mandatory": true
+                          },
+                          "preference-weight": {
+                            "description": "Use this attribute to add preference to which should be elected as DF",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "no-preempt": {
+                            "description": "Use this attribute to set revertive DF capability",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "ac-driven": {
+                            "description": "Use this attribute to set AC Influenced DF capability",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data related to EVPN multi-homing ESI load-balancing",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "service-carving": {
+                            "description": "Use this attribute to create or delete service-carving configuration",
+                            "readOnly": true,
+                            "enum": [
+                              "preference-based",
+                              "auto",
+                              "off"
+                            ],
+                            "mandatory": true
+                          },
+                          "preference-weight": {
+                            "description": "Use this attribute to add preference to which should be elected as DF",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 65535,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "no-preempt": {
+                            "description": "Use this attribute to set revertive DF capability",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "ac-driven": {
+                            "description": "Use this attribute to set AC Influenced DF capability",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "access-interfaces": {
+                    "description": "Top level container for interface level configuration",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "access-interface": {
+                        "description": "Configuration and state information",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "access-if": {
+                              "description": "evpn-mpls access port",
+                              "readOnly": false,
+                              "path": "../config/access-if",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "Configuration data",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "access-if": {
+                                  "description": "evpn access port",
+                                  "readOnly": false,
+                                  "enum": [
+                                    "access-if",
+                                    "access-if-evpn"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "evpn-identifier": {
+                                  "description": "Map already created tenant id",
+                                  "readOnly": false,
+                                  "minimum": 1,
+                                  "maximum": 16777215,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "dynamic-learning-disable": {
+                                  "description": "Use this attribute to disable dynamic learning of MACs and MAC/IP at the access port",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "arp-nd-flood-suppress": {
+                                  "description": "Use this attribute to restrict the flood of ARP/ND packets towards remote VTEPs or other access ports",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "arp-cache-disable": {
+                                  "description": "Use this attribute to disable the ARP cache for MAC/IP",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "nd-cache-disable": {
+                                  "description": "Use this attribute to disable ND-cache on access interface",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "mac-hold-time": {
+                                  "description": "Use this attribute to set the time a host MAC entry will persist after unconfig",
+                                  "readOnly": false,
+                                  "minimum": -1,
+                                  "maximum": 300,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "garp-gna-enable": {
+                                  "description": "Use this attribute to allow garp-gna packets advertisement",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "mac-address": {
+                                  "description": "Use this attribute to configure static MAC only Host under Access Circuit",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string",
+                                    "mandatory": false
+                                  }
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "Operational state data",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "access-if": {
+                                  "description": "evpn access port",
+                                  "readOnly": true,
+                                  "enum": [
+                                    "access-if",
+                                    "access-if-evpn"
+                                  ],
+                                  "mandatory": false
+                                },
+                                "evpn-identifier": {
+                                  "description": "Map already created tenant id",
+                                  "readOnly": true,
+                                  "minimum": 1,
+                                  "maximum": 16777215,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "dynamic-learning-disable": {
+                                  "description": "Use this attribute to disable dynamic learning of MACs and MAC/IP at the access port",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "arp-nd-flood-suppress": {
+                                  "description": "Use this attribute to restrict the flood of ARP/ND packets towards remote VTEPs or other access ports",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "arp-cache-disable": {
+                                  "description": "Use this attribute to disable the ARP cache for MAC/IP",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "nd-cache-disable": {
+                                  "description": "Use this attribute to disable ND-cache on access interface",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "mac-hold-time": {
+                                  "description": "Use this attribute to set the time a host MAC entry will persist after unconfig",
+                                  "readOnly": true,
+                                  "minimum": -1,
+                                  "maximum": 300,
+                                  "type": "number",
+                                  "mandatory": false
+                                },
+                                "garp-gna-enable": {
+                                  "description": "Use this attribute to allow garp-gna packets advertisement",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "null"
+                                  },
+                                  "maxItems": 1,
+                                  "mandatory": false
+                                },
+                                "mac-address": {
+                                  "description": "Use this attribute to configure static MAC only Host under Access Circuit",
+                                  "readOnly": true,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string",
+                                    "mandatory": false
+                                  }
+                                }
+                              }
+                            },
+                            "ipv4-host-mac-mappings": {
+                              "description": "Top level container for mac-ipv4 configuration for access port",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "ipv4-host-mac-mapping": {
+                                  "description": "access side host related configurations",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "mac-address": {
+                                        "description": "Use this attribute to configure static MAC address of the host",
+                                        "readOnly": false,
+                                        "path": "../config/mac-address",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "ipv4-address": {
+                                        "description": "USe this attribute to associate a static IPv4 address on an access interface.",
+                                        "readOnly": false,
+                                        "path": "../config/ipv4-address",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "config": {
+                                        "description": "Configuration data",
+                                        "readOnly": false,
+                                        "type": "object",
+                                        "properties": {
+                                          "mac-address": {
+                                            "description": "MAC Address of host connected to evpn-mpls access port",
+                                            "readOnly": false,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "ipv4-address": {
+                                            "description": "USe this attribute to associate a static IPv4 address on an access interface.",
+                                            "readOnly": false,
+                                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                            "type": "string",
+                                            "mandatory": false
+                                          }
+                                        }
+                                      },
+                                      "state": {
+                                        "description": "Operational state data",
+                                        "readOnly": true,
+                                        "type": "object",
+                                        "properties": {
+                                          "mac-address": {
+                                            "description": "MAC Address of host connected to evpn-mpls access port",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "ipv4-address": {
+                                            "description": "USe this attribute to associate a static IPv4 address on an access interface.",
+                                            "readOnly": true,
+                                            "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                            "type": "string",
+                                            "mandatory": false
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "keyFields": [
+                                      "mac-address",
+                                      "ipv4-address"
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "ipv6-host-mac-mappings": {
+                              "description": "Top level container for mac-ipv6 configuration for access port",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "ipv6-host-mac-mapping": {
+                                  "description": "access side host related configurations",
+                                  "readOnly": false,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "mac-address": {
+                                        "description": "Use this attribute to configure static MAC address of the host",
+                                        "readOnly": false,
+                                        "path": "../config/mac-address",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "ipv6-address": {
+                                        "description": "USe this attribute to associate a static IPv6 address on an access interface.",
+                                        "readOnly": false,
+                                        "path": "../config/ipv6-address",
+                                        "type": "string",
+                                        "mandatory": false
+                                      },
+                                      "config": {
+                                        "description": "Configuration data",
+                                        "readOnly": false,
+                                        "type": "object",
+                                        "properties": {
+                                          "mac-address": {
+                                            "description": "MAC Address of host connected to evpn-mpls access port",
+                                            "readOnly": false,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "ipv6-address": {
+                                            "description": "USe this attribute to associate a static IPv6 address on an access interface.",
+                                            "readOnly": false,
+                                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                            "type": "string",
+                                            "mandatory": false
+                                          }
+                                        }
+                                      },
+                                      "state": {
+                                        "description": "Operational state data",
+                                        "readOnly": true,
+                                        "type": "object",
+                                        "properties": {
+                                          "mac-address": {
+                                            "description": "MAC Address of host connected to evpn-mpls access port",
+                                            "readOnly": true,
+                                            "type": "string",
+                                            "mandatory": false
+                                          },
+                                          "ipv6-address": {
+                                            "description": "USe this attribute to associate a static IPv6 address on an access interface.",
+                                            "readOnly": true,
+                                            "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                            "type": "string",
+                                            "mandatory": false
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "keyFields": [
+                                      "mac-address",
+                                      "ipv6-address"
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "access-if"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "vrfs": {
+          "description": "EVPN VRF list enclosing container",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "vrf": {
+              "description": "List of vrfs which holds evpn vlan service type",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vrf-name": {
+                    "description": "Vrf Name under which evpn vlan service can be mapped.",
+                    "readOnly": false,
+                    "path": "../config/vrf-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF Name under which evpn vlan service can be mapped.",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "service-type": {
+                        "description": "Use this attribute to configure Vlan-Based EVPN-Service Type",
+                        "readOnly": false,
+                        "enum": [
+                          "vlan-based",
+                          "vlan-aware-bundle"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "vrf-name": {
+                        "description": "VRF Name under which evpn vlan service can be mapped.",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "service-type": {
+                        "description": "Use this attribute to configure Vlan-Based EVPN-Service Type",
+                        "readOnly": true,
+                        "enum": [
+                          "vlan-based",
+                          "vlan-aware-bundle"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "vrf-name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

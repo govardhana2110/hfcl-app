@@ -1,0 +1,258 @@
+{
+  "title": "ipi-object-tracking",
+  "description": "Datamodel for Object Tracking Configuration and operational data.",
+  "type": "object",
+  "properties": {
+    "ipi-object-tracking:object-tracking": {
+      "description": "Top level container for Object Tracking, including configuration and    state data",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "trackers": {
+          "description": "Enclosing container for tracker config objects",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "tracker": {
+              "description": "List of tracked objects which will provide identifier for IP SLA",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "tracker-id": {
+                    "description": "Use this attribute for Object Tracking id.",
+                    "readOnly": false,
+                    "path": "../config/tracker-id",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "This container defines Tracked object configuration.",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "tracker-id": {
+                        "description": "Use this attribute for Object Tracking id.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 500,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "ip-sla-id": {
+                        "description": "Use this attribute for ip-sla-id.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": true
+                      },
+                      "delay-up": {
+                        "description": "Use this attribute to set notification delay up.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 9999,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "delay-down": {
+                        "description": "Use this attribute to set notification delay down.",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 9999,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "This container defines Tracked object Operational states.",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "tracker-id": {
+                        "description": "Use this attribute for Object Tracking id.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 500,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "ip-sla-id": {
+                        "description": "Use this attribute for ip-sla-id.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 65535,
+                        "type": "number",
+                        "mandatory": true
+                      },
+                      "delay-up": {
+                        "description": "Use this attribute to set notification delay up.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 9999,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "delay-down": {
+                        "description": "Use this attribute to set notification delay down.",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 9999,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "reachability-status": {
+                        "description": "To track Object tracking reachability status",
+                        "readOnly": true,
+                        "enum": [
+                          "down",
+                          "up"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "tracker-id"
+                ]
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Object tracking interface Configuration data",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "Object tracking interface related operations",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Interface name for which object tracking is being configured",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Interface name for which object tracking is being configured",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "select-option": {
+                        "description": "object tracking options",
+                        "readOnly": false,
+                        "enum": [
+                          "all",
+                          "any"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Interface name for which object tracking is being configured",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "select-option": {
+                        "description": "object tracking options",
+                        "readOnly": true,
+                        "enum": [
+                          "all",
+                          "any"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "track-interfaces": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "track-interface": {
+                        "description": "Object tracking interface related operations",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "track-id": {
+                              "description": "Use this attribute for Object Tracking id.",
+                              "readOnly": false,
+                              "path": "../config/track-id",
+                              "type": "string",
+                              "mandatory": false
+                            },
+                            "config": {
+                              "description": "This container defines Tracked object configuration in interface mode.",
+                              "readOnly": false,
+                              "type": "object",
+                              "properties": {
+                                "track-id": {
+                                  "description": "Use this attribute for Object Tracking id.",
+                                  "readOnly": false,
+                                  "minimum": 1,
+                                  "maximum": 500,
+                                  "type": "number",
+                                  "mandatory": false
+                                }
+                              }
+                            },
+                            "state": {
+                              "description": "This container defines Tracked object Operational states in interface    mode.",
+                              "readOnly": true,
+                              "type": "object",
+                              "properties": {
+                                "track-id": {
+                                  "description": "Use this attribute for Object Tracking id.",
+                                  "readOnly": true,
+                                  "minimum": 1,
+                                  "maximum": 500,
+                                  "type": "number",
+                                  "mandatory": false
+                                }
+                              }
+                            }
+                          },
+                          "keyFields": [
+                            "track-id"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

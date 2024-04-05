@@ -1,0 +1,463 @@
+{
+  "title": "ipi-g8031",
+  "description": "Ethernet Linear Protection Switching",
+  "type": "object",
+  "properties": {
+    "ipi-g8031:g8031": {
+      "description": "Top level container for Ethernet Linear Protection Switching",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "instances": {
+          "description": "Instances of Ethernet Linear Protection Switching protocol    configuration data",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "instance": {
+              "description": "Top level objectlist for Ethernet Linear Protection Switching      configuration",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "eps-id": {
+                    "description": "unique ID to identify a EPS Protection Group",
+                    "readOnly": false,
+                    "path": "../config/eps-id",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Ethernet Linear Protection Switching Instance configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "eps-id": {
+                        "description": "unique ID to identify a EPS Protection Group",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 32,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "bridge-id": {
+                        "description": "Network Instance Name",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-network-instance:instance-name",
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "working-port": {
+                        "description": "port for the working EPS path",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "protection-port": {
+                        "description": "port for the protection EPS path",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "elps-instance-id": {
+                        "description": "MSTP Instance Identifier",
+                        "readOnly": false,
+                        "minimum": 1,
+                        "maximum": 63,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "data-vlans": {
+                        "description": "VLAN Identifier",
+                        "readOnly": false,
+                        "pattern": "[^?'=>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "primary-vlan": {
+                        "description": "Indicates if the given VLAN is primary VLAN of protection group",
+                        "readOnly": false,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-bridge:bridge/ipi-vlan:vlans/ipi-vlan:vlan/ipi-vlan:vlan-id",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Ethernet Linear Protection Switching protocol operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "eps-id": {
+                        "description": "unique ID to identify a EPS Protection Group",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 32,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "bridge-id": {
+                        "description": "Network Instance Name",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-network-instance:instance-name",
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "working-port": {
+                        "description": "port for the working EPS path",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "protection-port": {
+                        "description": "port for the protection EPS path",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "elps-instance-id": {
+                        "description": "MSTP Instance Identifier",
+                        "readOnly": true,
+                        "minimum": 1,
+                        "maximum": 63,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "data-vlans": {
+                        "description": "VLAN Identifier",
+                        "readOnly": true,
+                        "pattern": "[^?'=>|]*",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "primary-vlan": {
+                        "description": "Indicates if the given VLAN is primary VLAN of protection group",
+                        "readOnly": true,
+                        "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-bridge:bridge/ipi-vlan:vlans/ipi-vlan:vlan/ipi-vlan:vlan-id",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "elps": {
+                    "description": "Ethernet Linear Protection Switching main container",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Top level configuration container for Ethernet Linear Protection    Switching",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "protection-type": {
+                            "description": "protection bridge mode",
+                            "readOnly": false,
+                            "enum": [
+                              "one-plus-one-bidirectional",
+                              "one-plus-one-unidirectional",
+                              "one-and-one-bidirectional"
+                            ],
+                            "mandatory": false
+                          },
+                          "enable-revertive-mode": {
+                            "description": "protection restoration mode",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "level-identifier": {
+                            "description": "Ethernet Linear Protection switching level",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 7,
+                            "type": "number",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Top level state container for Ethernet Linear Protection Switching",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "protection-type": {
+                            "description": "protection bridge mode",
+                            "readOnly": true,
+                            "enum": [
+                              "one-plus-one-bidirectional",
+                              "one-plus-one-unidirectional",
+                              "one-and-one-bidirectional"
+                            ],
+                            "mandatory": false
+                          },
+                          "enable-revertive-mode": {
+                            "description": "protection restoration mode",
+                            "readOnly": true,
+                            "type": "array",
+                            "items": {
+                              "type": "null"
+                            },
+                            "maxItems": 1,
+                            "mandatory": false
+                          },
+                          "level-identifier": {
+                            "description": "Ethernet Linear Protection switching level",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 7,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "direction": {
+                            "description": "Direction of ELPS",
+                            "readOnly": true,
+                            "enum": [
+                              "uni",
+                              "bi"
+                            ],
+                            "mandatory": false
+                          },
+                          "active-path": {
+                            "description": "Indicates the path currently active",
+                            "readOnly": true,
+                            "enum": [
+                              "protection",
+                              "working"
+                            ],
+                            "mandatory": false
+                          },
+                          "request-signal": {
+                            "description": "Request signal operation state",
+                            "readOnly": true,
+                            "enum": [
+                              "null",
+                              "normal"
+                            ],
+                            "mandatory": false
+                          },
+                          "current-state": {
+                            "description": "Current state of ELPS",
+                            "readOnly": true,
+                            "enum": [
+                              "no-request",
+                              "do-not-revert",
+                              "reverse-request",
+                              "exercise",
+                              "wait-to-restore",
+                              "manual-switch-to-protection",
+                              "signal-degrade",
+                              "working-signal-fail",
+                              "forced-switch",
+                              "signal-fail-for-protection",
+                              "lockout-of-protection",
+                              "invalid"
+                            ],
+                            "mandatory": false
+                          },
+                          "failure-of-protocol-state": {
+                            "description": "Indicates the status of failure in ELPS protocol",
+                            "readOnly": true,
+                            "enum": [
+                              "no-failure",
+                              "aps-rcvd-on-working",
+                              "b-bit-mismatch",
+                              "d-bit-mismatch",
+                              "r-bit-mismatch",
+                              "aps-not-rcvd-on-state-change"
+                            ],
+                            "mandatory": false
+                          },
+                          "rx-lps-frame-count": {
+                            "description": "LPS PDU Rx count",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          },
+                          "tx-lps-frame-count": {
+                            "description": "LPS PDU Tx count",
+                            "readOnly": true,
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4294967295,
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "timers": {
+                        "description": "Top level configuration container for Ethernet Linear Protection    Switching restoration and switching timers",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration container for Ethernet Linear Protection Switching    restoration and switching timers",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "wait-to-restore": {
+                                "description": "EPS wait-to-restore timer",
+                                "readOnly": false,
+                                "minimum": 300,
+                                "maximum": 720,
+                                "type": "number",
+                                "mandatory": false
+                              },
+                              "hold-off": {
+                                "description": "EPS hold-off timer",
+                                "readOnly": false,
+                                "minimum": 0,
+                                "maximum": 10,
+                                "type": "number",
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Top level state container for Ethernet Linear Protection Switching",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "wait-to-restore": {
+                                "description": "EPS wait-to-restore timer",
+                                "readOnly": true,
+                                "minimum": 300,
+                                "maximum": 720,
+                                "type": "number",
+                                "mandatory": false
+                              },
+                              "hold-off": {
+                                "description": "EPS hold-off timer",
+                                "readOnly": true,
+                                "minimum": 0,
+                                "maximum": 10,
+                                "type": "number",
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "traffic-switch": {
+                        "description": "Top level configuration data for Ethernet Linear Protection Switching    traffic switching commands",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration data for Ethernet Linear Protection Switching traffic    switching commands",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "local-freeze": {
+                                "description": "Freezes the state of the protection group.",
+                                "readOnly": false,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Top level state container for Ethernet Linear Protection Switching",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "local-freeze": {
+                                "description": "Freezes the state of the protection group.",
+                                "readOnly": true,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "eps-id"
+                ]
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "Container for g8031 debugging functions",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for g8031 debug",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Supported debug options for g8031",
+                  "readOnly": false,
+                  "type": "string",
+                  "bits": {
+                    "rx": "0",
+                    "tx": "1",
+                    "fsm": "2",
+                    "events": "3",
+                    "hal": "4"
+                  },
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for g8031 debug",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "options": {
+                  "description": "Supported debug options for g8031",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "rx": "0",
+                    "tx": "1",
+                    "fsm": "2",
+                    "events": "3",
+                    "hal": "4"
+                  },
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Displays terminal debug options enabled for G.8031",
+                  "readOnly": true,
+                  "type": "string",
+                  "bits": {
+                    "rx": "0",
+                    "tx": "1",
+                    "fsm": "2",
+                    "events": "3",
+                    "hal": "4"
+                  },
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

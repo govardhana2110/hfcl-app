@@ -1,0 +1,201 @@
+{
+  "title": "ipi-sys-update",
+  "description": "sys-update provides the possibility for users to upgrade/downgrade    OcNOS image in a router",
+  "type": "object",
+  "properties": {
+    "ipi-sys-update:system-update": {
+      "description": "Container for system-update",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "docker": {
+          "description": "Container for system docker",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "images": {
+              "description": "Container for system container images",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "image": {
+                  "description": "List of container images",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Container image available in the device.",
+                        "readOnly": true,
+                        "path": "../state/name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "state": {
+                        "description": "Container operational data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "description": "Container image available in the device.",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "[^?' =,>|]+",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    },
+                    "keyFields": [
+                      "name"
+                    ]
+                  }
+                }
+              }
+            },
+            "info": {
+              "description": "Container for system container images",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "state": {
+                  "description": "Container operational data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "version": {
+                      "description": "Version of current container installed on device.",
+                      "readOnly": true,
+                      "minLength": 1,
+                      "maxLength": 1965,
+                      "pattern": "[^?' =,>|]+",
+                      "type": "string",
+                      "mandatory": false
+                    },
+                    "status": {
+                      "description": "Running status of current container installed on device.",
+                      "readOnly": true,
+                      "minLength": 1,
+                      "maxLength": 1965,
+                      "pattern": "[^?' =,>|]+",
+                      "type": "string",
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            },
+            "download-status": {
+              "description": "Container ongoing download status",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "state": {
+                  "description": "Container operational data",
+                  "readOnly": true,
+                  "type": "object",
+                  "properties": {
+                    "inprogress": {
+                      "description": "Inprogress state of container image",
+                      "readOnly": true,
+                      "type": "boolean",
+                      "mandatory": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "installers": {
+          "description": "Container for system-update installers",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "installer": {
+              "description": "List of installers",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Installer image available in the device.",
+                    "readOnly": true,
+                    "path": "../state/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "state": {
+                    "description": "Installer operational data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Installer image available in the device.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "system-update-details": {
+          "description": "Container system update installer details",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "state": {
+              "description": "Container operational data",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "previous-version": {
+                  "description": "Previously installed OcNOS image",
+                  "readOnly": true,
+                  "pattern": "[^?'=,>|]*",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "current-version": {
+                  "description": "Presently installed/commited OcNOS image",
+                  "readOnly": true,
+                  "pattern": "[^?'=,>|]*",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "last-upgraded-time": {
+                  "description": "Time at when image was last upgraded",
+                  "readOnly": true,
+                  "pattern": "[^?'=,>|]*",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "auto-rollback-end-time": {
+                  "description": "Time at which auto rollback happened",
+                  "readOnly": true,
+                  "pattern": "[^?'=,>|]*",
+                  "type": "string",
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,306 @@
+{
+  "title": "ipi-watchdog",
+  "description": "This module manages protocol processes status and watchdogs",
+  "type": "object",
+  "properties": {
+    "ipi-watchdog:watchdog": {
+      "description": "Container for module watchdog",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "config": {
+          "description": "Container for watchdog configuration",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "watchdog-disabled": {
+              "description": "Disable software watchdog functionality for all modules. This feature is enabled by default.",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "keepalive-interval": {
+              "description": "Software watchdog keep-alive time interval in seconds. Default value is 60 seconds.",
+              "readOnly": false,
+              "minimum": 30,
+              "maximum": 1800,
+              "type": "number",
+              "mandatory": false
+            }
+          }
+        },
+        "state": {
+          "description": "Operational state data",
+          "readOnly": true,
+          "type": "object",
+          "properties": {
+            "watchdog-disabled": {
+              "description": "Disable software watchdog functionality for all modules. This feature is enabled by default.",
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "null"
+              },
+              "maxItems": 1,
+              "mandatory": false
+            },
+            "keepalive-interval": {
+              "description": "Software watchdog keep-alive time interval in seconds. Default value is 60 seconds.",
+              "readOnly": true,
+              "minimum": 30,
+              "maximum": 1800,
+              "type": "number",
+              "mandatory": false
+            },
+            "watchdog-status": {
+              "description": "Status of software watchdog monitoring. If enabled, software watchdog is active and is monitoring software anomalies for modules.",
+              "readOnly": true,
+              "enum": [
+                "disabled",
+                "enabled"
+              ],
+              "mandatory": false
+            },
+            "all-processes-status": {
+              "description": "Global process status of all modules. If all process are running, this value will be true. Otherwise it wil be false.",
+              "readOnly": true,
+              "enum": [
+                "not-running",
+                "all-running"
+              ],
+              "mandatory": false
+            }
+          }
+        },
+        "software-modules": {
+          "description": "Container for modules watchdogs",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "software-module": {
+              "description": "List of modules",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Enable software watchdog functionality for a particular software module.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Container for module watchdog configuration",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Enable software watchdog functionality for a particular software module.",
+                        "readOnly": false,
+                        "enum": [
+                          "nsm",
+                          "ripd",
+                          "ripngd",
+                          "ospfd",
+                          "ospf6d",
+                          "isisd",
+                          "hostpd",
+                          "ldpd",
+                          "rsvpd",
+                          "mribd",
+                          "pimd",
+                          "dvmrpd",
+                          "authd",
+                          "mstpd",
+                          "imi",
+                          "rmon",
+                          "onmd",
+                          "hsl",
+                          "oamd",
+                          "vlogd",
+                          "trilld",
+                          "ptpd",
+                          "synced",
+                          "vrrpd",
+                          "ndd",
+                          "ribd",
+                          "bgpd",
+                          "l2mribd",
+                          "lagd",
+                          "sflow",
+                          "udld",
+                          "cmld",
+                          "cmmd",
+                          "pcepd",
+                          "spbd"
+                        ],
+                        "mandatory": false
+                      },
+                      "module-watchdog-status-disabled": {
+                        "description": "Enable software watchdog functionality for a particular software module.",
+                        "readOnly": false,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Enable software watchdog functionality for a particular software module.",
+                        "readOnly": true,
+                        "enum": [
+                          "nsm",
+                          "ripd",
+                          "ripngd",
+                          "ospfd",
+                          "ospf6d",
+                          "isisd",
+                          "hostpd",
+                          "ldpd",
+                          "rsvpd",
+                          "mribd",
+                          "pimd",
+                          "dvmrpd",
+                          "authd",
+                          "mstpd",
+                          "imi",
+                          "rmon",
+                          "onmd",
+                          "hsl",
+                          "oamd",
+                          "vlogd",
+                          "trilld",
+                          "ptpd",
+                          "synced",
+                          "vrrpd",
+                          "ndd",
+                          "ribd",
+                          "bgpd",
+                          "l2mribd",
+                          "lagd",
+                          "sflow",
+                          "udld",
+                          "cmld",
+                          "cmmd",
+                          "pcepd",
+                          "spbd"
+                        ],
+                        "mandatory": false
+                      },
+                      "module-watchdog-status-disabled": {
+                        "description": "Enable software watchdog functionality for a particular software module.",
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                          "type": "null"
+                        },
+                        "maxItems": 1,
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "process": {
+                    "description": "Container for process state data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "process-name": {
+                            "description": "Protocol module identification.",
+                            "readOnly": true,
+                            "enum": [
+                              "nsm",
+                              "ripd",
+                              "ripngd",
+                              "ospfd",
+                              "ospf6d",
+                              "isisd",
+                              "hostpd",
+                              "ldpd",
+                              "rsvpd",
+                              "mribd",
+                              "pimd",
+                              "dvmrpd",
+                              "authd",
+                              "mstpd",
+                              "imi",
+                              "rmon",
+                              "onmd",
+                              "hsl",
+                              "oamd",
+                              "vlogd",
+                              "trilld",
+                              "ptpd",
+                              "synced",
+                              "vrrpd",
+                              "ndd",
+                              "ribd",
+                              "bgpd",
+                              "l2mribd",
+                              "lagd",
+                              "sflow",
+                              "udld",
+                              "cmld",
+                              "cmmd",
+                              "pcepd",
+                              "spbd"
+                            ],
+                            "mandatory": false
+                          },
+                          "process-status": {
+                            "description": "Process state.",
+                            "readOnly": true,
+                            "enum": [
+                              "not-running",
+                              "running"
+                            ],
+                            "mandatory": false
+                          },
+                          "start-time": {
+                            "description": "Starting time of a protocol module.",
+                            "readOnly": true,
+                            "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+                            "type": "string",
+                            "mandatory": false
+                          },
+                          "down-reason": {
+                            "description": "Reason for process to shutdown. This value will be the signal description.",
+                            "readOnly": true,
+                            "pattern": "[^?'=,>|]*",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

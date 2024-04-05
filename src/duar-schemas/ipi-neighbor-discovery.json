@@ -1,0 +1,418 @@
+{
+  "title": "ipi-neighbor-discovery",
+  "description": "Neighbor Discovery",
+  "type": "object",
+  "properties": {
+    "ipi-neighbor-discovery:neighbor-discovery": {
+      "description": "neighbor discovery global level information",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "entries": {
+          "description": "Top level container for IPv6 Neighbor information",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "entry": {
+              "description": "A list for IPv6 neighbor information entry",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "ipv6-address": {
+                    "description": "Use this attribute to add a static neighbor entry.",
+                    "readOnly": false,
+                    "path": "../config/ipv6-address",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "interface-name": {
+                    "description": "Use this attribute to add a static neighbor entry of the interface name",
+                    "readOnly": false,
+                    "path": "../config/interface-name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Nd ipv6 neighbor information",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "ipv6-address": {
+                        "description": "Use this attribute to add a static neighbor entry",
+                        "readOnly": false,
+                        "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "interface-name": {
+                        "description": "Use this attribute to add a static neighbor entry of the interface name",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mac-address": {
+                        "description": "Use this attribute to add a static neighbor entry of MAC hardware address.",
+                        "readOnly": false,
+                        "type": "string",
+                        "mandatory": true
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "ipv6-address": {
+                        "description": "Use this attribute to add a static neighbor entry",
+                        "readOnly": true,
+                        "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "interface-name": {
+                        "description": "Use this attribute to add a static neighbor entry of the interface name",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "mac-address": {
+                        "description": "Use this attribute to add a static neighbor entry of MAC hardware address.",
+                        "readOnly": true,
+                        "type": "string",
+                        "mandatory": true
+                      },
+                      "neighbor-age": {
+                        "description": "The number of minutes before the ARP entry was refreshed. If this value reaches the ARP aging period, the entry is removed from the table. Static entries do not age out.",
+                        "readOnly": true,
+                        "minLength": 1,
+                        "maxLength": 1965,
+                        "pattern": "[^?' =,>|]+",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "neighbor-source": {
+                        "description": "ARP request source in the interface",
+                        "readOnly": true,
+                        "enum": [
+                          "static",
+                          "icmpv6"
+                        ],
+                        "mandatory": false
+                      },
+                      "neighbor-state": {
+                        "description": "ARP request state that is being handled by the IPv6 neighbor session.",
+                        "readOnly": true,
+                        "enum": [
+                          "INCOMPLETE",
+                          "REACHABLE",
+                          "STALE",
+                          "DELAY",
+                          "PROBE",
+                          "FAILED",
+                          "PERMANENT"
+                        ],
+                        "mandatory": false
+                      },
+                      "neighbor-if-state": {
+                        "description": "neighbor entry interface state",
+                        "readOnly": true,
+                        "enum": [
+                          "down",
+                          "up"
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "ipv6-address",
+                  "interface-name"
+                ]
+              }
+            }
+          }
+        },
+        "debug": {
+          "description": "Neighbor discovery debug information",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration for nd-debug",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this attribute to enable debugging for neighbor events.",
+                  "readOnly": false,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                }
+              }
+            },
+            "state": {
+              "description": "Configuration for nd-ebug",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Use this attribute to enable debugging for neighbor events.",
+                  "readOnly": true,
+                  "type": "array",
+                  "items": {
+                    "type": "null"
+                  },
+                  "maxItems": 1,
+                  "mandatory": false
+                },
+                "terminal-debug-status": {
+                  "description": "Enable/Disable ipv6 nd event debug",
+                  "readOnly": true,
+                  "enum": [
+                    "off",
+                    "on"
+                  ],
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        },
+        "interfaces": {
+          "description": "Top level container for arp on each interface",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "List of interfaces on which arp is enabled/available",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The textual name of the interface. The value of this object should be the name of the interface as assigned by the local device and should be suitable for use in commands entered at the device's `console'. This might be a text name, such as `le0' or a simple port number, such as `1', depending on the interface naming syntax of the device. If several entries in the ifTable together represent a single interface as named by the device, then each will have the same value of name. Note that for an agent which responds to SNMP queries concerning an interface on some other (proxied) device, then the value of name for such an interface is the proxied device's local name for it. If there is no local name, or this object is otherwise not applicable, then this object contains a zero-length string.",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for nd on each interface",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The textual name of the interface. The value of this object should be the name of the interface as assigned by the local device and should be suitable for use in commands entered at the device's `console'. This might be a text name, such as `le0' or a simple port number, such as `1', depending on the interface naming syntax of the device. If several entries in the ifTable together represent a single interface as named by the device, then each will have the same value of name. Note that for an agent which responds to SNMP queries concerning an interface on some other (proxied) device, then the value of name for such an interface is the proxied device's local name for it. If there is no local name, or this object is otherwise not applicable, then this object contains a zero-length string.",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "nd-ageing-timeout": {
+                        "description": "Use this attribute to set the neighbor ageing timeout value.",
+                        "readOnly": false,
+                        "minimum": 60,
+                        "maximum": 28800,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "nd-reachable-time": {
+                        "description": "Use this attribute to set neighbor reachable time value.",
+                        "readOnly": false,
+                        "minimum": 10,
+                        "maximum": 3600,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "The textual name of the interface. The value of this object should be the name of the interface as assigned by the local device and should be suitable for use in commands entered at the device's `console'. This might be a text name, such as `le0' or a simple port number, such as `1', depending on the interface naming syntax of the device. If several entries in the ifTable together represent a single interface as named by the device, then each will have the same value of name. Note that for an agent which responds to SNMP queries concerning an interface on some other (proxied) device, then the value of name for such an interface is the proxied device's local name for it. If there is no local name, or this object is otherwise not applicable, then this object contains a zero-length string.",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      },
+                      "nd-ageing-timeout": {
+                        "description": "Use this attribute to set the neighbor ageing timeout value.",
+                        "readOnly": true,
+                        "minimum": 60,
+                        "maximum": 28800,
+                        "type": "number",
+                        "mandatory": false
+                      },
+                      "nd-reachable-time": {
+                        "description": "Use this attribute to set neighbor reachable time value.",
+                        "readOnly": true,
+                        "minimum": 10,
+                        "maximum": 3600,
+                        "type": "number",
+                        "mandatory": false
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "dynamic-neighbor-discovery": {
+          "description": "Dynamic Neighbor Discovery entry information",
+          "readOnly": true,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "vrf-name": {
+                "description": "neighbor information associated vrf name",
+                "readOnly": true,
+                "minLength": 1,
+                "maxLength": 1965,
+                "pattern": "[^?' =,>|]+",
+                "type": "string",
+                "mandatory": false
+              },
+              "entry": {
+                "description": "Dynamic Neighbor Discovery entry information",
+                "readOnly": true,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "ipv6-address": {
+                      "description": "ARP entry IP address in the device",
+                      "readOnly": true,
+                      "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                      "type": "string",
+                      "mandatory": false
+                    },
+                    "mac-address": {
+                      "description": "Physical address of the host",
+                      "readOnly": true,
+                      "type": "string",
+                      "mandatory": false
+                    },
+                    "interface-name": {
+                      "description": "Logical address to connect the device over network.",
+                      "readOnly": true,
+                      "minLength": 1,
+                      "maxLength": 1965,
+                      "pattern": "[^?' =,>|]+",
+                      "type": "string",
+                      "mandatory": false
+                    },
+                    "neighbor-age": {
+                      "description": "The number of minutes before the ARP entry was refreshed. If this value reaches the ARP aging period, the entry is removed from the table. Static entries do not age out.",
+                      "readOnly": true,
+                      "minLength": 1,
+                      "maxLength": 1965,
+                      "pattern": "[^?' =,>|]+",
+                      "type": "string",
+                      "mandatory": false
+                    },
+                    "neighbor-source": {
+                      "description": "ARP request source in the interface",
+                      "readOnly": true,
+                      "enum": [
+                        "static",
+                        "icmpv6"
+                      ],
+                      "mandatory": false
+                    },
+                    "neighbor-state": {
+                      "description": "ARP request state that is being handled by the IPv6 neighbor session.",
+                      "readOnly": true,
+                      "enum": [
+                        "INCOMPLETE",
+                        "REACHABLE",
+                        "STALE",
+                        "DELAY",
+                        "PROBE",
+                        "FAILED",
+                        "PERMANENT"
+                      ],
+                      "mandatory": false
+                    },
+                    "neighbor-if-state": {
+                      "description": "neighbor entry interface state",
+                      "readOnly": true,
+                      "enum": [
+                        "down",
+                        "up"
+                      ],
+                      "mandatory": false
+                    }
+                  },
+                  "keyFields": [
+                    "ipv6-address"
+                  ]
+                }
+              },
+              "adjacency-summary": {
+                "description": "Neighbor adjacency summary information",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "resolved-arp": {
+                    "description": "Count of working/known adjacencies",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "incomplete-arp": {
+                    "description": "Count of working/known adjacencies",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "unknown-arp": {
+                    "description": "Count of adjacencies not currently in ARP table",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  },
+                  "total-arp": {
+                    "description": "Total count of all adjacencies",
+                    "readOnly": true,
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4294967295,
+                    "mandatory": false
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "vrf-name"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1267 @@
+{
+  "title": "ipi-igp-te",
+  "description": "Datamodel for IGP-TE",
+  "type": "object",
+  "properties": {
+    "ipi-igp-te:igp-te": {
+      "description": "Configuration data for igp-te",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "interfaces": {
+          "description": "Top level container for interfaces, including configuration and state    data",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "interface": {
+              "description": "IGP TE interfaces",
+              "readOnly": false,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Interface name for which igp-te params are being configured",
+                    "readOnly": false,
+                    "path": "../config/name",
+                    "type": "string",
+                    "mandatory": false
+                  },
+                  "config": {
+                    "description": "Configuration data for IGP-TE interface parameters",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Interface name for which igp-te params are being configured",
+                        "readOnly": false,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "Interface name for which igp-te params are being configured",
+                        "readOnly": true,
+                        "path": "/ipi-interface:interfaces/ipi-interface:interface/ipi-interface:name",
+                        "type": "string",
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "uni-link": {
+                    "description": "Set IGP TE uni-link parameters",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "config": {
+                        "description": "Configuration data for IGP-TE parameters",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "delay": {
+                            "description": "Use this attribute to specify a unidirectional, link delay value for the interface",
+                            "readOnly": false,
+                            "minimum": 1,
+                            "maximum": 16777215,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "delay-variation": {
+                            "description": "Use this attribute to specify a unidirectional, link delay variation value for the interface",
+                            "readOnly": false,
+                            "minimum": 0,
+                            "maximum": 16777215,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "loss-percentage": {
+                            "description": "Use this attribute to specify a unidirectional, link loss value for the interface",
+                            "readOnly": false,
+                            "fraction-digits": "6",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "state": {
+                        "description": "Operational state data",
+                        "readOnly": true,
+                        "type": "object",
+                        "properties": {
+                          "delay": {
+                            "description": "Use this attribute to specify a unidirectional, link delay value for the interface",
+                            "readOnly": true,
+                            "minimum": 1,
+                            "maximum": 16777215,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "delay-variation": {
+                            "description": "Use this attribute to specify a unidirectional, link delay variation value for the interface",
+                            "readOnly": true,
+                            "minimum": 0,
+                            "maximum": 16777215,
+                            "type": "number",
+                            "mandatory": false
+                          },
+                          "loss-percentage": {
+                            "description": "Use this attribute to specify a unidirectional, link loss value for the interface",
+                            "readOnly": true,
+                            "fraction-digits": "6",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      "twamp-loss-parameter": {
+                        "description": "TWAMP loss parameter",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration data",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "loss-dynamic": {
+                                "description": "Use this attribute to specify a loss percentage value dynamically for the interface",
+                                "readOnly": false,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational state data",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "loss-dynamic": {
+                                "description": "Use this attribute to specify a loss percentage value dynamically for the interface",
+                                "readOnly": true,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "irb-twamp-loss-parameter": {
+                        "description": "TWAMP loss parameter for IRB interfaces",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "config": {
+                            "description": "Configuration data",
+                            "readOnly": false,
+                            "type": "object",
+                            "properties": {
+                              "loss-dynamic": {
+                                "description": "Use this attribute to specify a loss percentage value dynamically for the interface",
+                                "readOnly": false,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": false
+                              }
+                            }
+                          },
+                          "state": {
+                            "description": "Operational state data",
+                            "readOnly": true,
+                            "type": "object",
+                            "properties": {
+                              "loss-dynamic": {
+                                "description": "Use this attribute to specify a loss percentage value dynamically for the interface",
+                                "readOnly": true,
+                                "type": "array",
+                                "items": {
+                                  "type": "null"
+                                },
+                                "maxItems": 1,
+                                "mandatory": false
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "twamp-session-parameters": {
+                        "description": "TWAMP session parameters",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "twamp-session-parameter": {
+                            "description": "TWAMP session parameter list",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "delay-dynamic-twamp": {
+                                  "description": "Use this command to start the delay measurement for the interface",
+                                  "readOnly": false,
+                                  "path": "../config/delay-dynamic-twamp",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "reflector-ip": {
+                                  "description": "Use this attribute to set the reflector IP.",
+                                  "readOnly": false,
+                                  "path": "../config/reflector-ip",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration data",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "delay-dynamic-twamp": {
+                                      "description": "Use this command to start the delay measurement for the interface",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    },
+                                    "reflector-ip": {
+                                      "description": "Use this attribute to set the reflector IP.",
+                                      "readOnly": false,
+                                      "oneOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "reflector-port": {
+                                      "description": "Use this attribute to set the reflector port.",
+                                      "readOnly": false,
+                                      "minimum": 1025,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "sender-ip": {
+                                      "description": "Use this attribute to set the sender IP.",
+                                      "readOnly": false,
+                                      "oneOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "sender-port": {
+                                      "description": "Use this attribute to set the sender port.",
+                                      "readOnly": false,
+                                      "minimum": 1025,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "dscp": {
+                                      "description": "Use this attribute to classify traffic based on the Differentiated Services Code Point (DSCP) value. The DSCP value range is 0-63.Warning: In CLI show running, DSCP values with well-known names (ex.: af11, cs0) will be displayed as such.On Netconf, DSCP values will always be numeric. The string type allow up to 8 characters on well-known name.",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 8,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "delay-dynamic-twamp": {
+                                      "description": "Use this command to start the delay measurement for the interface",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    },
+                                    "reflector-ip": {
+                                      "description": "Use this attribute to set the reflector IP.",
+                                      "readOnly": true,
+                                      "oneOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "reflector-port": {
+                                      "description": "Use this attribute to set the reflector port.",
+                                      "readOnly": true,
+                                      "minimum": 1025,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "sender-ip": {
+                                      "description": "Use this attribute to set the sender IP.",
+                                      "readOnly": true,
+                                      "oneOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "sender-port": {
+                                      "description": "Use this attribute to set the sender port.",
+                                      "readOnly": true,
+                                      "minimum": 1025,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "dscp": {
+                                      "description": "Use this attribute to classify traffic based on the Differentiated Services Code Point (DSCP) value. The DSCP value range is 0-63.Warning: In CLI show running, DSCP values with well-known names (ex.: af11, cs0) will be displayed as such.On Netconf, DSCP values will always be numeric. The string type allow up to 8 characters on well-known name.",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 8,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "statistics": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "state": {
+                                      "description": "Operational state data",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "last-advertised-calculation-time": {
+                                          "description": "This attribute represents the time at which a calculation was made",
+                                          "readOnly": true,
+                                          "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-minimum-delay": {
+                                          "description": "This attribute represents the minimum delay value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-maximum-delay": {
+                                          "description": "This attribute represents the maximum delay value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-average-delay": {
+                                          "description": "This attribute represents the average delay value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-minimum-delay-variation": {
+                                          "description": "This attribute represents the minimum delay variation value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-maximum-delay-variation": {
+                                          "description": "This attribute represents the maximum delay variation value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-average-delay-variation": {
+                                          "description": "This attribute represents the average delay variation value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-packets-sent": {
+                                          "description": "This attribute represents the amount of sent packets in a measurement interval",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-packets-received": {
+                                          "description": "This attribute represents the amount of received packets in a measurement interval",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-packets-timeout": {
+                                          "description": "This attribute represents the amount of lost packets in a measurement interval",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-packet-loss": {
+                                          "description": "This attribute represents the percentage of lost packets in a measurement interval",
+                                          "readOnly": true,
+                                          "fraction-digits": "4",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-calculation-time": {
+                                          "description": "This attribute represents the time at which a calculation was made",
+                                          "readOnly": true,
+                                          "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-minimum-delay": {
+                                          "description": "This attribute represents the minimum delay value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-maximum-delay": {
+                                          "description": "This attribute represents the maximum delay value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-average-delay": {
+                                          "description": "This attribute represents the average delay value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-minimum-delay-variation": {
+                                          "description": "This attribute represents the minimum delay variation value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-maximum-delay-variation": {
+                                          "description": "This attribute represents the maximum delay variation value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-average-delay-variation": {
+                                          "description": "This attribute represents the average delay variation value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-packets-sent": {
+                                          "description": "This attribute represents the amount of sent packets in a measurement interval",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-packets-received": {
+                                          "description": "This attribute represents the amount of received packets in a measurement interval",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-packets-timeout": {
+                                          "description": "This attribute represents the amount of lost packets in a measurement interval",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-packet-loss": {
+                                          "description": "This attribute represents the percentage of lost packets in a measurement interval",
+                                          "readOnly": true,
+                                          "fraction-digits": "4",
+                                          "type": "string",
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "delay-dynamic-twamp",
+                                "reflector-ip"
+                              ]
+                            },
+                            "maxItems": 1
+                          },
+                          "irb-twamp-session-parameter": {
+                            "description": "TWAMP session parameter list for IRB interfaces",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "delay-dynamic-twamp": {
+                                  "description": "Use this command to start the delay measurement for the interface",
+                                  "readOnly": false,
+                                  "path": "../config/delay-dynamic-twamp",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "reflector-ip": {
+                                  "description": "Use this attribute to set the reflector IP.",
+                                  "readOnly": false,
+                                  "path": "../config/reflector-ip",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "Configuration data",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "delay-dynamic-twamp": {
+                                      "description": "Use this command to start the delay measurement for the interface",
+                                      "readOnly": false,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    },
+                                    "reflector-ip": {
+                                      "description": "Use this attribute to set the reflector IP.",
+                                      "readOnly": false,
+                                      "oneOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "reflector-port": {
+                                      "description": "Use this attribute to set the reflector port.",
+                                      "readOnly": false,
+                                      "minimum": 1025,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "sender-ip": {
+                                      "description": "Use this attribute to set the sender IP.",
+                                      "readOnly": false,
+                                      "oneOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "sender-port": {
+                                      "description": "Use this attribute to set the sender port.",
+                                      "readOnly": false,
+                                      "minimum": 1025,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "dscp": {
+                                      "description": "Use this attribute to classify traffic based on the Differentiated Services Code Point (DSCP) value. The DSCP value range is 0-63.Warning: In CLI show running, DSCP values with well-known names (ex.: af11, cs0) will be displayed as such.On Netconf, DSCP values will always be numeric. The string type allow up to 8 characters on well-known name.",
+                                      "readOnly": false,
+                                      "minLength": 1,
+                                      "maxLength": 8,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "delay-dynamic-twamp": {
+                                      "description": "Use this command to start the delay measurement for the interface",
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "null"
+                                      },
+                                      "maxItems": 1,
+                                      "mandatory": false
+                                    },
+                                    "reflector-ip": {
+                                      "description": "Use this attribute to set the reflector IP.",
+                                      "readOnly": true,
+                                      "oneOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "reflector-port": {
+                                      "description": "Use this attribute to set the reflector port.",
+                                      "readOnly": true,
+                                      "minimum": 1025,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "sender-ip": {
+                                      "description": "Use this attribute to set the sender IP.",
+                                      "readOnly": true,
+                                      "oneOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "pattern": "(((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?)|((([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(%.+)?)",
+                                          "type": "string"
+                                        }
+                                      ],
+                                      "mandatory": false
+                                    },
+                                    "sender-port": {
+                                      "description": "Use this attribute to set the sender port.",
+                                      "readOnly": true,
+                                      "minimum": 1025,
+                                      "maximum": 65535,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "dscp": {
+                                      "description": "Use this attribute to classify traffic based on the Differentiated Services Code Point (DSCP) value. The DSCP value range is 0-63.Warning: In CLI show running, DSCP values with well-known names (ex.: af11, cs0) will be displayed as such.On Netconf, DSCP values will always be numeric. The string type allow up to 8 characters on well-known name.",
+                                      "readOnly": true,
+                                      "minLength": 1,
+                                      "maxLength": 8,
+                                      "pattern": "[^?' =,>|]+",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "statistics": {
+                                  "description": "Operational state data",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "state": {
+                                      "description": "Operational state data",
+                                      "readOnly": true,
+                                      "type": "object",
+                                      "properties": {
+                                        "last-advertised-calculation-time": {
+                                          "description": "This attribute represents the time at which a calculation was made",
+                                          "readOnly": true,
+                                          "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-minimum-delay": {
+                                          "description": "This attribute represents the minimum delay value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-maximum-delay": {
+                                          "description": "This attribute represents the maximum delay value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-average-delay": {
+                                          "description": "This attribute represents the average delay value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-minimum-delay-variation": {
+                                          "description": "This attribute represents the minimum delay variation value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-maximum-delay-variation": {
+                                          "description": "This attribute represents the maximum delay variation value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-average-delay-variation": {
+                                          "description": "This attribute represents the average delay variation value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-packets-sent": {
+                                          "description": "This attribute represents the amount of sent packets in a measurement interval",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-packets-received": {
+                                          "description": "This attribute represents the amount of received packets in a measurement interval",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-packets-timeout": {
+                                          "description": "This attribute represents the amount of lost packets in a measurement interval",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-advertised-packet-loss": {
+                                          "description": "This attribute represents the percentage of lost packets in a measurement interval",
+                                          "readOnly": true,
+                                          "fraction-digits": "4",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-calculation-time": {
+                                          "description": "This attribute represents the time at which a calculation was made",
+                                          "readOnly": true,
+                                          "pattern": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})",
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-minimum-delay": {
+                                          "description": "This attribute represents the minimum delay value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-maximum-delay": {
+                                          "description": "This attribute represents the maximum delay value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-average-delay": {
+                                          "description": "This attribute represents the average delay value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-minimum-delay-variation": {
+                                          "description": "This attribute represents the minimum delay variation value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-maximum-delay-variation": {
+                                          "description": "This attribute represents the maximum delay variation value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-average-delay-variation": {
+                                          "description": "This attribute represents the average delay variation value",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-packets-sent": {
+                                          "description": "This attribute represents the amount of sent packets in a measurement interval",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-packets-received": {
+                                          "description": "This attribute represents the amount of received packets in a measurement interval",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-packets-timeout": {
+                                          "description": "This attribute represents the amount of lost packets in a measurement interval",
+                                          "readOnly": true,
+                                          "type": "string",
+                                          "mandatory": false
+                                        },
+                                        "last-calculated-packet-loss": {
+                                          "description": "This attribute represents the percentage of lost packets in a measurement interval",
+                                          "readOnly": true,
+                                          "fraction-digits": "4",
+                                          "type": "string",
+                                          "mandatory": false
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "delay-dynamic-twamp",
+                                "reflector-ip"
+                              ]
+                            },
+                            "maxItems": 1
+                          }
+                        }
+                      },
+                      "delay-threshold": {
+                        "description": "This container defines the min and max values for uni-link-delay",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "a-bit": {
+                            "description": "This objectlist defines the min and max threshold values",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "a-bit-min": {
+                                  "description": "Unidirectional link delay a-bit minimum",
+                                  "readOnly": false,
+                                  "path": "../config/a-bit-min",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "a-bit-max": {
+                                  "description": null,
+                                  "readOnly": false,
+                                  "path": "../config/a-bit-max",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "This container defines uni-link-delay threshold configurations.",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "a-bit-min": {
+                                      "description": "Unidirectional link delay a-bit minimum",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 16777215,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "a-bit-max": {
+                                      "description": null,
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 16777215,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "This container defines uni-link-delay threshold Operational    parameters.",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "a-bit-min": {
+                                      "description": "Unidirectional link delay a-bit minimum",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 16777215,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "a-bit-max": {
+                                      "description": null,
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 16777215,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "a-bit-min",
+                                "a-bit-max"
+                              ]
+                            },
+                            "maxItems": 1
+                          }
+                        }
+                      },
+                      "min-max-delay": {
+                        "description": "This container defines the min and max values of delay",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "delay": {
+                            "description": "This objectlist defines the min and max values",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "min-value": {
+                                  "description": "Min max Unidirectional link delay",
+                                  "readOnly": false,
+                                  "path": "../config/min-value",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "max-value": {
+                                  "description": null,
+                                  "readOnly": false,
+                                  "path": "../config/max-value",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "This container defines the min/max static configurations.",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "min-value": {
+                                      "description": "Min max Unidirectional link delay",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 16777215,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "max-value": {
+                                      "description": null,
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 16777215,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "This container defines the min/max static Operational parameters.",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "min-value": {
+                                      "description": "Min max Unidirectional link delay",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 16777215,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "max-value": {
+                                      "description": null,
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 16777215,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "min-value",
+                                "max-value"
+                              ]
+                            },
+                            "maxItems": 1
+                          }
+                        }
+                      },
+                      "loss": {
+                        "description": "This container defines the min and max values for uni-link-loss",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "threshold": {
+                            "description": "This objectlist defines the min and max values for uni-link-loss",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "loss-a-bit-min": {
+                                  "description": "Unidirectional link loss a-bit",
+                                  "readOnly": false,
+                                  "path": "../config/loss-a-bit-min",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "loss-a-bit-max": {
+                                  "description": null,
+                                  "readOnly": false,
+                                  "path": "../config/loss-a-bit-max",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "This container defines the min/max static configurations.",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "loss-a-bit-min": {
+                                      "description": "Unidirectional link loss a-bit",
+                                      "readOnly": false,
+                                      "fraction-digits": "6",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "loss-a-bit-max": {
+                                      "description": null,
+                                      "readOnly": false,
+                                      "fraction-digits": "6",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "This container defines the min/max static Operational parameters.",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "loss-a-bit-min": {
+                                      "description": "Unidirectional link loss a-bit",
+                                      "readOnly": true,
+                                      "fraction-digits": "6",
+                                      "type": "string",
+                                      "mandatory": false
+                                    },
+                                    "loss-a-bit-max": {
+                                      "description": null,
+                                      "readOnly": true,
+                                      "fraction-digits": "6",
+                                      "type": "string",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "loss-a-bit-min",
+                                "loss-a-bit-max"
+                              ]
+                            },
+                            "maxItems": 1
+                          }
+                        }
+                      },
+                      "min-max-delay-threshold": {
+                        "description": "This container defines the min and max values for    min-max-uni-link-delay",
+                        "readOnly": false,
+                        "type": "object",
+                        "properties": {
+                          "a-bit": {
+                            "description": "This objectlist defines the min and max threshold values",
+                            "readOnly": false,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "a-bit-min-range-minimum": {
+                                  "description": "Min/Max Unidirectional link delay a-bit",
+                                  "readOnly": false,
+                                  "path": "../config/a-bit-min-range-minimum",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "a-bit-min-range-maximum": {
+                                  "description": null,
+                                  "readOnly": false,
+                                  "path": "../config/a-bit-min-range-maximum",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "a-bit-max-range-minimum": {
+                                  "description": null,
+                                  "readOnly": false,
+                                  "path": "../config/a-bit-max-range-minimum",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "a-bit-max-range-maximum": {
+                                  "description": null,
+                                  "readOnly": false,
+                                  "path": "../config/a-bit-max-range-maximum",
+                                  "type": "string",
+                                  "mandatory": false
+                                },
+                                "config": {
+                                  "description": "This container defines the min/max static configurations.",
+                                  "readOnly": false,
+                                  "type": "object",
+                                  "properties": {
+                                    "a-bit-min-range-minimum": {
+                                      "description": "Min/Max Unidirectional link delay a-bit",
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 16777215,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "a-bit-min-range-maximum": {
+                                      "description": null,
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 16777215,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "a-bit-max-range-minimum": {
+                                      "description": null,
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 16777215,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "a-bit-max-range-maximum": {
+                                      "description": null,
+                                      "readOnly": false,
+                                      "minimum": 1,
+                                      "maximum": 16777215,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                },
+                                "state": {
+                                  "description": "This container defines the min/max static Operational parameters.",
+                                  "readOnly": true,
+                                  "type": "object",
+                                  "properties": {
+                                    "a-bit-min-range-minimum": {
+                                      "description": "Min/Max Unidirectional link delay a-bit",
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 16777215,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "a-bit-min-range-maximum": {
+                                      "description": null,
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 16777215,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "a-bit-max-range-minimum": {
+                                      "description": null,
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 16777215,
+                                      "type": "number",
+                                      "mandatory": false
+                                    },
+                                    "a-bit-max-range-maximum": {
+                                      "description": null,
+                                      "readOnly": true,
+                                      "minimum": 1,
+                                      "maximum": 16777215,
+                                      "type": "number",
+                                      "mandatory": false
+                                    }
+                                  }
+                                }
+                              },
+                              "keyFields": [
+                                "a-bit-min-range-minimum",
+                                "a-bit-min-range-maximum",
+                                "a-bit-max-range-minimum",
+                                "a-bit-max-range-maximum"
+                              ]
+                            },
+                            "maxItems": 1
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "keyFields": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

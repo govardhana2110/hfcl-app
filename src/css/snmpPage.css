@@ -1,0 +1,49 @@
+.snmpVersionlabels{
+  display: flex;
+  margin: 2%;
+}
+
+.closeAddDevicePopUp{
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  cursor: pointer;
+}
+
+.version-Inputs{
+  box-shadow: 0px 0px 10px rgba(224, 224, 224, 0.9), inset 1px 1px 0px rgba(255, 255, 255, 0.3);
+  flex: 1 1;
+  padding: 3%;
+  border-radius: 4px;
+  margin-top: 4%;
+}
+
+.add-Device{
+  display: flex;
+  justify-content: space-between;
+}
+
+.device_content{
+  color: rgb(84, 98, 98);
+  background-color: white;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  padding: 2%;
+  border-radius: 4px;
+  margin-bottom: 2%;
+  position: fixed;
+  width: 32%;
+  top: 20%;
+  left: 35%;
+  z-index: 1000;
+  overflow: auto;
+  scrollbar-width:thin;
+}
+
+.add-Button{
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.snmpDropdown{
+  width: 200px;
+}

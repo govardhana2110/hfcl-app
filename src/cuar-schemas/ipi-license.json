@@ -1,0 +1,161 @@
+{
+  "title": "ipi-license",
+  "description": "license module allows use to manage license configurations in the    device",
+  "type": "object",
+  "properties": {
+    "ipi-license:license": {
+      "description": "Container for all data related to licenses",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "server": {
+          "description": "Container that stores all info about license servers",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "config": {
+              "description": "Configuration data for license server",
+              "readOnly": false,
+              "type": "object",
+              "properties": {
+                "url": {
+                  "description": "Server pool URL used",
+                  "readOnly": false,
+                  "type": "string",
+                  "mandatory": true
+                },
+                "vrf": {
+                  "description": "VRF name for which the server can be reached",
+                  "readOnly": false,
+                  "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                  "type": "string",
+                  "mandatory": true
+                }
+              }
+            },
+            "state": {
+              "description": "Operational state data for license server",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "url": {
+                  "description": "Server pool URL used",
+                  "readOnly": true,
+                  "type": "string",
+                  "mandatory": true
+                },
+                "vrf": {
+                  "description": "VRF name for which the server can be reached",
+                  "readOnly": true,
+                  "path": "/ipi-network-instance:network-instances/ipi-network-instance:network-instance/ipi-vrf:vrf/ipi-vrf:config/ipi-vrf:vrf-name",
+                  "type": "string",
+                  "mandatory": true
+                }
+              }
+            }
+          }
+        },
+        "info": {
+          "description": "Container that holds license information",
+          "readOnly": false,
+          "type": "object",
+          "properties": {
+            "state": {
+              "description": "Operational state data for license information",
+              "readOnly": true,
+              "type": "object",
+              "properties": {
+                "slot-count": {
+                  "description": "license slot count",
+                  "readOnly": true,
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 4294967295,
+                  "mandatory": false
+                },
+                "zr-slot-count": {
+                  "description": "ZR/ZR+ license count",
+                  "readOnly": true,
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 4294967295,
+                  "mandatory": false
+                },
+                "status": {
+                  "description": "license status",
+                  "readOnly": true,
+                  "enum": [
+                    "Success",
+                    "Failure"
+                  ],
+                  "mandatory": false
+                },
+                "msg": {
+                  "description": "license log message for all clients",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "type": "string",
+                  "mandatory": false
+                },
+                "service-end-date": {
+                  "description": "The Unix Epoch value. It represents the license end date. Zero if it does not expire",
+                  "readOnly": true,
+                  "type": "string",
+                  "mandatory": false
+                },
+                "remaining-days": {
+                  "description": "remaining days to license expiry or remaining lease",
+                  "readOnly": true,
+                  "type": "number",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647,
+                  "mandatory": false
+                },
+                "device-software": {
+                  "description": "Device software",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "node-id": {
+                  "description": "Node id",
+                  "readOnly": true,
+                  "minLength": 1,
+                  "maxLength": 1965,
+                  "pattern": "[^?' =,>|]+",
+                  "type": "string",
+                  "mandatory": false
+                },
+                "validity": {
+                  "description": "Validity of license",
+                  "readOnly": true,
+                  "enum": [
+                    "Not-Applicable",
+                    "Permanent",
+                    "Expired"
+                  ],
+                  "mandatory": false
+                },
+                "type": {
+                  "description": "License Type",
+                  "readOnly": true,
+                  "enum": [
+                    "Evaluation-Limited-edition",
+                    "Device-Locked-Full-edition",
+                    "Trial-edition",
+                    "Lease-Full-edition"
+                  ],
+                  "mandatory": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

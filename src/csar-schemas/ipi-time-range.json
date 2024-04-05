@@ -1,0 +1,283 @@
+{
+  "title": "ipi-time-range",
+  "description": "Datamodel for Time Range definitions",
+  "type": "object",
+  "properties": {
+    "ipi-time-range:time-ranges": {
+      "description": "All configured time ranges on the device",
+      "readOnly": false,
+      "type": "object",
+      "properties": {
+        "time-range": {
+          "description": "This defines a YANG data model for creating Time Ranges",
+          "readOnly": false,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "Time range name to be configured",
+                "readOnly": false,
+                "path": "../config/name",
+                "type": "string",
+                "mandatory": false
+              },
+              "config": {
+                "description": "time-range configuration container",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Time range name to be configured",
+                    "readOnly": false,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                }
+              },
+              "state": {
+                "description": "time-range state container",
+                "readOnly": true,
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Time range name to be configured",
+                    "readOnly": true,
+                    "minLength": 1,
+                    "maxLength": 1965,
+                    "pattern": "[^?' =,>|]+",
+                    "type": "string",
+                    "mandatory": false
+                  }
+                }
+              },
+              "start-time-options": {
+                "description": "Definition of parameters inside the created time range",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "title": "absolute-start-time",
+                        "properties": {
+                          "absolute-start-time": {
+                            "description": "Start time hour and minute",
+                            "readOnly": false,
+                            "pattern": "([0-9]|[01][0-9]|2[0123]):([0-9]|[012345][0-9]) (([12][0-9])|(3[01])|([0][1-9])) ((([a-z])|([A-Z])){2,8}) ((199[5-9])|(20[012][0-9])|(203[0-5]))",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      {
+                        "title": "relative-start-time",
+                        "properties": {
+                          "relative-start-time": {
+                            "description": "Configure the start-time of the time-range to be now or after sometime",
+                            "readOnly": false,
+                            "oneOf": [
+                              {
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "type": "number"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    ],
+                    "properties": {}
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "title": "absolute-start-time",
+                        "properties": {
+                          "absolute-start-time": {
+                            "description": "Start time hour and minute",
+                            "readOnly": false,
+                            "pattern": "([0-9]|[01][0-9]|2[0123]):([0-9]|[012345][0-9]) (([12][0-9])|(3[01])|([0][1-9])) ((([a-z])|([A-Z])){2,8}) ((199[5-9])|(20[012][0-9])|(203[0-5]))",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      {
+                        "title": "relative-start-time",
+                        "properties": {
+                          "relative-start-time": {
+                            "description": "Configure the start-time of the time-range to be now or after sometime",
+                            "readOnly": false,
+                            "oneOf": [
+                              {
+                                "minimum": 0,
+                                "maximum": 4294967295,
+                                "type": "number"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    ],
+                    "properties": {}
+                  }
+                }
+              },
+              "end-time-options": {
+                "description": "Definition of parameters inside the created time range",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "title": "absolute-end-time",
+                        "properties": {
+                          "absolute-end-time": {
+                            "description": "End time hour and minute",
+                            "readOnly": false,
+                            "pattern": "([0-9]|[01][0-9]|2[0123]):([0-9]|[012345][0-9]) (([12][0-9])|(3[01])|([0][1-9])) ((([a-z])|([A-Z])){2,8}) ((199[5-9])|(20[012][0-9])|(203[0-5]))",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      {
+                        "title": "relative-end-time",
+                        "properties": {
+                          "relative-end-time": {
+                            "description": "Relative time in minutes",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "([0-9]+)",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    ],
+                    "properties": {}
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "title": "absolute-end-time",
+                        "properties": {
+                          "absolute-end-time": {
+                            "description": "End time hour and minute",
+                            "readOnly": false,
+                            "pattern": "([0-9]|[01][0-9]|2[0123]):([0-9]|[012345][0-9]) (([12][0-9])|(3[01])|([0][1-9])) ((([a-z])|([A-Z])){2,8}) ((199[5-9])|(20[012][0-9])|(203[0-5]))",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      },
+                      {
+                        "title": "relative-end-time",
+                        "properties": {
+                          "relative-end-time": {
+                            "description": "Relative time in minutes",
+                            "readOnly": false,
+                            "minLength": 1,
+                            "maxLength": 1965,
+                            "pattern": "([0-9]+)",
+                            "type": "string",
+                            "mandatory": false
+                          }
+                        }
+                      }
+                    ],
+                    "properties": {}
+                  }
+                }
+              },
+              "frequency-options": {
+                "description": "Definition of parameters inside the created time range",
+                "readOnly": false,
+                "type": "object",
+                "properties": {
+                  "config": {
+                    "description": "Configuration data",
+                    "readOnly": false,
+                    "type": "object",
+                    "properties": {
+                      "frequency": {
+                        "description": "Frequency (hourly, daily, weekly)",
+                        "readOnly": false,
+                        "oneOf": [
+                          {
+                            "enum": [
+                              "daily",
+                              "hourly",
+                              "weekly"
+                            ]
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  },
+                  "state": {
+                    "description": "Operational state data",
+                    "readOnly": true,
+                    "type": "object",
+                    "properties": {
+                      "frequency": {
+                        "description": "Frequency (hourly, daily, weekly)",
+                        "readOnly": true,
+                        "oneOf": [
+                          {
+                            "enum": [
+                              "daily",
+                              "hourly",
+                              "weekly"
+                            ]
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ],
+                        "mandatory": false
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "keyFields": [
+              "name"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
